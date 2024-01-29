@@ -4,12 +4,20 @@
 </div>
 <br>
 <div align="center">
-Junyang Wang, Haiyang Xu, Jiabo Ye, Ming Yan,
+Junyang Wang<sup>1</sup>, Haiyang Xu<sup>2</sup>†, Jiabo Ye<sup>2</sup>, Ming Yan<sup>2</sup>†,
 </div>
 <div align="center">
-Weizhou Shen, Ji Zhang, Fei Huang, Jitao Sang
+Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao Sang<sup>1</sup>†
+</div>
+<div align="center">
+{junyangwang, jtsang}@bjtu.edu.cn, {shuofeng.xhy, ym119608}@alibaba-inc.com
 </div>
 <br>
+<sup>1</sup>Beijing Jiaotong University    <sup>2</sup>Alibaba Group
+<br>
+<div align="center">
+† Corresponding author
+</div>
 <br>
 
 ![](assets/example.jpg?v=1&type=image)
