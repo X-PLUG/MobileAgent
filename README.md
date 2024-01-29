@@ -1,7 +1,4 @@
-# Mobile-Agent
-<div align="center">
-    Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
-</div>
+# Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
 <div align="center">
     <a href="https://arxiv.org/abs/2311.07397"><img src="assets/Paper-Arxiv-orange.svg" ></a>
 </div>
