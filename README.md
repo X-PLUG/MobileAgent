@@ -1,5 +1,8 @@
-# MobileAgent
-Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
+# Mobile-Agent
+<div align="center">
+    Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
+</div>
+
 <div align="center">
     <a href="https://arxiv.org/abs/2311.07397"><img src="assets/Paper-Arxiv-orange.svg" ></a>
 </div>
@@ -10,6 +13,7 @@ Junyang Wang, Haiyang Xu, Jiabo Ye, Ming Yan,
 <div align="center">
 Weizhou Shen, Ji Zhang, Fei Huang, Jitao Sang
 </div>
+
 
 ![](assets/example.jpg?v=1&type=image)
 
