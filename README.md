@@ -31,21 +31,22 @@ For each scenario, we have designed three instructions:
 * Instruction 2: additional requirements added on top of the difficulty of Instruction 1
 * Instruction 3: user demands with no explicit task indication
 
+The detailed content of Mobile-Eval is as follows:
 | Application   | Instruction   |
 |-------|-------|
-| Alibaba.com   | 行1   |
-| 行2   | 行2   |
-| 行3   | 行3   |
-| 行4   | 行4   |
-| 行5   | 行5   |
-| 行6   | 行6   |
-| 行7   | 行7   |
-| 行8   | 行8   |
-| 行9   | 行9   |
-| 行10  | 行10  |
-| 行11  | 行11  |
-| 行12  | 行12  |
-
+| Alibaba.com   | Help me find caps in Alibaba.com.
+     Help me find caps in Alibaba.com. If the "Add to cart" is avaliable in the item information page, please add the item to my cart.
+     I want to buy a cap. I've heard things are cheap on Alibaba.com. Maybe you can find it for me.   |
+| Amazon Music   | 行2   |
+| Chrome   | 行3   |
+| Gmail   | 行4   |
+| Google Maps   | 行5   |
+| Google Play   | 行6   |
+| Notes   | 行7   |
+| Settings   | 行8   |
+| TikTok   | 行9   |
+| YouTube  | 行10  |
+| Multi-App  | 行11  |
 
 ## Evaluation results
 We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available at [LINK].
