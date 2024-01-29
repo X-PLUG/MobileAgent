@@ -2,7 +2,6 @@
 <div align="center">
     Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
 </div>
-<br>
 <div align="center">
     <a href="https://arxiv.org/abs/2311.07397"><img src="assets/Paper-Arxiv-orange.svg" ></a>
 </div>
