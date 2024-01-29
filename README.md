@@ -34,9 +34,7 @@ For each scenario, we have designed three instructions:
 The detailed content of Mobile-Eval is as follows:
 | Application   | Instruction   |
 |-------|-------|
-| Alibaba.com   | Help me find caps in Alibaba.com.
-     Help me find caps in Alibaba.com. If the "Add to cart" is avaliable in the item information page, please add the item to my cart.
-     I want to buy a cap. I've heard things are cheap on Alibaba.com. Maybe you can find it for me.   |
+| Alibaba.com   | Help me find caps in Alibaba.com.<br>Help me find caps in Alibaba.com. If the "Add to cart" is avaliable in the item information page, please add the item to my cart.<br>I want to buy a cap. I've heard things are cheap on Alibaba.com. Maybe you can find it for me.   |
 | Amazon Music   | 行2   |
 | Chrome   | 行3   |
 | Gmail   | 行4   |
