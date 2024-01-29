@@ -31,6 +31,21 @@ For each scenario, we have designed three instructions:
 * Instruction 2: additional requirements added on top of the difficulty of Instruction 1
 * Instruction 3: user demands with no explicit task indication
 
+| Application   | Instruction   |
+|-------|-------|
+| Alibaba.com   | 行1   |
+| 行2   | 行2   |
+| 行3   | 行3   |
+| 行4   | 行4   |
+| 行5   | 行5   |
+| 行6   | 行6   |
+| 行7   | 行7   |
+| 行8   | 行8   |
+| 行9   | 行9   |
+| 行10  | 行10  |
+| 行11  | 行11  |
+| 行12  | 行12  |
+
 
 ## Evaluation results
 We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available at [LINK].
