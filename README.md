@@ -10,7 +10,6 @@
 <div align="center">
 Junyang Wang, Haiyang Xu, Jiabo Ye, Ming Yan,
 </div>
-<br>
 <div align="center">
 Weizhou Shen, Ji Zhang, Fei Huang, Jitao Sang
 </div>
