@@ -16,10 +16,10 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 <div align="center">
 <sup>1</sup>Beijing Jiaotong University    <sup>2</sup>Alibaba Group
 </div>
-<br>
 <div align="center">
 † Corresponding author
 </div>
+<br>
 <br>
 
 ![](assets/example.jpg?v=1&type=image)
