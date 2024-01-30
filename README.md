@@ -24,22 +24,21 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 
 ![](assets/example.jpg?v=1&type=image)
 
-## Introduction
+## 📋Introduction
 * Pure visual solution, independent of XML and system metadata.
 * Unrestricted operation scope, capable of multi-app operations.
 * Multiple visual perception tools for operation localization.
 * No need for exploration and training, plug and play.
 
-## News
-
+## 📢News
 * [1.30] 🔥Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
 * [1.30] 🔥Our evaluation results on Mobile-Eval are available.
 * [1.30] The code and Mobile-Eval benchmark are coming soon!
 
-## Demo
+## 📺Demo
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
 
-## Mobile-Eval
+## 📱Mobile-Eval
 Mobile-Eval is a benchmark designed for evaluating the performance of mobile device agents. This benchmark includes 10 mainstream single-app scenarios and 1 multi-app scenario. 
 
 For each scenario, we have designed three instructions:
@@ -62,7 +61,7 @@ The detailed content of Mobile-Eval is as follows:
 | YouTube  | 1. Search for videos about Stephen Curry on YouTube.<br>2. Search for videos about Stephen Curry on YouTube and open "Comments" to comment "Oh, chef, your basketball spirit has always inspired me".<br>3. I need you to help me show my love for Stephen Curry on YouTube. |
 | Multi-App  | 1. Open the calendar and look at today's date, then go to Notes and create a new note to write "Today is {today's data}".<br>2. Check the temperature in the next 5 days, and then create a new note in Notes and write a temperature analysis.<br>3. Search the result for today's Lakers game, and then create a note in Notes to write a sport news for this result. |
 
-## Evaluation results
+## 📝Evaluation results
 We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available at [LINK](https://github.com/X-PLUG/MobileAgent/tree/main/results).
 *   We have stored the evaluation results for the 10 apps and the multi-app scenario in folders named after each app.
 * The numbers within each app's folder represent the results for different types of instruction within that app.
