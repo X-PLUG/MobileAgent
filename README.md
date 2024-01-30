@@ -63,9 +63,3 @@ We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available a
 *   For example, if you want to view the results of Mobile-Agent for the second instruction in Google Maps, you should go to the following path:```results/Google Maps/2```.
 * If the last action of Mobile-Agent is not "stop", it indicates that Mobile-Agent did not complete the corresponding instruction. During the evaluation, we manually terminated these cases where completion was not possible.
 
-## Citation
-If you found this work useful, consider giving this repository a star and citing our paper as followed:
-```
-
-```
-
