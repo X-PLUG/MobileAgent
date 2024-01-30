@@ -1,4 +1,5 @@
 # Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
+![](assets/example.jpg?v=1&type=image)
 <div align="center">
     <a href="https://arxiv.org/abs/2401.16158"><img src="assets/Paper-Arxiv-orange.svg" ></a>
 </div>
@@ -19,10 +20,12 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 <div align="center">
 †Corresponding author
 </div>
-<br>
-<br>
 
-![](assets/example.jpg?v=1&type=image)
+## Introduction
+* Pure visual solution, independent of XML and system metadata.
+* Unrestricted operation scope, capable of multi-app operations.
+* Multiple visual perception tools for operation localization.
+* No need for exploration and training, plug and play.
 
 ## News
 
