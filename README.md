@@ -17,7 +17,7 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 <sup>1</sup>Beijing Jiaotong University    <sup>2</sup>Alibaba Group
 </div>
 <div align="center">
-† Corresponding author
+†Corresponding author
 </div>
 <br>
 <br>
