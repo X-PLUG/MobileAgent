@@ -26,8 +26,8 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 
 ## News
 
-* [1.30] 🔥Our paper is available at [LINK]().
-* [1.30] 🔥Our evaluation results on Mobile-Eval are available at [LINK]().
+* [1.30] 🔥Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
+* [1.30] 🔥Our evaluation results on Mobile-Eval are available.
 * [1.30] The code and Mobile-Eval benchmark are coming soon!
 
 ## Demo
@@ -57,7 +57,7 @@ The detailed content of Mobile-Eval is as follows:
 | Multi-App  | 1. Open the calendar and look at today's date, then go to Notes and create a new note to write "Today is {today's data}".<br>2. Check the temperature in the next 5 days, and then create a new note in Notes and write a temperature analysis.<br>3. Search the result for today's Lakers game, and then create a note in Notes to write a sport news for this result. |
 
 ## Evaluation results
-We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available at [LINK].
+We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available at [LINK](https://github.com/X-PLUG/MobileAgent/tree/main/results).
 *   We have stored the evaluation results for the 10 apps and the multi-app scenario in folders named after each app.
 * The numbers within each app's folder represent the results for different types of instruction within that app.
 *   For example, if you want to view the results of Mobile-Agent for the second instruction in Google Maps, you should go to the following path:```results/Google Maps/2```.
