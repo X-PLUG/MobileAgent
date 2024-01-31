@@ -104,3 +104,6 @@ We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available a
 * Development of Mobile-Agent app on Android platform.
 * Adaptation to other mobile device platforms.
 
+## Related Projects
+* [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
+* [CLIP](https://github.com/openai/CLIP)
