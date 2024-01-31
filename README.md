@@ -1,5 +1,6 @@
-# Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
 
+# Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
+![](assets/logo.png?v=1&type=image)
 <div align="center">
     <a href="https://arxiv.org/abs/2401.16158"><img src="assets/Paper-Arxiv-orange.svg" ></a>
 </div>
@@ -18,25 +19,56 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 <sup>1</sup>Beijing Jiaotong University    <sup>2</sup>Alibaba Group
 </div>
 <div align="center">
-†Corresponding author
+<sup>†</sup>Corresponding author
 </div>
 <br>
 
-![](assets/example.jpg?v=1&type=image)
-
 ## 📋Introduction
+![](assets/example.png?v=1&type=image)
 * Pure visual solution, independent of XML and system metadata.
 * Unrestricted operation scope, capable of multi-app operations.
 * Multiple visual perception tools for operation localization.
 * No need for exploration and training, plug and play.
 
 ## 📢News
-* [1.30] 🔥Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
-* [1.30] 🔥Our evaluation results on Mobile-Eval are available.
+* [1.31] 🔥Our code is available! Welcome to try Mobile-Agent.
+* [1.30] Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
+* [1.30] Our evaluation results on Mobile-Eval are available.
 * [1.30] The code and Mobile-Eval benchmark are coming soon!
 
 ## 📺Demo
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
+
+## 🔧Getting Started
+❗Since the GPT-4V will have severe hallucinations when perceiving non-English screenshots, we strongly recommend using Mobile-Agent under English-only systems and apps to ensure the performance.
+
+### Installation
+```
+git clone https://github.com/X-PLUG/MobileAgent.git
+cd MobileAgent
+pip install -r requirements.txt
+```
+
+### Preparation for Connecting Mobile Device
+1. Download the [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools?hl=en).
+2. Turn on the ADB debugging switch on your Android phone, it needs to be turned on in the developer options first.
+3. Connect your phone to the computer with a data cable and select "Transfer files".
+4. Test your ADB environment as follow: ```/path/to/adb devices```. If the connected devices are displayed, the preparation is complete.
+5. If you are using a MAC or Linux system, make sure to turn on adb permissions as follow: ```sudo chmod +x /path/to/adb```
+6. If you are using Windows system, the path will be ```xx/xx/adb.exe```
+
+### Preparation for Visual Perception Tools
+1. Download the icon detection model [Grounding DION](https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth)
+2. The text detection model will be automatically downloaded from modelscope after you run Mobile-Agent.
+
+### Run
+```
+python run.py \
+--grounding_ckpt /path/to/GroundingDION \
+--adb_path /path/to/adb \
+--api "your API_TOKEN" \
+--instruction "your instruction"
+```
 
 ## 📱Mobile-Eval
 Mobile-Eval is a benchmark designed for evaluating the performance of mobile device agents. This benchmark includes 10 mainstream single-app scenarios and 1 multi-app scenario. 
@@ -67,4 +99,8 @@ We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available a
 * The numbers within each app's folder represent the results for different types of instruction within that app.
 *   For example, if you want to view the results of Mobile-Agent for the second instruction in Google Maps, you should go to the following path:```results/Google Maps/2```.
 * If the last action of Mobile-Agent is not "stop", it indicates that Mobile-Agent did not complete the corresponding instruction. During the evaluation, we manually terminated these cases where completion was not possible.
+
+## 📄To-do List
+* Development of Mobile-Agent app on Android platform.
+* Adaptation to other mobile device platforms.
 
