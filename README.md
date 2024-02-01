@@ -21,7 +21,6 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 <div align="center">
 <sup>†</sup>Corresponding author
 </div>
-<br>
 
 ## 📋Introduction
 ![](assets/example.png?v=1&type=image)
@@ -32,6 +31,7 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 
 ## 📢News
 * [1.31] 🔥Our code is available! Welcome to try Mobile-Agent.
+* [1.31] 🔥Human-operated data in Mobile-Eval is in preparation and will be open-sourced soon.
 * [1.30] Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
 * [1.30] Our evaluation results on Mobile-Eval are available.
 * [1.30] The code and Mobile-Eval benchmark are coming soon!
