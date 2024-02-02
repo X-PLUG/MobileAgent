@@ -81,7 +81,7 @@ For each scenario, we have designed three instructions:
 The detailed content of Mobile-Eval is as follows:
 | Application   | Instruction   |
 |-------|-------|
-| Alibaba.com   | 1. Help me find caps in Alibaba.com.<br>2. Help me find caps in Alibaba.com. If the "Add to cart" is avaliable in the item information page, please add the item to my cart.<br>3. I want to buy a cap. I've heard things are cheap on Alibaba.com. Maybe you can find it for me. |
+| Alibaba.com   | 1. Help me find caps in Alibaba.com.<br>2. Help me find caps in Alibaba.com. If the "Add to cart" is available in the item information page, please add the item to my cart.<br>3. I want to buy a cap. I've heard things are cheap on Alibaba.com. Maybe you can find it for me. |
 | Amazon Music   | 1. Search singer Jay Chou in Amazon Music.<br>2. Search a music about "agent" in Amazon Music and play it.<br>3. I want to listen music to relax. Find an App to help me. |
 | Chrome   | 1. Search result for today's Lakers game.<br>2. Search the information about Taylor Swift.<br>3. I want to know the result for today's Lakers game. Find an App to help me. |
 | Gmail   | 1. Send an empty email to to {address}.<br>2. Send an email to {address}n to tell my new work.<br>3. I want to let my friend know my new work, and his address is {address}. Find an App to help me. |
