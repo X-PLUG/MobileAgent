@@ -65,11 +65,7 @@ pip install -r requirements.txt
 
 ### Run
 ```
-python run.py \
---grounding_ckpt /path/to/GroundingDION \
---adb_path /path/to/adb \
---api "your API_TOKEN" \
---instruction "your instruction"
+python run.py --grounding_ckpt /path/to/GroundingDION --adb_path /path/to/adb --api "your API_TOKEN" --instruction "your instruction"
 ```
 
 ## 📱Mobile-Eval
