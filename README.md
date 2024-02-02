@@ -2,7 +2,8 @@
 # Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
-    <a href="https://arxiv.org/abs/2401.16158"><img src="assets/Paper-Arxiv-orange.svg" ></a>
+    <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
+    <a href="https://huggingface.co/papers/2401.16158"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
 </div>
 <br>
 <div align="center">
@@ -30,6 +31,7 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 * No need for exploration and training, plug and play.
 
 ## 📢News
+*  [2.2] 🔥We are deploying the demo based on Gradio and users will be able to upload the screenshots.
 * [1.31] 🔥Our code is available! Welcome to try Mobile-Agent.
 * [1.31] 🔥Human-operated data in Mobile-Eval is in preparation and will be open-sourced soon.
 * [1.30] Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
@@ -103,6 +105,18 @@ We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available a
 ## 📄To-do List
 * Development of Mobile-Agent app on Android platform.
 * Adaptation to other mobile device platforms.
+
+## Citation
+
+If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
+```
+@article{wang2024mobile,
+  title={Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception},
+  author={Wang, Junyang and Xu, Haiyang and Ye, Jiabo and Yan, Ming and Shen, Weizhou and Zhang, Ji and Huang, Fei and Sang, Jitao},
+  journal={arXiv preprint arXiv:2401.16158},
+  year={2024}
+}
+```
 
 ## Related Projects
 * [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
