@@ -121,7 +121,7 @@ def run(args):
                     crop_image = f"{i+1}.jpg"
                     images.append(os.path.join(temp_file, crop_image))
                 
-                ocr_prompt = f"The {str(len(out_coordinate))} red boxes are numbered 1 through {str(len(out_coordinate))}. Which red box with \"{parameter}\"do you want to click on? Please output just one number from 1 to {str(len(out_coordinate))}, such as 1, 2......"
+                ocr_prompt = f"The {str(len(out_coordinate))} red boxes are numbered 1 through {str(len(out_coordinate))}. Which red box with \"{parameter}\" do you want to click on? Please output just one number from 1 to {str(len(out_coordinate))}, such as 1, 2......"
                 choose_chat = add_multiimage_response("user", ocr_prompt, choose_chat, images)
                 choose_response = inference_chat(choose_chat, args.api)
                 
