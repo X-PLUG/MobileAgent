@@ -76,9 +76,9 @@ def crop(image, box, i, text_data=None):
     if text_data:
         draw = ImageDraw.Draw(image)
         draw.rectangle(((text_data[0], text_data[1]), (text_data[2], text_data[3])), outline="red", width=5)
-        font_size = int((text_data[3] - text_data[1])*0.75)
-        font = ImageFont.truetype("arial.ttf", font_size)
-        draw.text((text_data[0]+5, text_data[1]+5), str(i), font=font, fill="red")
+        # font_size = int((text_data[3] - text_data[1])*0.75)
+        # font = ImageFont.truetype("arial.ttf", font_size)
+        # draw.text((text_data[0]+5, text_data[1]+5), str(i), font=font, fill="red")
 
     cropped_image = image.crop(box)
     cropped_image.save(f"./temp/{i}.jpg")
