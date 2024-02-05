@@ -31,6 +31,7 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 * No need for exploration and training, plug and play.
 
 ## 📢News
+*  [2.5] 🔥🔥We provide a **free** API and deploy the entire process for experiencing Mobile Agent, even if **you don't have an OpenAI API Key**. Check out [Quick Start](#quick_start).
 *  [2.2] 🔥We are deploying the demo based on Gradio and users will be able to upload the screenshots.
 * [1.31] 🔥Our code is available! Welcome to try Mobile-Agent.
 * [1.31] 🔥Human-operated data in Mobile-Eval is in preparation and will be open-sourced soon.
@@ -41,9 +42,7 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 ## 📺Demo
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
 
-## 🔧Getting Started
-❗Since the GPT-4V will have severe hallucinations when perceiving non-English screenshots, we strongly recommend using Mobile-Agent under English-only systems and apps to ensure the performance.
-
+## 🔧Preparation
 ### Installation
 ```
 git clone https://github.com/X-PLUG/MobileAgent.git
@@ -59,6 +58,21 @@ pip install -r requirements.txt
 5. If you are using a MAC or Linux system, make sure to turn on adb permissions as follow: ```sudo chmod +x /path/to/adb```
 6. If you are using Windows system, the path will be ```xx/xx/adb.exe```
 
+<a id="quick_start"></a>
+## 🔧Quick Start
+### Note
+❗Since the GPT-4V will have severe hallucinations when perceiving non-English screenshots, we strongly recommend using Mobile-Agent under English-only systems and apps to ensure the performance.
+❗Due to current limited resources, please contact us to get a free API Key consisting of a **url** and a **token**.
+
+* Email: junyangwang@bjtu.edu.cn, junyangwang287@gmail.com(If the former cannot be reached)
+* WeChat: Wangjunyang0410
+
+### Run
+```
+python run_api.py --adb_path /path/to/adb --url "The url you got" --token "The token you got" --instruction "your instruction"
+```
+
+## 🔧Getting Started with your own API Key
 ### Preparation for Visual Perception Tools
 1. Download the icon detection model [Grounding DION](https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth)
 2. The text detection model will be automatically downloaded from modelscope after you run Mobile-Agent.
