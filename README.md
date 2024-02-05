@@ -67,6 +67,7 @@ pip install -r requirements.txt
 ```
 python run.py --grounding_ckpt /path/to/GroundingDION --adb_path /path/to/adb --api "your API_TOKEN" --instruction "your instruction"
 ```
+API_TOKEN is an API Key from OpenAI with the permission to access ```gpt-4-vision-preview```.
 
 ## 📱Mobile-Eval
 Mobile-Eval is a benchmark designed for evaluating the performance of mobile device agents. This benchmark includes 10 mainstream single-app scenarios and 1 multi-app scenario. 
@@ -102,7 +103,7 @@ We evaluated Mobile-Agent on Mobile-Eval. The evaluation results are available a
 * Development of Mobile-Agent app on Android platform.
 * Adaptation to other mobile device platforms.
 
-## Citation
+## 📑Citation
 
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
@@ -114,6 +115,6 @@ If you find Mobile-Agent useful for your research and applications, please cite 
 }
 ```
 
-## Related Projects
-* [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
-* [CLIP](https://github.com/openai/CLIP)
+## 📦Related Projects
+* [GroundingDINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://github.com/IDEA-Research/GroundingDINO)
+* [CLIP: Contrastive Language-Image Pretraining](https://github.com/openai/CLIP)
