@@ -31,10 +31,8 @@ def run(args):
         while True:
             if first_request == 1:
                 response = get_action(image, args.instruction, '', args.url, args.token)
-                print(response.json())
             else:
                 response = get_action(image, '', session_id, args.url, args.token)
-                print(response.json())
                 
             try:
                 action = response.json()['output']['action']
@@ -42,7 +40,7 @@ def run(args):
                 session_id = response.json()['output']['session_id']
             except:
                 print("Error:")
-                print(response.json)
+                print(response.json())
             else:
                 break
 
@@ -58,7 +56,7 @@ def run(args):
         
         elif action == 'slide':
             parameter = json.loads(parameter)
-            slide(args.adb_path, parameter[0][0], parameter[0][1], parameter[1][0], parameter[1][1])
+            slide(args.adb_path, parameter[0][0], parameter[0][1], parameter[1][1], parameter[1][0])
             
         elif "type" in action:
             parameter = str(parameter)
