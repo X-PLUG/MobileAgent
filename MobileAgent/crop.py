@@ -129,7 +129,7 @@ def clip_for_icon(clip_model, clip_preprocess, images, prompt):
         image_features.append(image_feature)
     image_features = torch.cat(image_features)
     
-    text = clip.tokenize([prompt])
+    text = clip.tokenize([prompt]).to(clip_model.device)
     text_features = clip_model.encode_text(text)
 
     image_features /= image_features.norm(dim=-1, keepdim=True)
