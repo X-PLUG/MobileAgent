@@ -47,6 +47,9 @@ def run(args):
                 break
 
         if action == 'end':
+            parameter = str(parameter)
+            if parameter != '':
+                print(parameter)
             break
         
         elif action == 'tap':
