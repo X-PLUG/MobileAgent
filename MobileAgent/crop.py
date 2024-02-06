@@ -124,12 +124,12 @@ def crop_for_clip(image, box, i, position):
 def clip_for_icon(clip_model, clip_preprocess, images, prompt):
     image_features = []
     for image_file in images:
-        image = clip_preprocess(Image.open(image_file)).unsqueeze(0).to(clip_model.device)
+        image = clip_preprocess(Image.open(image_file)).unsqueeze(0).to(next(clip_model.parameters()).device)
         image_feature = clip_model.encode_image(image)
         image_features.append(image_feature)
     image_features = torch.cat(image_features)
     
-    text = clip.tokenize([prompt]).to(clip_model.device)
+    text = clip.tokenize([prompt]).to(next(clip_model.parameters()).device)
     text_features = clip_model.encode_text(text)
 
     image_features /= image_features.norm(dim=-1, keepdim=True)
