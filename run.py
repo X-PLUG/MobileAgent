@@ -84,9 +84,14 @@ def run(args):
         elif "open App" in action:
             parameter = action.split('(')[1].split(')')[0]
             in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
-            tap_coordinate = [(in_coordinate[0][0]+in_coordinate[0][2])/2, (in_coordinate[0][1]+in_coordinate[0][3])/2]
-            tap_coordinate = [round(tap_coordinate[0]/iw, 2), round(tap_coordinate[1]/ih, 2)]
-            tap(args.adb_path, tap_coordinate[0], tap_coordinate[1]-round(50/y, 2), x, y)
+            
+            if len(in_coordinate) == 0:
+                error_prompt = f"No App named {parameter}."
+                error_flag = 1
+			else:
+                tap_coordinate = [(in_coordinate[0][0]+in_coordinate[0][2])/2, (in_coordinate[0][1]+in_coordinate[0][3])/2]
+                tap_coordinate = [round(tap_coordinate[0]/iw, 2), round(tap_coordinate[1]/ih, 2)]
+                tap(args.adb_path, tap_coordinate[0], tap_coordinate[1]-round(50/y, 2), x, y)
         
         elif "click text" in action:
             
