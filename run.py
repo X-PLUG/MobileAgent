@@ -13,7 +13,7 @@ from MobileAgent.api import inference_chat
 from MobileAgent.crop import crop, crop_for_clip, clip_for_icon
 from MobileAgent.chat import init_chat, add_response, add_multiimage_response
 from MobileAgent.controller import get_size, get_screenshot, tap, type, slide, back, back_to_desktop
-
+import re
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -66,9 +66,9 @@ def run(args):
             response = inference_chat(operation_history, args.api)
             
             try:
-                observation = response.split("Observation:")[1].split("\n")[0].strip()
-                thought = response.split("Thought:")[1].split("\n")[0].strip()
-                action = response.split("Action:")[1].strip()
+                observation = re.search(r"Observation:(.*?)\n", response).group(1).strip()
+                thought = re.search(r"Thought:(.*?)\n", response).group(1).strip()
+                action = re.search(r"Action:(.*)", response).group(1).strip()
             except:
                 print("Response not formatted, retry.")
             else:
@@ -82,7 +82,7 @@ def run(args):
             break
         
         elif "open App" in action:
-            parameter = action.split('(')[1].split(')')[0]
+            parameter = re.search(r"\((.*?)\)", action).group(1)
             in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
             
             if len(in_coordinate) == 0:
@@ -99,7 +99,7 @@ def run(args):
             choose_chat = add_response("user", choose_opreation_prompt, choose_chat, image)
             choose_chat = add_response("assistant", action, choose_chat)
             
-            parameter = action.split('(')[1].split(')')[0]
+            parameter = re.search(r"\((.*?)\)", action).group(1)
             in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
                 
             if len(out_coordinate) == 0:
@@ -146,8 +146,9 @@ def run(args):
             choose_chat = add_response("user", choose_opreation_prompt, choose_chat, image)
             choose_chat = add_response("assistant", action, choose_chat)
             
-            parameter = action.split('(')[1].split(')')[0]
-            parameter1, parameter2 = parameter.split(',')[0].strip(), parameter.split(',')[1].strip()
+            parameter1, parameter2 = re.search(r"(.*?),(.*?)", parameter).groups()
+            parameter1 = parameter1.strip()
+            parameter2 = parameter2.strip()
             in_coordinate, out_coordinate = det(image, "icon", groundingdino_model)
             
             if len(out_coordinate) == 1:
@@ -175,7 +176,7 @@ def run(args):
             slide(args.adb_path, action, x, y)
         
         elif "type" in action:
-            text = response.split("(")[1].split(")")[0]
+            text = re.search(r"\((.*?)\)", response).group(1)
             type(args.adb_path, text)
         
         elif "back" in action:
