@@ -146,9 +146,8 @@ def run(args):
             choose_chat = add_response("user", choose_opreation_prompt, choose_chat, image)
             choose_chat = add_response("assistant", action, choose_chat)
             
-            parameter1, parameter2 = re.search(r"(.*?),(.*?)", parameter).groups()
-            parameter1 = parameter1.strip()
-            parameter2 = parameter2.strip()
+            parameter = re.search(r"\((.*?)\)", action).group(1)
+            parameter1, parameter2 = parameter.split(',')[0].strip(), parameter.split(',')[1].strip()
             in_coordinate, out_coordinate = det(image, "icon", groundingdino_model)
             
             if len(out_coordinate) == 1:
