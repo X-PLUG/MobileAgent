@@ -26,8 +26,9 @@ def inference_chat(chat, API_TOKEN):
         try:
             res = requests.post(api_url, headers=headers, json=data)
             res = res.json()['choices'][0]['message']['content']
-        except Exception as e:
-            print(f"Network Error {e}")
+        except:
+            print("Network Error:")
+            print(res)
         else:
             break
     
