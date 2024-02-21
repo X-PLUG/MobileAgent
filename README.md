@@ -2,6 +2,7 @@
 # Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
+	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
     <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
     <a href="https://huggingface.co/papers/2401.16158"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
 </div>
@@ -31,8 +32,8 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 * No need for exploration and training, plug and play.
 
 ## 📢News
+* [2.21] 🔥🔥We provide a demo that can upload screenshots from mobile devices. Now you can experience it at [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent).
 *  [2.5] 🔥🔥We provide a **free** API and deploy the entire process for experiencing Mobile Agent, even if **you don't have an OpenAI API Key**. Check out [Quick Start](#quick_start).
-*  [2.2] 🔥We are deploying the demo based on Gradio and users will be able to upload the screenshots.
 * [1.31] 🔥Our code is available! Welcome to try Mobile-Agent.
 * [1.31] 🔥Human-operated data in Mobile-Eval is in preparation and will be open-sourced soon.
 * [1.30] Our paper is available at [LINK](https://arxiv.org/abs/2401.16158).
@@ -40,7 +41,12 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 * [1.30] The code and Mobile-Eval benchmark are coming soon!
 
 ## 📺Demo
+### Video
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
+
+### Hugging Face Demo
+![](assets/huggingface_demo.png?v=1&type=image)
+The demo can now be experienced at [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent).
 
 ## 🔧Preparation
 ### Installation
