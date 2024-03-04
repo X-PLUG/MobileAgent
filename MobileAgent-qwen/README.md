@@ -11,7 +11,7 @@ We introduce Mobile-Agent based on the free model Qwen-vl.
 https://github.com/X-PLUG/MobileAgent/assets/127390760/e697eeba-c2f9-478f-b1b8-140f493ef759
 
 ## 🔧Getting Started
-### Open DashScope and create APPI_KEY
+### Open DashScope and create API-KEY
 Please refer to [DashScope](https://help.aliyun.com/zh/dashscope/developer-reference/activate-dashscope-and-create-an-api-key) to get your API-KEY.
 ### Installation
 ```
