@@ -33,7 +33,7 @@ Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Jitao San
 * No need for exploration and training, plug and play.
 
 ## 📢News
-* [3.4]🔥🔥We provide [Mobile-Agent via Qwen-vl](https://github.com/X-PLUG/MobileAgent/blob/main/MobileAgent-qwen/README.md). Qwen-vl is a free multi-modal large language model.
+* [3.4]🔥🔥We provide [Mobile-Agent via Qwen-vl-max](https://github.com/X-PLUG/MobileAgent/blob/main/MobileAgent-qwen/README.md). Qwen-vl-max is a free multi-modal large language model.
 * [2.21] 🔥🔥We provide a demo that can upload screenshots from mobile devices. Now you can experience it at [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent) and [ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent/summary).
 *  [2.5] 🔥🔥We provide a **free** API and deploy the entire process for experiencing Mobile Agent, even if **you don't have an OpenAI API Key**. Check out [Quick Start](#quick_start).
 * [1.31] 🔥Our code is available! Welcome to try Mobile-Agent.
