@@ -140,5 +140,8 @@ If you find Mobile-Agent useful for your research and applications, please cite 
 ```
 
 ## 📦Related Projects
+* [AppAgent: Multimodal Agents as Smartphone Users](https://github.com/mnotgod96/AppAgent)
+* [mPLUG-Owl & mPLUG-Owl2: Modularized Multimodal Large Language Model](https://github.com/X-PLUG/mPLUG-Owl)
+* [Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond](https://github.com/QwenLM/Qwen-VL)
 * [GroundingDINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://github.com/IDEA-Research/GroundingDINO)
 * [CLIP: Contrastive Language-Image Pretraining](https://github.com/openai/CLIP)
