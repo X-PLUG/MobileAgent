@@ -8,6 +8,10 @@
     <a href="https://huggingface.co/papers/2401.16158"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
 </div>
 <br>
+<p align="center">
+<a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+</p>
+<br>
 <div align="center">
 Junyang Wang<sup>1</sup>, Haiyang Xu<sup>2†</sup>, Jiabo Ye<sup>2</sup>, Ming Yan<sup>2†</sup>,
 </div>
@@ -138,6 +142,8 @@ If you find Mobile-Agent useful for your research and applications, please cite 
   year={2024}
 }
 ```
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=X-PLUG/MobileAgent&type=Date)](https://star-history.com/#X-PLUG/MobileAgent&Date)
 
 ## 📦Related Projects
 * [AppAgent: Multimodal Agents as Smartphone Users](https://github.com/mnotgod96/AppAgent)
