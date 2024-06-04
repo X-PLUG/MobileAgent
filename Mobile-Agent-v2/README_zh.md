@@ -32,7 +32,7 @@ Ming Yan<sup>2†</sup>, Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Hua
 [6. 4] 我们发布了新一代移动设备操作助手 [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), 通过多智能体协作实现有效导航。
 
 ## 📺演示
-https://github.com/X-PLUG/MobileAgent/assets/127390760/8eac0cd4-4212-4b7b-8983-7ba273ee3d44
+https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
 
 ## 📋介绍
 
