@@ -25,7 +25,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢新闻
-* [6. 5] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航
+* [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航
 * [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收.
 
 ## 📱版本
