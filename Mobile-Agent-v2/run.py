@@ -22,16 +22,16 @@ import concurrent
 
 ####################################### Edit your Setting #########################################
 # Your ADB path
-adb_path = "E:/Desktop/MobileAgent/platform-tools/adb.exe"
+adb_path = ""
 
 # Your instruction
 instruction = ""
 
 # Your GPT-4o API URL
-API_url = "http://47.88.8.18:8088/api/ask"
+API_url = ""
 
 # Your GPT-4o API Token
-token = "eyJ0eXAiOiJqd3QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjQwMDIyMiIsInBhc3N3b3JkIjoiNDAwMjIyMTIzIiwiZXhwIjoyMDIwNDk1NDI0fQ.MdzCtnEBfMh1wo-y9_QAhbD4qjQ5LoKSblb7q0Fm0m4"
+token = ""
 
 # Choose between "api" and "local". api: use the qwen api. local: use the local qwen checkpoint
 caption_call_method = "api"
@@ -40,16 +40,16 @@ caption_call_method = "api"
 caption_model = "qwen-vl-plus"
 
 # If you choose the api caption call method, input your Qwen api here
-qwen_api = "sk-f5573cde82d84ebe8620ace6f5e301ad"
+qwen_api = ""
 
 # You can add operational knowledge to help Agent operate more accurately.
 add_info = "If you want to tap an icon of an app, use the action \"Open app\". If you want to exit an app, use the action \"Home\""
 
 # Reflection Setting: If you want to improve the operating speed, you can disable the reflection agent. This may reduce the success rate.
-reflection_switch = False
+reflection_switch = True
 
 # Memory Setting: If you want to improve the operating speed, you can disable the memory unit. This may reduce the success rate.
-memory_switch = False
+memory_switch = True
 ###################################################################################################
 
 
