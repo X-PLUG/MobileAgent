@@ -6,6 +6,15 @@
 </p>
 </div>
 
+<div align="center">
+<a href="README_zh.md">简体中文</a> | <a href="README.md">English</a>
+<hr>
+</div>
+<!--
+简体中文 | [English](README.md)
+<hr>
+-->
+
 ## 📺Demo
 
 ### Mobile-Agent-v2
