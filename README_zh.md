@@ -1,6 +1,6 @@
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
-<h3>Mobile-Agent: The Powerful Mobile Device Operation Assistant Family<h3>
+<h3>Mobile-Agent: 强大的移动设备操作助手家族<h3>
 <p align="center">
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
@@ -15,18 +15,18 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/8eac0cd4-4212-4b7b-8983-7
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
 
 
-## 📢News
-* [6. 5] We proposed Mobile-Agent-v2, a mobile device operation assistant with effective navigation via multi-agent collaboration.
-* [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
+## 📢新闻
+* [6. 5] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航
+* [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收.
 
-## 📱Version
-* [Mobile-Agent-v2](Mobile-Agent-v2/README.md) - Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration
-* [Mobile-Agent](Mobile-Agent/README.md) - Autonomous Multi-Modal Mobile Device Agent with Visual Perception
+## 📱版本
+* [Mobile-Agent-v2](Mobile-Agent-v2/README_zh.md) - 通过多代理协作有效导航的移动设备操作助手
+* [Mobile-Agent](Mobile-Agent/README_zh.md) - 视觉感知方案的自动化移动设备操作智能体
 
-## ⭐Star History
+## ⭐Star历史
 [![Star History Chart](https://api.star-history.com/svg?repos=X-PLUG/MobileAgent&type=Date)](https://star-history.com/#X-PLUG/MobileAgent&Date)
 
-## 📑Citation
+## 引用
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
 @article{wang2024mobile2,
@@ -44,7 +44,7 @@ If you find Mobile-Agent useful for your research and applications, please cite 
 }
 ```
 
-## 📦Related Projects
+## 📦相关项目
 * [AppAgent: Multimodal Agents as Smartphone Users](https://github.com/mnotgod96/AppAgent)
 * [mPLUG-Owl & mPLUG-Owl2: Modularized Multimodal Large Language Model](https://github.com/X-PLUG/mPLUG-Owl)
 * [Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond](https://github.com/QwenLM/Qwen-VL)

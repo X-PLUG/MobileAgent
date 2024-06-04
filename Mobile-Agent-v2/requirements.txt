@@ -1,0 +1,15 @@
+torch
+torchvision
+transformers
+modelscope
+TensorFlow==2.9.1
+keras==2.9.0
+opencv-python
+matplotlib
+pycocotools
+timm
+SentencePiece
+tf_slim
+tf_keras
+pyclipper
+shapely
