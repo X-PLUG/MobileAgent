@@ -32,7 +32,7 @@ English | [简体中文](README_zh.md)
 [6. 4] We proposed [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), a mobile device operation assistant with effective navigation via multi-agent collaboration.
 
 ## 📺Demo
-https://github.com/X-PLUG/MobileAgent/assets/127390760/8eac0cd4-4212-4b7b-8983-7ba273ee3d44
+https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
 
 ## 📋Introduction
 
