@@ -18,7 +18,7 @@ English | [简体中文](README_zh.md)
 ## 📺Demo
 
 ### Mobile-Agent-v2
-https://github.com/X-PLUG/MobileAgent/assets/127390760/8eac0cd4-4212-4b7b-8983-7ba273ee3d44
+https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
 
 ### Mobile-Agent
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
