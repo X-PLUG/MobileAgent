@@ -40,7 +40,7 @@ If you find Mobile-Agent useful for your research and applications, please cite 
 ```
 @article{wang2024mobile2,
   title={Mobile-Agent-v2: Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration},
-  author={Wang, Junyang and Xu, Haiyang and Jia Haitao and Zhang Xi and Yan, Ming and Shen, Weizhou and Zhang, Ji and Huang, Fei and Sang, Jitao},
+  author={Wang, Junyang and Xu, Haiyang and Jia, Haitao and Zhang, Xi and Yan, Ming and Shen, Weizhou and Zhang, Ji and Huang, Fei and Sang, Jitao},
   journal={arXiv preprint arXiv:2406.01014},
   year={2024}
 }
