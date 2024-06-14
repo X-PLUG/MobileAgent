@@ -288,8 +288,9 @@ while True:
         os.mkdir(temp_file)
         
         keyboard = False
+        keyboard_height_limit = 0.9 * height
         for perception_info in perception_infos:
-            if perception_info['coordinates'][1] < 0.95 * height:
+            if perception_info['coordinates'][1] < keyboard_height_limit:
                 continue
             if 'ADB Keyboard' in perception_info['text']:
                 keyboard = True
@@ -374,7 +375,7 @@ while True:
     
     keyboard = False
     for perception_info in perception_infos:
-        if perception_info['coordinates'][1] < 0.95 * height:
+        if perception_info['coordinates'][1] < keyboard_height_limit:
             continue
         if 'ADB Keyboard' in perception_info['text']:
             keyboard = True
