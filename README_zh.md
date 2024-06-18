@@ -25,8 +25,9 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢新闻
-* [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航
-* [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收.
+* 🔥[6. 4] Modelscope-Agent 已经支持 Mobile-Agent-V2，基于 Android Adb Env，请查看 [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)。
+* [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航。
+* [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收。
 
 ## 📱版本
 * [Mobile-Agent-v2](Mobile-Agent-v2/README_zh.md) - 通过多代理协作有效导航的移动设备操作助手
