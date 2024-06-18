@@ -12,7 +12,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/e697eeba-c2f9-478f-b1b8-1
 
 ## 🔧Getting Started
 ### Open DashScope and create API-KEY
-Please refer to [DashScope](https://help.aliyun.com/zh/dashscope/developer-reference/activate-dashscope-and-create-an-api-key) to get your API-KEY.
+Please refer to [DashScope](https://help.aliyun.com/document_detail/2712195.html?spm=a2c4g.2712569.0.0.5d9e730aymB3jH) to get your API-KEY.
 ### Installation
 ```
 git clone https://github.com/X-PLUG/MobileAgent.git
