@@ -74,7 +74,7 @@ pip install -r requirements.txt
 
 3. Choose the caption model :
 	- If you choose the "local" method, you need to choose between "qwen-vl-chat" and "qwen-vl-chat-int4", where the "qwen-vl-chat" requires more GPU memory but offers better performance compared to "qwen-vl-chat-int4". At the same time, "qwen_api" can be vacant.
-	- If you choose the "api" method, you need to choose between "qwen-vl-plus" and "qwen-vl-max", where the "qwen-vl-max" requires more expenses but offers better performance compared to "qwen-vl-plus". In addition, you also need to apply for [Qwen-VL API-KEY](https://help.aliyun.com/zh/dashscope/developer-reference/activate-dashscope-and-create-an-api-key) and input it in "qwen_api".
+	- If you choose the "api" method, you need to choose between "qwen-vl-plus" and "qwen-vl-max", where the "qwen-vl-max" requires more expenses but offers better performance compared to "qwen-vl-plus". In addition, you also need to apply for [Qwen-VL API-KEY](https://help.aliyun.com/document_detail/2712195.html?spm=a2c4g.2712569.0.0.5d9e730aymB3jH) and input it in "qwen_api".
 
 4. You can add operational knowledge (for example, to complete the specific steps you need to instruction) in "add_info" to help Mobile-Agent operate more accurately.
 
