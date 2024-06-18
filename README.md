@@ -25,7 +25,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢News
-* 🔥[6. 4] Modelscope-Agent has supported Mobile-Agent-V2，based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
+* 🔥[6. 4] Modelscope-Agent has supported Mobile-Agent-V2, based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
 * 🔥[6. 4] We proposed Mobile-Agent-v2, a mobile device operation assistant with effective navigation via multi-agent collaboration.
 * [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
 
