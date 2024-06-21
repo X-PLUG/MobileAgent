@@ -51,7 +51,7 @@ def det(input_image_path, caption, groundingdino_model, box_threshold=0.05, text
         boxes_filt[i][2:] += boxes_filt[i][:2]
 
     boxes_filt = boxes_filt.cpu().int().tolist()
-    filtered_boxes = remove_boxes(boxes_filt, size)  # [:9]
+    filtered_boxes = remove_boxes(boxes_filt, size)
     
     coordinate = []
     image_data = []
