@@ -31,7 +31,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢新闻
-* 🔥我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
+* 🔥[6.27] 我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
 * [6. 4] Modelscope-Agent 已经支持 Mobile-Agent-V2，基于 Android Adb Env，请查看 [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)。
 * [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航。
 * [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收。
