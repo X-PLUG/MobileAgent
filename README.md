@@ -1,6 +1,12 @@
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
 <h3>Mobile-Agent: The Powerful Mobile Device Operation Assistant Family<h3>
+<div align="center">
+	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
+	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+  <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
+  <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
+</div>
 <p align="center">
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
@@ -25,8 +31,9 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢News
-* 🔥[6. 4] Modelscope-Agent has supported Mobile-Agent-V2, based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
-* 🔥[6. 4] We proposed Mobile-Agent-v2, a mobile device operation assistant with effective navigation via multi-agent collaboration.
+* 🔥We proposed Demo that can upload mobile phone screenshots to experience Mobile-Agent-V2 in [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent) and [ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2). You don’t need to configure models and devices, and you can experience it immediately.
+* [6. 4] Modelscope-Agent has supported Mobile-Agent-V2, based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
+* [6. 4] We proposed Mobile-Agent-v2, a mobile device operation assistant with effective navigation via multi-agent collaboration.
 * [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
 
 ## 📱Version

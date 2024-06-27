@@ -1,6 +1,11 @@
 ![](assets/logo.png?v=1&type=image)
 ## Mobile-Agent-v2: Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration
-
+<div align="center">
+	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
+	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+  <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
+  <a href="https://huggingface.co/papers/2406.01014"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
+</div>
 <br>
 <div align="center">
 Junyang Wang<sup>1</sup>, Haiyang Xu<sup>2†</sup>,Haitao Jia<sup>1</sup>, Xi Zhang,<sup>2</sup>
@@ -29,7 +34,8 @@ English | [简体中文](README_zh.md)
 -->
 
 ## 📢News
-[6. 4] We proposed [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), a mobile device operation assistant with effective navigation via multi-agent collaboration.
+* 🔥We proposed Demo that can upload mobile phone screenshots to experience Mobile-Agent-V2 in [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent) and [ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2). You don’t need to configure models and devices, and you can experience it immediately.
+* [6. 4] We proposed [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), a mobile device operation assistant with effective navigation via multi-agent collaboration.
 
 ## 📺Demo
 https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155

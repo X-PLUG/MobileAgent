@@ -1,6 +1,12 @@
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
 <h3>Mobile-Agent: 强大的移动设备操作助手家族<h3>
+<div align="center">
+	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
+	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+  <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
+  <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
+</div>
 <p align="center">
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
@@ -25,7 +31,8 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢新闻
-* 🔥[6. 4] Modelscope-Agent 已经支持 Mobile-Agent-V2，基于 Android Adb Env，请查看 [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)。
+* 🔥我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
+* [6. 4] Modelscope-Agent 已经支持 Mobile-Agent-V2，基于 Android Adb Env，请查看 [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)。
 * [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航。
 * [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收。
 

@@ -1,12 +1,9 @@
 ![](assets/logo.png?v=1&type=image)
 ## Mobile-Agent: 视觉感知方案的自动化移动设备操作智能体
 <div align="center">
-	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
-	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent/summary"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
-    <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
-    <a href="https://huggingface.co/papers/2401.16158"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
+  <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
+  <a href="https://huggingface.co/papers/2401.16158"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
 </div>
-<br>
 <br>
 <div align="center">
 Junyang Wang<sup>1</sup>, Haiyang Xu<sup>2†</sup>, Jiabo Ye<sup>2</sup>, Ming Yan<sup>2†</sup>,

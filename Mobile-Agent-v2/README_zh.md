@@ -1,6 +1,11 @@
 ![](assets/logo.png?v=1&type=image)
 ## Mobile-Agent-v2: 通过多代理协作有效导航的移动设备操作助手
-
+<div align="center">
+	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
+	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+  <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
+  <a href="https://huggingface.co/papers/2406.01014"><img src="https://img.shields.io/badge/🤗-Paper%20In%20HF-red.svg" alt=""></a>
+</div>
 <br>
 <div align="center">
 Junyang Wang<sup>1</sup>, Haiyang Xu<sup>2†</sup>,Haitao Jia<sup>1</sup>, Xi Zhang,<sup>2</sup>
@@ -29,7 +34,8 @@ Ming Yan<sup>2†</sup>, Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Hua
 -->
 
 ## 📢新闻
-[6. 4] 我们发布了新一代移动设备操作助手 [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), 通过多智能体协作实现有效导航。
+* 🔥我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
+* [6. 4] 我们发布了新一代移动设备操作助手 [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), 通过多智能体协作实现有效导航。
 
 ## 📺演示
 https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
