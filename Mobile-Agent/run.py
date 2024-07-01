@@ -13,7 +13,7 @@ from MobileAgent.text_localization import ocr
 from MobileAgent.api import inference_chat
 from MobileAgent.crop import crop, crop_for_clip, clip_for_icon
 from MobileAgent.chat import init_chat, add_response, add_multiimage_response
-from MobileAgent.controller import get_size, get_screenshot, tap, type, slide, back, back_to_desktop
+from MobileAgent.controller import get_size, get_screenshot, tap, type, slide, back, back_to_desktop, get_xml, choose_clickable
 import re
 
 def get_args():
@@ -47,8 +47,10 @@ def run(args):
         get_screenshot(args.adb_path)
         image = "./screenshot/screenshot.jpg"
         image_ori = "./screenshot/screenshot.png"
+        xml_path = "./screenshot/screenshot.xml"
         temp_file = "./temp"
         iw, ih = Image.open(image).size
+        get_xml(args.adb_path, xml_path) 
 
         if iw > ih:
             x, y = y, x
@@ -82,7 +84,7 @@ def run(args):
         elif "open App" in action:
             parameter = re.search(r"\((.*?)\)", action).group(1)
             in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
-            
+            in_coordinate, out_coordinate = choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y)
             if len(in_coordinate) == 0:
                 error_prompt = f"No App named {parameter}."
                 error_flag = 1
@@ -99,7 +101,7 @@ def run(args):
             
             parameter = re.search(r"\((.*?)\)", action).group(1)
             in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
-                
+            in_coordinate, out_coordinate = choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y)   
             if len(out_coordinate) == 0:
                 error_prompt = f"Failed to execute action click text ({parameter}). The text \"{parameter}\" is not detected in the screenshot."
                 error_flag = 1
@@ -147,7 +149,7 @@ def run(args):
             parameter = re.search(r"\((.*?)\)", action).group(1)
             parameter1, parameter2 = parameter.split(',')[0].strip(), parameter.split(',')[1].strip()
             in_coordinate, out_coordinate = det(image, "icon", groundingdino_model)
-            
+            in_coordinate, out_coordinate = choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y)
             if len(out_coordinate) == 1:
                 tap_coordinate = [(in_coordinate[0][0]+in_coordinate[0][2])/2, (in_coordinate[0][1]+in_coordinate[0][3])/2]
                 tap_coordinate = [round(tap_coordinate[0]/iw, 2), round(tap_coordinate[1]/ih, 2)]
