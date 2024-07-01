@@ -1,6 +1,7 @@
 import time
 import subprocess
 from PIL import Image
+import xml.etree.ElementTree as ET
 
 
 def get_size(adb_path):
@@ -82,3 +83,34 @@ def back_to_desktop(adb_path):
     command = adb_path + f" shell am start -a android.intent.action.MAIN -c android.intent.category.HOME"
     subprocess.run(command, capture_output=True, text=True, shell=True)
     time.sleep(1)
+
+def get_xml(adb_path, save_path):
+    dump_command = adb_path + f" shell uiautomator dump /sdcard/dump.xml"
+    pull_command = adb_path + f" pull /sdcard/dump.xml {save_path}"
+    subprocess.run(dump_command, capture_output=True, text=True, shell=True)
+    time.sleep(1)
+    subprocess.run(pull_command, capture_output=True, text=True, shell=True)    
+    time.sleep(1)
+
+def is_clickable(xml_path,x, y):
+    for event, element in ET.iterparse(xml_path, events=('start', 'end')):
+        if event == 'start' and 'clickable' in element.attrib and element.attrib['clickable'] == 'true':
+            bounds = element.attrib["bounds"][1:-1].split("][")
+            x1, y1 = map(int, bounds[0].split(","))
+            x2, y2 = map(int, bounds[1].split(","))
+            
+            if x >= x1 and x <= x2 and y >= y1 and y <= y2:
+                return True
+    else:
+        return False
+    
+def choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y):
+    res_in_coordinate, res_out_coordinate = [], []
+    for i in range(len(out_coordinate)):
+        tap_coordinate = [(in_coordinate[i][0] + in_coordinate[i][2]) / 2,
+                                  (in_coordinate[i][1] + in_coordinate[i][3]) / 2]
+        tap_coordinate = [round(tap_coordinate[0] / iw, 2), round(tap_coordinate[1] / ih, 2)]
+        if is_clickable(xml_path, int(tap_coordinate[0]*x), int(tap_coordinate[1]*y)):
+            res_in_coordinate.append(in_coordinate[i])
+            res_out_coordinate.append(out_coordinate[i])
+    return res_in_coordinate, res_out_coordinate
