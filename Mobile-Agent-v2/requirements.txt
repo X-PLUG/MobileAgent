@@ -14,3 +14,4 @@ tf_slim
 tf_keras
 pyclipper
 shapely
+supervision==0.21.0
