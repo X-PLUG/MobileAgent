@@ -13,11 +13,11 @@
 </div>
 
 <div align="center">
-<a href="README_zh.md">简体中文</a> | <a href="README.md">English</a>
+<a href="README_zh.md">简体中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a>
 <hr>
 </div>
 <!--
-简体中文 | [English](README.md)
+简体中文 | [English](README.md) | [日本語](README_ja.md)
 <hr>
 -->
 

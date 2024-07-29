@@ -1,6 +1,6 @@
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
-<h3>Mobile-Agent: The Powerful Mobile Device Operation Assistant Family<h3>
+<h3>Mobile-Agent: 強力なモバイルデバイス操作アシスタントファミリー<h3>
 <div align="center">
 	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
 	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
@@ -13,15 +13,15 @@
 </div>
 
 <div align="center">
-<a href="README.md">English</a> | <a href="README_zh.md">简体中文</a> | <a href="README_ja.md">日本語</a>
+<a href="README_ja.md">日本語</a> | <a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
 <hr>
 </div>
 <!--
-English | [简体中文](README_zh.md) | [日本語](README_ja.md)
+日本語 | [English](README.md) | [简体中文](README_zh.md)
 <hr>
 -->
 
-## 📺Demo
+## �デモ
 
 ### Mobile-Agent-v2
 https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
@@ -30,21 +30,21 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-7
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
 
 
-## 📢News
-* 🔥[6.27] We proposed Demo that can upload mobile phone screenshots to experience Mobile-Agent-V2 in [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent) and [ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2). You don’t need to configure models and devices, and you can experience it immediately.
-* [6. 4] Modelscope-Agent has supported Mobile-Agent-V2, based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
-* [6. 4] We proposed Mobile-Agent-v2, a mobile device operation assistant with effective navigation via multi-agent collaboration.
-* [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
+## 📢ニュース
+* 🔥[6.27] [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)と[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)で、Mobile-Agent-v2のデモを公開しました。携帯電話のスクリーンショットをアップロードして体験できます。モデルやデバイスの設定は不要です。
+* [6. 4] Modelscope-Agentは、Android Adb Envに基づいてMobile-Agent-V2をサポートしています。詳細は[アプリケーション](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)をご覧ください。
+* [6. 4] 新世代のモバイルデバイス操作アシスタント Mobile-Agent-v2を発表しました。マルチエージェント協力により効果的なナビゲーションを実現します。
+* [3.10] Mobile-Agentは**ICLR 2024 Workshop on Large Language Model (LLM) Agents**に採択されました。
 
-## 📱Version
-* [Mobile-Agent-v2](Mobile-Agent-v2/README.md) - Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration
-* [Mobile-Agent](Mobile-Agent/README.md) - Autonomous Multi-Modal Mobile Device Agent with Visual Perception
+## 📱バージョン
+* [Mobile-Agent-v2](Mobile-Agent-v2/README_ja.md) - マルチエージェント協力による効果的なナビゲーションを実現するモバイルデバイス操作アシスタント
+* [Mobile-Agent](Mobile-Agent/README_ja.md) - 視覚認識を備えた自律型マルチモーダルモバイルデバイスエージェント
 
-## ⭐Star History
+## ⭐スター履歴
 [![Star History Chart](https://api.star-history.com/svg?repos=X-PLUG/MobileAgent&type=Date)](https://star-history.com/#X-PLUG/MobileAgent&Date)
 
-## 📑Citation
-If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
+## 📑引用
+Mobile-Agentが研究やアプリケーションに役立つ場合は、次のBibTeXを使用して引用してください：
 ```
 @article{wang2024mobile2,
   title={Mobile-Agent-v2: Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration},
@@ -61,7 +61,7 @@ If you find Mobile-Agent useful for your research and applications, please cite 
 }
 ```
 
-## 📦Related Projects
+## 📦関連プロジェクト
 * [AppAgent: Multimodal Agents as Smartphone Users](https://github.com/mnotgod96/AppAgent)
 * [mPLUG-Owl & mPLUG-Owl2: Modularized Multimodal Large Language Model](https://github.com/X-PLUG/mPLUG-Owl)
 * [Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond](https://github.com/QwenLM/Qwen-VL)
