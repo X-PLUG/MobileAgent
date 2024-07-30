@@ -23,6 +23,13 @@ English | [简体中文](README_zh.md) | [日本語](README_ja.md)
 
 ## 📺Demo
 
+### Mobile-Agent-v3 (Note: The video is not accelerated)
+**YouTube**
+[![YouTube](https://img.youtube.com/vi/EMbIpzqJld0/0.jpg)](https://www.youtube.com/watch?v=EMbIpzqJld0)
+
+**Bilibili**
+[![Bilibili](https://img.youtube.com/vi/EMbIpzqJld0/0.jpg)](https://www.bilibili.com/video/BV1pPvyekEsa/?share_source=copy_web&vd_source=47ffcd57083495a8965c8cdbe1a751ae)
+
 ### Mobile-Agent-v2
 https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
 
@@ -31,12 +38,14 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢News
+* 🔥🔥[7.29] Mobile-Agent won the **best demo award** at the ***The 23rd China National Conference on Computational Linguistics*** (CCL 2024). On the CCL 2024, we displayed the upcoming Mobile-Agent-v3. It has smaller memory overhead (8 GB), faster reasoning speed (10s-15s per operation), and all uses open source models. Video demo, please see the last section 📺Demo.
 * 🔥[6.27] We proposed Demo that can upload mobile phone screenshots to experience Mobile-Agent-V2 in [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent) and [ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2). You don’t need to configure models and devices, and you can experience it immediately.
 * [6. 4] Modelscope-Agent has supported Mobile-Agent-V2, based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
 * [6. 4] We proposed Mobile-Agent-v2, a mobile device operation assistant with effective navigation via multi-agent collaboration.
 * [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
 
 ## 📱Version
+* [Mobile-Agent-v3](Mobile-Agent-v3/README.md) - Coming soon
 * [Mobile-Agent-v2](Mobile-Agent-v2/README.md) - Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration
 * [Mobile-Agent](Mobile-Agent/README.md) - Autonomous Multi-Modal Mobile Device Agent with Visual Perception
 
