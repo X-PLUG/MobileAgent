@@ -273,6 +273,9 @@ temp_file = "temp"
 screenshot = "screenshot"
 if not os.path.exists(temp_file):
     os.mkdir(temp_file)
+else:
+    shutil.rmtree(temp_file)
+    os.mkdir(temp_file)
 if not os.path.exists(screenshot):
     os.mkdir(screenshot)
 error_flag = False
