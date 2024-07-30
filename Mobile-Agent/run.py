@@ -41,6 +41,9 @@ def run(args):
         os.mkdir("screenshot")
     if not os.path.exists("temp"):
         os.mkdir("temp")
+    else:
+        shutil.rmtree("temp")
+        os.mkdir("temp")
     
     while True:
         x, y = get_size(args.adb_path)
