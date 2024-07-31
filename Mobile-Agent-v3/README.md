@@ -1,6 +1,5 @@
 ![](assets/logo.png?v=1&type=image)
 ## Mobile-Agent-v3
-### Coming soon...
 ## 📋Introduction
 * Faster operation speed. Each operation can reach 10s-15s.
 * Lower memory overhead. Based on the 2B model, the memory overhead only costs about 8GB.

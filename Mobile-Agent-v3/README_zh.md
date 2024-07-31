@@ -1,6 +1,5 @@
 ![](assets/logo.png?v=1&type=image)
 ## Mobile-Agent-v3
-### 即将发布...
 ## 📋介绍
 * 更快的操作速度。每次操作可达10s-15s。
 * 更低的显存开销。基于2B模型，显存开销仅需8GB左右。

@@ -47,7 +47,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 * [3.10] Mobile-Agentは**ICLR 2024 Workshop on Large Language Model (LLM) Agents**に採択されました。
 
 ## 📱バージョン
-* [Mobile-Agent-v3](Mobile-Agent-v3/README.md) - 近日公開
+* [Mobile-Agent-v3](Mobile-Agent-v3/README.md)
 * [Mobile-Agent-v2](Mobile-Agent-v2/README_ja.md) - マルチエージェント協力による効果的なナビゲーションを実現するモバイルデバイス操作アシスタント
 * [Mobile-Agent](Mobile-Agent/README_ja.md) - 視覚認識を備えた自律型マルチモーダルモバイルデバイスエージェント
 

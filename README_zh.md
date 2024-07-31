@@ -47,7 +47,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 * [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收。
 
 ## 📱版本
-* [Mobile-Agent-v3](Mobile-Agent-v3/README_zh.md) - 即将发布
+* [Mobile-Agent-v3](Mobile-Agent-v3/README_zh.md)
 * [Mobile-Agent-v2](Mobile-Agent-v2/README_zh.md) - 通过多代理协作有效导航的移动设备操作助手
 * [Mobile-Agent](Mobile-Agent/README_zh.md) - 视觉感知方案的自动化移动设备操作智能体
 
