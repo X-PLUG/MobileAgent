@@ -1,7 +1,7 @@
 torch
 torchvision
 transformers
-modelscope
+modelscope==1.15.0
 TensorFlow==2.9.1
 keras==2.9.0
 opencv-python
