@@ -79,7 +79,7 @@ pip install -r requirements.txt
 ### Note
 ❗Since the GPT-4V will have severe hallucinations when perceiving non-English screenshots, we strongly recommend using Mobile-Agent under English-only systems and apps to ensure the performance.
 
-❗Due to current limited resources, please contact us to get a free API Key consisting of a **url** and a **token**.
+~~❗Due to current limited resources, please contact us to get a free API Key consisting of a **url** and a **token**.~~ Sorry, this resource has been exhausted.
 
 * Email: junyangwang@bjtu.edu.cn, junyangwang287@gmail.com(If the former cannot be reached)
 * WeChat: Wangjunyang0410
