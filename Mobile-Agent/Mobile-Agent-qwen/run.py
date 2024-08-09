@@ -13,7 +13,7 @@ from MobileAgent.icon_localization import det
 from MobileAgent.crop import crop_for_clip, clip_for_icon
 from MobileAgent.chat import init_chat, add_response, print_status
 from MobileAgent.prompt import thought_prompt, action_prompt, format_prompt
-from MobileAgent.controller import get_size, get_screenshot, tap, type, slide, back, back_to_desktop
+from MobileAgent.controller import get_size, get_screenshot, tap, type, slide, back, back_to_desktop, get_xml, choose_clickable
 
 
 def get_args():
@@ -50,9 +50,10 @@ def run(args):
         get_screenshot(args.adb_path)
         image = "./screenshot/screenshot.jpg"
         image_ori = "./screenshot/screenshot.png"
+        xml_path = "./screenshot/screenshot.xml"
         temp_file = "./temp"
         iw, ih = Image.open(image).size
-
+        get_xml(args.adb_path, xml_path)        
         if iw > ih:
             x, y = y, x
             iw, ih = ih, iw
@@ -92,7 +93,7 @@ def run(args):
             elif "open app" in action:
                 parameter = action.split("(")[1].split(")")[0].replace("\"", "")
                 in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
-                
+                in_coordinate, out_coordinate = choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y)
                 if len(in_coordinate) >= 1:
                     tap_coordinate = [(in_coordinate[0][0]+in_coordinate[0][2])/2, (in_coordinate[0][1]+in_coordinate[0][3])/2]
                     tap_coordinate = [round(tap_coordinate[0]/iw, 2), round(tap_coordinate[1]/ih, 2)]
@@ -106,7 +107,7 @@ def run(args):
             elif "tap text" in action:
                 parameter = action.split("(")[1].split(")")[0].replace("\"", "")
                 in_coordinate, out_coordinate = ocr(image_ori, parameter, ocr_detection, ocr_recognition, iw, ih)
-                    
+                in_coordinate, out_coordinate = choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y)
                 if len(out_coordinate) == 0:
                     error_prompt = f"Failed to execute action click text ({parameter}). The text {parameter} is not detected in the screenshot. Please change another action or parameter."
                     error_flag = 1
@@ -128,7 +129,7 @@ def run(args):
                 parameter = action.split("(")[1].split(")")[0].replace("\"", "")
                 parameter1, parameter2 = parameter.split(",")[0].replace("\"", "").strip(), parameter.split(",")[1].replace("\"", "").strip()
                 in_coordinate, out_coordinate = det(image, "icon", groundingdino_model)
-                
+                in_coordinate, out_coordinate = choose_clickable(in_coordinate, out_coordinate, xml_path, iw, ih, x, y)
                 if len(out_coordinate) == 1:
                     tap_coordinate = [(in_coordinate[0][0]+in_coordinate[0][2])/2, (in_coordinate[0][1]+in_coordinate[0][3])/2]
                     tap_coordinate = [round(tap_coordinate[0]/iw, 2), round(tap_coordinate[1]/ih, 2)]
