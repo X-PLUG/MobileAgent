@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ### Preparation for Connecting Mobile Device with ADB
 
 1. Download the [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools?hl=en).
-2. Turn on the ADB debugging switch on your Android phone, it needs to be turned on in the developer options first.
+2. Turn on the ADB debugging switch on your Android phone, it needs to be turned on in the developer options first. If it is the HyperOS system, you need to turn on USB Debugging (Security Settings) at the same time.
 3. Connect your phone to the computer with a data cable and select "Transfer files".
 4. Test your ADB environment as follow: ```/path/to/adb devices```. If the connected devices are displayed, the preparation is complete.
 5. If you are using a MAC or Linux system, make sure to turn on adb permissions as follow: ```sudo chmod +x /path/to/adb```
