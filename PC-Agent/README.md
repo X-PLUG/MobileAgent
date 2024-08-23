@@ -4,7 +4,7 @@
 🔥[8.23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
 
 ## 📺Demo
-https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Download%20paper%20from%20Chorme.mp4
+[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Download%20paper%20from%20Chorme.mp4](https://github.com/user-attachments/assets/5abb9dc8-d49b-438b-ac44-19b3e2da03cb)
 
 https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Search%20NBA%20FMVP%20and%20send%20to%20friend.mp4
 
