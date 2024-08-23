@@ -40,6 +40,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢News
+* 🔥🔥[8.23] We proposed PC-Agent, a **PC** operation assistant supporting both **Mac and Windows** platforms.
 * 🔥🔥[7.29] Mobile-Agent won the **best demo award** at the ***The 23rd China National Conference on Computational Linguistics*** (CCL 2024). On the CCL 2024, we displayed the upcoming Mobile-Agent-v3. It has smaller memory overhead (8 GB), faster reasoning speed (10s-15s per operation), and all uses open source models. Video demo, please see the last section 📺Demo.
 * 🔥[6.27] We proposed Demo that can upload mobile phone screenshots to experience Mobile-Agent-V2 in [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent) and [ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2). You don’t need to configure models and devices, and you can experience it immediately.
 * [6. 4] Modelscope-Agent has supported Mobile-Agent-V2, based on Android Adb Env, please check in the [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent).
