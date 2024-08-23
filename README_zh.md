@@ -32,6 +32,15 @@
 
 [![Bilibili](https://img.youtube.com/vi/EMbIpzqJld0/0.jpg)](https://www.bilibili.com/video/BV1pPvyekEsa/?share_source=copy_web&vd_source=47ffcd57083495a8965c8cdbe1a751ae)
 
+### PC-Agent
+**谷歌浏览器与钉钉**
+
+https://github.com/user-attachments/assets/b890a08f-8a2f-426d-9458-aa3699185030
+
+**Word**
+
+https://github.com/user-attachments/assets/37f0a0a5-3d21-4232-9d1d-0fe845d0f77d
+
 ### Mobile-Agent-v2
 https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
 
