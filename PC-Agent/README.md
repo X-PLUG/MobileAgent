@@ -4,7 +4,7 @@
 🔥[8.23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
 
 ## 📺Demo
-
+![Download paper from Chorme][PC-Agent/PCAgent/demo/Download paper from Chorme.mp4]
 
 ## 📋Introduction
 * PC-Agent is a multi-agent collaboration system, which can achieve automated control of computer software (_e.g._ Chrome, Word, and WeChat) based on user instructions.
