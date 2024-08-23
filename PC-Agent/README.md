@@ -4,11 +4,11 @@
 🔥[8.23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
 
 ## 📺Demo
-[![Download paper from Chorme][PC-Agent/PCAgent/demo/Download paper from Chorme.mp4]](https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Download%20paper%20from%20Chorme.mp4)
+https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Download%20paper%20from%20Chorme.mp4
 
-[![Search NBA FMVP and send to friend][PC-Agent/PCAgent/demo/Search NBA FMVP and send to friend.mp4]]https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Search%20NBA%20FMVP%20and%20send%20to%20friend.mp4
+https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Search%20NBA%20FMVP%20and%20send%20to%20friend.mp4
 
-[![Write an introduction of Alibaba in Word][PC-Agent/PCAgent/demo/Write an introduction of Alibaba in Word.mp4]]https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Write%20an%20introduction%20of%20Alibaba%20in%20Word.mp4
+https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Write%20an%20introduction%20of%20Alibaba%20in%20Word.mp4
 
 ## 📋Introduction
 * PC-Agent is a multi-agent collaboration system, which can achieve automated control of computer software (_e.g._ Chrome, Word, and WeChat) based on user instructions.
