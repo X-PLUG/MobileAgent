@@ -23,6 +23,13 @@ English | [简体中文](README_zh.md) | [日本語](README_ja.md)
 
 ## 📺Demo
 
+### PC-Agent
+**Chrome and DingTalk**
+https://github.com/user-attachments/assets/b890a08f-8a2f-426d-9458-aa3699185030
+
+**Word**
+https://github.com/user-attachments/assets/37f0a0a5-3d21-4232-9d1d-0fe845d0f77d
+
 ### Mobile-Agent-v3 (Note: The video is not accelerated)
 **YouTube**
 
