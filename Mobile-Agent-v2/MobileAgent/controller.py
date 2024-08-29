@@ -20,24 +20,6 @@ def get_screenshot(adb_path):
     os.remove(image_path)
 
 
-def get_keyboard(adb_path):
-    command = adb_path + " shell dumpsys input_method"
-    process = subprocess.run(command, capture_output=True, text=True, shell=True, encoding='utf-8')
-    output = process.stdout.strip()
-    for line in output.split('\n'):
-        if "mInputShown" in line:
-            if "mInputShown=true" in line:
-                
-                for line in output.split('\n'):
-                    if "hintText" in line:
-                        hintText = line.split("hintText=")[-1].split(" label")[0]
-                        break
-                
-                return True, hintText
-            elif "mInputShown=false" in line:
-                return False, None
-
-
 def tap(adb_path, x, y):
     command = adb_path + f" shell input tap {x} {y}"
     subprocess.run(command, capture_output=True, text=True, shell=True)
