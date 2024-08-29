@@ -4,37 +4,6 @@ import subprocess
 from PIL import Image
 
 
-def get_size(adb_path):
-    command = adb_path + " shell wm size"
-    result = subprocess.run(command, capture_output=True, text=True, shell=True)
-    resolution_line = result.stdout.strip().split('\n')[-1]
-    width, height = map(int, resolution_line.split(' ')[-1].split('x'))
-    return width, height
-    
-    
-def get_xml(adb_path):
-    process = subprocess.Popen([adb_path, 'shell', 'uiautomator', 'dump'], stdout=subprocess.PIPE)
-    process.communicate()
-    subprocess.run([adb_path, 'pull', '/sdcard/window_dump.xml', './xml/window_dump.xml'])
-
-
-def take_screenshots(adb_path, num_screenshots, output_folder, crop_y_start, crop_y_end, slide_y_start, slide_y_end):
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-
-    for i in range(num_screenshots):
-        command = adb_path + f" shell rm /sdcard/screenshot{i}.png"
-        subprocess.run(command, capture_output=True, text=True, shell=True)
-        command = adb_path + f" shell screencap -p /sdcard/screenshot{i}.png"
-        subprocess.run(command, capture_output=True, text=True, shell=True)
-        command = adb_path + f" pull /sdcard/screenshot{i}.png {output_folder}"
-        subprocess.run(command, capture_output=True, text=True, shell=True)
-        image = Image.open(f"{output_folder}/screenshot{i}.png")
-        cropped_image = image.crop((0, crop_y_start, image.width, crop_y_end))
-        cropped_image.save(f"{output_folder}/screenshot{i}.png")
-        subprocess.run([adb_path, 'shell', 'input', 'swipe', '500', str(slide_y_start), '500', str(slide_y_end)])
-
-
 def get_screenshot(adb_path):
     command = adb_path + " shell rm /sdcard/screenshot.png"
     subprocess.run(command, capture_output=True, text=True, shell=True)

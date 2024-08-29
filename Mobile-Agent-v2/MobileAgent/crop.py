@@ -1,7 +1,7 @@
 import math
 import cv2
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 import clip
 import torch
 

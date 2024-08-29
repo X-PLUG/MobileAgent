@@ -1,5 +1,4 @@
 from MobileAgent.crop import calculate_size, calculate_iou
-from modelscope.pipelines import pipeline
 from PIL import Image
 import torch
 
