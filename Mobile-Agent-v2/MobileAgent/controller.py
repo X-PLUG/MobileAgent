@@ -3,6 +3,12 @@ import time
 import subprocess
 from PIL import Image
 
+def get_size(adb_path):
+    command = adb_path + " shell wm size"
+    result = subprocess.run(command, capture_output=True, text=True, shell=True)
+    resolution_line = result.stdout.strip().split('\n')[-1]
+    width, height = map(int, resolution_line.split(' ')[-1].split('x'))
+    return width, height
 
 def get_screenshot(adb_path):
     command = adb_path + " shell rm /sdcard/screenshot.png"

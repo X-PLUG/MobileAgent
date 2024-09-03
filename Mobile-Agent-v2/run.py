@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw
 from MobileAgent.api import inference_chat
 from MobileAgent.text_localization import ocr
 from MobileAgent.icon_localization import det
-from MobileAgent.controller import get_screenshot, tap, slide, type, back, home
+from MobileAgent.controller import get_screenshot, tap, slide, type, back, home, get_size
 from MobileAgent.prompt import get_action_prompt, get_reflect_prompt, get_memory_prompt, get_process_prompt
 from MobileAgent.chat import init_action_chat, init_reflect_chat, init_memory_chat, add_response, add_response_two_image
 
@@ -175,7 +175,8 @@ def get_perception_infos(adb_path, screenshot_file):
     get_screenshot(adb_path)
     
     width, height = Image.open(screenshot_file).size
-    
+    px, py = get_size(adb_path)
+    OCR_RATIO = px // width
     text, coordinates = ocr(screenshot_file, ocr_detection, ocr_recognition)
     text, coordinates = merge_text_blocks(text, coordinates)
     
@@ -184,7 +185,7 @@ def get_perception_infos(adb_path, screenshot_file):
     
     perception_infos = []
     for i in range(len(coordinates)):
-        perception_info = {"text": "text: " + text[i], "coordinates": coordinates[i]}
+        perception_info = {"text": "text: " + text[i], "coordinates": coordinates[i]*OCR_RATIO}
         perception_infos.append(perception_info)
         
     coordinates = det(screenshot_file, "icon", groundingdino_model)
