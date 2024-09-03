@@ -334,6 +334,7 @@ while True:
             if app_name == text[ti]:
                 name_coordinate = [int((coordinate[ti][0] + coordinate[ti][2])/2), int((coordinate[ti][1] + coordinate[ti][3])/2)]
                 tap(adb_path, name_coordinate[0], name_coordinate[1]- int(coordinate[ti][3] - coordinate[ti][1]))# 
+                break
     
     elif "Tap" in action:
         coordinate = action.split("(")[-1].split(")")[0].split(", ")
