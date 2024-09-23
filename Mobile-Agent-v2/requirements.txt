@@ -15,3 +15,5 @@ tf_keras==2.15.0
 pyclipper
 shapely
 supervision==0.21.0
+dashscope
+numpy==1.26.4
