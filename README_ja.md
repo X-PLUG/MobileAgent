@@ -49,9 +49,10 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢ニュース
-* 🔥🔥[8.23] MacとWindowsプラットフォームに対応したPC操作アシスタント「PC-Agent」をリリースしました。
-* 🔥🔥[7.29] Mobile-Agent、***計算言語学に関する第23回中国全国会議***（CCL 2024）で**ベストデモ賞**を受賞しました。 CCL 2024では、今後のMobile-Agent-V3を示しました。メモリオーバーヘッド（8 GB）が小さく、推論速度が高く（操作あたり10S-15S）、すべてオープンソースモデルを使用しています。ビデオデモ、セクション📺Demoを参照してください。
-* 🔥[6.27] [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)と[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)で、Mobile-Agent-v2のデモを公開しました。携帯電話のスクリーンショットをアップロードして体験できます。モデルやデバイスの設定は不要です。
+* 🔥🔥[9.26] Mobile-Agent-v2 は **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)** によって承認されました。
+* 🔥[8.23] MacとWindowsプラットフォームに対応したPC操作アシスタント「PC-Agent」をリリースしました。
+* 🔥[7.29] Mobile-Agent、***計算言語学に関する第23回中国全国会議***（CCL 2024）で**ベストデモ賞**を受賞しました。 CCL 2024では、今後のMobile-Agent-V3を示しました。メモリオーバーヘッド（8 GB）が小さく、推論速度が高く（操作あたり10S-15S）、すべてオープンソースモデルを使用しています。ビデオデモ、セクション📺Demoを参照してください。
+* [6.27] [Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)と[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)で、Mobile-Agent-v2のデモを公開しました。携帯電話のスクリーンショットをアップロードして体験できます。モデルやデバイスの設定は不要です。
 * [6. 4] Modelscope-Agentは、Android Adb Envに基づいてMobile-Agent-V2をサポートしています。詳細は[アプリケーション](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)をご覧ください。
 * [6. 4] 新世代のモバイルデバイス操作アシスタント Mobile-Agent-v2を発表しました。マルチエージェント協力により効果的なナビゲーションを実現します。
 * [3.10] Mobile-Agentは**ICLR 2024 Workshop on Large Language Model (LLM) Agents**に採択されました。

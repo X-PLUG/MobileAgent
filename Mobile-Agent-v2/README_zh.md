@@ -34,6 +34,7 @@ Ming Yan<sup>2†</sup>, Weizhou Shen<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Hua
 -->
 
 ## 📢新闻
+* 🔥🔥[9.26] Mobile-Agent-v2 被 **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)** 接收。
 * 🔥[6.27] 我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
 * [6. 4] 我们发布了新一代移动设备操作助手 [Mobile-Agent-v2](https://arxiv.org/abs/2406.01014), 通过多智能体协作实现有效导航。
 

@@ -49,9 +49,10 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢新闻
-* 🔥🔥[8.23]我们发布了一个支持Mac和Windows平台的**PC**操作助手PC-Agent, 通过Mobile-Agent-v2框架实现。
-* 🔥🔥[7.29] Mobile-Agent获得了 ***第二十三届中国计算语言学大会*** (CCL 2024) 的 **最佳demo奖项**。在CCL 2024上，我们展示了即将开源的Mobile-Agent-v3，拥有更小的内存开销（8 GB）、更快的推理速度（每次操作10-15秒），并且使用开源模型。视频Demo请见上一个板块📺Demo。
-* 🔥[6.27] 我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
+* 🔥🔥[9.26] Mobile-Agent-v2 被 **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)** 接收。
+* 🔥[8.23]我们发布了一个支持Mac和Windows平台的**PC**操作助手PC-Agent, 通过Mobile-Agent-v2框架实现。
+* 🔥[7.29] Mobile-Agent获得了 ***第二十三届中国计算语言学大会*** (CCL 2024) 的 **最佳demo奖项**。在CCL 2024上，我们展示了即将开源的Mobile-Agent-v3，拥有更小的内存开销（8 GB）、更快的推理速度（每次操作10-15秒），并且使用开源模型。视频Demo请见上一个板块📺Demo。
+* [6.27] 我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
 * [6. 4] Modelscope-Agent 已经支持 Mobile-Agent-V2，基于 Android Adb Env，请查看 [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)。
 * [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航。
 * [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收。
