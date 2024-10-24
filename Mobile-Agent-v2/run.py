@@ -280,7 +280,13 @@ if not os.path.exists(screenshot):
     os.mkdir(screenshot)
 error_flag = False
 
-
+keyboard = False
+if not "adbkeyboard" in get_current_input_method(adb_path):
+    if "adbkeyboard" in get_all_input_method(adb_path):
+        set_input_method(adb_path)
+        keyboard = True
+else:
+    keyboard = True
 iter = 0
 while True:
     iter += 1
@@ -289,14 +295,6 @@ while True:
         perception_infos, width, height = get_perception_infos(adb_path, screenshot_file)
         shutil.rmtree(temp_file)
         os.mkdir(temp_file)
-        
-        keyboard = False
-        if not "adbkeyboard" in get_current_input_method(adb_path):
-            if "adbkeyboard" in get_all_input_method(adb_path):
-                set_input_method(adb_path)
-                keyboard = True
-        else:
-            keyboard = True
 
     prompt_action = get_action_prompt(instruction, perception_infos, width, height, keyboard, summary_history, action_history, summary, action, add_info, error_flag, completed_requirements, memory)
     chat_action = init_action_chat()
