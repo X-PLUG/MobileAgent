@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw
 from MobileAgent.api import inference_chat
 from MobileAgent.text_localization import ocr
 from MobileAgent.icon_localization import det
-from MobileAgent.controller import get_screenshot, tap, slide, type, back, home
+from MobileAgent.controller import get_screenshot, tap, slide, type, back, home, get_all_input_method, get_current_input_method, set_input_method
 from MobileAgent.prompt import get_action_prompt, get_reflect_prompt, get_memory_prompt, get_process_prompt
 from MobileAgent.chat import init_action_chat, init_reflect_chat, init_memory_chat, add_response, add_response_two_image
 
@@ -291,13 +291,12 @@ while True:
         os.mkdir(temp_file)
         
         keyboard = False
-        keyboard_height_limit = 0.9 * height
-        for perception_info in perception_infos:
-            if perception_info['coordinates'][1] < keyboard_height_limit:
-                continue
-            if 'ADB Keyboard' in perception_info['text']:
+        if not "adbkeyboard" in get_current_input_method(adb_path):
+            if "adbkeyboard" in get_all_input_method(adb_path):
+                set_input_method(adb_path)
                 keyboard = True
-                break
+        else:
+            keyboard = True
 
     prompt_action = get_action_prompt(instruction, perception_infos, width, height, keyboard, summary_history, action_history, summary, action, add_info, error_flag, completed_requirements, memory)
     chat_action = init_action_chat()

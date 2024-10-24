@@ -58,3 +58,17 @@ def back(adb_path):
 def home(adb_path):
     command = adb_path + f" shell am start -a android.intent.action.MAIN -c android.intent.category.HOME"
     subprocess.run(command, capture_output=True, text=True, shell=True)
+
+def get_all_input_method(adb_path):
+    command = adb_path + " shell ime list -a"   
+    result = subprocess.run(command, capture_output=True, text=True, shell=True)
+    return result.stdout
+
+def get_current_input_method(adb_path):
+    command = adb_path + " shell settings get secure default_input_method"   
+    result = subprocess.run(command, capture_output=True, text=True, shell=True)
+    return result.stdout.strip()
+
+def set_input_method(adb_path, package="com.android.adbkeyboard/.AdbIME"):
+    command = adb_path + f" shell settings put secure default_input_method " + package  
+    subprocess.run(command, capture_output=True, text=True, shell=True)
