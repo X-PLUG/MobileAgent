@@ -19,20 +19,20 @@
 
 ## 📺Demo
 
-<!-- 
+
 ### [Mobile-Agent-E](https://x-plug.github.io/MobileAgent)
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
   <video width="30%" controls>
-    <source src="Mobile-Agent-E/static/videos/bouldering_gym.mp4" type="video/mp4">
+    <source src="https://raw.githubusercontent.com/X-PLUG/MobileAgent/main/Mobile-Agent-E/static/videos/bouldering_gym.mp4" type="video/mp4">
   </video>
   <video width="30%" controls>
-    <source src="Mobile-Agent-E/static/videos/shopping.mp4" type="video/mp4">
+    <source src="https://raw.githubusercontent.com/X-PLUG/MobileAgent/main/Mobile-Agent-E/static/videos/shopping.mp4" type="video/mp4">
   </video>
   <video width="30%" controls>
-    <source src="Mobile-Agent-E/static/videos/survey.mp4" type="video/mp4">
+    <source src="https://raw.githubusercontent.com/X-PLUG/MobileAgent/main/Mobile-Agent-E/static/videos/survey.mp4" type="video/mp4">
   </video>
 </div>
-* The videos are sped up for better viewing. -->
+* The videos are sped up for better viewing.
 
 ### Mobile-Agent-v3 (Note: The video is not accelerated)
 **YouTube**

@@ -2,7 +2,11 @@
   <img src="static/images/logo.png" alt="logo" width="500">
 </p>
 
-# Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks
+<div align="center">
+  <h1>Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks</h1>
+</div>
+
+<!-- # Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks -->
 <!-- <div align="center">
     <a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
     <a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
