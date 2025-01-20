@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Mobile-Agent-E">
+  <meta name="keywords" content="Mobile Agent, LLM, LMM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/bulma.min.css">
+  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/index.css">
+  <link rel="icon" href="./Mobile-Agent-E/static/images/pixel_art_style_icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./Mobile-Agent-E/static/js/fontawesome.all.min.js"></script>
+  <script src="./Mobile-Agent-E/static/js/bulma-carousel.min.js"></script>
+  <script src="./Mobile-Agent-E/static/js/bulma-slider.min.js"></script>
+  <script src="./Mobile-Agent-E/static/js/index.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggles = document.querySelectorAll('.toggle-section');
+      toggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          var content = document.getElementById(toggle.getAttribute('aria-controls'));
+          content.classList.toggle('is-active');
+          toggle.children[1].classList.toggle('fa-angle-down');
+          toggle.children[1].classList.toggle('fa-angle-up');
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .collapse-content {
+      display: none;
+      margin-top: 10px;
+    }
+    .collapse-content.is-active {
+      display: block;
+    }
+    .toggle-section .icon.is-small {
+      transition: transform 0.3s ease;
+    }
+    .toggle-section .fa-angle-up {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <style>
+    .banner {
+      background-color: #f5f5f5;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .banner .container {
+      display: flex;
+      justify-content: center; /* Center the links horizontally */
+      align-items: center;
+      gap: 100px; /* Controls the spacing between links */
+    }
+
+    .banner a {
+      color: #3273dc;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0; /* Remove any additional margin */
+      padding: 5px; /* Optional: Adjust padding around the links */
+      font-size: 18px;
+    }
+
+    .banner a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+<body>
+
+
+<section class="banner">
+  <div class="container">
+    <a href="https://github.com/X-PLUG/MobileAgent">Mobile-Agent Series</a>
+    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent">Mobile-Agent-v1</a>
+    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v2">Mobile-Agent-v2</a>
+    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E">Mobile-Agent-E</a>
+  </div>
+</section>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <img src="Mobile-Agent-E/static/images/pixel_art_style_icon.png" alt="Icon" style="vertical-align: middle; height: 70px; margin-right: 10px; margin-bottom: 9px">
+            Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://mikewangwzhl.github.io/">Zhenhailong Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=qZYvce8AAAAJ&hl=en">Haiyang Xu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=m4ro0NsAAAAJ&hl=en">Junyang Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=TE1odswAAAAJ&hl=en">Xi Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=uIUfGxYAAAAJ&hl=zh-CN">Ming Yan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=cgnuJDUAAAAJ&hl=zh-CN">Ji Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=9r98PpoAAAAJ&hl=zh-CN">Fei Huang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://blender.cs.illinois.edu/hengji.html">Heng Ji</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign,</span>
+            <span class="author-block"><sup>2</sup>Alibaba Group</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/MikeWangWZHL/VDLM/raw/main/Mobile-Agent-E/static/videos/vdlm_teaser_vid.mp4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Model Link. -->
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/mikewang/PVD-160k-Mistral-7b"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Model</span>
+                </a> -->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/mikewang/mobile_eval_e"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <p style="font-size:18px">🤗</p>
+                </span>
+                <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/X-PLUG/MobileAgent"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Mobile-Agent Series</span>
+                  </a>
+              </span>
+              <!-- Demo link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/MikeWangWZHL/VDLM/blob/main/demo.ipynb"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <p style="font-size:18px">🚀</p>
+                  </span>
+                  <span>Demo</span>
+                </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted controls playsinline loop height="100%">
+        <source src="./Mobile-Agent-E/static/videos/vdlm_teaser_vid.mp4"
+                type="video/mp4">
+      </video> -->
+      <!-- <h2 class="subtitle has-text-centered">
+        <span class="dnerf">VDLM </span>
+      </h2> -->
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container"  style="max-width: 960px; margin: 0 auto;">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-bouldering">
+            <video poster="" id="bouldering" autoplay controls muted loop playsinline height="100%">
+              <source src="./Mobile-Agent-E/static/videos/bouldering_gym.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-survey">
+            <video poster="" id="survey" autoplay controls muted loop playsinline height="100%">
+              <source src="./Mobile-Agent-E/static/videos/survey.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shopping">
+            <video poster="" id="shopping" autoplay controls muted loop playsinline height="100%">
+              <source src="./Mobile-Agent-E/static/videos/shopping.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-xbox_fixing">
+            <video poster="" id="xbox_fixing" autoplay controls muted loop playsinline height="100%">
+              <source src="./Mobile-Agent-E/static/videos/xbox_fixing.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        * The videos are sped up for better viewing.
+      </div>
+    </div>
+</section>
+
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            <b>Problem:</b> Smartphones have become indispensable in modern life, yet navigating complex, multi-step tasks on mobile devices often remains frustrating and time-consuming. Recent advancements in large multimodal model (LMM)-based mobile agents have demonstrated the ability to perceive and act in mobile environments on behalf of users. However, current approaches face significant limitations: they fall short in addressing real-world human needs, struggle with reasoning-intensive and long-horizon tasks, and lack mechanisms to learn and improve from prior experiences.
+          </p>
+          <p>
+            <b>Method:</b> To overcome these challenges, we introduce <b>Mobile-Agent-E</b>, a hierarchical multi-agent framework capable of self-evolution through past experience.
+            By “hierarchical,” we refer to an explicit separation of high-level planning and low-level action execution through the structured assignment of five agents: a Manager and four subordinate agents—Perceptor, Operator, Action Reflector, and Notetaker.
+
+            Mobile-Agent-E also features a novel self-evolution module which maintains a persistent long-term memory comprising <em>Tips</em> and <em>Shortcuts</em>. Tips are general guidance and lessons learned from prior tasks on how to effectively interact with the environment. Shortcuts are reusable, executable sequences of atomic operations tailored for specific subroutines.
+            We also introduce <b>Mobile-Eval-E</b>, a new benchmark featuring challenging real-world mobile tasks requiring long-horizon, multi-app interactions. Empirical results show that Mobile-Agent-E achieves a 22% absolute improvement over previous state-of-the-art approaches across three foundation model backbones on diverse tasks.
+          </p>
+        </div>
+        <figure>
+          <img src="Mobile-Agent-E/static/images/new_teaser.png" alt="Mobile-Agent-E teaser." class="teaser"/>
+          <figcaption class="has-text-centered">
+            <b>Figure 1:</b> Mobile-Agent-E demonstrates significant improvements on complex real-world mobile tasks, which require long-horizon planning and reasoning, compared to the previous state-of-the-art (<a href="https://arxiv.org/abs/2406.01014">Mobile-Agent-v2</a>).
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Mobile-Agent-E</h2>
+        <div style="text-align: center;">
+          <figure>
+              <img src="Mobile-Agent-E/static/images/agent_overview.png" alt="overview" class="agent_overview" style="width: 800px;"/>
+              <figcaption class="has-text-centered"><b>Figure 2:</b> Mobile-Agent-E Overview.</figcaption>
+          </figure>
+        </div>
+        <br>
+        <h3 class="title is-4">Hierachical Multi-Agent Framework</h3>
+        <div class="content has-text-justified">
+          <p>
+            <b>Manager:</b> Large multimodal model (LMM)-based reasoning agent for creating high-level plans containing decomposed subgoals for the user's request. The Manager also considers avalible Shortcuts from the long-term memory to guide planning. Additionaly, when the model observes consecutive failed actions, an Error Escalation Flag is raised to notify the Manager, who reviews recent errors and decides on higher-level adjustments to resolve the issue. In other cases, when an error first occurs, the Operator will attempt to address it before escalating the issue to the Manager.
+          </p>
+          <p>
+            <b>Perceptor:</b> A pure vision-based perception module containing three tools: an OCR model, an icon grounding model, and an icon captioning model. The output contains a fine-grained list of texts and icons, along with their coordinates on the screen.
+          </p>
+          <p>
+            <b>Operator:</b> A LMM-based reasoning agent for deciding the next immediate action based on the high-level plan from the Manager, such as Tap(x, y). The Operator also considers the Tips from the long-term memory to guide the decision-making. The action space is defined to contain not only Atomic Operations but also Shortcuts, which can evolve through tasks.
+          </p>
+          <p>
+            <b>Action Reflector:</b> A LMM-based reasoning agent for verifying if the previous action achieves expected outcomes based on the before and after screenshots. If the action succeeds, the Action Reflector logs current progress, otherwise the Action Reflector provides additional error feedback.
+          </p>
+          <p>
+            <b>Notetaker:</b> A LMM-based reasoning agent for aggregating important information during navigating the task. For example, the price of a product or the phone number of a restaurant.
+          </p>
+        </div>
+        <figure>
+          <img src="Mobile-Agent-E/static/images/breakdown_example.png" alt="overview" class="agent_overview" />
+          <figcaption class="has-text-centered"><b>Figure 3:</b> A detailed breakdown of one inference step t with Mobile-Agent-E, showing the inputs and outputs of each agent. Omitted information indicates no change. </figcaption>
+        </figure>
+        <br>
+        <!-- <h3 class="title is-4">Learning Alignment of SVG to Primal Visual Description with Language Models</h3> -->
+        <h3 class="title is-4">Self-Evolution Module</h3>
+        <div class="content has-text-justified">
+          <p>
+            We maintain a persistent long-term memory consisting of two key types of knowledge, Tips and Shortcuts, which aim to enhance both the performance and efficiency of the agent. Two dedicated LLM-based agents, called Experience Reflectors, are used to update the Tips and Shortcuts at the end of each task based on the interaction history.
+          </p>
+          <p>
+            <b>Tips:</b> Tips are defined as general guidance on effective interactions and lessons learned from previous errors, akin to the episodic memory in human cognition.
+          </p>
+          <p>
+            <b>Shortcuts:</b> Shortcuts are defined as reusable, executable functions composed of sequences of atomic operations tailored for recurring subroutines. Shortcuts are akin to procedural knowledge, which allows humans to perform well-practiced tasks efficiently and often subconsciously. We explicitly include a <em>precondition</em> in the definition of a Shortcut and require the Operator to verify that the current state satisfies the precondition before using the Shortcut.
+          </p>
+          <p>
+            See <a href="#evo_breakdown">Figure 4</a> for an example self-evolution step as well as the agent generated Tips and Shortcuts.
+          </p>
+        </div>
+        <figure id="evo_breakdown">
+          <img src="Mobile-Agent-E/static/images/evolving_breakdown.png" alt="evo_breakdown" class="evo_breakdown" />
+          <figcaption class="has-text-centered"><b>Figure 4:</b> A detailed breakdown of the self-evolution module. </figcaption>
+        </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Mobile-Eval-E Benchmark</h2>
+        <br>
+        <div style="text-align: center;">
+          <figure id="benchmark_comparison">
+              <img src="Mobile-Agent-E/static/images/benchmark_comparison.png" alt="overview" class="agent_overview" style="width: 500px;"/>
+              <figcaption class="has-text-centered"><b>Table 1:</b> Comparison with existing mobile agent benchmarks.</figcaption>
+          </figure>
+        </div>
+        <br>
+        <p>
+          Existing dynamic mobile benchmarks (<a href="https://arxiv.org/abs/2312.13771">AppAgent</a>, <a href="https://arxiv.org/abs/2401.16158">Mobile-Agent</a>, <a href="https://arxiv.org/abs/2406.01014">Mobile-Agent-v2</a>) primarily focus on short-horizon, straightforward tasks, where the performance has already saturated. To address this limitation, we propose a challenging benchmark, <b>Mobile-Eval-E</b>, which emphasizes reasoning-intensive, long-horizon, multi-app tasks. Mobile-Eval-E comprises 25 manually crafted tasks spanning 5 real-world scenarios: "Restaurant Recommendation", "Information Searching", "Online Shopping", "What's Trending", and "Travel Planning". As shown in <a href="benchmark_comparison">Table 1</a>,significantly surpasses previous benchmarks in complexity, featuring more than 2x the number of expected operations per task.  Mobile-Eval-E also encompasses a broader range of Apps, with 76% of the tasks requiring interactions with multiple Apps.
+        </p>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Results</h2>
+          <br>
+          <h3 class="title is-4">Metrics</h3>
+          <div class="content has-text-justified">
+            <p>
+              We introduce a new evaluation metric called the <b>Satisfaction Score (SS)</b> to address the challenge posed by real-world tasks that often lack a binary success flag or a ground truth trajectory. This metric is computed based on human-written rubrics that account for both milestone completion, such as "opened Maps," and exploratory behaviors, such as "viewed more than one review." This approach offers a reliable measure of agent performance aligned with human preferences. We further propose a Satisfaction Score vs Steps (SSS) curve to better evaluate and visualize the efficiency of mobile agents.
+              Additionally, we include Action Accuracy (AA) and Reflection Accuracy (RA) as metrics to evaluate action-level performance, and Termination Error (TE) to reflect the agent's robustness.
+            </p>
+          </div>
+          <h3 class="title is-4">Comparison with SOTA</h3>
+          <div class="content has-text-justified">
+          </div>
+          <div style="text-align: center;">
+            <figure id="result_gpt4o">
+              <img src="Mobile-Agent-E/static/images/result_gpt4o.png" alt="overview" class="agent_overview"/>
+              <figcaption class="has-text-centered"><b>Table 2:</b> Comparison with state-of-the-art models on the Mobile-Eval-E benchmark, using GPT-4o as the backbone.</figcaption>
+            </figure>
+            <br>
+            <br>
+            <figure id="result_all_backbones">
+              <img src="Mobile-Agent-E/static/images/result_all_backbones.png" alt="overview" class="agent_overview" style="width: 860px;"/>
+              <figcaption class="has-text-centered"><b>Table 3:</b> Results on different large multimodal model backbones, including GPT-4o, Gemini, and Claude. </figcaption>
+            </figure>
+            <br>
+            <br>
+            <figure id="result_sss_curve">
+              <img src="Mobile-Agent-E/static/images/result_sss_curve.png" alt="overview" class="agent_overview"/>
+              <figcaption class="has-text-centered"><b>Figure 5:</b> Satisfaction Score vs. Steps (SSS) curve for (a) a single task and (b) all tasks. In (a), we also provide an example of the human-written rubrics for the task, which are used to compute the Satisfaction Score during human evaluation. In (b), we include a linear regression line for each model; a steeper and higher line indicates better efficiency for completing the task.</figcaption>
+            </figure>
+          </div>
+
+    </div>
+  </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Resources</h2>
+
+        <p>
+          🍉 <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E"> <b>Mobile-Agent-E Code</b> </a>
+        </p>        
+        <p>
+          🤗 <a href="https://huggingface.co/datasets/mikewang/mobile_eval_e"><b>Mobile-Eval-E Benchmark</b></a>
+        </p>
+        <p>
+          📱 <a href="https://github.com/X-PLUG/MobileAgent"><b>Mobile-Agent Series</b></a>
+        </p>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+      href="">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/mikewangwzhl" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="content has-text-centered">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p> -->
+          <p>
+            This website's template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. We thank the authors for open-sourcing their code.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

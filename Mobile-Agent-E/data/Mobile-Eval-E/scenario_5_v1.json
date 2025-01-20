@@ -1,0 +1,197 @@
+{
+    "length": 5,
+    "scenario": "TRAVEL_PLANNING",
+    "scenario_id": 5,
+    "tasks": [
+        {
+            "task_id": "5_cheap_flights_newyork",
+            "instruction": "Find the cheapest round-trip flight from Chicago to New York City in the next month on Booking. Stop at the screen showing the best deal.",
+            "type": "single_app",
+            "apps": [
+                "Booking"
+            ],
+            "rubrics": [
+                "Opened Booking",
+                "Navigated to flight search",
+                "Correctly entered departure city as Chicago",
+                "Correctly entered arrival city as New York City",
+                "Selected round-trip flight",
+                "Selected the to and back date as some date in the next month",
+                "Get results for the round-trip flight",
+                "Viewed at least one flight option",
+                "Viewed multiple flight options",
+                "Stopped at the screen showing the cheapest round-trip flight viewed"
+            ],
+            "human_reference_operations": [
+                "open Booking app",
+                "tap the flights tab",
+                "tap on departure city field",
+                "type 'Chicago'",
+                "tap the first suggestion",
+                "tap on arrival city field",
+                "type 'New York City'",
+                "tap the first suggestion",
+                "tap the round-trip flight option",
+                "tap the dates",
+                "tap a departure date in the next month",
+                "tap a return date in the next month",
+                "tap done",
+                "tap search",
+                "tap sort by",
+                "tap cheapest",
+                "tap done"
+            ]
+        },
+        {
+            "task_id": "5_things_to_do_la",
+            "instruction": "Suggest some interesting things to do in LA. Find the top 3 attractions on Tripadvisor. Save the list in Notes.",
+            "type": "multi_app",
+            "apps": [
+                "Tripadvisor",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Tripadvisor",
+                "Searched for things to do in LA",
+                "Found at least one interesting attraction",
+                "Found multiple interesting attractions (>=3)",
+                "Opened Notes",
+                "Created a new note with the 3 attraction suggestions"
+            ],
+            "human_reference_operations": [
+                "open Tripadvisor app",
+                "tap on the search bar",
+                "type 'Los Angeles'",
+                "tap enter",
+                "tap things to do",
+                "tap home",
+                "open Notes app",
+                "tap new note button",
+                "type the names of the top 3 attractions"
+            ]
+        },
+        {
+            "task_id": "5_palo_alto_tour",
+            "instruction": "Plan a one-day itinerary for Palo Alto, CA using Tripadvisor. Choose the attractions and dining recommendations, but keep in mind that I don't like seafood and I love museums. Write the plan in Notes.",
+            "type": "multi_app",
+            "apps": [
+                "Tripadvisor",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Tripadvisor",
+                "Searched for things to do in Palo Alto, CA",
+                "Viewed at least one attraction",
+                "Viewed multiple attractions",
+                "Searched for dining recommendation in Palo Alto, CA",
+                "Viewed at least one dining recommendation",
+                "Viewed multiple dining recommendations",
+                "Avoided seafood",
+                "Included museums in the plan",
+                "Opened Notes",
+                "Created a new note with the one-day itinerary"
+            ],
+            "human_reference_operations": [
+                "open Tripadvisor app",
+                "tap on the search bar",
+                "type 'things to do in Palo Alto, CA'",
+                "tap enter",
+                "tap attractions",
+                "swipe up to see more attractions",
+                "tap Cantor Arts Center to verify it is a museum",
+                "back to attractions",
+                "back to search results",
+                "back to search bar",
+                "type Palo Alto restaurants",
+                "tap enter",
+                "tap Evvia to verify its tags not including seafood",
+                "tap home",
+                "open Notes app",
+                "tap new note button",
+                "type the one-day itinerary"
+            ]
+        },
+        {
+            "task_id": "5_local_food_chicago",
+            "instruction": "Find a highly recommended local restaurant in Chicago on Tripadvisor. Check the reviews about must-try dishes and summarize in Notes.",
+            "type": "multi_app",
+            "apps": [
+                "Tripadvisor",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Tripadvisor",
+                "Searched for local restaurants in Chicago",
+                "Found a highly recommended restaurant",
+                "Opened the restaurant's page",
+                "Read at least one review",
+                "Read multiple reviews",
+                "Noted the must-try dishes",
+                "Opened Notes",
+                "Created a new note with the summary of must-try dishes"
+            ],
+            "human_reference_operations": [
+                "open Tripadvisor app",
+                "tap on the search bar",
+                "type 'local restaurants in Chicago'",
+                "tap enter",
+                "tap on the first recommendation",
+                "tap the xxx reviews text to view reviews",
+                "tap read more on the summary review",
+                "swipe up to find more user reviews",
+                "swipe up again",
+                "swipe up again to see more reviews",
+                "tap home",
+                "open Notes app",
+                "tap new note button",
+                "type a summary of must-try dishes based on reviews"
+            ]
+        },
+        {
+            "task_id": "5_hotel_champaign",
+            "instruction": "Help me find a hotel in Champaign, IL on Booking that is under $200 for a queen bed. Make sure that the rating is higher than 7.0. Double check on Google Maps to see if it is close to the Green Street. Show me your final choice on Booking.",
+            "type": "multi_app",
+            "apps": [
+                "Booking",
+                "Maps"
+            ],
+            "rubrics": [
+                "Opened Booking",
+                "Searched for hotels in Champaign, IL",
+                "Found a hotel with a queen bed under $200",
+                "Found a hotel with a rating higher than 7.0",
+                "Opened Maps",
+                "Searched for the hotel's location",
+                "Checked the hotel's location with respect to Green Street",
+                "Returned to Booking",
+                "Showed the final choice of hotel"
+            ],
+            "human_reference_operations": [
+                "open Booking app",
+                "tap on the stay search bar",
+                "type Champaign, IL",
+                "tap the correct suggestion",
+                "tap search",
+                "tap filters",
+                "swipe left to set the maximum price to $200",
+                "tap the smart filters input box",
+                "type ratings 7.0",
+                "tap show matching filters",
+                "tap show results",
+                "tap on the first hotel",
+                "tap select rooms to check if there are queen rooms",
+                "tap home",
+                "open Maps app",
+                "tap on the search bar",
+                "type the hotel's name",
+                "tap enter",
+                "tap Directions",
+                "tap the start location",
+                "type Green Street",
+                "tap enter to check the distance",
+                "switch app",
+                "tap booking app to show the final choice"
+            ]
+        }
+    ]
+}

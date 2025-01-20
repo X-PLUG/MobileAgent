@@ -1,0 +1,179 @@
+{
+    "length": 5,
+    "scenario": "WHATS_TRENDING",
+    "scenario_id": 4,
+    "tasks": [
+        {
+            "task_id": "4_x_back_myth_wukong",
+            "instruction": "Find the top posts about the game 'Black Myth Wukong' on \"X\" and summarize the key highlights in Notes.",
+            "type": "multi_app",
+            "apps": [
+                "X",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened X",
+                "Searched 'Black Myth Wukong'",
+                "Found top posts",
+                "Reviewed multiple top posts for highlights",
+                "Opened Notes",
+                "Created a new note with summarized key highlights"
+            ],
+            "human_reference_operations": [
+                "open X app",
+                "tap on the search button",
+                "tap on the search bar",
+                "type 'Black Myth Wukong'",
+                "tap enter",
+                "swipe up to see more posts",
+                "swipe up again to see more posts",
+                "tap home",
+                "open Notes app",
+                "tap the new note button",
+                "type the summarized key highlights from the posts"
+            ]
+        },
+        {
+            "task_id": "4_x_trending_news",
+            "instruction": "Check the top 3 trending news on \"X\". Read a few posts to figure out what's happening. And create a new Note to summarize your findings.",
+            "type": "multi_app",
+            "apps": [
+                "X",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened X",
+                "Navigated to trending news section",
+                "Identified top 3 trending news topics",
+                "Read at least one detailed post",
+                "Read multiple detailed posts",
+                "Opened Notes",
+                "Created a new note summarizing the trending news"
+            ],
+            "human_reference_operations": [
+                "open X app",
+                "tap the search button",
+                "tap the news section",
+                "tap on the first trending topic in news",
+                "swipe up to see more details",
+                "back",
+                "tap on the second trending topic in news",
+                "swipe up to see more details",
+                "back",
+                "tap on the third trending topic in news",
+                "swipe up to see more details",
+                "tap home",
+                "open Notes app",
+                "tap the new note button",
+                "type a summary of the top 3 trending news topics"
+            ]
+        },
+        {
+            "task_id": "4_watercolor_painting_tutorial",
+            "instruction": "I want to learn how to paint watercolor. Find me some content creators to follow on Lemon8 that has highly liked posts about watercolor painting tutorials. List their account names in Notes.",
+            "type": "multi_app",
+            "apps": [
+                "Lemon8",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Lemon8",
+                "Searched for watercolor painting tutorials",
+                "Found at least one relavant content creator with highly liked posts",
+                "Found multiple relavant content creator with highly liked posts",
+                "Opened Notes",
+                "Added a note with the account names of the content creators"
+            ],
+            "human_reference_operations": [
+                "open Lemon8 app",
+                "tap on the search button",
+                "tap the search bar",
+                "type 'watercolor painting tutorials'",
+                "tap enter",
+                "swipe up to see more posts (noting the account names of the content creators)",
+                "tap home",
+                "open Notes app",
+                "tap the new note button",
+                "type the account names of the content creators"
+            ]
+        },
+        {
+            "task_id": "4_movie_trending",
+            "instruction": "Check the top 5 trending movies on Fandango that are currently in theaters. Compare their ratings and create a note in Notes for the highest-rated one, including its name and showtimes.",
+            "type": "single_app",
+            "apps": [
+                "Fandango",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Fandango",
+                "Check at least one movie's ratings",
+                "Checked multiple movies ratings",
+                "Checked in total 5 movies' ratings",
+                "Checked at least one movie's showtimes",
+                "Checked the showtimes of the highest-rated movie among all viewed movies",
+                "Opened Notes",
+                "Created a new note with the name and showtimes of the found highest-rated movie"
+            ],
+            "human_reference_operations": [
+                "open Fandango app",
+                "tap movies (in theaters)",
+                "tap the first movie page",
+                "back",
+                "tap the second movie page",
+                "back",
+                "tap the third movie page",
+                "back",
+                "swipe up to see more movies",
+                "tap the fourth movie page",
+                "back",
+                "tap the fifth movie page",
+                "tap home",
+                "open Notes app",
+                "tap the new note button",
+                "type the name and showtimes of the highest-rated movie among the 5 movies"
+            ]
+        },
+        {
+            "task_id": "4_horror_movie_reviews",
+            "instruction": "Find me the latest horror movie currently in theaters on Fandango. Check some reviews on Lemon8 about the movie and create a note in Notes with the general sentiment.",
+            "type": "multi_app",
+            "apps": [
+                "Fandango",
+                "Lemon8",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Fandango",
+                "Browsed for horror movies",
+                "Found a horror movie",
+                "The found horror movie is currently in theaters",
+                "Opened Lemon8",
+                "Searched for reviews of the found movie",
+                "Read at least one review",
+                "Read multiple reviews",
+                "Opened Notes",
+                "Created a new note with the general sentiment about the found horror movie"
+            ],
+            "human_reference_operations": [
+                "open Fandango app",
+                "tap movies (in theaters)",
+                "swipe up to find a horror movie by the poster",
+                "tap the horror movie page",
+                "tap Info to double check the genre",
+                "tap home",
+                "open Lemon8 app",
+                "tap the search button",
+                "tap the search bar",
+                "type the movie name",
+                "tap enter",
+                "tap on a post about the movie review",
+                "swipe up to see more content",
+                "tap home",
+                "open Notes app",
+                "tap the new note button",
+                "type the general sentiment about the movie according to the lemon8 review"
+            ]
+        }
+    ]
+}

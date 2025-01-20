@@ -19,6 +19,20 @@
 
 ## 📺Demo
 
+### [Mobile-Agent-E](https://x-plug.github.io/MobileAgent)
+<div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+  <video width="30%" controls>
+    <source src="Mobile-Agent-E/static/videos/bouldering_gym.mp4" type="video/mp4">
+  </video>
+  <video width="30%" controls>
+    <source src="Mobile-Agent-E/static/videos/shopping.mp4" type="video/mp4">
+  </video>
+  <video width="30%" controls>
+    <source src="Mobile-Agent-E/static/videos/survey.mp4" type="video/mp4">
+  </video>
+</div>
+* The videos are sped up for better viewing.
+
 ### Mobile-Agent-v3 (Note: The video is not accelerated)
 **YouTube**
 
@@ -45,6 +59,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢News
+* 🔥🔥[1.20.25] We propose [Mobile-Agent-E](https://x-plug.github.io/MobileAgent), a hierarchical multi-agent framework capable of self-evolution through past experience, achieving stronger performance on complex, multi-app tasks. 
 * 🔥🔥[9.26] Mobile-Agent-v2 has been accepted by **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)**.
 * 🔥[8.23] We proposed PC-Agent, a **PC** operation assistant supporting both **Mac and Windows** platforms.
 * 🔥[7.29] Mobile-Agent won the **best demo award** at the ***The 23rd China National Conference on Computational Linguistics*** (CCL 2024). On the CCL 2024, we displayed the upcoming Mobile-Agent-v3. It has smaller memory overhead (8 GB), faster reasoning speed (10s-15s per operation), and all uses open source models. Video demo, please see the last section 📺Demo.
@@ -54,6 +69,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 * [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
 
 ## 📱Version
+* [Mobile-Agent-E](Mobile-Agent-E/README.md) - Stronger performance on complex, long-horizon, reasoning-intensive tasks, with self-evolution capability
 * [Mobile-Agent-v3](Mobile-Agent-v3/README.md)
 * [Mobile-Agent-v2](Mobile-Agent-v2/README.md) - Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration
 * [Mobile-Agent](Mobile-Agent/README.md) - Autonomous Multi-Modal Mobile Device Agent with Visual Perception
