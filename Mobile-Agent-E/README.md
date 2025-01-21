@@ -19,7 +19,7 @@
 •
 <a href="">🗃️ arXiv (coming soon) </a>
 •
-<a href="static/pdf/mobile_agent_e_jan20_arxiv.pdf">📃 PDF </a>
+<a href="https://x-plug.github.io/MobileAgent/Mobile-Agent-E/static/pdf/mobile_agent_e_jan20_arxiv.pdf">📃 PDF </a>
 •
 <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E" >💻 Code</a>
 •
