@@ -101,7 +101,7 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     - You can set the `CAPTION_MODEL` in `inference_agent_E.py` to "qwen-vl-max" for a better perception performance but with higher pricing.
     - If you machine is equipped with a high-performance GPU, you can also choose to host the icon captioning model locally: (1) set the `CAPTION_CALL_METHOD` to "local"; (2) set `CAPTION_MODEL` to 'qwen-vl-chat' or 'qwen-vl-chat-int4' depending on the GPU spec.
 
-4. Customize initial Tips: You can tailor the tips for the agent to suit your specific device and needs. To do so, modify the `INIT_TIPS` in `inference_agent_E.py`
+4. Customize initial Tips: You can tailor the tips for the agent to suit your specific device and needs. To do so, modify the `INIT_TIPS` in `inference_agent_E.py`. An example of customized tips for Chinese apps such as Xiaohongshu and Taobao are provided in `data/custom_tips_example_for_cn_apps.txt`.
 
 ## 🚀 Quick Start
 

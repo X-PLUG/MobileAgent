@@ -1,0 +1,6 @@
+0. Do not add any payment information. If you are asked to sign in, ignore it or sign in as a guest if possible. Close any pop-up windows when opening an app.
+1. By default, no APPs are opened in the background.
+2. Screenshots may show partial text in text boxes from your previous input; this does not count as an error.
+3. When creating new Notes, you do not need to enter a title unless the user specifically requests it.
+4. If the keyboard is already active, do NOT use the shortcut Tap_Type_and_Enter, just type the text, and enter in the next action.
+5. When interacting with Chinese Apps, the “搜索” button is not for entering text, do NOT tap it before entering your search query.
