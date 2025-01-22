@@ -17,7 +17,7 @@
 <p align="center">
 <a href="https://x-plug.github.io/MobileAgent">🌐 Homepage</a>
 •
-<a href="">🗃️ arXiv (coming soon) </a>
+<a href="https://arxiv.org/abs/2501.11733">🗃️ arXiv</a>
 •
 <a href="https://x-plug.github.io/MobileAgent/Mobile-Agent-E/static/pdf/mobile_agent_e_jan20_arxiv.pdf">📃 PDF </a>
 •
@@ -124,4 +124,13 @@ The proposed Mobile-Eval-E benchmark can be found in `data/Mobile-Eval-E` and al
 ## 📚 Citation
 
 ```bibtex
+@misc{wang2025mobileagenteselfevolvingmobileassistant,
+      title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks}, 
+      author={Zhenhailong Wang and Haiyang Xu and Junyang Wang and Xi Zhang and Ming Yan and Ji Zhang and Fei Huang and Heng Ji},
+      year={2025},
+      eprint={2501.11733},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2501.11733}, 
+}
 ```

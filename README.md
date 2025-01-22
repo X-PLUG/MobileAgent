@@ -4,6 +4,7 @@
 <div align="center">
 	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
 	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+  <a href="https://arxiv.org/abs/2501.11733"><img src="https://img.shields.io/badge/Arxiv-2501.11733-b31b1b.svg?logo=arXiv" alt=""></a>
   <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
   <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
 </div>
@@ -83,6 +84,16 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 ## 📑Citation
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
+@misc{wang2025mobileagenteselfevolvingmobileassistant,
+      title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks}, 
+      author={Zhenhailong Wang and Haiyang Xu and Junyang Wang and Xi Zhang and Ming Yan and Ji Zhang and Fei Huang and Heng Ji},
+      year={2025},
+      eprint={2501.11733},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2501.11733}, 
+}
+
 @article{wang2024mobile2,
   title={Mobile-Agent-v2: Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration},
   author={Wang, Junyang and Xu, Haiyang and Jia, Haitao and Zhang, Xi and Yan, Ming and Shen, Weizhou and Zhang, Ji and Huang, Fei and Sang, Jitao},
