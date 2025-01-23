@@ -13,3 +13,4 @@ __pycache__/
 logs/*
 README_submission.md
 screenshot/*
+.DS_Store
