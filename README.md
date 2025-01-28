@@ -84,14 +84,11 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 ## 📑Citation
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
-@misc{wang2025mobileagenteselfevolvingmobileassistant,
-      title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks}, 
-      author={Zhenhailong Wang and Haiyang Xu and Junyang Wang and Xi Zhang and Ming Yan and Ji Zhang and Fei Huang and Heng Ji},
-      year={2025},
-      eprint={2501.11733},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2501.11733}, 
+@article{wang2025mobile,
+  title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks},
+  author={Wang, Zhenhailong and Xu, Haiyang and Wang, Junyang and Zhang, Xi and Yan, Ming and Zhang, Ji and Huang, Fei and Ji, Heng},
+  journal={arXiv preprint arXiv:2501.11733},
+  year={2025}
 }
 
 @article{wang2024mobile2,
