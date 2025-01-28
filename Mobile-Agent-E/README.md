@@ -124,13 +124,10 @@ The proposed Mobile-Eval-E benchmark can be found in `data/Mobile-Eval-E` and al
 ## 📚 Citation
 
 ```bibtex
-@misc{wang2025mobileagenteselfevolvingmobileassistant,
-      title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks}, 
-      author={Zhenhailong Wang and Haiyang Xu and Junyang Wang and Xi Zhang and Ming Yan and Ji Zhang and Fei Huang and Heng Ji},
-      year={2025},
-      eprint={2501.11733},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2501.11733}, 
+@article{wang2025mobile,
+  title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks},
+  author={Wang, Zhenhailong and Xu, Haiyang and Wang, Junyang and Zhang, Xi and Yan, Ming and Zhang, Ji and Huang, Fei and Ji, Heng},
+  journal={arXiv preprint arXiv:2501.11733},
+  year={2025}
 }
 ```
