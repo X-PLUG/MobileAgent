@@ -54,8 +54,9 @@ Ming Yan<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Heng Ji<sup>1
 
 ### Installation
 ```
-conda env create -f environment.yml
+conda create -n mobile_agent_e python=3.10 -y
 conda activate mobile_agent_e
+pip install -r requirements.txt
 ```
 
 ### Preparation for Connecting Mobile Device with ADB
