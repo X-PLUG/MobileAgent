@@ -1,7 +1,9 @@
-## PC-Agent: A Multi-Agent Collaboration System for Automated Computer Control
+## PC-Agent: A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC
 
 ## 📢News
-🔥[8.23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
+🔥[2025-02-21] We have released an updated version of PC-Agent. Check the [paper](https://arxiv.org/abs/2502.14282) for details. The code will be updated soon.
+
+🔥[2024-08-23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
 
 ## 📺Demo
 [https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Download%20paper%20from%20Chorme.mp4](https://github.com/user-attachments/assets/5abb9dc8-d49b-438b-ac44-19b3e2da03cb)
