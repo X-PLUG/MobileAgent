@@ -63,6 +63,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 
 
 ## 📢News
+* 🔥🔥[2.21.25] We have released an updated version of PC-Agent. Check the [paper](https://arxiv.org/abs/2502.14282) for details. The code will be updated soon.
 * 🔥🔥[1.20.25] We propose [Mobile-Agent-E](https://x-plug.github.io/MobileAgent), a hierarchical multi-agent framework capable of self-evolution through past experience, achieving stronger performance on complex, multi-app tasks. 
 * 🔥🔥[9.26] Mobile-Agent-v2 has been accepted by **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)**.
 * 🔥[8.23] We proposed PC-Agent, a **PC** operation assistant supporting both **Mac and Windows** platforms.
@@ -73,6 +74,7 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 * [3.10] Mobile-Agent has been accepted by the **ICLR 2024 Workshop on Large Language Model (LLM) Agents**.
 
 ## 📱Version
+* [PC-Agent](PC-Agent/README.md) - A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC
 * [Mobile-Agent-E](Mobile-Agent-E/README.md) - Stronger performance on complex, long-horizon, reasoning-intensive tasks, with self-evolution capability
 * [Mobile-Agent-v3](Mobile-Agent-v3/README.md)
 * [Mobile-Agent-v2](Mobile-Agent-v2/README.md) - Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration
@@ -84,6 +86,13 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
 ## 📑Citation
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
+@article{liu2025pc,
+  title={PC-Agent: A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC},
+  author={Liu, Haowei and Zhang, Xi and Xu, Haiyang and Wanyan, Yuyang and Wang, Junyang and Yan, Ming and Zhang, Ji and Yuan, Chunfeng and Xu, Changsheng and Hu, Weiming and Huang, Fei},
+  journal={arXiv preprint arXiv:2502.14282},
+  year={2025}
+}
+
 @article{wang2025mobile,
   title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks},
   author={Wang, Zhenhailong and Xu, Haiyang and Wang, Junyang and Zhang, Xi and Yan, Ming and Zhang, Ji and Huang, Fei and Ji, Heng},
