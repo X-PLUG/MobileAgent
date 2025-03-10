@@ -65,7 +65,6 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-7
 ### Mobile-Agent
 https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
 
-
 ## 📢News
 * 🔥🔥[2.21.25] We have released an updated version of PC-Agent. Check the [paper](https://arxiv.org/abs/2502.14282) for details. The code will be updated soon.
 * 🔥🔥[1.20.25] We propose [Mobile-Agent-E](https://x-plug.github.io/MobileAgent), a hierarchical multi-agent framework capable of self-evolution through past experience, achieving stronger performance on complex, multi-app tasks. 
