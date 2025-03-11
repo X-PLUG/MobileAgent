@@ -78,17 +78,11 @@ def draw_coordinates_boxes_on_image(image_path, coordinates, output_image_path, 
 
 
 parser = argparse.ArgumentParser(description="PC Agent")
-# parser.add_argument('--instruction', type=str, default="打开桌面上的memo文本文件，查看其中的第二个事件，并在闹钟中设定一个在这个事件前一小时的闹钟")
-parser.add_argument('--instruction', type=str, default="在Chrome中搜索英伟达的股价，然后在股票信息excel文件中，将公司名写在A列，股票信息写在B列。")
-# parser.add_argument('--instruction', type=str, default="在当前表格的A1位置写入数字100")
-
-
+parser.add_argument('--instruction', type=str, default="Open Chrome")
 parser.add_argument('--use_som', type=int, default=1) # for action
 parser.add_argument('--draw_text_box', type=int, default=0, help="whether to draw text boxes in som.")
 parser.add_argument('--font_path', type=str, default="C:\Windows\Fonts\\times.ttf")
-# parser.add_argument('--add_info', type=str, default="通过ctrl+t来新建标签页，从而进行新的搜索")
 parser.add_argument('--add_info', type=str, default="")
-
 parser.add_argument('--disable_reflection', type=int, default=1)
 parser.add_argument('--clear_history_each_subtask', type=int, default=1)
 parser.add_argument('--ratio', type=float, default=0.5)
