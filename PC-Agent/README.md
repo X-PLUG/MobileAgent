@@ -1,6 +1,8 @@
 ## PC-Agent: A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC
 
 ## 📢News
+🔥[2025-03-12] The code has been updated.
+
 🔥[2025-02-21] We have released an updated version of PC-Agent. Check the [paper](https://arxiv.org/abs/2502.14282) for details. The code will be updated soon.
 
 🔥[2024-08-23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
@@ -28,7 +30,7 @@
 Now **Windows** is supported.
 ```
 # For Windows
-pip install -r requirements_v2.txt
+pip install -r requirements.txt
 
 git clone https://github.com/Topdu/OpenOCR.git
 pip install openocr-python
