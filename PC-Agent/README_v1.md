@@ -13,47 +13,34 @@
 [https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Write%20an%20introduction%20of%20Alibaba%20in%20Word.mp4](https://github.com/user-attachments/assets/37f0a0a5-3d21-4232-9d1d-0fe845d0f77d)
 
 ## 📋Introduction
-* PC-Agent is a multi-agent collaboration system, which can achieve automated control of productivity scenarios (_e.g._ Chrome, Word, and WeChat) based on user instructions.
-* Active perception module designed for dense and diverse interactive elements are better adapted to the PC platform.
-* The hierarchical multi-agent cooperative structure improves the success rate of more complex task sequences.
+* PC-Agent is a multi-agent collaboration system, which can achieve automated control of computer software (_e.g._ Chrome, Word, and WeChat) based on user instructions.
+* The visual perception module designed for high-resolution screens is better suited for the PC platforms.
+* The Planning-Decision-Reflection framework improves the success rate of operations.
 
-<!-- * PC-Agent是一个面向复杂PC任务的多模态智能体框架，基于视觉感知实现多种生产力场景的自动控制，包括Chrome, Word, WeChat等。
-* 针对密集多样的可交互元素设计的主动感知模块更好地适应PC平台。
-* 层次化多智能体协作结构提高了更复杂任务序列的成功率。
+<!-- * PC-Agent是一个多智能体协作的系统，基于视觉感知实现多种电脑端应用的自动控制，包括Chrome, Word, WeChat等。
+* 针对高分辨率屏幕设计的视觉感知模块更好地适应PC平台。
+* 规划-决策-反思框架提高了操作的成功率。
  -->
 
 ## 🔧Getting Started
 
 ### Installation
-Now **Windows** is supported.
+Both **MacOS** and **Windows** are supported.
 ```
+# For MacOS
+pip install -r requirements.txt
 # For Windows
-pip install -r requirements_v2.txt
-
-git clone https://github.com/Topdu/OpenOCR.git
-pip install openocr-python
-```
-
-### Configuration
-Edit config.json to add your API keys and customize settings:
-```
-# API configuration
-{
-  "model_name": "GPT-4o",
-  "token": "sk-...", # Replace with your actual API key
-  "url": "https://api.openai.com/v1"
-}
+pip install -r requirements_win.txt
 ```
 
 ### Test on your computer
 
 1. Run the *run.py* with your instruction and your GPT-4o api token. For example,
 ```
-python run.py --instruction="Create a new doc on Word, write a brief introduction of Alibaba, and save the document." 
+python run.py --instruction="Create a new doc on Word, write a brief introduction of Alibaba, and save the document." --api_token='Your GPT-4o API token.'
 ```
 
 2. Optionally, you can add specific operational knowledge via the *--add_info* option to help PC-Agent operate more accurately.
 
 3. To further improve the operation efficiency of PC-Agent, you can set *--disable_reflection* to skip the reflection process. Note that this may reduce the success rate of the operation.
 
-4. If the task is not very complex, you can set *--simple 1* to skip the task decomposition.

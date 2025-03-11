@@ -5,11 +5,11 @@ import torch
 import shutil
 from PIL import Image, ImageDraw
 
-from PCAgent.api import inference_chat
-from PCAgent.text_localization import ocr
-from PCAgent.icon_localization import det
-from PCAgent.prompt import get_action_prompt, get_reflect_prompt, get_memory_prompt, get_process_prompt
-from PCAgent.chat import init_action_chat, init_reflect_chat, init_memory_chat, add_response
+from PCAgent_v1.api import inference_chat
+from PCAgent_v1.text_localization import ocr
+from PCAgent_v1.icon_localization import det
+from PCAgent_v1.prompt import get_action_prompt, get_reflect_prompt, get_memory_prompt, get_process_prompt
+from PCAgent_v1.chat import init_action_chat, init_reflect_chat, init_memory_chat, add_response
 
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
@@ -23,7 +23,7 @@ from pynput.mouse import Button, Controller
 import argparse
 import pyautogui
 import pyperclip
-from PCAgent.merge_strategy import merge_boxes_and_texts, merge_all_icon_boxes, merge_boxes_and_texts_new
+from PCAgent_v1.merge_strategy import merge_boxes_and_texts, merge_all_icon_boxes, merge_boxes_and_texts_new
 
 
 
