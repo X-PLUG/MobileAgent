@@ -150,7 +150,7 @@ def get_action_prompt(instruction, clickable_infos, width, height, thought_histo
 
     for clickable_info in clickable_infos:
         if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
-            prompt += f"{clickable_info['text']}\n"
+            prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
             # print(f"{clickable_info['coordinates']}; {clickable_info['text']}\n")
     
     
