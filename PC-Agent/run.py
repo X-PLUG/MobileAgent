@@ -85,7 +85,7 @@ parser.add_argument('--font_path', type=str, default="C:\Windows\Fonts\\times.tt
 parser.add_argument('--add_info', type=str, default="")
 parser.add_argument('--disable_reflection', type=int, default=1)
 parser.add_argument('--clear_history_each_subtask', type=int, default=1)
-parser.add_argument('--ratio', type=float, default=0.5)
+parser.add_argument('--ratio', type=float, default=1.0)
 parser.add_argument('--use_a11y', type=int, default=1)
 parser.add_argument('--text_len_thre', type=int, default=1000)
 parser.add_argument('--num_step_limit', type=int, default=20)
