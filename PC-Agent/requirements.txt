@@ -36,4 +36,4 @@ openai
 alibabacloud_tea_util
 alibabacloud_ocr_api20210707
 alibabacloud_tea_openapi
-modelscope=1.15.0
+modelscope==1.15.0
