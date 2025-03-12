@@ -13,7 +13,7 @@ from PCAgent.chat import init_action_chat, init_reflect_chat, init_memory_chat, 
 
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
-from modelscope import snapshot_download, AutoModelForCausalLM, AutoTokenizer, GenerationConfig
+from modelscope import snapshot_download
 
 from dashscope import MultiModalConversation
 import dashscope
