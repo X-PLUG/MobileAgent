@@ -1,7 +1,6 @@
 import os
 import time
 import copy
-import torch
 import shutil
 from PIL import Image, ImageDraw
 
