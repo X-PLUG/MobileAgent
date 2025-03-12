@@ -34,3 +34,5 @@ websocket-client==1.8.0
 yarl==1.18.3
 openai
 alibabacloud_tea_util
+alibabacloud_ocr_api20210707
+alibabacloud_tea_openapi
