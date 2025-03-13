@@ -29,6 +29,9 @@
 ### Installation
 Now **Windows** is supported.
 ```
+conda create --name pcagent python=3.10
+source activate pcagent
+
 # For Windows
 pip install -r requirements.txt
 
