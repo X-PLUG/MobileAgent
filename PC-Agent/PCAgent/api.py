@@ -36,7 +36,8 @@ def inference_chat(chat, model, api_url, token):
         messages.append({"role": role, "content": content})
 
     client = OpenAI(
-        api_key=token,
+        # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
+        api_key=token, 
         base_url=api_url,
     )
 
@@ -45,7 +46,7 @@ def inference_chat(chat, model, api_url, token):
     for _ in range(num_try):
         try:
             completion = client.chat.completions.create(
-                model=model,
+                model=model, # 此处以qwen-plus为例，可按需更换模型名称。模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
                 messages=messages
             )
         except:
@@ -60,4 +61,17 @@ def inference_chat(chat, model, api_url, token):
 
     
     return json.loads(completion.model_dump_json())['choices'][0]['message']['content']
+
+    # headers = {
+    #     "Content-Type": "application/json",
+    #     "Authorization": f"Bearer {token}"
+    # }
+
+    # data = {
+    #     "model": model,
+    #     "messages": [],
+    #     "max_tokens": 2048,
+    #     'temperature': 0.0,
+    #     "seed": 1234
+    # }
 

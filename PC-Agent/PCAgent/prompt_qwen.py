@@ -151,7 +151,6 @@ def get_action_prompt(instruction, clickable_infos, width, height, thought_histo
     for clickable_info in clickable_infos:
         if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
             prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
-            # print(f"{clickable_info['coordinates']}; {clickable_info['text']}\n")
     
     
     if len(action_history) > 0:
@@ -226,6 +225,9 @@ def get_action_prompt(instruction, clickable_infos, width, height, thought_histo
 {"Thought": "This is your thinking about how to proceed the next operation, please output the thoughts about the history operations explicitly.", "Action": "Open App () or Tap () or Double Tap () or Triple Tap () or Shortcut () or Press() or Type () or Tell () or Stop. Only one action can be output at one time.", "Summary": "This is a one sentence summary of this operation."}
 '''
     prompt += "\n\n"
+
+
+    # print(prompt)
 
     return prompt
 

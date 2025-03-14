@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 
+
 def crop_image(img, position):
     def distance(x1,y1,x2,y2):
         return math.sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2))    
@@ -117,4 +118,3 @@ def crop_for_clip(image, box, i, position):
         return True
     else:
         return False
-

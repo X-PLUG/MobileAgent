@@ -3,9 +3,8 @@ import time
 import copy
 import shutil
 from PIL import Image, ImageDraw
- 
+
 from PCAgent.api import inference_chat
-from PCAgent.text_localization_old import ocr
 from PCAgent.icon_localization import det
 from PCAgent.prompt_qwen import get_action_prompt, get_reflect_prompt, get_memory_prompt, get_process_prompt, get_select_prompt
 from PCAgent.prompt_qwen import get_subtask_prompt as get_subtask_prompt
@@ -13,7 +12,7 @@ from PCAgent.chat import init_action_chat, init_reflect_chat, init_memory_chat, 
 
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
-from modelscope import snapshot_download
+from modelscope import snapshot_download #, AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
 from dashscope import MultiModalConversation
 import dashscope
@@ -30,7 +29,6 @@ import pdb
 import ast
 import re
 
-from pywin import WindowsACI, UIElement
 from OpenOCR.tools.infer_e2e import OpenOCR
 
 def contains_chinese(text):
@@ -77,20 +75,24 @@ def draw_coordinates_boxes_on_image(image_path, coordinates, output_image_path, 
 
 
 parser = argparse.ArgumentParser(description="PC Agent")
-parser.add_argument('--instruction', type=str, default="Open Chrome")
+parser.add_argument('--instruction', type=str, default="在Chrome中打开魔搭官网")
+
 parser.add_argument('--use_som', type=int, default=1) # for action
 parser.add_argument('--draw_text_box', type=int, default=0, help="whether to draw text boxes in som.")
-parser.add_argument('--font_path', type=str, default="C:\Windows\Fonts\\times.ttf")
-parser.add_argument('--add_info', type=str, default="")
+parser.add_argument('--font_path', type=str, default="/System/Library/Fonts/Supplemental/Times New Roman.ttf")
+parser.add_argument('--add_info', type=str, default="点击页面中部的搜索栏来进行搜索")
+
 parser.add_argument('--disable_reflection', type=int, default=1)
 parser.add_argument('--clear_history_each_subtask', type=int, default=1)
-parser.add_argument('--ratio', type=float, default=1.0)
+parser.add_argument('--ratio', type=float, default=1.0) # 1.0 for windows and 2.0 for mac
 parser.add_argument('--use_a11y', type=int, default=1)
 parser.add_argument('--text_len_thre', type=int, default=1000)
 parser.add_argument('--num_step_limit', type=int, default=20)
-parser.add_argument('--simple', type=int, default=0) # for simple instruction
+parser.add_argument('--simple', type=int, default=1) # for simple instruction
 parser.add_argument('--screenshot_root', type=str, default='task_')
 parser.add_argument('--mute', type=int, default=0)
+parser.add_argument('--mac', type=int, default=1)
+parser.add_argument('--ocr_api', type=int, default=0) # use ocr api or ocr local model
 
 args = parser.parse_args()
 
@@ -104,9 +106,27 @@ llm_model_version = token_data['llm_model_name']
 API_url = token_data['url']
 token = token_data['token']
 
-ctrl_key = "ctrl"
-search_key = ["win", "s"]
 ratio = args.ratio
+
+if args.mac == 1:
+    ctrl_key = "command"
+    search_key = ["command", 'space']
+    ratio = 2
+    from pymac import MacOSACI, UIElement
+else:
+    from pywin import WindowsACI, UIElement
+    ctrl_key = "ctrl"
+    search_key = ["win", "s"]
+
+if args.ocr_api == 1:
+    from PCAgent.text_localization import ocr
+    os.environ["OCR_ACCESS_KEY_ID"] = token_data['OCR_ACCESS_KEY_ID']
+    os.environ["OCR_ACCESS_KEY_SECRET"] = token_data['OCR_ACCESS_KEY_SECRET']
+else:
+    from PCAgent.text_localization_old import ocr
+    # ### Load ocr and icon detection model ###
+    ocr_detection = pipeline(Tasks.ocr_detection, model='damo/cv_resnet18_ocr-detection-line-level_damo')
+    ocr_recognition = pipeline(Tasks.ocr_recognition, model='damo/cv_convnextTiny_ocr-recognition-document_damo')
 
 
 def get_screenshot(screenshot_file):
@@ -303,7 +323,10 @@ def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
     for i, img in enumerate(img_list):
         width, height = Image.open(img).size
 
-        sub_text, sub_coordinates = ocr(img, ocr_detection, ocr_recognition) # for old
+        if args.ocr_api == 1:
+            sub_text, sub_coordinates = ocr(img) # for api
+        else:
+            sub_text, sub_coordinates = ocr(img, ocr_detection, ocr_recognition)  # for old
         for coordinate in sub_coordinates:
             coordinate[0] = int(max(0, img_x_list[i] + coordinate[0] - padding))
             coordinate[2] = int(min(total_width, img_x_list[i] + coordinate[2] + padding))
@@ -325,6 +348,9 @@ def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
 
 
     if args.use_a11y == 0:
+        # if args.mac == 1:
+        #     merged_icon_coordinates = []
+        # else:
         coordinates = []
         for i, img in enumerate(img_list):
             width, height = Image.open(img).size
@@ -339,18 +365,28 @@ def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
             coordinates.extend(sub_coordinates)
         merged_icon_coordinates = merge_all_icon_boxes(coordinates)
     else:
+        if args.mac == 1:
+            ACI = MacOSACI()
+        else:
+            ACI = WindowsACI()
+
         obs = {}
+        # import pdb; pdb.set_trace()
         obs["accessibility_tree"] = UIElement.systemWideElement()
-        ACI = WindowsACI()
         elements = ACI.linearize_and_annotate_tree(obs)
         elements_filtered = [ele for ele in elements if len(ele['text'])<args.text_len_thre and ele['text'] not in exclude_words] # and "List Paragraph" not in ele['text']]
         elements = elements_filtered
+        # import pdb; pdb.set_trace()
         merged_icon_coordinates = [[ele['position'][0], ele['position'][1], ele['position'][0]+ele['size'][0], ele['position'][1]+ele['size'][1]] for ele in elements]
+
+        merged_icon_coordinates = [[ele[0]*ratio, ele[1]*ratio, ele[2]*ratio, ele[3]*ratio] for ele in merged_icon_coordinates]
 
         ocr_bboxes = [(merged_text[i], merged_text_coordinates[i]) for i in range(len(merged_text))]
         filtered_ocr_bboxes = ACI.filter_ocr_elements(ocr_bboxes, elements)
         merged_text = [_[0] for _ in filtered_ocr_bboxes]
         merged_text_coordinates = [_[1] for _ in filtered_ocr_bboxes]
+        # print(merged_text_coordinates)
+        # print(merged_icon_coordinates)
 
     if args.draw_text_box == 1:
         rec_list = merged_text_coordinates + merged_icon_coordinates
@@ -370,12 +406,20 @@ def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
         perception_infos.append(perception_info)
 
     for i in range(len(merged_icon_coordinates)):
+        # import pdb;
+        # pdb.set_trace()
         if args.use_som == 1:
             mark_number += 1
             if args.use_a11y == 0:
                 perception_info = {"text": "mark number: " + str(mark_number) + " icon", "coordinates": merged_icon_coordinates[i]}
             else:
-                perception_info = {"text": "mark number: " + str(mark_number) + " icon: " + elements[i]['text'], "coordinates": merged_icon_coordinates[i]}
+                if elements[i]['text'] != "None":
+                    perception_info = {"text": "mark number: " + str(mark_number) + " icon: " + elements[i]['text'], "coordinates": merged_icon_coordinates[i]}
+                elif elements[i]['title'] != "None":
+                    perception_info = {"text": "mark number: " + str(mark_number) + " icon: " + elements[i]['title'], "coordinates": merged_icon_coordinates[i]}
+                else:
+                    perception_info = {"text": "mark number: " + str(mark_number) + " icon: " + elements[i]['role'], "coordinates": merged_icon_coordinates[i]}
+
         else:
             if args.use_a11y == 0:
                 perception_info = {"text": "icon", "coordinates": merged_icon_coordinates[i]}
@@ -388,12 +432,7 @@ def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
 
     return perception_infos, total_width, total_height
 
-
-### Load ocr and icon detection model ###
-ocr_detection = pipeline(Tasks.ocr_detection, model='damo/cv_resnet18_ocr-detection-line-level_damo')
-ocr_recognition = pipeline(Tasks.ocr_recognition, model='damo/cv_convnextTiny_ocr-recognition-document_damo')
-
-if not args.use_a11y:
+if args.use_a11y != 1:
     groundingdino_dir = snapshot_download('AI-ModelScope/GroundingDINO', revision='v1.0.0')
     groundingdino_model = pipeline('grounding-dino-task', model=groundingdino_dir)
 
