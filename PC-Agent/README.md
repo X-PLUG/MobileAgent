@@ -27,13 +27,16 @@
 ## 🔧Getting Started
 
 ### Installation
-Now **Windows** is supported.
+Now both **Windows** and **Mac** are supported.
 ```
 conda create --name pcagent python=3.10
 source activate pcagent
 
 # For Windows
 pip install -r requirements.txt
+
+# For Mac
+pip install -r requirements_mac.txt
 
 git clone https://github.com/Topdu/OpenOCR.git
 pip install openocr-python
@@ -55,7 +58,11 @@ Edit config.json to add your API keys and customize settings:
 
 1. Run the *run.py* with your instruction and your GPT-4o api token. For example,
 ```
-python run.py --instruction="Create a new doc on Word, write a brief introduction of Alibaba, and save the document." 
+# For Windows
+python run.py --instruction="Open Chrome and search the PC-Agent paper." --Mac 0
+
+# For Mac
+python run.py --instruction="Open Chrome and search the PC-Agent paper." --Mac 1
 ```
 
 2. Optionally, you can add specific operational knowledge via the *--add_info* option to help PC-Agent operate more accurately.

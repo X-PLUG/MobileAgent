@@ -75,12 +75,12 @@ def draw_coordinates_boxes_on_image(image_path, coordinates, output_image_path, 
 
 
 parser = argparse.ArgumentParser(description="PC Agent")
-parser.add_argument('--instruction', type=str, default="在Chrome中打开魔搭官网")
+parser.add_argument('--instruction', type=str, default="")
 
 parser.add_argument('--use_som', type=int, default=1) # for action
 parser.add_argument('--draw_text_box', type=int, default=0, help="whether to draw text boxes in som.")
 parser.add_argument('--font_path', type=str, default="/System/Library/Fonts/Supplemental/Times New Roman.ttf")
-parser.add_argument('--add_info', type=str, default="点击页面中部的搜索栏来进行搜索")
+parser.add_argument('--add_info', type=str, default="Click the search bar in the middle of the page to search")
 
 parser.add_argument('--disable_reflection', type=int, default=1)
 parser.add_argument('--clear_history_each_subtask', type=int, default=1)
