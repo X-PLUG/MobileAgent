@@ -1,6 +1,8 @@
 ## PC-Agent: A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC
 
 ## 📢News
+🔥[2025-03-17] The PC-Eval instructions and related files have been uploaded at [HuggingFace](https://huggingface.co/datasets/StarBottle/PC-Eval).
+
 🔥[2025-03-12] The code has been updated.
 
 🔥[2025-02-21] We have released an updated version of PC-Agent. Check the [paper](https://arxiv.org/abs/2502.14282) for details. The code will be updated soon.
