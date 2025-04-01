@@ -49,8 +49,8 @@ Edit config.json to add your API keys and customize settings:
 ```
 # API configuration
 {
-  "vl_model_name": "GPT-4o",
-  "llm_model_name": "GPT-4o",
+  "vl_model_name": "gpt-4o",
+  "llm_model_name": "gpt-4o",
   "token": "sk-...", # Replace with your actual API key
   "url": "https://api.openai.com/v1"
 }
