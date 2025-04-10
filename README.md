@@ -22,9 +22,11 @@
 ## 📺Demo
 
 ### Newest PC-Agent
-Try the [demo](https://huggingface.co/spaces/junyangwang0410/PC-Agent) in Hugging Face Space.
-Try the [demo](https://www.modelscope.cn/studios/wangjunyang/PC-Agent) in ModelScope.
 See [paper](https://arxiv.org/abs/2502.14282) for details.
+
+Try the [demo](https://huggingface.co/spaces/junyangwang0410/PC-Agent) in Hugging Face Space.
+
+Try the [demo](https://www.modelscope.cn/studios/wangjunyang/PC-Agent) in ModelScope.
 
 https://github.com/user-attachments/assets/b13bbb14-b39a-4c6b-b4a6-3df97de517dc
 
