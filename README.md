@@ -2,8 +2,8 @@
 <div align="center">
 <h3>Mobile-Agent: The Powerful Mobile Device Operation Assistant Family<h3>
 <div align="center">
-	<a href="https://huggingface.co/spaces/junyangwang0410/Mobile-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
-	<a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+	<a href="https://huggingface.co/spaces/junyangwang0410/PC-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
+	<a href="https://www.modelscope.cn/studios/wangjunyang/PC-Agent"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
   <a href="https://arxiv.org/abs/2502.14282 "><img src="https://img.shields.io/badge/Arxiv-2502.14282-b31b1b.svg?logo=arXiv" alt=""></a>
   <a href="https://arxiv.org/abs/2501.11733"><img src="https://img.shields.io/badge/Arxiv-2501.11733-b31b1b.svg?logo=arXiv" alt=""></a>
   <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
@@ -22,6 +22,8 @@
 ## 📺Demo
 
 ### Newest PC-Agent
+Try the [demo](https://huggingface.co/spaces/junyangwang0410/PC-Agent) in Hugging Face Space.
+Try the [demo](https://www.modelscope.cn/studios/wangjunyang/PC-Agent) in ModelScope.
 See [paper](https://arxiv.org/abs/2502.14282) for details.
 
 https://github.com/user-attachments/assets/b13bbb14-b39a-4c6b-b4a6-3df97de517dc
