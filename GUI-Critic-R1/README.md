@@ -7,8 +7,8 @@ This repository contains the official implementation for the paper: [Look Before
 ## 📍TODO
 - [ ] Publish test data images
 - [ ] Release the model checkpoint
-- [ ] Release the GUI-Critic-Train dataset
-- [ ] Release GUI-Critic-R1 app test code for AndroidWorld
+- [ ] Publish the GUI-Critic-Train dataset
+- [ ] Release the test code that applies GUI-Critic-R1 on the AndroidWorld benchmark
 
 
 ## 💡Test on GUI-Critic-Test
