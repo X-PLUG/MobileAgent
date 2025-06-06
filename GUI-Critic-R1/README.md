@@ -3,7 +3,7 @@ This repository contains the official implementation for the paper: [Look Before
 
  
 ## 📢 News
-🔥[2025-06-06] We release the test code to evaluate the performance of GUI-Critic models (will be released on Hugging Face) on the GUI-Critic-Test dataset. 
+🔥[2025-06-06] We release the test code to evaluate the performance of GUI-Critic-R1 (will be released on Hugging Face) on the GUI-Critic-Test dataset. 
 
 
 ![](introduction.png)
