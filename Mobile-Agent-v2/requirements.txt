@@ -2,8 +2,8 @@ torch
 torchvision
 transformers
 modelscope==1.15.0
-TensorFlow==2.9.1
-keras==2.9.0
+TensorFlow==2.19.0
+keras==3.5.0
 git+https://github.com/openai/CLIP.git
 opencv-python
 matplotlib
@@ -11,7 +11,7 @@ pycocotools
 timm
 SentencePiece
 tf_slim
-tf_keras==2.15.0
+tf_keras==2.19.0
 pyclipper
 shapely
 supervision==0.21.0
