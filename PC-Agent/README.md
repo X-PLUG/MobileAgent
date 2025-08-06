@@ -61,10 +61,10 @@ Edit config.json to add your API keys and customize settings:
 1. Run the *run.py* with your instruction and your GPT-4o api token. For example,
 ```
 # For Windows
-python run.py --instruction="Open Chrome and search the PC-Agent paper." --Mac 0
+python run.py --instruction="Open Chrome and search the PC-Agent paper." --mac 0
 
 # For Mac
-python run.py --instruction="Open Chrome and search the PC-Agent paper." --Mac 1
+python run.py --instruction="Open Chrome and search the PC-Agent paper." --mac 1
 ```
 
 2. Optionally, you can add specific operational knowledge via the *--add_info* option to help PC-Agent operate more accurately.
