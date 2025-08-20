@@ -43,6 +43,12 @@ Ming Yan<sup>2</sup>, Ji Zhang<sup>2</sup>, Fei Huang<sup>2</sup>, Heng Ji<sup>1
 </div>
 <br>
 
+</div>
+<div align="center">
+  <a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
+<hr>
+</div>
+
 <p align="center">
   <img src="static/images/new_teaser.png" alt="logo" width="900">
 </p>

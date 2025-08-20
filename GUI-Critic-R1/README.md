@@ -1,12 +1,16 @@
 # Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation
 This repository contains the official implementation for the paper: [Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation](https://arxiv.org/abs/2506.04614).
 
+<div align="center">
+<a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
+<hr>
+</div>
  
 ## 📢 News
 🔥[2025-06-06] We release the test code to evaluate the performance of GUI-Critic-R1 (will be released on Hugging Face) on the GUI-Critic-Test dataset. 
 
 
-![](introduction.png)
+![](assets/introduction.png)
 ## 📋 Introduction
 Unlike general offline multimodal tasks, GUI automation is executed in online interactive environments, necessitating step-by-step decision-making based on real-time status of the environment. 
 This task has a lower tolerance for decision-making errors at each step, as any mistakes may cumulatively disrupt the process and potentially lead to irreversible outcomes like deletions or payments. 
@@ -53,3 +57,14 @@ Parameter descriptions:
 - `--save_dir`: Directory to save the results
 - `--data_dir`: Directory containing the dataset
 
+## 📑Citation
+
+If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
+```
+@article{wanyan2025look,
+  title={Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation},
+  author={Wanyan, Yuyang and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Ye, Jiabo and Kou, Yutong and Yan, Ming and Huang, Fei and Yang, Xiaoshan and others},
+  journal={arXiv preprint arXiv:2506.04614},
+  year={2025}
+}
+```

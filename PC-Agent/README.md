@@ -1,5 +1,10 @@
 ## PC-Agent: A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC
 
+<div align="center">
+<a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
+<hr>
+</div>
+
 ## 📢News
 🔥[2025-03-17] The PC-Eval instructions and related files have been uploaded at [HuggingFace](https://huggingface.co/datasets/StarBottle/PC-Eval).
 
@@ -10,11 +15,11 @@
 🔥[2024-08-23] We have released the code of PC-Agent, supporting both Mac and Windows platforms.
 
 ## 📺Demo
-[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Download%20paper%20from%20Chorme.mp4](https://github.com/user-attachments/assets/5abb9dc8-d49b-438b-ac44-19b3e2da03cb)
+[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent_v1/demo/Download%20paper%20from%20Chorme.mp4](https://github.com/user-attachments/assets/5abb9dc8-d49b-438b-ac44-19b3e2da03cb)
 
-[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Search%20NBA%20FMVP%20and%20send%20to%20friend.mp4](https://github.com/user-attachments/assets/b890a08f-8a2f-426d-9458-aa3699185030)
+[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent_v1/demo/Search%20NBA%20FMVP%20and%20send%20to%20friend.mp4](https://github.com/user-attachments/assets/b890a08f-8a2f-426d-9458-aa3699185030)
 
-[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent/demo/Write%20an%20introduction%20of%20Alibaba%20in%20Word.mp4](https://github.com/user-attachments/assets/37f0a0a5-3d21-4232-9d1d-0fe845d0f77d)
+[https://github.com/X-PLUG/MobileAgent/blob/main/PC-Agent/PCAgent_v1/demo/Write%20an%20introduction%20of%20Alibaba%20in%20Word.mp4](https://github.com/user-attachments/assets/37f0a0a5-3d21-4232-9d1d-0fe845d0f77d)
 
 ## 📋Introduction
 * PC-Agent is a multi-agent collaboration system, which can achieve automated control of productivity scenarios (_e.g._ Chrome, Word, and WeChat) based on user instructions.
