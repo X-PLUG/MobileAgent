@@ -32,7 +32,7 @@
 </div>
 
 ## 📢News
-- `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are coming! 
+- `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
   - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
   - Mobile-Agent-v3 is a cross-platform multi-agent framework based on GUI-Owl. It provides capabilities such as planning, progress management, reflection, and memory.
 - `[2025.8.14]`🔥 Mobile-Agent-v3 won the **best demo award** at the ***The 24rd China National Conference on Computational Linguistics*** (CCL 2025).
