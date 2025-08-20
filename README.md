@@ -31,7 +31,16 @@
 <hr>
 </div>
 
-> 📢📢📢 All new **GUI-Owl** and **Mobile-Agent-v3** are coming! 👇👇👇
+## 📢News
+- `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are coming! 
+  - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
+  - Mobile-Agent-v3 is a cross-platform multi-agent framework based on GUI-Owl. It provides capabilities such as planning, progress management, reflection, and memory.
+- `[2025.8.14]`🔥 Mobile-Agent-v3 won the **best demo award** at the ***The 24rd China National Conference on Computational Linguistics*** (CCL 2025).
+- `[2025.3.17]` PC-Agent has been accepted by the **ICLR 2025 Workshop**.
+- `[2024.9.26]` Mobile-Agent-v2 has been accepted by **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)**.
+- `[2024.7.29]` Mobile-Agent won the **best demo award** at the ***The 23rd China National Conference on Computational Linguistics*** (CCL 2024).
+- `[2024.3.10]` Mobile-Agent has been accepted by the **ICLR 2024 Workshop**.
+
 
 ## 📊Results
 
@@ -61,14 +70,6 @@
 - The highly integrated operating space reduces the perception and operation frequency of the model.
 - Extensive exception handling and reflection capabilities provide more stable performance in scenarios such as pop-ups and advertisements.
 - The key information recording capability enables cross-application tasks.
-
-## 📢News
-- `[2025.8.20]`🔥 We released and open sourced GUI-Owl and its adapted multi-agent framework Mobile-Agent-v3.
-- `[2025.8.14]`🔥 Mobile-Agent-v3 won the **best demo award** at the ***The 24rd China National Conference on Computational Linguistics*** (CCL 2025).
-- `[2025.3.17]` PC-Agent has been accepted by the **ICLR 2025 Workshop**.
-- `[2024.9.26]` Mobile-Agent-v2 has been accepted by **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)**.
-- `[2024.7.29]` Mobile-Agent won the **best demo award** at the ***The 23rd China National Conference on Computational Linguistics*** (CCL 2024).
-- `[2024.3.10]` Mobile-Agent has been accepted by the **ICLR 2024 Workshop**.
 
 ## 📝Series of Work
 
