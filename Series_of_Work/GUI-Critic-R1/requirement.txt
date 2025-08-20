@@ -1,0 +1,10 @@
+requests
+tqdm
+Pillow
+numpy
+dashscope
+transformers
+torch
+scikit-learn
+modelscope
+qwen_vl_utils

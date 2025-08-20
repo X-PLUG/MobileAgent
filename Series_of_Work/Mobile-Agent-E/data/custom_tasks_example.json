@@ -1,0 +1,24 @@
+{
+    "length": 2,
+    "scenario": "testing",
+    "scenario_id": 0,
+    "tasks": [
+        {
+            "task_id": "testing_0",
+            "instruction": "Open Notes, create a new note, and write a joke in it.",
+            "type": "single_app",
+            "apps": [
+                "Notes"
+            ]
+        },
+        {
+            "task_id": "testing_1",
+            "instruction": "Check today's weather on Google and create a new note about it.",
+            "type": "multi_app",
+            "apps": [
+                "Google",
+                "Notes"
+            ]
+        }
+    ]
+}

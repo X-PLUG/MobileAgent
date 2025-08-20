@@ -1,5 +1,0 @@
-The following content may help you complete the instruction:
-1. "暗色模式" can be turned on in "设置" app.
-2. "显示与亮度" can be found by scrolling down the setting page.
-3. Tap the text "显示与亮度" when you find it.
-4. Tap the text "暗色模式" in "显示与亮度" to turn on the dark mode, and then stop.

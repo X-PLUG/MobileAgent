@@ -1,103 +1,132 @@
-![](assets/logo.png?v=1&type=image)
 <div align="center">
-<h3>Mobile-Agent: 强大的移动设备操作助手家族<h3>
-<div align="center">
-	<a href="https://huggingface.co/spaces/junyangwang0410/PC-Agent"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg" alt="Open in Spaces"></a>
-	<a href="https://www.modelscope.cn/studios/wangjunyang/PC-Agent"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
-  <a href="https://arxiv.org/abs/2502.14282 "><img src="https://img.shields.io/badge/Arxiv-2502.14282-b31b1b.svg?logo=arXiv" alt=""></a>
-  <a href="https://arxiv.org/abs/2501.11733"><img src="https://img.shields.io/badge/Arxiv-2501.11733-b31b1b.svg?logo=arXiv" alt=""></a>
-  <a href="https://arxiv.org/abs/2406.01014 "><img src="https://img.shields.io/badge/Arxiv-2406.01014-b31b1b.svg?logo=arXiv" alt=""></a>
-  <a href="https://arxiv.org/abs/2401.16158"><img src="https://img.shields.io/badge/Arxiv-2401.16158-b31b1b.svg?logo=arXiv" alt=""></a>
-</div>
 <p align="center">
-<a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <img src="assets/logo.png"/>
 </p>
 </div>
 
 <div align="center">
-<a href="README_zh.md">简体中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a>
+<h2 style="font-size: 28px;">
+  <img src="assets/tongyi.png" width="50px" style="vertical-align: middle; margin-right: 10px;">
+  Mobile-Agent: 强大的GUI智能体家族
+</h2>
+
+<div align="center">
+<p align="center">
+  <img src="assets/series.png"/>
+</p>
+</div>
+
+<p align="center">
+<a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+</p>
+<!-- 
+<div align="center">
+  <a href="https://www.modelscope.cn/studios/wangjunyang/PC-Agent"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+  <a href="https://arxiv.org/abs/?"><img src="https://img.shields.io/badge/Arxiv-2502.14282-b31b1b.svg?logo=arXiv" alt=""></a>
+</div> -->
+
+</div>
+<div align="center">
+  <a href="README_zh.md">简体中文</a> | <a href="README.md">English</a>
 <hr>
 </div>
-<!--
-简体中文 | [English](README.md) | [日本語](README_ja.md)
-<hr>
--->
+
+> 📢📢📢 全新的 **GUI-Owl** 和 **Mobile-Agent-v3** 已经发布！ 👇👇👇
+
+## 📊效果
+
+<div align="center">
+<p align="center">
+  <img src="assets/result.png"/>
+</p>
+</div>
+
+## 👀特点
+
+<div align="center">
+<p align="center">
+  <img src="assets/framework.png"/>
+</p>
+</div>
+
+### GUI-Owl
+- 7B以内实现 SOTA 结果。
+- 原生端到端多模态代理，旨在作为 GUI 自动化的基础模型。
+- 在单一策略网络中统一感知、基础、推理、规划和动作执行。
+- 强大的跨平台交互和多轮决策，并具有明确的中间推理功能。
+- GUI-Owl 可在 Mobile-Agent-v3 中实例化为不同的专用智能体。
+
+### Mobile-Agent-v3
+- 动态任务分解、规划和进度管理。
+- 高度集成的操作空间，降低模型的感知和操作频率。
+- 丰富的异常处理和反射能力，在弹窗、广告等场景下提供更稳定的性能。
+- 关键信息记录能力，支持跨应用任务。
+
+## 📢新闻
+- `[2025.8.20]`🔥 我们发布并开源了 GUI-Owl 及其适配的多智能体框架 Mobile-Agent-v3。
+- `[2025.8.14]`🔥 Mobile-Agent-v3 在***第二十四届全国计算语言学大会*** (CCL 2025) 上荣获 **最佳演示奖**。
+- `[2025.3.17]` PC-Agent 已被 **ICLR 2025 研讨会** 接收。
+- `[2024.9.26]` Mobile-Agent-v2 已被 **第三十八届神经信息处理系统年会 (NeurIPS 2024)** 接收。
+- `[2024.7.29]` Mobile-Agent 在***第二十三届全国计算语言学大会*** (CCL 2024) 上荣获 **最佳演示奖**。
+- `[2024.3.10]` Mobile-Agent 已被 **ICLR 2024 研讨会** 录用。
+
+## 📝系列工作
+
+- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v3) (预印本): 多模态、多平台 GUI 代理。[**[论文]**](https://github.com/X-PLUG/MobileAgent/tree/main/assets/Mobile-Agent-v3.pdf) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v3)
+- [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/GUI-Critic-R1) (预印本): 一种用于术前错误诊断方法的 GUI-Critic。 [**[论文]**](https://arxiv.org/abs/2506.04614) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/GUI-Critic-R1)
+- [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/PC-Agent) (ICLR 2025 研讨会): 用于多模态 PC 操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2502.14282) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/PC-Agent)
+- [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-E) (预印本): 用于自进化手机操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2501.11733) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-E)
+- [**Mobile-Agent-v2**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v2) (NeurIPS 2024)：用于多模式手机操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2406.01014) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v2)
+- [**Mobile-Agent-v1**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v1) (ICLR 2024 研讨会): 单代理用于多模态手机操作。[**[论文]**](https://arxiv.org/abs/2401.16158) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v1)
 
 ## 📺Demo
 
-### Newest PC-Agent
-细节见[论文](https://arxiv.org/abs/2502.14282)。
+### 💻PC + 🌐Web
 
-在Hugging Face Space上体验[demo](https://huggingface.co/spaces/junyangwang0410/PC-Agent)。
+<div align="left">
+    <h3>在Edge浏览器中搜索阿里巴巴的股价。然后在WPS中新建一个表格，在第一列填入公司名，在第二列填入股价。</h3>
+    <video src= "https://github.com/user-attachments/assets/5c773755-60b8-4b30-a58c-f0b108cb0a74"/>
+</div>
 
-在ModelScope上体验[demo](https://www.modelscope.cn/studios/wangjunyang/PC-Agent)。
+### 💻PC
 
-https://github.com/user-attachments/assets/b13bbb14-b39a-4c6b-b4a6-3df97de517dc
+<div align="left">
+    <h3>新建一个空白PPT，然后在第一张幻灯片中插入一段艺术字形式的文本，内容为阿里巴巴。</h3>
+    <video src= "https://github.com/user-attachments/assets/a978087a-717b-4c8a-9e50-9223dac019dd"/>
+</div>
 
-### Mobile-Agent-E
-细节见[项目主页](https://x-plug.github.io/MobileAgent)。
+### 🌐Web
 
-<!-- <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
-  <video width="30%" controls>
-    <source src="https://raw.githubusercontent.com/X-PLUG/MobileAgent/main/Mobile-Agent-E/static/videos/bouldering_gym.mp4" type="video/mp4">
-  </video>
-  <video width="30%" controls>
-    <source src="https://raw.githubusercontent.com/X-PLUG/MobileAgent/main/Mobile-Agent-E/static/videos/shopping.mp4" type="video/mp4">
-  </video>
-  <video width="30%" controls>
-    <source src="https://raw.githubusercontent.com/X-PLUG/MobileAgent/main/Mobile-Agent-E/static/videos/survey.mp4" type="video/mp4">
-  </video>
-</div> -->
+<div align="left">
+    <h3>进入bilibili，查看雷军的视频，然后点赞第一个视频。</h3>
+    <video src= "https://github.com/user-attachments/assets/78702309-0985-4103-ae50-0dec6cc8adf2"/>
+</div>
 
-### Mobile-Agent-v3（注意：该视频没有加速处理）
-**YouTube**
+### 📱Phone
 
-[![YouTube](https://img.youtube.com/vi/EMbIpzqJld0/0.jpg)](https://www.youtube.com/watch?v=EMbIpzqJld0)
+<div align="left">
+    <h3>帮我在小红书搜一下济南旅游攻略，按照收藏数排序，并收藏第一篇笔记。</h3>
+    <video src= "https://github.com/user-attachments/assets/3a405952-953a-4c2a-a26c-d738b6622564"/>
+</div>
 
-**哔哩哔哩**
+<div align="left">
+    <h3>帮我在携程搜一下济南大明湖景区的详情，包括地址和门票价格等。</h3>
+    <video src= "https://github.com/user-attachments/assets/c2572f62-cd78-44c3-8b7d-ae478a168073"/>
+</div>
 
-[![Bilibili](https://img.youtube.com/vi/EMbIpzqJld0/0.jpg)](https://www.bilibili.com/video/BV1pPvyekEsa/?share_source=copy_web&vd_source=47ffcd57083495a8965c8cdbe1a751ae)
-
-### PC-Agent
-**谷歌浏览器与钉钉**
-
-https://github.com/user-attachments/assets/b890a08f-8a2f-426d-9458-aa3699185030
-
-**Word**
-
-https://github.com/user-attachments/assets/37f0a0a5-3d21-4232-9d1d-0fe845d0f77d
-
-### Mobile-Agent-v2
-https://github.com/X-PLUG/MobileAgent/assets/127390760/d907795d-b5b9-48bf-b1db-70cf3f45d155
-
-### Mobile-Agent
-https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-aa0c18386d31
-
-
-## 📢新闻
-* 🔥🔥[2.21.25] 我们发布了 PC-Agent 的更新版本。详情请查看[论文](https://arxiv.org/abs/2502.14282)。代码将很快更新。
-* 🔥🔥[1.20.25] 我们发布了 [Mobile-Agent-E](https://x-plug.github.io/MobileAgent)，这是一个分层的多代理框架，能够通过过去的经验进行自我进化，在复杂的多应用任务上实现更强大的性能。
-* 🔥🔥[9.26] Mobile-Agent-v2 被 **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)** 接收。
-* 🔥[8.23]我们发布了一个支持Mac和Windows平台的**PC**操作助手PC-Agent, 通过Mobile-Agent-v2框架实现。
-* 🔥[7.29] Mobile-Agent获得了 ***第二十三届中国计算语言学大会*** (CCL 2024) 的 **最佳demo奖项**。在CCL 2024上，我们展示了即将开源的Mobile-Agent-v3，拥有更小的内存开销（8 GB）、更快的推理速度（每次操作10-15秒），并且使用开源模型。视频Demo请见上一个板块📺Demo。
-* [6.27] 我们在[Hugging Face](https://huggingface.co/spaces/junyangwang0410/Mobile-Agent)和[ModelScope](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v2)发布了可以上传手机截图体验Mobile-Agent-v2的Demo，无需配置模型和设备，即刻便可体验。
-* [6. 4] Modelscope-Agent 已经支持 Mobile-Agent-V2，基于 Android Adb Env，请查看 [application](https://github.com/modelscope/modelscope-agent/tree/master/apps/mobile_agent)。
-* [6. 4] 我们发布了新一代移动设备操作助手 Mobile-Agent-v2, 通过多智能体协作实现有效导航。
-* [3.10] Mobile-Agent 被 **ICLR 2024 Workshop on Large Language Model (LLM) Agents** 接收。
-
-## 📱版本
-* [PC-Agent](PC-Agent/README.md) - 用于 PC 上复杂任务自动化的分层多代理协作框架
-* [Mobile-Agent-E](Mobile-Agent-E/README.md) - 在复杂、长期、推理密集型任务上具有更强的性能，具有自我进化能力
-* [Mobile-Agent-v3](Mobile-Agent-v3/README_zh.md)
-* [Mobile-Agent-v2](Mobile-Agent-v2/README_zh.md) - 通过多代理协作有效导航的移动设备操作助手
-* [Mobile-Agent](Mobile-Agent/README_zh.md) - 视觉感知方案的自动化移动设备操作智能体
-
-## ⭐Star历史
+## ⭐Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=X-PLUG/MobileAgent&type=Date)](https://star-history.com/#X-PLUG/MobileAgent&Date)
 
-## 引用
+## 📑引用
 如果您发现 Mobile-Agent 对您的研究和应用有用，请使用此 BibTeX 进行引用：
 ```
+@article{wanyan2025look,
+  title={Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation},
+  author={Wanyan, Yuyang and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Ye, Jiabo and Kou, Yutong and Yan, Ming and Huang, Fei and Yang, Xiaoshan and others},
+  journal={arXiv preprint arXiv:2506.04614},
+  year={2025}
+}
+
 @article{liu2025pc,
   title={PC-Agent: A Hierarchical Multi-Agent Collaboration Framework for Complex Task Automation on PC},
   author={Liu, Haowei and Zhang, Xi and Xu, Haiyang and Wanyan, Yuyang and Wang, Junyang and Yan, Ming and Zhang, Ji and Yuan, Chunfeng and Xu, Changsheng and Hu, Weiming and Huang, Fei},
@@ -126,10 +155,3 @@ https://github.com/X-PLUG/MobileAgent/assets/127390760/26c48fb0-67ed-4df6-97b2-a
   year={2024}
 }
 ```
-
-## 📦相关项目
-* [AppAgent: Multimodal Agents as Smartphone Users](https://github.com/mnotgod96/AppAgent)
-* [mPLUG-Owl & mPLUG-Owl2: Modularized Multimodal Large Language Model](https://github.com/X-PLUG/mPLUG-Owl)
-* [Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond](https://github.com/QwenLM/Qwen-VL)
-* [GroundingDINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://github.com/IDEA-Research/GroundingDINO)
-* [CLIP: Contrastive Language-Image Pretraining](https://github.com/openai/CLIP)

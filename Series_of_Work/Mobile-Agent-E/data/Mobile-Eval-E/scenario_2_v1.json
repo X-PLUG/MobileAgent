@@ -1,0 +1,167 @@
+{
+    "length": 5,
+    "scenario": "INFORMATION_RESEARCHING",
+    "scenario_id": 2,
+    "tasks": [
+        {
+            "task_id": "2_segment_anything_cited",
+            "instruction": "Find the most-cited paper that cites the paper 'Segment Anything' on Google Scholar. Stop at the screen showing the paper abstract.",
+            "type": "single_app",
+            "apps": [
+                "Chrome"
+            ],
+            "rubrics": [
+                "Opened a search engine or a browser",
+                "Navigated to Google Scholar",
+                "Searched for 'Segment Anything' paper",
+                "Viewed the citations of 'Segment Anything'",
+                "Viewed multiple citing papers and there citations",
+                "Found the most-cited paper amoung the viewed citing papers",
+                "Stopped at a screen that shows the paper's abstract"
+            ],
+            "human_reference_operations": [
+                "open chrome",
+                "tap on search bar",
+                "type 'Google Scholar'",
+                "tap enter",
+                "tap the first search result",
+                "tap on the search bar in google scholar",
+                "type 'Segment Anything'",
+                "tap enter",
+                "tap on 'Cited by ****'",
+                "swipe up to see more citing papers",
+                "swipe up to see more citing papers",
+                "tap 'Visual instruction tuning' (which is being cited 4600+ times)"
+            ]
+        },
+        {
+            "task_id": "2_llm_agents_survey",
+            "instruction": "Find at least three representative survey papers on LLM agents on Google Scholar, and add their titles to the Notes.",
+            "type": "multi_app",
+            "apps": [
+                "Chrome",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened a search engine or a browser",
+                "Navigated to Google Scholar",
+                "Searched for suervey papers on LLM agents",
+                "Correctly identify at least one survey papers",
+                "Correctly identify three survey papers",
+                "Opened Notes",
+                "Added a note with the titles of the found survey papers"
+            ],
+            "human_reference_operations": [
+                "open Chrome",
+                "tap on the search bar",
+                "type 'Google Scholar'",
+                "tap enter",
+                "tap the first search result",
+                "tap on the search bar in Google Scholar",
+                "type 'Survey on LLM agents'",
+                "tap enter",
+                "tap home",
+                "open Notes",
+                "tap new note button",
+                "type the titles of the three survey papers into the note"
+            ]
+        },
+        {
+            "task_id": "2_recipes_chinese",
+            "instruction": "I have some onions, beef, and potatoes in my refrigerator. Can you find me a Chinese-style recipe that uses all three ingredients and can be prepared in under an hour? And find me a video tutorial on YouTube for that. Stop at the screen displaying the video.",
+            "type": "multi_app",
+            "apps": [
+                "Chrome",
+                "YouTube"
+            ],
+            "rubrics": [
+                "Opened Chrome",
+                "Searched for Chinese recipes using onions, beef, and potatoes under 1 hour",
+                "Found a suitable recipe",
+                "Opened YouTube",
+                "Searched for a video tutorial for the chosen recipe",
+                "Selected a relevant tutorial video",
+                "Stopped at a screen showing the video"
+            ],
+            "human_reference_operations": [
+                "open Chrome",
+                "tap on the search bar",
+                "type 'Chinese recipe with onions beef potatoes under 1 hour'",
+                "tap enter",
+                "tap on a link",
+                "tap home",
+                "open YouTube",
+                "tap on the search button",
+                "type the name of the recipe",
+                "tap enter",
+                "tap on a relevant tutorial video"
+            ]
+        },
+        {
+            "task_id": "2_mcdonalds_deals",
+            "instruction": "Can you check the MacDonald's APP to see if there are any Rewards or Deals including Spicy McCrispy. If so, help me add that to Mobile Order (Do not pay yet, I will do it myself). And then check the pickup location and get directions on Google Maps. Stop at the screen showing the route.",
+            "type": "multi_app",
+            "apps": [
+                "McDonald's",
+                "Maps"
+            ],
+            "rubrics": [
+                "Opened McDonald's app",
+                "Checked Rewards/Deals section",
+                "Identified a deal for Spicy McCrispy (if available)",
+                "Added Spicy McCrispy to the Mobile Order (no payment)",
+                "Opened Maps",
+                "Searched for the pickup location",
+                "Got directions to the pickup location, stopped at the route screen"
+            ],
+            "human_reference_operations": [
+                "open McDonald's app",
+                "tap on the Rewards/Deals section",
+                "swipe up to find available deals",
+                "tap on the McCrispy deal",
+                "tap 'Add to Mobile Order'",
+                "tap 'Use Deal'",
+                "tap Spice McCrispy",
+                "tap Add to Order",
+                "tap No Thanks",
+                "tap Home (checked the pickup location)open Maps app",
+                "tap on the search bar",
+                "type the pickup location",
+                "tap enter",
+                "tap on 'Directions'"
+            ]
+        },
+        {
+            "task_id": "2_headphones_reviews",
+            "instruction": "Find three detailed user reviews of the Bose QC45 headphones from Amazon. Summarize the general sentiment in the Notes.",
+            "type": "multi_app",
+            "apps": [
+                "Amazon",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Amazon Shopping",
+                "Searched for Bose QC45 headphones",
+                "Opened product page",
+                "Found at least one user review",
+                "Found multiple user reviews",
+                "Opened Notes",
+                "Created a new note summarizing the general sentiment based on the reviews"
+            ],
+            "human_reference_operations": [
+                "open Amazon Shopping app",
+                "tap on the search bar",
+                "type 'Bose QC45 headphones'",
+                "tap enter",
+                "tap on the product page",
+                "tap on the ratings button",
+                "swipe up to see user reviews",
+                "swipe up to see more reviews from different users",
+                "tap home",
+                "open Notes",
+                "tap new note",
+                "type 'Bose QC45 headphones reviews...'"
+            ]
+        }
+    ]
+}

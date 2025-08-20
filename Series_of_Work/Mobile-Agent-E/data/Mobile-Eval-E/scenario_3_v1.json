@@ -1,0 +1,180 @@
+{
+    "length": 5,
+    "scenario": "ONLINE_SHOPPING",
+    "scenario_id": 3,
+    "tasks": [
+        {
+            "task_id": "3_oled_tv",
+            "instruction": "Find the best deal on a 55-inch 4K OLED TV at Best Buy. Stop at the screen displaying the best deal you find.",
+            "type": "single_app",
+            "apps": [
+                "Best Buy"
+            ],
+            "rubrics": [
+                "Opened Best Buy",
+                "Searched for 55-inch 4K OLED TV",
+                "Found at least one TV option",
+                "Viewed multiple TV options",
+                "The TV found is indeed 55-inch",
+                "The TV found is indeed 4K",
+                "The TV found is indeed OLED",
+                "Stopped at the product page showing a 55-inch 4K OLED TV"
+            ],
+            "human_reference_operations": [
+                "open Best Buy app",
+                "tap on the search bar",
+                "type '55-inch 4K OLED TV'",
+                "tap enter",
+                "swipe up to see more TV options",
+                "tap on a product page for a 55-inch 4K OLED TV that saves the most money"
+            ]
+        },
+        {
+            "task_id": "3_laptop_nvidia_gpu",
+            "instruction": "Find me a laptop on Amazon that is under $1000 with an Nvidia GPU and more than 8GB RAM.",
+            "type": "single_app",
+            "apps": [
+                "Amazon Shopping"
+            ],
+            "rubrics": [
+                "Opened Amazon Shopping",
+                "Searched for laptops with Nvidia GPU",
+                "Found at least one laptop option",
+                "The laptop found is under $1000",
+                "The laptop found has an Nvidia GPU",
+                "The laptop found has more than 8GB RAM",
+                "Stopped at the product page showing a laptop under $1000 with Nvidia GPU and more than 8GB RAM"
+            ],
+            "human_reference_operations": [
+                "open Amazon Shopping app",
+                "tap on the search bar",
+                "type 'laptop Nvidia GPU'",
+                "tap enter",
+                "tap filters",
+                "tap Price & Deals",
+                "Swipe left to set the maximum price to $1000",
+                "tap 'RAM memory installed'",
+                "tap 16GB",
+                "tap Show results",
+                "swipe up to see more laptops",
+                "tap on a product page"
+            ]
+        },
+        {
+            "task_id": "3_ninja_air_fryer",
+            "instruction": "Compare the price of a Ninja air fryer 8 qt at Walmart and Amazon. Stop at the screen displaying the best deal you find.",
+            "type": "multi_app",
+            "apps": [
+                "Amazon Shopping",
+                "Walmart"
+            ],
+            "rubrics": [
+                "Opened Walmart",
+                "Searched for Ninja air fryer 8 qt",
+                "Found the price of the Ninja air fryer 8 qt on Walmart",
+                "Opened Amazon Shopping",
+                "Searched for Ninja air fryer 8 qt",
+                "Found the price of Ninja air fryer 8 qt on Amazon",
+                "Stopped at the screen showing the best deal on either Amazon or Walmart"
+            ],
+            "human_reference_operations": [
+                "open Walmart app",
+                "tap on the search bar",
+                "type 'Ninja air fryer 8 qt'",
+                "tap enter",
+                "tap Home",
+                "open Amazon Shopping app",
+                "tap on the search bar",
+                "type 'Ninja air fryer 8 qt'",
+                "tap enter",
+                "swipe up to find the correct product",
+                "switch app",
+                "tap on the app with the cheaper price"
+            ]
+        },
+        {
+            "task_id": "3_walmart_sale_items",
+            "instruction": "Check if any of the following items are on sale at Walmart: ribeye steak, fresh oranges, or toilet paper. If any are on sale, add a note in Notes with their prices.",
+            "type": "multi_app",
+            "apps": [
+                "Walmart",
+                "Notes"
+            ],
+            "rubrics": [
+                "Opened Walmart",
+                "Searched for ribeye steak",
+                "Checked if ribeye steak is on sale",
+                "Searched for fresh oranges",
+                "Checked if fresh oranges are on sale",
+                "Searched for toilet paper",
+                "Checked if toilet paper is on sale",
+                "Opened Notes",
+                "Added a note with the prices of items",
+                "The added note only contains items that are on sale"
+            ],
+            "human_reference_operations": [
+                "open Walmart app",
+                "tap on the search bar",
+                "type 'ribeye steak'",
+                "tap enter",
+                "tap the x on the search bar to clear the search",
+                "tap on the search bar",
+                "type 'fresh oranges'",
+                "tap enter",
+                "tap the x on the search bar to clear the search",
+                "tap on the search bar",
+                "type 'toilet paper'",
+                "tap enter",
+                "tap home",
+                "open Notes app",
+                "create a new note",
+                "type the names and prices of the items that are on sale"
+            ]
+        },
+        {
+            "task_id": "3_nintendo_switch_joy_con",
+            "instruction": "I want to buy a brand-new Nintendo Switch Joy-Con. Any color is fine. Please compare the prices on Amazon, Walmart, and Best Buy. Find the cheapest option and stop at the screen where I can add it to the cart.",
+            "type": "multi_app",
+            "apps": [
+                "Amazon Shopping",
+                "Best Buy",
+                "Walmart"
+            ],
+            "rubrics": [
+                "Opened Amazon Shopping",
+                "Searched for Nintendo Switch Joy-Con on Amazon",
+                "Found the correct product with its price on Amazon",
+                "Opened Walmart",
+                "Searched for Nintendo Switch Joy-Con on Walmart",
+                "Found the correct product with its price on Walmart",
+                "Opened Best Buy",
+                "Searched for Nintendo Switch Joy-Con on Best Buy",
+                "Found the correct product with its price on Best Buy",
+                "Navigated to the correct App with the cheapest price",
+                "Stopped at the screen where the cheapest option can be added to the cart"
+            ],
+            "human_reference_operations": [
+                "open Amazon Shopping app",
+                "tap on the search bar",
+                "type 'Nintendo Switch Joy-Con'",
+                "tap enter",
+                "swipe up to find the correct product with price",
+                "tap home",
+                "open Walmart app",
+                "tap on the search bar",
+                "type 'Nintendo Switch Joy-Con'",
+                "tap enter",
+                "swipe up to find the correct product with price",
+                "tap home",
+                "open Best Buy app",
+                "tap on the search bar",
+                "type 'Nintendo Switch Joy-Con'",
+                "tap enter",
+                "swipe up to find the correct product with price",
+                "switch app",
+                "tap on the app with the cheapest price",
+                "tap on the product page to show add to cart button"
+            ]
+        }
+    ]
+}
