@@ -72,12 +72,12 @@
 
 ## 📝Series of Work
 
-- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://github.com/X-PLUG/MobileAgent/tree/main/assets/Mobile-Agent-v3.pdf) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v3)
-- [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/GUI-Critic-R1) (Preprint): A GUI-Critic for pre-operative error diagnosis method. [**[Paper]**](https://arxiv.org/abs/2506.04614) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/GUI-Critic-R1)
-- [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/PC-Agent) (ICLR 2025 Workshop): Multi-agent for multimodal PC operation. [**[Paper]**](https://arxiv.org/abs/2502.14282) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/PC-Agent)
-- [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-E) (Preprint): Multi-agent for self-evolving mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2501.11733) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-E)
-- [**Mobile-Agent-v2**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v2) (NeurIPS 2024): Multi-agent for multimodal mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2406.01014) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v2)
-- [**Mobile-Agent-v1**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v1) (ICLR 2024 Workshop): Single-agent for multimodal mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2401.16158) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Series_of_Work/Mobile-Agent-v1)
+- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://github.com/X-PLUG/MobileAgent/tree/main/assets/Mobile-Agent-v3.pdf) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
+- [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1) (Preprint): A GUI-Critic for pre-operative error diagnosis method. [**[Paper]**](https://arxiv.org/abs/2506.04614) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1)
+- [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent) (ICLR 2025 Workshop): Multi-agent for multimodal PC operation. [**[Paper]**](https://arxiv.org/abs/2502.14282) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent)
+- [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E) (Preprint): Multi-agent for self-evolving mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2501.11733) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E)
+- [**Mobile-Agent-v2**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v2) (NeurIPS 2024): Multi-agent for multimodal mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2406.01014) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v2)
+- [**Mobile-Agent-v1**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v1) (ICLR 2024 Workshop): Single-agent for multimodal mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2401.16158) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v1)
 
 ## 📺Demo
 
