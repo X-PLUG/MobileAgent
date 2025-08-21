@@ -5,11 +5,13 @@
 <img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
 </div>
 
-
-
 ## 📢新闻
 * 🔥🔥[8.10] 我们开源了 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
 * 🔥🔥[8.10] Mobile-Agent-v3的技术报告已经公开 [Mobile-Agent-v3](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf)
+
+## 📍 TODO
+- [ ] Release the code of Mobile-Agent-v3 on mobile platform
+- [ ] Release the code of Mobile-Agent-v3 on desktop platform
 
 ## 介绍
 
