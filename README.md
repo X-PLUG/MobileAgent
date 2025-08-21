@@ -83,7 +83,7 @@
 
 ## 📝Series of Work
 
-- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://github.com/X-PLUG/MobileAgent/tree/main/assets/Mobile-Agent-v3.pdf) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
+- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
 - [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1) (Preprint): A GUI-Critic for pre-operative error diagnosis method. [**[Paper]**](https://arxiv.org/abs/2506.04614) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1)
 - [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent) (ICLR 2025 Workshop): Multi-agent for multimodal PC operation. [**[Paper]**](https://arxiv.org/abs/2502.14282) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent)
 - [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E) (Preprint): Multi-agent for self-evolving mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2501.11733) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E)
@@ -96,7 +96,7 @@
 
 <div align="left">
     <h3>Search for Alibaba's stock price in the Edge browser. Then create a new table in WPS, fill in the company name in the first column and the stock price in the second column.</h3>
-    <video src= "https://github.com/user-attachments/assets/5c773755-60b8-4b30-a58c-f0b108cb0a74"/>
+    <video src= "https://github.com/user-attachments/assets/1c810fc1-fe69-4da2-b5f9-19b3cfa72c5e"/>
 </div>
 
 ### 💻PC
@@ -107,6 +107,11 @@
 </div>
 
 ### 🌐Web
+
+<div align="left">
+    <h3>Please help me search for flights from Beijing to Paris on Skyscanner departing on September 18th and returning on September 21st.</h3>
+    <video src= "https://github.com/user-attachments/assets/fd49a192-f876-4862-b0c3-30aaaf48643a"/>
+</div>
 
 <div align="left">
     <h3>Go to bilibili, check out Jun Lei’s videos, and like the first one.</h3>

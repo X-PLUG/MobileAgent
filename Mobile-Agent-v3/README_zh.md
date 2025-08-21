@@ -1,5 +1,5 @@
 
-# MobileAgent-V3
+# Mobile-Agent-v3
 
 <div align="center">
 <img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
@@ -9,14 +9,14 @@
 
 ## 📢新闻
 * 🔥🔥[8.10] 我们开源了 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
-* 🔥🔥[8.10] MobileAgent-V3的技术报告已经公开 [MobileAgent-V3](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf)
+* 🔥🔥[8.10] Mobile-Agent-v3的技术报告已经公开 [Mobile-Agent-v3](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf)
 
 ## 介绍
 
-GUI-Owl是多智能体GUI自动化框架MobileAgent-V3的系列基础模型。其在众多GUI自动化评测榜单包括 ScreenSpot-V2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, 和 OSWorld中取得SOTA性能。此外，其也可以扮演MobileAgent-V3中的各个智能体进行协同交互，以完成更为复杂的任务。
+GUI-Owl是多智能体GUI自动化框架Mobile-Agent-v3的系列基础模型。其在众多GUI自动化评测榜单包括 ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, 和 OSWorld中取得SOTA性能。此外，其也可以扮演Mobile-Agent-v3中的各个智能体进行协同交互，以完成更为复杂的任务。
 
 ## 性能
-### ScreenSpot-V2, ScreenSpot-Pro and OSWorld-G
+### ScreenSpot-v2, ScreenSpot-Pro and OSWorld-G
 <img src="https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/screenspot_v2.jpg?raw=true" width="80%"/>
 <img src="https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/screenspot_pro.jpg?raw=true" width="80%"/>
 <img src="https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/osworld_g.jpg?raw=true" width="80%"/>
@@ -42,7 +42,7 @@ If you find our paper and model useful in your research, feel free to give us a 
 ```
 @article{ye2025mobileagentv3,
   title={Mobile-Agent-v3: Foundamental Agents for GUI Automation},
-  author={Wang, Junyang and Xu, Haiyang and Jia, Haitao and Zhang, Xi and Yan, Ming and Shen, Weizhou and Zhang, Ji and Huang, Fei and Sang, Jitao},
+  author={},
   journal={arXiv preprint},
   year={2025}
 }

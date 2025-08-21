@@ -72,7 +72,7 @@
 
 ## 📝系列工作
 
-- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (预印本): 多模态、多平台 GUI 代理。[**[论文]**](https://github.com/X-PLUG/MobileAgent/tree/main/assets/Mobile-Agent-v3.pdf) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
+- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (预印本): 多模态、多平台 GUI 代理。[**[论文]**](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
 - [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1) (预印本): 一种用于术前错误诊断方法的 GUI-Critic。 [**[论文]**](https://arxiv.org/abs/2506.04614) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1)
 - [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent) (ICLR 2025 研讨会): 用于多模态 PC 操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2502.14282) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent)
 - [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E) (预印本): 用于自进化手机操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2501.11733) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E)
@@ -85,7 +85,7 @@
 
 <div align="left">
     <h3>在Edge浏览器中搜索阿里巴巴的股价。然后在WPS中新建一个表格，在第一列填入公司名，在第二列填入股价。</h3>
-    <video src= "https://github.com/user-attachments/assets/5c773755-60b8-4b30-a58c-f0b108cb0a74"/>
+    <video src= "https://github.com/user-attachments/assets/1c810fc1-fe69-4da2-b5f9-19b3cfa72c5e"/>
 </div>
 
 ### 💻PC
@@ -96,6 +96,11 @@
 </div>
 
 ### 🌐Web
+
+<div align="left">
+    <h3>Please help me search for flights from Beijing to Paris on Skyscanner departing on September 18th and returning on September 21st.</h3>
+    <video src= "https://github.com/user-attachments/assets/fd49a192-f876-4862-b0c3-30aaaf48643a"/>
+</div>
 
 <div align="left">
     <h3>进入bilibili，查看雷军的视频，然后点赞第一个视频。</h3>
