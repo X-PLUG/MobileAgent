@@ -5,11 +5,13 @@
 <img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
 </div>
 
-
-
 ## 📢News
 * 🔥🔥[8.10] We release [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
 * 🔥🔥[8.10] The technical report can be found [here](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf)
+
+## 📍 TODO
+- [ ] Release the code of Mobile-Agent-v3 on mobile platform
+- [ ] Release the code of Mobile-Agent-v3 on desktop platform
 
 ## Introduction
 GUI-Owl is a model series developed as part of the Mobile-Agent-v3 project. It achieves state-of-the-art performance across a range of GUI automation benchmarks, including ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, and OSWorld. Furthermore, it can be instantiated as various specialized agents within the Mobile-Agent-v3 multi-agent framework to accomplish more complex tasks.
