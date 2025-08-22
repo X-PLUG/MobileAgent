@@ -7,7 +7,7 @@
 
 ## 📢News
 * 🔥🔥[8.10] We release [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
-* 🔥🔥[8.10] The technical report can be found [here](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf)
+* 🔥🔥[8.10] The technical report can be found [here](https://arxiv.org/abs/2508.15144)
 
 ## 📍 TODO
 - [ ] Release the code of Mobile-Agent-v3 on mobile platform
@@ -41,10 +41,13 @@ Please refer to the README of model card on HuggingFace for optimized performanc
 ## Citation
 If you find our paper and model useful in your research, feel free to give us a cite.
 ```
-@article{ye2025mobileagentv3,
-  title={Mobile-Agent-v3: Foundamental Agents for GUI Automation},
-  author={},
-  journal={arXiv preprint},
-  year={2025}
+@misc{ye2025mobileagentv3foundamentalagentsgui,
+      title={Mobile-Agent-v3: Foundamental Agents for GUI Automation}, 
+      author={Jiabo Ye and Xi Zhang and Haiyang Xu and Haowei Liu and Junyang Wang and Zhaoqing Zhu and Ziwei Zheng and Feiyu Gao and Junjie Cao and Zhengxi Lu and Jitong Liao and Qi Zheng and Fei Huang and Jingren Zhou and Ming Yan},
+      year={2025},
+      eprint={2508.15144},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2508.15144}, 
 }
 ```
