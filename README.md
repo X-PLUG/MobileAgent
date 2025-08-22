@@ -136,6 +136,16 @@
 ## 📑Citation
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
+@misc{ye2025mobileagentv3foundamentalagentsgui,
+      title={Mobile-Agent-v3: Foundamental Agents for GUI Automation}, 
+      author={Jiabo Ye and Xi Zhang and Haiyang Xu and Haowei Liu and Junyang Wang and Zhaoqing Zhu and Ziwei Zheng and Feiyu Gao and Junjie Cao and Zhengxi Lu and Jitong Liao and Qi Zheng and Fei Huang and Jingren Zhou and Ming Yan},
+      year={2025},
+      eprint={2508.15144},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2508.15144}, 
+}
+
 @article{wanyan2025look,
   title={Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation},
   author={Wanyan, Yuyang and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Ye, Jiabo and Kou, Yutong and Yan, Ming and Huang, Fei and Yang, Xiaoshan and others},
