@@ -42,7 +42,7 @@
 
 
 ## 📢News
-- `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
+- `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://arxiv.org/abs/2508.15144). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
   - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
   - Mobile-Agent-v3 is a cross-platform multi-agent framework based on GUI-Owl. It provides capabilities such as planning, progress management, reflection, and memory.
 - `[2025.8.14]`🔥 Mobile-Agent-v3 won the **best demo award** at the ***The 24rd China National Conference on Computational Linguistics*** (CCL 2025).
@@ -83,7 +83,7 @@
 
 ## 📝Series of Work
 
-- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
+- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://arxiv.org/abs/2508.15144) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
 - [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1) (Preprint): A GUI-Critic for pre-operative error diagnosis method. [**[Paper]**](https://arxiv.org/abs/2506.04614) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1)
 - [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent) (ICLR 2025 Workshop): Multi-agent for multimodal PC operation. [**[Paper]**](https://arxiv.org/abs/2502.14282) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent)
 - [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E) (Preprint): Multi-agent for self-evolving mobile phone operation. [**[Paper]**](https://arxiv.org/abs/2501.11733) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E)
@@ -92,11 +92,9 @@
 
 ## 📺Demo
 
-### 💻PC + 🌐Web
-
 <div align="left">
-    <h3>Search for Alibaba's stock price in the Edge browser. Then create a new table in WPS, fill in the company name in the first column and the stock price in the second column.</h3>
-    <video src= "https://github.com/user-attachments/assets/1c810fc1-fe69-4da2-b5f9-19b3cfa72c5e"/>
+    <h3>Learn about Mobile-Agent-v3.</h3>
+    <video src= "https://github.com/user-attachments/assets/ec7defa1-e6c5-40d2-84bd-c54e26a3fcec"/>
 </div>
 
 ### 💻PC
@@ -113,21 +111,11 @@
     <video src= "https://github.com/user-attachments/assets/fd49a192-f876-4862-b0c3-30aaaf48643a"/>
 </div>
 
-<div align="left">
-    <h3>Go to bilibili, check out Jun Lei’s videos, and like the first one.</h3>
-    <video src= "https://github.com/user-attachments/assets/78702309-0985-4103-ae50-0dec6cc8adf2"/>
-</div>
-
 ### 📱Phone
 
 <div align="left">
     <h3>Please help me search for Jinan travel guides on Xiaohongshu, sort them by the number of collections, and save the first note.</h3>
     <video src= "https://github.com/user-attachments/assets/3a405952-953a-4c2a-a26c-d738b6622564"/>
-</div>
-
-<div align="left">
-    <h3>Please help me search for details of Jinan Daming Lake Scenic Area on Ctrip, including address and ticket price, etc.</h3>
-    <video src= "https://github.com/user-attachments/assets/c2572f62-cd78-44c3-8b7d-ae478a168073"/>
 </div>
 
 ## ⭐Star History
