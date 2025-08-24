@@ -72,7 +72,7 @@
 
 ## 📝系列工作
 
-- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (预印本): 多模态、多平台 GUI 代理。[**[论文]**](https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-v3/assets/MobileAgentV3_Tech.pdf) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
+- [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (预印本): 多模态、多平台 GUI 代理。[**[论文]**](https://arxiv.org/abs/2508.15144) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
 - [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1) (预印本): 一种用于术前错误诊断方法的 GUI-Critic。 [**[论文]**](https://arxiv.org/abs/2506.04614) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1)
 - [**PC-Agent**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent) (ICLR 2025 研讨会): 用于多模态 PC 操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2502.14282) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent)
 - [**Mobile-Agent-E**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E) (预印本): 用于自进化手机操作的多智能体。 [**[论文]**](https://arxiv.org/abs/2501.11733) [**[代码]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E)
@@ -81,11 +81,9 @@
 
 ## 📺Demo
 
-### 💻PC + 🌐Web
-
 <div align="left">
-    <h3>在Edge浏览器中搜索阿里巴巴的股价。然后在WPS中新建一个表格，在第一列填入公司名，在第二列填入股价。</h3>
-    <video src= "https://github.com/user-attachments/assets/1c810fc1-fe69-4da2-b5f9-19b3cfa72c5e"/>
+    <h3>了解Mobile-Agent-v3。</h3>
+    <video src= "https://github.com/user-attachments/assets/013ef7e4-1fd1-48dd-a8a0-6474ae438760"/>
 </div>
 
 ### 💻PC
@@ -98,21 +96,11 @@
 ### 🌐Web
 
 <div align="left">
-    <h3>Please help me search for flights from Beijing to Paris on Skyscanner departing on September 18th and returning on September 21st.</h3>
-    <video src= "https://github.com/user-attachments/assets/fd49a192-f876-4862-b0c3-30aaaf48643a"/>
-</div>
-
-<div align="left">
     <h3>进入bilibili，查看雷军的视频，然后点赞第一个视频。</h3>
     <video src= "https://github.com/user-attachments/assets/78702309-0985-4103-ae50-0dec6cc8adf2"/>
 </div>
 
 ### 📱Phone
-
-<div align="left">
-    <h3>帮我在小红书搜一下济南旅游攻略，按照收藏数排序，并收藏第一篇笔记。</h3>
-    <video src= "https://github.com/user-attachments/assets/3a405952-953a-4c2a-a26c-d738b6622564"/>
-</div>
 
 <div align="left">
     <h3>帮我在携程搜一下济南大明湖景区的详情，包括地址和门票价格等。</h3>
@@ -125,6 +113,16 @@
 ## 📑引用
 如果您发现 Mobile-Agent 对您的研究和应用有用，请使用此 BibTeX 进行引用：
 ```
+@misc{ye2025mobileagentv3foundamentalagentsgui,
+      title={Mobile-Agent-v3: Foundamental Agents for GUI Automation}, 
+      author={Jiabo Ye and Xi Zhang and Haiyang Xu and Haowei Liu and Junyang Wang and Zhaoqing Zhu and Ziwei Zheng and Feiyu Gao and Junjie Cao and Zhengxi Lu and Jitong Liao and Qi Zheng and Fei Huang and Jingren Zhou and Ming Yan},
+      year={2025},
+      eprint={2508.15144},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2508.15144}, 
+}
+
 @article{wanyan2025look,
   title={Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation},
   author={Wanyan, Yuyang and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Ye, Jiabo and Kou, Yutong and Yan, Ming and Huang, Fei and Yang, Xiaoshan and others},
