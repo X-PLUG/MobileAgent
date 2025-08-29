@@ -42,7 +42,7 @@
 
 
 ## 📢News
-- `[2025.8.29]`🔥 We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3.
+- `[2025.8.29]`🔥🔥 We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3.
 - `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://arxiv.org/abs/2508.15144). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
   - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
   - Mobile-Agent-v3 is a cross-platform multi-agent framework based on GUI-Owl. It provides capabilities such as planning, progress management, reflection, and memory.

@@ -37,6 +37,7 @@ sh run_ma3.sh
 
 5. We provide evaluation trajectory and logs for viewing.
 GUI-Owl: [trajectory](https://drive.google.com/file/d/1KlSmoSoiVZLrT_Bcd1LtlD7EQO_wipcm/view?usp=sharing) and [log](https://drive.google.com/file/d/1sihY-Edua5pZ_ZWppjh33QStZ8utJnkA/view?usp=sharing)
+
 Mobile-Agent-v3: [trajectory](https://drive.google.com/file/d/1lSK4ZtVleZLjauzxBptj22q0EhH6xpcr/view?usp=sharing) and [log](https://drive.google.com/file/d/1jlFXHed-0y__cNziB3z_0eDazppFwdoj/view?usp=sharing)
 
 ## Performance
