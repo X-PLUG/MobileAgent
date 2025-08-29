@@ -1,0 +1,51 @@
+# Pyproject used for the docker implementation of the Android World Environment
+# only. The non-docker implementation uses a requirements.txt file.
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "android_world"
+version = "0.1.0"
+description = "Android World Environment Project"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "absl-py==2.1.0",
+    "android_env==1.2.3",
+    "dm_env==1.6",
+    "fuzzywuzzy==0.18.0",
+    "google-generativeai",
+    "grpcio-tools",
+    "immutabledict==2.0.0",
+    "IPython",
+    "jsonschema==4.17.3",
+    "matplotlib>=3.6.1",
+    "numpy>=1.26.3",
+    "opencv-python",
+    "pandas>=2.1.4",
+    "pydub",
+    "python-Levenshtein",
+    "pytest",
+    "requests",
+    "tenacity",
+    "termcolor",
+    "fastapi",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools]
+packages = ["android_world"]
+
+[tool.setuptools.package-dir]
+android_world = "android_world"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py","*_test.py"]

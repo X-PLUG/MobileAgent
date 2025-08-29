@@ -42,6 +42,7 @@
 
 
 ## 📢News
+- `[2025.8.29]`🔥 We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3.
 - `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://arxiv.org/abs/2508.15144). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
   - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
   - Mobile-Agent-v3 is a cross-platform multi-agent framework based on GUI-Owl. It provides capabilities such as planning, progress management, reflection, and memory.
@@ -124,14 +125,11 @@
 ## 📑Citation
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
-@misc{ye2025mobileagentv3foundamentalagentsgui,
-      title={Mobile-Agent-v3: Foundamental Agents for GUI Automation}, 
-      author={Jiabo Ye and Xi Zhang and Haiyang Xu and Haowei Liu and Junyang Wang and Zhaoqing Zhu and Ziwei Zheng and Feiyu Gao and Junjie Cao and Zhengxi Lu and Jitong Liao and Qi Zheng and Fei Huang and Jingren Zhou and Ming Yan},
-      year={2025},
-      eprint={2508.15144},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2508.15144}, 
+@article{ye2025mobile,
+  title={Mobile-Agent-v3: Foundamental Agents for GUI Automation},
+  author={Ye, Jiabo and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Zhu, Zhaoqing and Zheng, Ziwei and Gao, Feiyu and Cao, Junjie and Lu, Zhengxi and others},
+  journal={arXiv preprint arXiv:2508.15144},
+  year={2025}
 }
 
 @article{wanyan2025look,

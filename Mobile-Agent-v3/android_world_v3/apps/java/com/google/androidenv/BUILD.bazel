@@ -1,0 +1,22 @@
+# Bazel BUILD file for miniwob app's library dependencies
+load("@rules_kotlin//kotlin:android.bzl", "kt_android_library")
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+kt_android_library(
+    name = "AppConfiguration",
+    srcs = ["AppConfiguration.kt"],
+    deps = [
+        "@maven//:com_google_code_gson_gson",
+    ],
+)
+
+kt_android_library(
+    name = "Logger",
+    srcs = ["Logger.kt"],
+    deps = [
+        "@maven//:com_google_errorprone_error_prone_annotations",
+    ],
+)

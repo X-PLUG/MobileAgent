@@ -1,0 +1,20 @@
+# This file marks the root of the Bazel workspace.
+# See MODULE.bazel for external dependencies setup.
+
+# Configures Bazel to use a local Android SDK to support building Android targets.
+# Also need to set the $ANDROID_HOME environment variable to the path of your Android SDK.
+android_sdk_repository(name = "androidsdk")
+
+# BEGIN Robolectric
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "robolectric",
+    sha256 = "f8d736fa09ef5ddaa315db20b6b20f867946bc78ffeff8ee4f29275b73c797d4",
+    strip_prefix = "robolectric-bazel-4.12.1",
+    urls = ["https://github.com/robolectric/robolectric-bazel/releases/download/4.12.1/robolectric-bazel-4.12.1.tar.gz"],
+)
+
+load("@robolectric//bazel:robolectric.bzl", "robolectric_repositories")
+
+robolectric_repositories()
+# END Robolectric

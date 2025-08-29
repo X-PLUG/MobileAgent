@@ -32,9 +32,10 @@
 </div>
 
 ## 📢新闻
-- `[2025.8.20]`🔥 全新 **GUI-Owl** 和 **Mobile-Agent-v3** 即将到来！
+- `[2025.8.29]`🔥🔥 我们开源了GUI-Owl和Mobile-Agent-v3在AndroidWorld上的评测代码。
+- `[2025.8.20]`🔥 全新 **GUI-Owl** 和 **Mobile-Agent-v3** 正式发布！技术报告可在此处查看（https://arxiv.org/abs/2508.15144）。模型检查点将在 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B) 上发布。
   - GUI-Owl 是一个多模态跨平台 GUI 虚拟层模型 (VLM)，具备 GUI 感知、落地和端到端操作能力。
-  - Mobile-Agent-v3 是一个基于 GUI-Owl 的跨平台多智能体框架，提供规划、进度管理、反射和内存等功能。
+  - Mobile-Agent-v3 是一个基于 GUI-Owl 的跨平台多智能体框架，提供规划、进度管理、反射和内存管理等功能。
 - `[2025.8.14]`🔥 Mobile-Agent-v3 在***第二十四届全国计算语言学大会*** (CCL 2025) 上荣获 **最佳演示奖**。
 - `[2025.3.17]` PC-Agent 已被 **ICLR 2025 研讨会** 接收。
 - `[2024.9.26]` Mobile-Agent-v2 已被 **第三十八届神经信息处理系统年会 (NeurIPS 2024)** 接收。
@@ -113,14 +114,11 @@
 ## 📑引用
 如果您发现 Mobile-Agent 对您的研究和应用有用，请使用此 BibTeX 进行引用：
 ```
-@misc{ye2025mobileagentv3foundamentalagentsgui,
-      title={Mobile-Agent-v3: Foundamental Agents for GUI Automation}, 
-      author={Jiabo Ye and Xi Zhang and Haiyang Xu and Haowei Liu and Junyang Wang and Zhaoqing Zhu and Ziwei Zheng and Feiyu Gao and Junjie Cao and Zhengxi Lu and Jitong Liao and Qi Zheng and Fei Huang and Jingren Zhou and Ming Yan},
-      year={2025},
-      eprint={2508.15144},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2508.15144}, 
+@article{ye2025mobile,
+  title={Mobile-Agent-v3: Foundamental Agents for GUI Automation},
+  author={Ye, Jiabo and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Zhu, Zhaoqing and Zheng, Ziwei and Gao, Feiyu and Cao, Junjie and Lu, Zhengxi and others},
+  journal={arXiv preprint arXiv:2508.15144},
+  year={2025}
 }
 
 @article{wanyan2025look,

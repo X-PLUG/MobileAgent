@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.androidenv.accessibilityforwarder">
+
+  <uses-sdk android:minSdkVersion="28" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <application>
+    <service
+        android:name=".AccessibilityForwarder"
+        android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+        android:exported="false">
+      <intent-filter>
+        <action android:name="android.accessibilityservice.AccessibilityService" />
+      </intent-filter>
+      <meta-data
+          android:name="android.accessibilityservice"
+          android:resource="@xml/accessibility_forwarder_service" />
+    </service>
+    <receiver android:name="com.google.androidenv.accessibilityforwarder.FlagsBroadcastReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="accessibility_forwarder.intent.action.ENABLE_ACCESSIBILITY_TREE_LOGS"/>
+        <action android:name="accessibility_forwarder.intent.action.DISABLE_ACCESSIBILITY_TREE_LOGS"/>
+        <action android:name="accessibility_forwarder.intent.action.ENABLE_INTERNAL_STORAGE_LOGGING"/>
+        <action android:name="accessibility_forwarder.intent.action.DISABLE_INTERNAL_STORAGE_LOGGING"/>
+        <action android:name="accessibility_forwarder.intent.action.SET_GRPC"/>
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>
