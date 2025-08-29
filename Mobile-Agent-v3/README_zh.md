@@ -37,9 +37,9 @@ sh run_ma3.sh
 ```
 
 5. 我们提供了评估轨迹和日志以供查看。
-- GUI-Owl：[轨迹](https://drive.google.com/file/d/1KlSmoSoiVZLrT_Bcd1LtlD7EQO_wipcm/view?usp=sharing)；[日志](https://drive.google.com/file/d/1sihY-Edua5pZ_ZWppjh33QStZ8utJnkA/view?usp=sharing)
+- GUI-Owl: [轨迹](https://drive.google.com/file/d/1KlSmoSoiVZLrT_Bcd1LtlD7EQO_wipcm/view?usp=sharing) 和 [日志](https://drive.google.com/file/d/1jlFXHed-0y__cNziB3z_0eDazppFwdoj/view?usp=sharing)
 
-- Mobile-Agent-v3：[轨迹](https://drive.google.com/file/d/1lSK4ZtVleZLjauzxBptj22q0EhH6xpcr/view?usp=sharing)；[日志](https://drive.google.com/file/d/1jlFXHed-0y__cNziB3z_0eDazppFwdoj/view?usp=sharing)
+- Mobile-Agent-v3: [轨迹](https://drive.google.com/file/d/1lSK4ZtVleZLjauzxBptj22q0EhH6xpcr/view?usp=sharing) and [日志](https://drive.google.com/file/d/1sihY-Edua5pZ_ZWppjh33QStZ8utJnkA/view?usp=sharing)
 
 ## 性能
 ### ScreenSpot-v2, ScreenSpot-Pro and OSWorld-G
