@@ -6,8 +6,8 @@
 
 <div align="center">
 <h2 style="font-size: 28px;">
-  <img src="assets/tongyi.png" width="50px" style="vertical-align: middle; margin-right: 10px;">
-  Mobile-Agent: The Powerful GUI Agent Family
+	<img src="assets/tongyi.png" width="30px" style="vertical-align: middle; margin-right: 10px;">
+ 	Mobile-Agent: The Powerful GUI Agent Family by Tongyi Lab, Alibaba Group
 </h2>
 
 <div align="center">
