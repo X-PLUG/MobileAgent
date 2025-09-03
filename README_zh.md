@@ -6,8 +6,8 @@
 
 <div align="center">
 <h2 style="font-size: 28px;">
-  <img src="assets/tongyi.png" width="50px" style="vertical-align: middle; margin-right: 10px;">
-  Mobile-Agent: 强大的GUI智能体家族
+	<img src="assets/tongyi.png" width="30px" style="vertical-align: middle; margin-right: 10px;">
+ 	Mobile-Agent: 强大的GUI智能体家族 by 通义实验室-阿里巴巴集团
 </h2>
 
 <div align="center">
