@@ -77,19 +77,6 @@ def pil_to_base64(image):
     image.save(buffer, format="PNG") 
     return base64.b64encode(buffer.getvalue()).decode("utf-8")
 
-def image_to_base64(image_path):
-  dummy_image = Image.open(image_path)
-  MIN_PIXELS=3136
-  MAX_PIXELS=10035200
-  resized_height, resized_width  = smart_resize(dummy_image.height,
-      dummy_image.width,
-      factor=28,
-      min_pixels=MIN_PIXELS,
-      max_pixels=MAX_PIXELS,)
-  dummy_image = dummy_image.resize((resized_width, resized_height))
-  return f"data:image/png;base64,{pil_to_base64(dummy_image)}"
-
-
 all_apps_str = """- simple calendar pro: A calendar app.\n  - settings: The Android system settings app for managing device settings such as Bluetooth, Wi-Fi, and brightness.\n  - markor: A note-taking app for creating, editing, deleting, and managing notes and folders.\n  - broccoli: A recipe management app.\n  - pro expense: An expense tracking app.\n  - simple sms messenger: An SMS app for sending, replying to, and resending text messages.\n  - opentracks: A sport tracking app for recording and analyzing activities.\n  - tasks: A task management app for tracking tasks, due dates, and priorities.\n  - clock: An app with stopwatch and timer functionality.\n  - joplin: A note-taking app.\n  - retro music: A music player app.\n  - simple gallery pro: An app for viewing images.\n  - camera: An app for taking photos and videos.\n  - chrome: A web browser app.\n  - contacts: An app for managing contact information.\n  - osmand: A maps and navigation app with support for adding location markers, favorites, and saving tracks.\n  - vlc: A media player app for playing media files.\n  - audio recorder: An app for recording and saving audio clips.\n  - files: A file manager app for the Android filesystem, used for deleting and moving files.\n  - simple draw pro: A drawing app for creating and saving drawings."""
 
 DETAILED_TIPS = (
@@ -281,7 +268,7 @@ class GUIOwl(base_agent.EnvironmentInteractingAgent):
                                                                                     resized_width, resized_height,
                                                                                     '', stage2_history)
     
-    user_prompt_part['content'].append({'image': image_to_base64(screenshot_file)})
+    user_prompt_part['content'].append({'image': screenshot_file})
     
     if os.environ.get('ADD_INFO', ''):
       user_prompt_part['content'].append({"type": "text", 'text': os.environ.get('ADD_INFO', '')})
