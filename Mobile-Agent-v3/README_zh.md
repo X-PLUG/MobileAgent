@@ -6,17 +6,65 @@
 </div>
 
 ## 📢新闻
-* 🔥🔥[8.29] 我们开源了GUI-Owl和Mobile-Agent-v3在AndroidWorld上的评测代码。
+* 🔥🔥[9.10] 我们开源了Mobile-Agent-v3在真实场景下的代码。
+* 🔥[8.29] 我们开源了GUI-Owl和Mobile-Agent-v3在AndroidWorld上的评测代码。
 * 🔥[8.10] 我们开源了 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B)。
 * 🔥[8.10] Mobile-Agent-v3的技术报告已经公开 [Mobile-Agent-v3](https://arxiv.org/abs/2508.15144)。
 
 ## 📍 TODO
-- [x] 开源在AndroidWorld上的评测代码
-- [ ] 开源在OSWorld上的评测代码
+- [x] 开源在真实手机场景的 Mobile-Agent-v3 代码
+- [x] 开源在Android World上评测的代码PC
+- [ ] 开源在真实PC场景的 Mobile-Agent-v3 代码
+- [ ] 开源在OSWorld上评测的代码PC
 
 ## 介绍
-
 GUI-Owl是多智能体GUI自动化框架Mobile-Agent-v3的系列基础模型。其在众多GUI自动化评测榜单包括 ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, 和 OSWorld中取得SOTA性能。此外，其也可以扮演Mobile-Agent-v3中的各个智能体进行协同交互，以完成更为复杂的任务。
+
+## 在你的手机上部署Mobile-Agent-v3
+❗目前仅安卓和鸿蒙系统（版本号 <= 4）支持工具调试。其他系统如iOS暂时不支持使用Mobile-Agent。
+
+
+### 安装 qwen 模型所需的依赖项
+```
+pip install qwen_agent
+pip install qwen_vl_utils
+```
+
+### 准备通过ADB连接你的移动设备
+1. 下载 [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools?hl=en)（ADB）。
+2. 在你的移动设备上开启“USB调试”或“ADB调试”，它通常需要打开开发者选项并在其中开启。如果是HyperOS系统需要同时打开 "[USB调试(安全设置)](https://github.com/user-attachments/assets/05658b3b-4e00-43f0-87be-400f0ef47736)"。
+3. 通过数据线连接移动设备和电脑，在手机的连接选项中选择“传输文件”。
+4. 用下面的命令来测试你的连接是否成功: ```/path/to/adb devices```。如果输出的结果显示你的设备列表不为空，则说明连接成功。
+5. 如果你是用的是MacOS或者Linux，请先为 ADB 开启权限: ```sudo chmod +x /path/to/adb```。
+6.  ```/path/to/adb```在Windows电脑上将是```xx/xx/adb.exe```的文件格式，而在MacOS或者Linux则是```xx/xx/adb```的文件格式。
+
+### 在你的移动设备上安装 ADB 键盘
+1. 下载 ADB 键盘的 [apk](https://github.com/senzhk/ADBKeyBoard/blob/master/ADBKeyboard.apk)  安装包。
+2. 在设备上点击该 apk 来安装。
+3. 在系统设置中将默认输入法切换为 “ADB Keyboard”。
+
+### 运行
+```
+cd Mobile-Agent-v3/mobile_v3
+python run_mobileagentv3.py \
+    --adb_path "Your ADB path" \
+    --api_key "Your api key of vllm service" \
+    --base_url "Your base url of vllm service" \
+    --model "Your model name of vllm service" \
+    --instruction "The instruction you want Mobile-Agent-v3 to complete" \
+    --add_info "Some supplementary knowledge, can also be empty"
+```
+
+### 注意
+1. 如果您使用的模型输出 0 到 1000 之间的相对坐标，例如 Seed-VL 或 Qwen-2.5-VL，请设置：
+```
+--coor_type "qwen-vl"
+```
+
+2. 如果您的指令需要记忆某些页面中内容，请设置：
+```
+--notetaker True
+```
 
 ## 在 AndroidWorld 上进行评估
 1. 请按照[官方代码库](https://github.com/google-research/android_world?tab=readme-ov-file#installation)安装 Android 模拟器及必要的依赖项。

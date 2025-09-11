@@ -67,7 +67,7 @@ pip install -r requirements.txt
 6. If you are using Windows system, the path will be ```xx/xx/adb.exe```
 
 ### Install the ADB Keyboard on your Mobile Device
-1. Download the ADB keyboard [apk](https://github.com/senzhk/adbkeyboard/blob/master/adbkeyboard.apk) installation package.
+1. Download the ADB keyboard [apk](https://github.com/senzhk/ADBKeyBoard/blob/master/ADBKeyboard.apk) installation package.
 2. Click the apk to install on your mobile device.
 3. Switch the default input method in the system settings to "ADB Keyboard".
 

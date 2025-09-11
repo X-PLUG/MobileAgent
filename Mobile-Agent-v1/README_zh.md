@@ -79,10 +79,6 @@ pip install -r requirements.txt
 ## 🔧快速开始
 ### 注意
 ❗由于GPT-4v在非英文场景中存在幻觉，我们建议在英文场景下使用。除此之外，你可以使用GPT-4o来提升非英文场景的性能。
-~~❗由于资源限制, 请联系我们来获取 **url** 和 **token**。~~ 抱歉，该资源已用尽。
-
-* 邮件: junyangwang@bjtu.edu.cn, junyangwang287@gmail.com
-* 微信: Wangjunyang0410
 
 ### 运行
 ```
