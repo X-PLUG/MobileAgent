@@ -5,6 +5,11 @@
 <img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
 </div>
 
+<div align="center">
+<a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
+<hr>
+</div>
+
 ## 📢News
 * 🔥🔥[9.10] We've open-sourced the code of Mobile-Agent-v3 in real-world mobile scenarios.
 * 🔥[8.29] We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3.

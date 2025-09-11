@@ -5,6 +5,11 @@
 <img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
 </div>
 
+<div align="center">
+<a href="README_zh.md">简体中文</a> | <a href="README.md">English</a>
+<hr>
+</div>
+
 ## 📢新闻
 * 🔥🔥[9.10] 我们开源了Mobile-Agent-v3在真实手机场景下的代码。
 * 🔥[8.29] 我们开源了GUI-Owl和Mobile-Agent-v3在AndroidWorld上的评测代码。
