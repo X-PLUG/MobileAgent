@@ -6,7 +6,7 @@
 </div>
 
 ## 📢News
-* 🔥🔥[9.10] We've open-sourced the code of Mobile-Agent-v3 in real-world scenarios.
+* 🔥🔥[9.10] We've open-sourced the code of Mobile-Agent-v3 in real-world mobile scenarios.
 * 🔥[8.29] We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3.
 * 🔥[8.10] We release [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
 * 🔥[8.10] The technical report can be found [here](https://arxiv.org/abs/2508.15144)

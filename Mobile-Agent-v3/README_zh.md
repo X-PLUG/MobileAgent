@@ -6,7 +6,7 @@
 </div>
 
 ## 📢新闻
-* 🔥🔥[9.10] 我们开源了Mobile-Agent-v3在真实场景下的代码。
+* 🔥🔥[9.10] 我们开源了Mobile-Agent-v3在真实手机场景下的代码。
 * 🔥[8.29] 我们开源了GUI-Owl和Mobile-Agent-v3在AndroidWorld上的评测代码。
 * 🔥[8.10] 我们开源了 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B)。
 * 🔥[8.10] Mobile-Agent-v3的技术报告已经公开 [Mobile-Agent-v3](https://arxiv.org/abs/2508.15144)。
