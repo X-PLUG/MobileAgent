@@ -60,7 +60,7 @@ python run_mobileagentv3.py \
 ```
 
 ### Note
-1. If the model you are using outputs relative coordinates from 0 to 1000, such as Seed-VL or Qwen-2.5-VL, please set:
+1. If the model you are using outputs relative coordinates from 0 to 1000, such as Seed-VL or Qwen-2-VL, please set:
 ```
 --coor_type "qwen-vl"
 ```
