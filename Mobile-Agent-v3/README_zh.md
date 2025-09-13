@@ -61,7 +61,7 @@ python run_mobileagentv3.py \
 ```
 
 ### 注意
-1. 如果您使用的模型输出 0 到 1000 之间的相对坐标，例如 Seed-VL 或 Qwen-2.5-VL，请设置：
+1. 如果您使用的模型输出 0 到 1000 之间的相对坐标，例如 Seed-VL 或 Qwen-2-VL，请设置：
 ```
 --coor_type "qwen-vl"
 ```
