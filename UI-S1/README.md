@@ -6,24 +6,26 @@
 
 We present **Semi-online RL**, a novel paradigm that simulates online reinforcement learning using offline trajectories, thereby enabling the efficient training of MLLM-based GUI agents with enhanced multi-turn interaction capabilities.
 
-<a href="">
-  <img src="assets/method_comparison.png" alt="Logo" >
-</a>
+<div align="center">
+  <img src="assets/method_comparison.png" alt="Logo" style="width:80%;">
+</div>
 
-Ours **UI-S1-7B** achieves SOTA performance on both semi-online metric (SOP) and online metric (AndroidWorld) among open-source 7B models.
+Ours <b>UI-S1-7B</b> achieves SOTA performance on both semi-online metric (SOP) and online metric (AndroidWorld) among open-source 7B models.
 
-<a href="">
-  <img src="assets/metric.png" alt="Logo" >
-</a>
+<div align="center">
+  <img src="assets/metric.png" alt="Logo" style="width:80%;">
+</div>
 
 ## Detailed results
 
-<a href="">
-  <img src="assets/result.png" alt="Logo" >
-</a>
+<div align="center">
+  <img src="assets/result.png" alt="Logo" style="width:80%;">
+</div>
 
 
-- [] The checkpoints of UI-S1-7B will be released soon.
-- [] The evaluation code of UI-S1-7B will be released soon.
-- [] The training code will be released soon.
+
+##### Todo
+- [ ] The checkpoints of UI-S1-7B will be released soon.
+- [ ] The evaluation code of UI-S1-7B will be released soon.
+- [ ] The training code will be released soon.
 
