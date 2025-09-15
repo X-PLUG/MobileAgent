@@ -22,3 +22,8 @@ Ours **UI-S1-7B** achieves SOTA performance on both semi-online metric (SOP) and
   <img src="assets/result.png" alt="Logo" >
 </a>
 
+
+- [] The checkpoints of UI-S1-7B will be released soon.
+- [] The evaluation code of UI-S1-7B will be released soon.
+- [] The training code will be released soon.
+
