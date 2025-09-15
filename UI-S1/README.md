@@ -1,6 +1,6 @@
 # UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning
 
-<font size=4><div align='center' > [[📖 Paper](https://arxiv.org/abs/2503.21620)] [[🤗 UI-S1-7B](https://huggingface.co/mPLUG/UI-S1-7B)] [[🤗 Daily Paper](https://huggingface.co/papers/2503.21620)]</div></font>
+<font size=4><div align='center' > [[📖 Paper]] [[🤗 UI-S1-7B](https://huggingface.co/mPLUG/UI-S1-7B)] [[🤗 Daily Paper]]</div></font>
 
 ## 🔥 Overview
 
