@@ -11,16 +11,16 @@
 </div>
 
 ## 📢News
-* 🔥🔥[9.10] We've open-sourced the code of Mobile-Agent-v3 in real-world mobile scenarios.
-* 🔥[8.29] We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3.
-* 🔥[8.10] We release [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
-* 🔥[8.10] The technical report can be found [here](https://arxiv.org/abs/2508.15144)
+* 🔥[9.16] We've open-sourced the code of GUI-Owl and Mobile-Agent-v3 on OSWorld benchmark.
+* 🔥[9.10] We've open-sourced the code of AndroidWorld benchmark and real-world mobile scenarios for GUI-Owl and Mobile-Agent-v3.
+* [8.10] We release [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
+* [8.10] The technical report can be found [here](https://arxiv.org/abs/2508.15144)
 
 ## 📍 TODO
 - [x] Open source code of Mobile-Agent-v3 on real-world mobile scenarios
 - [x] Open source evaluation code for GUI-Owl and Mobile-Agent-v3 on AndroidWorld
 - [ ] Open source code of Mobile-Agent-v3 on real-world PC scenarios
-- [ ] Open source evaluation code on OSWorld
+- [x] Open source evaluation code on OSWorld
 
 ## Introduction
 GUI-Owl is a model series developed as part of the Mobile-Agent-v3 project. It achieves state-of-the-art performance across a range of GUI automation benchmarks, including ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, and OSWorld. Furthermore, it can be instantiated as various specialized agents within the Mobile-Agent-v3 multi-agent framework to accomplish more complex tasks.
@@ -68,6 +68,18 @@ python run_mobileagentv3.py \
 2. If your instruction needs to remember content, please set:
 ```
 --notetaker True
+```
+
+## Evaluation on OSWorld
+1. Please follow the [official code repository](https://github.com/xlang-ai/OSWorld?tab=readme-ov-file#-installation) to install the OSWorld and necessary dependencies.
+
+2. Fill in your vllm service information in the `run_guiowl.sh` or `run_ma3.sh` script, including api_key, base_url, and model.
+
+3. Run the evaluation.
+```
+cd MobileAgent/Mobile-Agent-v3/os_world_v3
+sh run_guiowl.sh
+sh run_ma3.sh
 ```
 
 ## Evaluation on AndroidWorld

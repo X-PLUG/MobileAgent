@@ -11,16 +11,16 @@
 </div>
 
 ## 📢新闻
-* 🔥🔥[9.10] 我们开源了Mobile-Agent-v3在真实手机场景下的代码。
-* 🔥[8.29] 我们开源了GUI-Owl和Mobile-Agent-v3在AndroidWorld上的评测代码。
+* 🔥[9.16] 我们在 OSWorld 基准测试中开源了 GUI-Owl 和 Mobile-Agent-v3 的代码。
+* 🔥[9.10] 我们开源了 AndroidWorld 基准测试的代码以及 GUI-Owl 和 Mobile-Agent-v3 的真实移动场景。
 * 🔥[8.10] 我们开源了 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B)。
 * 🔥[8.10] Mobile-Agent-v3的技术报告已经公开 [Mobile-Agent-v3](https://arxiv.org/abs/2508.15144)。
 
 ## 📍 TODO
 - [x] 开源在真实手机场景的 Mobile-Agent-v3 代码
-- [x] 开源在Android World上评测的代码PC
+- [x] 开源在Android World上评测的代码
 - [ ] 开源在真实PC场景的 Mobile-Agent-v3 代码
-- [ ] 开源在OSWorld上评测的代码PC
+- [x] 开源在OSWorld上评测的代码
 
 ## 介绍
 GUI-Owl是多智能体GUI自动化框架Mobile-Agent-v3的系列基础模型。其在众多GUI自动化评测榜单包括 ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, 和 OSWorld中取得SOTA性能。此外，其也可以扮演Mobile-Agent-v3中的各个智能体进行协同交互，以完成更为复杂的任务。
@@ -69,6 +69,18 @@ python run_mobileagentv3.py \
 2. 如果您的指令需要记忆某些页面中内容，请设置：
 ```
 --notetaker True
+```
+
+## 在 OSWorld 上进行评估
+1. 请按照[官方代码仓库](https://github.com/xlang-ai/OSWorld?tab=readme-ov-file#-installation)安装 OSWorld 及必要的依赖项。
+
+2. 在 `run_guiowl.sh` 或 `run_ma3.sh` 脚本中填写您的 vllm 服务信息，包括 api_key、base_url 和 model。
+
+3. 运行评估。
+```
+cd MobileAgent/Mobile-Agent-v3/os_world_v3
+sh run_guiowl.sh
+sh run_ma3.sh
 ```
 
 ## 在 AndroidWorld 上进行评估

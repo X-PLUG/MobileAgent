@@ -42,12 +42,12 @@
 
 
 ## 📢News
-- `[2025.9.10]`🔥🔥 We've open-sourced the code of Mobile-Agent-v3 in real-world mobile scenarios. See the [Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#deploy-mobile-agent-v3-on-your-mobile-device).
-- `[2025.8.29]`🔥 We've open-sourced the AndroidWorld benchmark code for GUI-Owl and Mobile-Agent-v3. See the [Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-androidworld).
-- `[2025.8.20]`🔥 All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://arxiv.org/abs/2508.15144). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
+- `[2025.9.16]`🔥 We've open-sourced the code of GUI-Owl and Mobile-Agent-v3 on OSWorld benchmark. See the [Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-osworld).
+- `[2025.9.10]`🔥 We've open-sourced the code of AndroidWorld benchmark and real-world mobile scenarios for GUI-Owl and Mobile-Agent-v3. See the [AndroidWorld Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-androidworld) and [Real-world Scenarios Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#deploy-mobile-agent-v3-on-your-mobile-device).
+- `[2025.8.20]`All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://arxiv.org/abs/2508.15144). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
   - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
   - Mobile-Agent-v3 is a cross-platform multi-agent framework based on GUI-Owl. It provides capabilities such as planning, progress management, reflection, and memory.
-- `[2025.8.14]`🔥 Mobile-Agent-v3 won the **best demo award** at the ***The 24rd China National Conference on Computational Linguistics*** (CCL 2025).
+- `[2025.8.14]`Mobile-Agent-v3 won the **best demo award** at the ***The 24rd China National Conference on Computational Linguistics*** (CCL 2025).
 - `[2025.3.17]` PC-Agent has been accepted by the **ICLR 2025 Workshop**.
 - `[2024.9.26]` Mobile-Agent-v2 has been accepted by **The Thirty-eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)**.
 - `[2024.7.29]` Mobile-Agent won the **best demo award** at the ***The 23rd China National Conference on Computational Linguistics*** (CCL 2024).
