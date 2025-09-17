@@ -42,7 +42,8 @@
 
 
 ## 📢News
-- `[2025.9.16]`🔥 We've open-sourced the code of GUI-Owl and Mobile-Agent-v3 on OSWorld benchmark. See the [Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-osworld).
+- `[2025.9.17]`🔥 We have released our latest work, **UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning**. The [paper](https://www.arxiv.org/abs/2509.11543), [code](https://github.com/X-PLUG/MobileAgent/tree/main/UI-S1), and [model](https://huggingface.co/mPLUG/UI-S1-7B) are now open-sourced.
+- `[2025.9.16]`🔥 We've open-sourced the code of GUI-Owl and Mobile-Agent-v3 on OSWorld benchmark. See the [Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-osworld). The RL-tuned [checkpoint](https://huggingface.co/mPLUG/GUI-Owl-7B-Desktop-RL) of GUI-Owl is also released.
 - `[2025.9.10]`🔥 We've open-sourced the code of AndroidWorld benchmark and real-world mobile scenarios for GUI-Owl and Mobile-Agent-v3. See the [AndroidWorld Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-androidworld) and [Real-world Scenarios Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#deploy-mobile-agent-v3-on-your-mobile-device).
 - `[2025.8.20]`All new **GUI-Owl** and **Mobile-Agent-v3** are released! Technical report can be found [here](https://arxiv.org/abs/2508.15144). And model checkpoint will be released on [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) and [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B).
   - GUI-Owl is a multi-modal cross-platform GUI VLM with GUI perception, grounding, and end-to-end operation capabilities.
@@ -131,6 +132,16 @@ If you find Mobile-Agent useful for your research and applications, please cite 
   author={Ye, Jiabo and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Zhu, Zhaoqing and Zheng, Ziwei and Gao, Feiyu and Cao, Junjie and Lu, Zhengxi and others},
   journal={arXiv preprint arXiv:2508.15144},
   year={2025}
+}
+
+@misc{lu2025uis1advancingguiautomation,
+      title={UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning}, 
+      author={Zhengxi Lu and Jiabo Ye and Fei Tang and Yongliang Shen and Haiyang Xu and Ziwei Zheng and Weiming Lu and Ming Yan and Fei Huang and Jun Xiao and Yueting Zhuang},
+      year={2025},
+      eprint={2509.11543},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2509.11543}, 
 }
 
 @article{wanyan2025look,
