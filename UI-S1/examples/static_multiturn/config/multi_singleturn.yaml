@@ -1,0 +1,31 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 1024
+  max_response_length: 1024
+  train_batch_size: 2
+  return_raw_chat: True
+  reward_fn_key: _advantage
+  custom_cls:
+    path: verl/utils/dataset/rl_dataset.py
+    name: Qwen25VLNoRolloutDataset
+    
+actor_rollout_ref:
+  hybrid_engine: True
+  rollout:
+    name: fake_multiturn
+    n: 0
+  actor:
+    use_dynamic_bsz: True
+
+reward_model:
+  reward_manager: already
+
+algorithm:
+  adv_estimator: already_grpo

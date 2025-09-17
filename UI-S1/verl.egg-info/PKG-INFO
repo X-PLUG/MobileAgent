@@ -1,0 +1,124 @@
+Metadata-Version: 2.4
+Name: verl
+Version: 0.4.0.dev0
+Summary: verl: Volcano Engine Reinforcement Learning for LLM
+Home-page: https://github.com/volcengine/verl
+Author: Bytedance - Seed - MLSys
+Author-email: zhangchi.usc1992@bytedance.com, gmsheng@connect.hku.hk
+License: Apache 2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: accelerate
+Requires-Dist: codetiming
+Requires-Dist: datasets
+Requires-Dist: dill
+Requires-Dist: hydra-core
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: peft
+Requires-Dist: pyarrow>=19.0.0
+Requires-Dist: pybind11
+Requires-Dist: pylatexenc
+Requires-Dist: ray[default]>=2.41.0
+Requires-Dist: torchdata
+Requires-Dist: tensordict<=0.6.2
+Requires-Dist: transformers
+Requires-Dist: wandb
+Requires-Dist: qwen_vl_utils
+Requires-Dist: packaging>=20.0
+Requires-Dist: colorlog
+Requires-Dist: squirrel-core
+Requires-Dist: json5
+Requires-Dist: retry
+Requires-Dist: modelscope
+Requires-Dist: ninja
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pre-commit; extra == "test"
+Requires-Dist: py-spy; extra == "test"
+Provides-Extra: prime
+Requires-Dist: pyext; extra == "prime"
+Provides-Extra: geo
+Requires-Dist: mathruler; extra == "geo"
+Provides-Extra: gpu
+Requires-Dist: liger-kernel; extra == "gpu"
+Requires-Dist: flash-attn; extra == "gpu"
+Provides-Extra: math
+Requires-Dist: math-verify; extra == "math"
+Provides-Extra: vllm
+Requires-Dist: tensordict<=0.6.2; extra == "vllm"
+Requires-Dist: vllm==0.8.2; extra == "vllm"
+Provides-Extra: sglang
+Requires-Dist: tensordict<=0.6.2; extra == "sglang"
+Requires-Dist: sglang[openai,srt]==0.4.6.post5; extra == "sglang"
+Requires-Dist: torch-memory-saver>=0.0.5; extra == "sglang"
+Requires-Dist: torch==2.6.0; extra == "sglang"
+Provides-Extra: trl
+Requires-Dist: trl<=0.9.6; extra == "trl"
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+# UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning
+
+<font size=4><div align='center' > [[📖 Paper](https://arxiv.org/abs/2503.21620)] [[🤗 UI-S1-7B](https://huggingface.co/LZXzju/Qwen2.5-VL-3B-UI-R1)] [[🤗 Daily Paper](https://huggingface.co/papers/2503.21620)]</div></font>
+
+## 🔥 Overview
+
+We present **Semi-online RL**, a novel paradigm that simulates online reinforcement learning using offline trajectories, thereby enabling the efficient training of MLLM-based GUI agents with enhanced multi-turn interaction capabilities.
+
+<a href="">
+  <img src="assets/method_comparison.png" alt="Logo" >
+</a>
+
+Ours **UI-S1-7B** achieves SOTA performance on both semi-online metric (SOP) and online metric (AndroidWorld) among open-source 7B models.
+
+<a href="">
+  <img src="assets/metric.png" alt="Logo" >
+</a>
+
+## Detailed results
+
+<a href="">
+  <img src="assets/result.png" alt="Logo" >
+</a>
+
+
+
+
+
+## Setup
+
+```shell
+conda create -n ui-s1 python=3.11
+conda activate ui-s1
+cd ui-s1
+pip install -e .
+pip install vllm==0.8.2
+pip install flash-attn==2.7.4.post1 --no-build-isolation
+
+```
+
+## Train
+
+```shell
+bash scripts/train_example.sh
+```
+
+## Inference for SOP
+
+```shell
+
+```
+
+## Evaluation for SOP
+
+```shell
+
+```

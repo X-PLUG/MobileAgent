@@ -1,0 +1,22 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 8192
+  max_response_length: 1024
+  train_batch_size: 2
+  return_raw_chat: False
+  data.filter_overlong_prompts: True
+  reward_fn_key: data_source
+  custom_cls:
+    path: verl/utils/dataset/rl_dataset.py
+    name: TrajDataset
+
+actor_rollout_ref:
+  rollout:
+    max_num_batched_tokens: 32768  

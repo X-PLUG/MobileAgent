@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "description": "执行操作并决定当前任务状态",
+    "additionalProperties": false,
+    "properties": {
+      "thought": {
+        "type": "string",
+        "description": "智能体的思维过程"
+      },
+      "POINT": {
+        "$ref": "#/$defs/Location",
+        "description": "点击屏幕上的指定位置"
+      },
+      "to": {
+        "description": "移动，组合手势参数",
+        "oneOf": [
+          {
+            "enum": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "description": "从当前点（POINT）出发，执行滑动手势操作，方向包括向上、向下、向左、向右"
+          },
+          {
+            "$ref": "#/$defs/Location",
+            "description": "移动到某个位置"
+          }
+        ]
+      },
+      "duration": {
+        "type": "integer",
+        "description": "动作执行的时间或等待时间，毫秒",
+        "minimum": 0,
+        "default": 200
+      },
+      "PRESS": {
+        "type": "string",
+        "description": "触发特殊按键，HOME为回到主页按钮，BACK为返回按钮，ENTER为回车按钮",
+        "enum": [
+          "HOME",
+          "BACK",
+          "ENTER"
+        ]
+      },
+      "TYPE": {
+        "type": "string",
+        "description": "输入文本"
+      },
+      "STATUS": {
+        "type": "string",
+        "description": "当前任务的状态。特殊情况：satisfied，无需操作；impossible，任务无法完成；interrupt，任务中断；need_feedback，需要用户反馈；",
+        "enum": [
+          "continue",
+          "finish",
+          "satisfied",
+          "impossible",
+          "interrupt",
+          "need_feedback"
+        ],
+        "default": "continue"
+      }
+    },
+    "$defs": {
+      "Location": {
+        "type": "array",
+        "description": "坐标为相对于屏幕左上角位原点的相对位置，并且按照宽高比例缩放到0～1000，数组第一个元素为横坐标x，第二个元素为纵坐标y",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "minItems": 2,
+        "maxItems": 2
+      }
+    }
+  }

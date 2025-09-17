@@ -1,0 +1,28 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 8192
+  max_response_length: 1024
+  train_batch_size: 2
+  return_raw_chat: False
+  data.filter_overlong_prompts: True
+  reward_fn_key: data_source
+  
+
+actor_rollout_ref:
+  rollout:
+    max_num_batched_tokens: 8192
+  actor:
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.28
+    clip_ratio_c: 10
+
+algorithm:
+  kl_ctrl:
+    kl_coef: 0
