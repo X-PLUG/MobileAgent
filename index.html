@@ -1,498 +1,793 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Mobile-Agent-E">
-  <meta name="keywords" content="Mobile Agent, LLM, LMM">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-Agent: The Future of GUI Automation</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00ddff;
+            --secondary-color: #f72585;
+            --bg-color: #02001a;
+            --text-color: #e0e0e0;
+            --text-secondary-color: #b0b0c0;
+            --glass-bg: rgba(20, 20, 40, 0.6);
+            --border-color: rgba(0, 221, 255, 0.3);
+            --glow-color: rgba(0, 221, 255, 0.4);
+        }
 
-  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/bulma.min.css">
-  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./Mobile-Agent-E/static/css/index.css">
-  <link rel="icon" href="./Mobile-Agent-E/static/images/pixel_art_style_icon.png">
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./Mobile-Agent-E/static/js/fontawesome.all.min.js"></script>
-  <script src="./Mobile-Agent-E/static/js/bulma-carousel.min.js"></script>
-  <script src="./Mobile-Agent-E/static/js/bulma-slider.min.js"></script>
-  <script src="./Mobile-Agent-E/static/js/index.js"></script>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(2, 0, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        header.visible {
+            transform: translateY(0);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s, text-shadow 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 8px var(--glow-color);
+        }
+
+        .lang-switcher button {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-switcher button.active, .lang-switcher button:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 12px var(--glow-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 40px var(--secondary-color);
+            animation: glitch 3s infinite alternate;
+        }
+        
+        @keyframes glitch {
+            0% { transform: skew(0.5deg, -0.2deg); text-shadow: 0 0 10px #00ddff, 0 0 20px #00ddff, -2px 2px 2px #f72585, 2px -2px 2px #4cc9f0; }
+            20% { transform: skew(-0.2deg, 0.5deg); }
+            40% { transform: skew(0.5deg, -0.2deg); }
+            60% { transform: skew(-0.2deg, 0.5deg); }
+            80% { transform: skew(0.5deg, -0.2deg); text-shadow: 0 0 10px #00ddff, 0 0 20px #00ddff, 2px -2px 2px #f72585, -2px 2px 2px #4cc9f0;}
+            100% { transform: skew(-0.2deg, 0.5deg); }
+        }
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var toggles = document.querySelectorAll('.toggle-section');
-      toggles.forEach(function(toggle) {
-        toggle.addEventListener('click', function() {
-          var content = document.getElementById(toggle.getAttribute('aria-controls'));
-          content.classList.toggle('is-active');
-          toggle.children[1].classList.toggle('fa-angle-down');
-          toggle.children[1].classList.toggle('fa-angle-up');
-        });
-      });
-    });
-  </script>
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary-color);
+            margin: 20px 0 40px;
+        }
 
-  <style>
-    .collapse-content {
-      display: none;
-      margin-top: 10px;
-    }
-    .collapse-content.is-active {
-      display: block;
-    }
-    .toggle-section .icon.is-small {
-      transition: transform 0.3s ease;
-    }
-    .toggle-section .fa-angle-up {
-      transform: rotate(180deg);
-    }
-  </style>
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
 
-  <style>
-    .banner {
-      background-color: #f5f5f5;
-      padding: 10px 0;
-      border-bottom: 1px solid #ddd;
-    }
-    .banner .container {
-      display: flex;
-      justify-content: center; /* Center the links horizontally */
-      align-items: center;
-      gap: 100px; /* Controls the spacing between links */
-    }
+        .btn {
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .banner a {
-      color: #3273dc;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0; /* Remove any additional margin */
-      padding: 5px; /* Optional: Adjust padding around the links */
-      font-size: 18px;
-    }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
 
-    .banner a:hover {
-      text-decoration: underline;
-    }
-  </style>
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
 
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary-color);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* --- Main Content & Section Styling --- */
+        #main-content {
+            position: relative;
+            z-index: 2;
+            background-color: var(--bg-color);
+        }
+        
+        section {
+            padding: 100px 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        /* --- Glassmorphism Card --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150%;
+            top: -25%;
+            left: -50px;
+            background: conic-gradient(from 180deg at 50% 50%, #f7258500 0%, #00ddff 50%, #f7258500 100%);
+            animation: rotate-border 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate-border {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Vision Section --- */
+        #vision {
+            text-align: center;
+        }
+        #vision p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary-color);
+        }
+        
+        /* --- Showcase Section --- */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .showcase-item {
+            margin-bottom: 50px;
+        }
+        
+        .showcase-item:nth-child(even) .showcase-text {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: right;
+        }
+        
+        .showcase-item:nth-child(even) .showcase-media {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        
+        .showcase-text h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .showcase-text p {
+            color: var(--text-secondary-color);
+            line-height: 1.6;
+        }
+
+        .showcase-media video {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 30px rgba(0, 221, 255, 0.1);
+        }
+
+        /* --- Publications Section --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 25px;
+            background-color: var(--bg-color);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            text-align: right;
+        }
+        .timeline-item.right .timeline-content {
+            text-align: left;
+        }
+        
+        .timeline-content h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        .timeline-content p {
+            margin: 0 0 10px 0;
+            color: var(--text-secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .timeline-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        
+        /* --- Get Started Section --- */
+        #get-started {
+            text-align: center;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-secondary-color);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--primary-color); }
+
+        /* --- Language hiding logic --- */
+        [data-lang="en"], [data-lang="zh"] { display: none; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .timeline::after { left: 10px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+            .timeline-item.left, .timeline-item.right { left: 0; }
+            .timeline-item::after { left: 1px; }
+            .timeline-content, .timeline-item.right .timeline-content { text-align: left; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 3%; }
+            .logo span { display: none; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px; right: 0; left: 0;
+                background: rgba(2, 0, 26, 0.9);
+                padding: 20px 0;
+            }
+            nav ul.active { display: flex; }
+            .menu-toggle { display: block; z-index: 1; }
+            nav { gap: 15px; }
+
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content .subtitle { font-size: 1.1rem; }
+
+            .showcase-grid { grid-template-columns: 1fr; }
+            .showcase-item:nth-child(even) .showcase-text,
+            .showcase-item:nth-child(even) .showcase-media { grid-column: 1; grid-row: auto; text-align: left; }
+            .showcase-item:nth-child(even) .showcase-media { margin-top: 20px; }
+        }
+    </style>
 </head>
 <body>
-
-
-<section class="banner">
-  <div class="container">
-    <a href="https://github.com/X-PLUG/MobileAgent">Mobile-Agent Series</a>
-    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent">Mobile-Agent-v1</a>
-    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v2">Mobile-Agent-v2</a>
-    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E">Mobile-Agent-E</a>
-  </div>
-</section>
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            <img src="Mobile-Agent-E/static/images/pixel_art_style_icon.png" alt="Icon" style="vertical-align: middle; height: 70px; margin-right: 10px; margin-bottom: 9px">
-            Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks </h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://mikewangwzhl.github.io/">Zhenhailong Wang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=qZYvce8AAAAJ&hl=en">Haiyang Xu</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=m4ro0NsAAAAJ&hl=en">Junyang Wang</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=TE1odswAAAAJ&hl=en">Xi Zhang</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=uIUfGxYAAAAJ&hl=zh-CN">Ming Yan</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=cgnuJDUAAAAJ&hl=zh-CN">Ji Zhang</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=9r98PpoAAAAJ&hl=zh-CN">Fei Huang</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://blender.cs.illinois.edu/hengji.html">Heng Ji</a><sup>1</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign,</span>
-            <span class="author-block"><sup>2</sup>Alibaba Group</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- arxiv Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2501.11733"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+    <div id="hero">
+        <div id="hero-canvas"></div>
+        <div class="hero-content">
+            <h1>Mobile-Agent</h1>
+            <p class="subtitle" data-lang="en">Autonomous Agents for Any GUI.</p>
+            <p class="subtitle" data-lang="zh">驾驭万千图形界面的自主智能体。</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/X-PLUG/MobileAgent" target="_blank" class="btn btn-primary">
+                    <span data-lang="en">Explore on GitHub</span>
+                    <span data-lang="zh">探索 GitHub</span>
                 </a>
-              </span>
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="Mobile-Agent-E/static/pdf/mobile_agent_e_jan20_arxiv.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>PDF</span>
+                <a href="#showcase" class="btn btn-secondary">
+                    <span data-lang="en">See Demos</span>
+                    <span data-lang="zh">观看演示</span>
                 </a>
-              </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/MikeWangWZHL/VDLM/raw/main/Mobile-Agent-E/static/videos/vdlm_teaser_vid.mp4"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Model Link. -->
-              <!-- <span class="link-block">
-                <a href="https://huggingface.co/mikewang/PVD-160k-Mistral-7b"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <p style="font-size:18px">🤗</p>
-                  </span>
-                  <span>Model</span>
-                </a> -->
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/mikewang/mobile_eval_e"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <p style="font-size:18px">🤗</p>
-                </span>
-                <span>Dataset</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/X-PLUG/MobileAgent"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Mobile-Agent Series</span>
-                  </a>
-              </span>
-              <!-- Demo link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/MikeWangWZHL/VDLM/blob/main/demo.ipynb"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <p style="font-size:18px">🚀</p>
-                  </span>
-                  <span>Demo</span>
-                </a> -->
             </div>
-
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- <video id="teaser" autoplay muted controls playsinline loop height="100%">
-        <source src="./Mobile-Agent-E/static/videos/vdlm_teaser_vid.mp4"
-                type="video/mp4">
-      </video> -->
-      <!-- <h2 class="subtitle has-text-centered">
-        <span class="dnerf">VDLM </span>
-      </h2> -->
-    </div>
-  </div>
-</section>
-
-
-
-<section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container"  style="max-width: 960px; margin: 0 auto;">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-shopping">
-            <video poster="" id="shopping" autoplay controls muted loop playsinline height="100%">
-              <source src="./Mobile-Agent-E/static/videos/shopping.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-bouldering">
-            <video poster="" id="bouldering" autoplay controls muted loop playsinline height="100%">
-              <source src="./Mobile-Agent-E/static/videos/bouldering_gym.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-survey">
-            <video poster="" id="survey" autoplay controls muted loop playsinline height="100%">
-              <source src="./Mobile-Agent-E/static/videos/survey.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-xbox_fixing">
-            <video poster="" id="xbox_fixing" autoplay controls muted loop playsinline height="100%">
-              <source src="./Mobile-Agent-E/static/videos/xbox_fixing.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-cn_xiaohongshu_taobao">
-            <video poster="" id="cn_xiaohongshu_taobao" autoplay controls muted loop playsinline height="100%">
-              <source src="./Mobile-Agent-E/static/videos/cn_xiaohongshu_taobao.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-        * The videos are sped up for better viewing.
-      </div>
-    </div>
-</section>
-
-
-<!-- Abstract -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            <b>Problem:</b> Smartphones have become indispensable in modern life, yet navigating complex, multi-step tasks on mobile devices often remains frustrating and time-consuming. Recent advancements in large multimodal model (LMM)-based mobile agents have demonstrated the ability to perceive and act in mobile environments on behalf of users. However, current approaches face significant limitations: they fall short in addressing real-world human needs, struggle with reasoning-intensive and long-horizon tasks, and lack mechanisms to learn and improve from prior experiences.
-          </p>
-          <p>
-            <b>Method:</b> To overcome these challenges, we introduce <b>Mobile-Agent-E</b>, a hierarchical multi-agent framework capable of self-evolution through past experience.
-            By “hierarchical,” we refer to an explicit separation of high-level planning and low-level action execution through the structured assignment of five agents: a Manager and four subordinate agents—Perceptor, Operator, Action Reflector, and Notetaker.
-
-            Mobile-Agent-E also features a novel self-evolution module which maintains a persistent long-term memory comprising <em>Tips</em> and <em>Shortcuts</em>. Tips are general guidance and lessons learned from prior tasks on how to effectively interact with the environment. Shortcuts are reusable, executable sequences of atomic operations tailored for specific subroutines.
-            We also introduce <b>Mobile-Eval-E</b>, a new benchmark featuring challenging real-world mobile tasks requiring long-horizon, multi-app interactions. Empirical results show that Mobile-Agent-E achieves a 22% absolute improvement over previous state-of-the-art approaches across three foundation model backbones on diverse tasks.
-          </p>
-        </div>
-        <figure>
-          <img src="Mobile-Agent-E/static/images/new_teaser.png" alt="Mobile-Agent-E teaser." class="teaser"/>
-          <figcaption class="has-text-centered">
-            <b>Figure 1:</b> Mobile-Agent-E demonstrates significant improvements on complex real-world mobile tasks, which require long-horizon planning and reasoning, compared to the previous state-of-the-art (<a href="https://arxiv.org/abs/2406.01014">Mobile-Agent-v2</a>).
-        </figure>
-      </div>
+        <a href="#main-content" class="scroll-down" aria-label="Scroll down">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 11.09L16.77 9.68L12 14.45L7.23 9.68L5.82 11.09L12 17.27ZM12 4C11.45 4 11 4.45 11 5V14.45L12.71 12.74L14.12 14.15L12 16.27L9.88 14.15L11.29 12.74L13 14.45V5C13 4.45 12.55 4 12 4Z" transform="scale(1, -1) translate(0, -21)"/><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z"/></svg>
+        </a>
     </div>
 
-  </div>
-</section>
+    <header id="header">
+        <a href="#" class="logo">
+            <img src="assets/logo.png" alt="Mobile Agent Logo">
+            <span>Mobile-Agent</span>
+        </a>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#vision"><span data-lang="en">Vision</span><span data-lang="zh">愿景</span></a></li>
+                <li><a href="#showcase"><span data-lang="en">Showcase</span><span data-lang="zh">演示</span></a></li>
+                <li><a href="#publications"><span data-lang="en">Publications</span><span data-lang="zh">论文</span></a></li>
+                <li><a href="#get-started"><span data-lang="en">Get Started</span><span data-lang="zh">开始</span></a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button id="lang-en-btn">EN</button>
+                <button id="lang-zh-btn">中文</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+    </header>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Mobile-Agent-E</h2>
-        <div style="text-align: center;">
-          <figure>
-              <img src="Mobile-Agent-E/static/images/agent_overview.png" alt="overview" class="agent_overview" style="width: 800px;"/>
-              <figcaption class="has-text-centered"><b>Figure 2:</b> Mobile-Agent-E Overview.</figcaption>
-          </figure>
-        </div>
-        <br>
-        <h3 class="title is-4">Hierarchical Multi-Agent Framework</h3>
-        <div class="content has-text-justified">
-          <p>
-            <b>Manager:</b> Large multimodal model (LMM)-based reasoning agent for creating high-level plans containing decomposed subgoals for the user's request. The Manager also considers avalible Shortcuts from the long-term memory to guide planning. Additionaly, when the model observes consecutive failed actions, an Error Escalation Flag is raised to notify the Manager, who reviews recent errors and decides on higher-level adjustments to resolve the issue. In other cases, when an error first occurs, the Operator will attempt to address it before escalating the issue to the Manager.
-          </p>
-          <p>
-            <b>Perceptor:</b> A pure vision-based perception module containing three tools: an OCR model, an icon grounding model, and an icon captioning model. The output contains a fine-grained list of texts and icons, along with their coordinates on the screen.
-          </p>
-          <p>
-            <b>Operator:</b> A LMM-based reasoning agent for deciding the next immediate action based on the high-level plan from the Manager, such as Tap(x, y). The Operator also considers the Tips from the long-term memory to guide the decision-making. The action space is defined to contain not only Atomic Operations but also Shortcuts, which can evolve through tasks.
-          </p>
-          <p>
-            <b>Action Reflector:</b> A LMM-based reasoning agent for verifying if the previous action achieves expected outcomes based on the before and after screenshots. If the action succeeds, the Action Reflector logs current progress, otherwise the Action Reflector provides additional error feedback.
-          </p>
-          <p>
-            <b>Notetaker:</b> A LMM-based reasoning agent for aggregating important information during navigating the task. For example, the price of a product or the phone number of a restaurant.
-          </p>
-        </div>
-        <figure>
-          <img src="Mobile-Agent-E/static/images/breakdown_example.png" alt="overview" class="agent_overview" />
-          <figcaption class="has-text-centered"><b>Figure 3:</b> A detailed breakdown of one inference step t with Mobile-Agent-E, showing the inputs and outputs of each agent. Omitted information indicates no change. </figcaption>
-        </figure>
-        <br>
-        <!-- <h3 class="title is-4">Learning Alignment of SVG to Primal Visual Description with Language Models</h3> -->
-        <h3 class="title is-4">Self-Evolution Module</h3>
-        <div class="content has-text-justified">
-          <p>
-            We maintain a persistent long-term memory consisting of two key types of knowledge, Tips and Shortcuts, which aim to enhance both the performance and efficiency of the agent. Two dedicated LLM-based agents, called Experience Reflectors, are used to update the Tips and Shortcuts at the end of each task based on the interaction history.
-          </p>
-          <p>
-            <b>Tips:</b> Tips are defined as general guidance on effective interactions and lessons learned from previous errors, akin to the episodic memory in human cognition.
-          </p>
-          <p>
-            <b>Shortcuts:</b> Shortcuts are defined as reusable, executable functions composed of sequences of atomic operations tailored for recurring subroutines. Shortcuts are akin to procedural knowledge, which allows humans to perform well-practiced tasks efficiently and often subconsciously. We explicitly include a <em>precondition</em> in the definition of a Shortcut and require the Operator to verify that the current state satisfies the precondition before using the Shortcut.
-          </p>
-          <p>
-            See <a href="#evo_breakdown">Figure 4</a> for an example self-evolution step as well as the agent generated Tips and Shortcuts.
-          </p>
-        </div>
-        <figure id="evo_breakdown">
-          <img src="Mobile-Agent-E/static/images/evolving_breakdown.png" alt="evo_breakdown" class="evo_breakdown" />
-          <figcaption class="has-text-centered"><b>Figure 4:</b> A detailed breakdown of the self-evolution module. </figcaption>
-        </figure>
-  </div>
-</section>
+    <div id="main-content">
+        <section id="vision">
+            <div class="container" data-aos="fade-up">
+                <h2 class="section-title"><span data-lang="en">Our Vision</span><span data-lang="zh">我们的愿景</span></h2>
+                <p>
+                    <span data-lang="en">We are building a new generation of autonomous agents capable of understanding and operating any graphical user interface (GUI), from mobile apps to desktop software. Mobile-Agent empowers AI to interact with the digital world just as humans do, unlocking unprecedented levels of automation and accessibility.</span>
+                    <span data-lang="zh">我们正在构建新一代的自主智能体，它能够理解并操作从移动应用到桌面软件的任何图形用户界面(GUI)。Mobile-Agent 赋予 AI 像人类一样与数字世界互动的能力，从而开启前所未有的自动化与无障碍化新篇章。</span>
+                </p>
+            </div>
+        </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Mobile-Eval-E Benchmark</h2>
-        <br>
-        <div style="text-align: center;">
-          <figure id="benchmark_comparison">
-              <img src="Mobile-Agent-E/static/images/benchmark_comparison.png" alt="overview" class="agent_overview" style="width: 500px;"/>
-              <figcaption class="has-text-centered"><b>Table 1:</b> Comparison with existing mobile agent benchmarks.</figcaption>
-          </figure>
-        </div>
-        <br>
-        <p>
-          Existing dynamic mobile benchmarks (<a href="https://arxiv.org/abs/2312.13771">AppAgent</a>, <a href="https://arxiv.org/abs/2401.16158">Mobile-Agent</a>, <a href="https://arxiv.org/abs/2406.01014">Mobile-Agent-v2</a>) primarily focus on short-horizon, straightforward tasks, where the performance has already saturated. To address this limitation, we propose a challenging benchmark, <b>Mobile-Eval-E</b>, which emphasizes reasoning-intensive, long-horizon, multi-app tasks. Mobile-Eval-E comprises 25 manually crafted tasks spanning 5 real-world scenarios: "Restaurant Recommendation", "Information Searching", "Online Shopping", "What's Trending", and "Travel Planning". As shown in <a href="benchmark_comparison">Table 1</a>,significantly surpasses previous benchmarks in complexity, featuring more than 2x the number of expected operations per task.  Mobile-Eval-E also encompasses a broader range of Apps, with 76% of the tasks requiring interactions with multiple Apps.
-        </p>
-  </div>
-</section>
+        <section id="showcase">
+            <div class="container">
+                <h2 class="section-title"><span data-lang="en">Showcase</span><span data-lang="zh">功能展示</span></h2>
+                <div class="showcase-grid">
+                    <div class="showcase-item" data-aos="fade-right">
+                        <div class="showcase-text">
+                            <h3><span data-lang="en">Cross-Platform Control</span><span data-lang="zh">跨平台操控</span></h3>
+                            <p>
+                                <span data-lang="en">Mobile-Agent v3 seamlessly operates across mobile, web, and PC platforms. Here it's tasked to perform a complex, multi-step operation.</span>
+                                <span data-lang-zh">Mobile-Agent v3 能够无缝地在移动、网页和PC平台之间执行操作。这里它正在执行一个复杂的多步骤任务。</span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="showcase-item" data-aos="fade-left">
+                        <div class="showcase-media">
+                            <video controls muted poster="assets/framework.png" src="https://github.com/user-attachments/assets/ec7defa1-e6c5-40d2-84bd-c54e26a3fcec"></video>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-item" data-aos="fade-left">
+                         <div class="showcase-text">
+                            <h3><span data-lang="en">Complex PC Tasks</span><span data-lang-zh">复杂的PC任务</span></h3>
+                            <p>
+                                <span data-lang="en">Watch as the agent creates a PowerPoint presentation from scratch, demonstrating its ability to use complex desktop software.</span>
+                                <span data-lang-zh">观看智能体从零开始创建一个PowerPoint演示文稿，展示其使用复杂桌面软件的能力。</span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="showcase-item" data-aos="fade-right">
+                        <div class="showcase-media">
+                           <video controls muted poster="assets/series.png" src="https://github.com/user-attachments/assets/a978087a-717b-4c8a-9e50-9223dac019dd"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Results</h2>
-          <br>
-          <h3 class="title is-4">Metrics</h3>
-          <div class="content has-text-justified">
-            <p>
-              We introduce a new evaluation metric called the <b>Satisfaction Score (SS)</b> to address the challenge posed by real-world tasks that often lack a binary success flag or a ground truth trajectory. This metric is computed based on human-written rubrics that account for both milestone completion, such as "opened Maps," and exploratory behaviors, such as "viewed more than one review." This approach offers a reliable measure of agent performance aligned with human preferences. We further propose a Satisfaction Score vs Steps (SSS) curve to better evaluate and visualize the efficiency of mobile agents.
-              Additionally, we include Action Accuracy (AA) and Reflection Accuracy (RA) as metrics to evaluate action-level performance, and Termination Error (TE) to reflect the agent's robustness.
-            </p>
-          </div>
-          <h3 class="title is-4">Comparison with SOTA</h3>
-          <div class="content has-text-justified">
-          </div>
-          <div style="text-align: center;">
-            <figure id="result_gpt4o">
-              <img src="Mobile-Agent-E/static/images/result_gpt4o.png" alt="overview" class="agent_overview"/>
-              <figcaption class="has-text-centered"><b>Table 2:</b> Comparison with state-of-the-art models on the Mobile-Eval-E benchmark, using GPT-4o as the backbone.</figcaption>
-            </figure>
-            <br>
-            <br>
-            <figure id="result_all_backbones">
-              <img src="Mobile-Agent-E/static/images/result_all_backbones.png" alt="overview" class="agent_overview" style="width: 860px;"/>
-              <figcaption class="has-text-centered"><b>Table 3:</b> Results on different large multimodal model backbones, including GPT-4o, Gemini, and Claude. </figcaption>
-            </figure>
-            <br>
-            <br>
-            <figure id="result_sss_curve">
-              <img src="Mobile-Agent-E/static/images/result_sss_curve.png" alt="overview" class="agent_overview"/>
-              <figcaption class="has-text-centered"><b>Figure 5:</b> Satisfaction Score vs. Steps (SSS) curve for (a) a single task and (b) all tasks. In (a), we also provide an example of the human-written rubrics for the task, which are used to compute the Satisfaction Score during human evaluation. In (b), we include a linear regression line for each model; a steeper and higher line indicates better efficiency for completing the task.</figcaption>
-            </figure>
-          </div>
+        <section id="publications">
+            <div class="container">
+                <h2 class="section-title"><span data-lang="en">Our Research</span><span data-lang="zh">学术成果</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="glass-card">
+                            <div class="card-content timeline-content">
+                                <h3>Mobile-Agent-v3 <small>(Preprint)</small></h3>
+                                <p><span data-lang="en">The foundational model for versatile GUI automation.</span><span data-lang="zh">通用GUI自动化的基础模型。</span></p>
+                                <div class="timeline-links">
+                                    <a href="https://arxiv.org/abs/2508.15144" target="_blank">[Paper]</a>
+                                    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3" target="_blank">[Code]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="glass-card">
+                            <div class="card-content timeline-content">
+                                <h3>GUI-Critic-R1 <small>(Preprint)</small></h3>
+                                <p><span data-lang="en">A novel method for pre-operative error diagnosis.</span><span data-lang-zh">一种新颖的操作前错误诊断方法。</span></p>
+                                <div class="timeline-links">
+                                    <a href="https://arxiv.org/abs/2506.04614" target="_blank">[Paper]</a>
+                                    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1" target="_blank">[Code]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="glass-card">
+                            <div class="card-content timeline-content">
+                                <h3>PC-Agent <small>(ICLR 2025 Workshop)</small></h3>
+                                <p><span data-lang="en">A hierarchical multi-agent framework for PC automation.</span><span data-lang-zh">用于PC自动化的分层多智能体框架。</span></p>
+                                <div class="timeline-links">
+                                    <a href="https://arxiv.org/abs/2502.14282" target="_blank">[Paper]</a>
+                                    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/PC-Agent" target="_blank">[Code]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="glass-card">
+                             <div class="card-content timeline-content">
+                                <h3>Mobile-Agent-v2 <small>(NeurIPS 2024)</small></h3>
+                                <p><span data-lang="en">Effective navigation via multi-agent collaboration on mobile.</span><span data-lang-zh">通过多智能体协作在移动设备上实现高效导航。</span></p>
+                                <div class="timeline-links">
+                                    <a href="https://arxiv.org/abs/2406.01014" target="_blank">[Paper]</a>
+                                    <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v2" target="_blank">[Code]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-started">
+            <div class="container" data-aos="zoom-in">
+                <h2 class="section-title"><span data-lang="en">Join the Future</span><span data-lang-zh">加入未来</span></h2>
+                <p style="text-align: center; max-width: 600px; margin: -40px auto 40px auto; color: var(--text-secondary-color);">
+                    <span data-lang="en">Explore our code, contribute to the project, or build your own GUI agents. The journey starts here.</span>
+                    <span data-lang="zh">探索我们的代码，为项目做出贡献，或构建您自己的GUI智能体。旅程从这里开始。</span>
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/X-PLUG/MobileAgent" target="_blank" class="btn btn-primary">
+                        <span data-lang="en">Go to GitHub</span>
+                        <span data-lang="zh">前往 GitHub</span>
+                    </a>
+                    <a href="#publications" class="btn btn-secondary">
+                        <span data-lang="en">Read the Papers</span>
+                        <span data-lang-zh">阅读论文</span>
+                    </a>
+                </div>
+            </div>
+        </section>
 
     </div>
-  </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Resources</h2>
-
-        <p>
-          🍉 <a href="https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E"> <b>Mobile-Agent-E Code</b> </a>
-        </p>        
-        <p>
-          🤗 <a href="https://huggingface.co/datasets/mikewang/mobile_eval_e"><b>Mobile-Eval-E Benchmark</b></a>
-        </p>
-        <p>
-          📱 <a href="https://github.com/X-PLUG/MobileAgent"><b>Mobile-Agent Series</b></a>
-        </p>
-  </div>
-</section>
-
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>
-    @article{wang2025mobile,
-      title={Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks},
-      author={Wang, Zhenhailong and Xu, Haiyang and Wang, Junyang and Zhang, Xi and Yan, Ming and Zhang, Ji and Huang, Fei and Ji, Heng},
-      journal={arXiv preprint arXiv:2501.11733},
-      year={2025}
-    }
-    </code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <!-- <div class="content has-text-centered">
-      <a class="icon-link"
-      href="">
-      <i class="fas fa-file-pdf"></i>
-    </a>
-    <a class="icon-link" href="https://github.com/mikewangwzhl" class="external-link" disabled>
-      <i class="fab fa-github"></i>
-    </a>
-  </div> -->
-  <div class="content has-text-centered">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <!-- <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p> -->
-          <p>
-            This website's template is borrowed from <a
-              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. We thank the authors for open-sourcing their code.
-          </p>
+    <footer>
+        <div class="container">
+            <p>© 2025 Mobile-Agent Authors. All Rights Reserved.</p>
+            <p><span data-lang="en">Page designed with ❤️ for the</span><span data-lang="zh">为</span> <a href="https://github.com/X-PLUG/MobileAgent" target="_blank">Mobile-Agent</a> <span data-lang="en">project</span><span data-lang="zh">项目献上 ❤️ 设计</span>.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Vanta.js 3D Background ---
+            VANTA.NET({
+                el: "#hero-canvas",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: '#00ddff', // Primary color
+                backgroundColor: '#02001a', // BG color
+                points: 12.00,
+                maxDistance: 22.00,
+                spacing: 18.00
+            });
+            
+            // --- Language Switcher Logic ---
+            const langButtons = {
+                en: document.getElementById('lang-en-btn'),
+                zh: document.getElementById('lang-zh-btn')
+            };
+
+            function setLanguage(lang) {
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    if (el.dataset.lang === lang) {
+                        el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+                
+                Object.values(langButtons).forEach(btn => btn.classList.remove('active'));
+                if (langButtons[lang]) {
+                    langButtons[lang].classList.add('active');
+                }
+                
+                localStorage.setItem('preferredLanguage', lang);
+            }
+
+            Object.keys(langButtons).forEach(lang => {
+                langButtons[lang].addEventListener('click', () => setLanguage(lang));
+            });
+
+            // Initial language setup
+            let preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (!preferredLanguage) {
+                preferredLanguage = navigator.language.startsWith('zh') ? 'zh' : 'en';
+            }
+            setLanguage(preferredLanguage);
+            
+            // --- Animate On Scroll (AOS) Initialization ---
+            AOS.init({
+                once: true, // Animation happens only once
+                duration: 800,
+            });
+
+            // --- Sticky Header Logic ---
+            const header = document.getElementById('header');
+            const heroSection = document.getElementById('hero');
+            
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    header.classList.toggle('visible', !entry.isIntersecting);
+                },
+                { threshold: 0.1 }
+            );
+
+            if (heroSection) {
+                 observer.observe(heroSection);
+            } else {
+                header.classList.add('visible');
+            }
+
+
+            // --- Responsive Navbar Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // --- Close mobile menu when a link is clicked ---
+            document.querySelectorAll('#nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
