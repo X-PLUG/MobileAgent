@@ -8,6 +8,8 @@ from threading import Lock
 from PIL import Image
 from qwenvl_utils import (call_mobile_agent_vllm,
                           evaluate_android_control_action, find_last_image_ele)
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from x.data.agent.json import JsonFormat
 from x.qwen.data_format import slim_messages
 
