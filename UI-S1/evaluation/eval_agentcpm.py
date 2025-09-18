@@ -15,6 +15,8 @@ from threading import Lock
 from PIL import Image
 from qwenvl_utils import evaluate_android_control_action
 from agentcpm_utils import predict, __resize__,map_action_space2qwenvl
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from x.data.agent.json import JsonFormat
 from x.qwen.data_format import slim_messages
 
