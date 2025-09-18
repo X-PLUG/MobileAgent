@@ -8,7 +8,7 @@ import demjson3
 import requests
 from PIL import Image
 
-END_POINT = "http://localhost:8000/v1/chat/completions"  # Replace with actual endpoint
+END_POINT = "http://localhost:8000/v1/"  # Replace with actual endpoint
 
 # system prompt
 ACTION_SCHEMA = json.load(open('/evaluation/agentcpm_schema.json', encoding="utf-8"))
@@ -129,7 +129,7 @@ def predict(model_name,instruction, low_instruction, history_list, image):
         from openai import OpenAI
         bot = OpenAI(
             api_key="EMPTY",
-            base_url="http://47.239.63.127:8000/v1/",  # 换成你的UI-TARS部署地址
+            base_url=END_POINT,  # 换成你的UI-TARS部署地址
             timeout=60
         )
         kwargs = {'extra_body': {"top_k": 1}}
