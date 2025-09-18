@@ -9,6 +9,8 @@ import numpy as np
 import requests
 import torch
 from PIL import Image
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from x.qwen.image import smart_resize
 END_POINT = "http://localhost:8000/v1"  # Replace with actual endpoint
 BBOX_ENLARGE_FACTOR = 1.2
