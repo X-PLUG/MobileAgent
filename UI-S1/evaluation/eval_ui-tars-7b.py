@@ -17,6 +17,8 @@ from agentcpm_utils import map_action_space2qwenvl
 from PIL import Image
 from qwenvl_utils import evaluate_android_control_action
 from ui_tars_utils import build_history_actions_str, predict, uitars2minicpm, extract_thought_action
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from x.data.agent.json import JsonFormat
 from x.qwen.data_format import slim_messages
 
