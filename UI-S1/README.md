@@ -27,7 +27,7 @@ Ours <b>UI-S1-7B</b> achieves SOTA performance on both semi-online metric (SOP) 
 ```shell
 conda create -n ui-s1 python=3.11
 conda activate ui-s1
-cd ui-s1
+cd UI-S1
 pip install -e .
 pip install vllm==0.8.2
 pip install flash-attn==2.7.4.post1 --no-build-isolation
@@ -53,7 +53,6 @@ bash scripts/train_example.sh
 
 ```shell
 # 1. Launch the vLLM server
-
 vllm serve /checkpoints-7B --served-model-name UI-S1-7B --tensor_parallel_size 1 --trust-remote-code --limit-mm-per-prompt image=2
 
 # 2. Evaluate UI-S1-7B's performance on SOP
