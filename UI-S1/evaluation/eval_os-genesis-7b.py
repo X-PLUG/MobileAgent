@@ -18,6 +18,8 @@ from os_genesis_utils import (build_history_actions_str, os_gensis_2minicpm,
                             predict)
 from PIL import Image
 from qwenvl_utils import evaluate_android_control_action
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from x.data.agent.json import JsonFormat
 from x.qwen.data_format import slim_messages
 
