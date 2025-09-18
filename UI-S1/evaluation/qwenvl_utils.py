@@ -13,7 +13,8 @@ from x.qwen.image import smart_resize
 END_POINT = "http://localhost:8000/v1"  # Replace with actual endpoint
 BBOX_ENLARGE_FACTOR = 1.2
 POINT_DISTANCE_THRESHOLD = 0.04
-
+import base64
+from io import BytesIO
 def image_to_data_url(image):
     buf = BytesIO()
     image.save(buf, format="PNG")
