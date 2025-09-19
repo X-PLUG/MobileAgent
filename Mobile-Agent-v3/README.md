@@ -32,6 +32,7 @@ GUI-Owl is a model series developed as part of the Mobile-Agent-v3 project. It a
 ```
 pip install qwen_agent
 pip install qwen_vl_utils
+pip install numpy
 ```
 
 ### Preparation for Connecting Mobile Device with ADB
