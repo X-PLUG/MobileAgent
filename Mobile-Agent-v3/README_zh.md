@@ -33,6 +33,7 @@ GUI-Owl是多智能体GUI自动化框架Mobile-Agent-v3的系列基础模型。�
 ```
 pip install qwen_agent
 pip install qwen_vl_utils
+pip install numpy
 ```
 
 ### 准备通过ADB连接你的移动设备
