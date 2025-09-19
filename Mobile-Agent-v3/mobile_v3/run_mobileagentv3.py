@@ -295,6 +295,7 @@ if __name__ == '__main__':
     )
     parser.add_argument("--adb_path", type=str)
     parser.add_argument("--api_key", type=str)
+    parser.add_argument("--base_url", type=str)
     parser.add_argument("--model", type=str)
     parser.add_argument("--instruction", type=str)
     parser.add_argument("--add_info", type=str, default="")
