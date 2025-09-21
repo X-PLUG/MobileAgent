@@ -42,7 +42,7 @@
 
 
 ## 📢News
-- `[2025.9.17]`🔥 GUI-Critic-R1 has been accepted by **The Thirty-ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2025)**.
+- `[2025.9.19]`🔥 GUI-Critic-R1 has been accepted by **The Thirty-ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2025)**.
 - `[2025.9.17]`🔥 We have released our latest work, **UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning**. The [paper](https://www.arxiv.org/abs/2509.11543), [code](https://github.com/X-PLUG/MobileAgent/tree/main/UI-S1), and [model](https://huggingface.co/mPLUG/UI-S1-7B) are now open-sourced.
 - `[2025.9.16]`🔥 We've open-sourced the code of GUI-Owl and Mobile-Agent-v3 on OSWorld benchmark. See the [Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-osworld). The RL-tuned [checkpoint](https://huggingface.co/mPLUG/GUI-Owl-7B-Desktop-RL) of GUI-Owl is also released.
 - `[2025.9.10]`🔥 We've open-sourced the code of AndroidWorld benchmark and real-world mobile scenarios for GUI-Owl and Mobile-Agent-v3. See the [AndroidWorld Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-androidworld) and [Real-world Scenarios Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#deploy-mobile-agent-v3-on-your-mobile-device).
