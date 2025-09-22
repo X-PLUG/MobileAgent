@@ -28,45 +28,35 @@ def to_hashable(x):
         raise TypeError(f"Unsupported type: {type(x)}")
             
 
-def compute_step_discounted_returns(batch: DataProto, gamma: float):
+def compute_step_discounted_returns(batch, gamma):
     rewards = batch.non_tensor_batch['rewards'].astype(np.float32)
     traj_uids = batch.non_tensor_batch['traj_uid']
-    # active_masks = batch.non_tensor_batch['active_masks'].astype(np.float32)
     returns_by_traj = {}
     unique_traj_uids = np.unique(traj_uids)
     for uid in unique_traj_uids:
-        # Get indices for this trajectory
         traj_indices = np.where(traj_uids == uid)[0]
-        
-        # Extract rewards and masks for this trajectory
         traj_rewards = rewards[traj_indices]
         traj_extract_matches = batch.non_tensor_batch['extract_match'][traj_indices]
-        # print("traj_rewards",traj_rewards)
-        # traj_active_masks = active_masks[traj_indices]
-        # assert traj_active_masks.all(), "active_masks should be all 1s for the same trajectory"
         
-        # Calculate returns
         traj_returns = np.zeros_like(traj_rewards)
-        running_return = 0
+        running_return = 0.0
         
-        # Calculate returns from the end to the start
+        # 从后往前，遇到False则断开区间，不再累加future reward
         for t in reversed(range(len(traj_rewards))):
-            running_return = traj_rewards[t] + gamma * running_return
-            traj_returns[t] = running_return
-        for i in range(len(traj_rewards)):  # fix bug : if the step is false, do not add future reward
-            if traj_extract_matches[i] == False:
-                traj_returns[i] = traj_rewards[i]
-        # Store the results
-        # print("traj_returns",traj_returns)
+            if traj_extract_matches[t]:
+                running_return = traj_rewards[t] + gamma * running_return
+                traj_returns[t] = running_return
+            else:
+                running_return = 0.0
+                traj_returns[t] = traj_rewards[t]
         returns_by_traj[uid] = traj_returns
     
-    # Recombine the returns into the original batch order
+    # Recombine to original batch order
     all_returns = np.zeros_like(rewards)
     for i, uid in enumerate(traj_uids):
         traj_indices = np.where(traj_uids == uid)[0]
-        idx_in_traj = np.where(traj_indices == i)[0][0]  # Find position of i in its trajectory
+        idx_in_traj = np.where(traj_indices == i)[0][0]
         all_returns[i] = returns_by_traj[uid][idx_in_traj]
-    
     all_returns = torch.tensor(all_returns, dtype=torch.float32, device=batch.batch['input_ids'].device)
     return all_returns
 
