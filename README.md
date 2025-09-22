@@ -135,14 +135,11 @@ If you find Mobile-Agent useful for your research and applications, please cite 
   year={2025}
 }
 
-@misc{lu2025uis1advancingguiautomation,
-      title={UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning}, 
-      author={Zhengxi Lu and Jiabo Ye and Fei Tang and Yongliang Shen and Haiyang Xu and Ziwei Zheng and Weiming Lu and Ming Yan and Fei Huang and Jun Xiao and Yueting Zhuang},
-      year={2025},
-      eprint={2509.11543},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2509.11543}, 
+@article{lu2025ui,
+  title={UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning},
+  author={Lu, Zhengxi and Ye, Jiabo and Tang, Fei and Shen, Yongliang and Xu, Haiyang and Zheng, Ziwei and Lu, Weiming and Yan, Ming and Huang, Fei and Xiao, Jun and others},
+  journal={arXiv preprint arXiv:2509.11543},
+  year={2025}
 }
 
 @article{wanyan2025look,
