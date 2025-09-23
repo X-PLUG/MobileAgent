@@ -25,7 +25,7 @@ python3 -m verl.trainer.main_ppo \
     data.filter_overlong_prompts=True \
     data.truncation='error' \
     data.return_raw_chat=True \
-    actor_rollout_ref.model.path=/nas-wulanchabu/jiabo.ye/checkpoints/2_5_gui/to_hf/nlp_v11.1.3_mix_single_new_fix_ckpt-Qwen2-5vl-7b-mp4-pp-lr-1-lr-3.0e-6-minlr--iters-1.0e-7-iters-1148-warmup-12-bs-256-gpus-2-seqlen-32768-iter_0001148-hf \
+    actor_rollout_ref.model.path=xxx \
     actor_rollout_ref.actor.optim.lr=1e-6 \
     actor_rollout_ref.model.use_remove_padding=True \
     actor_rollout_ref.actor.ppo_mini_batch_size=256 \
