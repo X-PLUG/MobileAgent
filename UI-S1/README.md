@@ -52,6 +52,7 @@ We use swanlab for training visulization. Replace your own swanlab api key and h
 
 ```shell
 bash scripts/train_example.sh
+python scripts/model_merger.py merge --local_dir checkpoints/XXX
 ```
 
 ## Inference and evaluation
