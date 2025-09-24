@@ -13,7 +13,7 @@ set -x
 
 export VLLM_USE_V1=1
 
-cd 
+cd UI-S1
 
 ENGINE=${1:-vllm}
 mode="mean_std_norm"
