@@ -2,6 +2,12 @@
 
 <font size=4><div align='center' > [[📖 Paper](https://arxiv.org/abs/2509.11543)] [[🤗 UI-S1-7B](https://huggingface.co/mPLUG/UI-S1-7B)] [[🤗 Daily Paper](https://huggingface.co/papers/2509.11543)]</div></font>
 
+</div>
+<div align="center">
+  <a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
+<hr>
+</div>
+
 ## 🔥 Overview
 
 We present **Semi-online RL**, a novel paradigm that simulates online reinforcement learning using offline trajectories, thereby enabling the efficient training of MLLM-based GUI agents with enhanced multi-turn interaction capabilities.
