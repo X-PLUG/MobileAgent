@@ -22,6 +22,9 @@
 
 <p align="center">
   <a href="https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3"><img src="assets/Demo-ModelScope-brightgreen.svg" alt="Demo ModelScope"></a>
+</p>
+
+<p align="center">
   🤗 <a href="https://huggingface.co/mPLUG/GUI-Owl-32B" target="_blank">GUI-Owl-32B</a> | 
   <img src="./assets/tongyi.png" width="14px" style="display:inline;"> <a href="https://modelscope.cn/models/iic/GUI-Owl-32B" target="_blank">GUI-Owl-32B</a> ｜
   🤗 <a href="https://huggingface.co/mPLUG/GUI-Owl-7B" target="_blank">GUI-Owl-7B</a> |
