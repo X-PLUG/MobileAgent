@@ -51,6 +51,7 @@ pip install flash-attn==2.7.4.post1 --no-build-isolation
 
 ```shell
 bash scripts/train_example.sh
+python scripts/model_merger.py merge --local_dir checkpoints/XXX
 ```
 
 ## 推理和评估
