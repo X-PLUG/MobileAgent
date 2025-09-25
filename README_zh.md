@@ -20,7 +20,7 @@
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
-👏 欢迎通过我们的<img src="./assets/tongyi.png" width="14px" style="display:inline;"> **[Modelscope在线Demo](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3)** 或 <img src="./assets/aliyun.png" width="14px" style="display:inline;"> **[百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3！
+👏 欢迎通过我们的 **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope在线Demo](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3)** 或 **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3！
 
 <p align="center">
   🤗 <a href="https://huggingface.co/mPLUG/GUI-Owl-32B" target="_blank">GUI-Owl-32B</a> | 
@@ -37,7 +37,7 @@
 
 ## 📢新闻
 
-- `[2025.9.24]`🔥🔥 我们在 ModelScope 上发布了基于无影云电脑和云手机的 demo。无需本地部署模型或准备设备，只需输入指令即可体验 Mobile-Agent-v3！[ModelScope Demo 链接](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3) 和 [百炼 Demo 链接](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)。基于Qwen-3-VL的新版本即将到来。
+- `[2025.9.24]`🔥🔥 我们在 ModelScope 上发布了基于无影云电脑和云手机的 demo。无需本地部署模型或准备设备，只需输入指令即可体验 Mobile-Agent-v3！[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> ModelScope Demo 链接](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3) 和 [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼 Demo 链接](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)。基于Qwen-3-VL的新版本即将到来。
 - `[2025.9.19]`🔥 GUI-Critic-R1 已被 **第三十九届神经信息处理系统年会 (NeurIPS 2025)** 接收。我们发布了最新成果 **UI-S1：通过半在线强化学习推进 GUI 自动化**。[论文](https://www.arxiv.org/abs/2509.11543)、[代码](https://github.com/X-PLUG/MobileAgent/tree/main/UI-S1) 和 [模型](https://huggingface.co/mPLUG/UI-S1-7B) 现已开源。
 - `[2025.9.16]`🔥 我们在 OSWorld、AndroidWorld 和实际移动场景中开源了 GUI-Owl 和 Mobile-Agent-v3 的代码。请参阅 [OSWorld 代码](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-osworld)。GUI-Owl 的 OSWorld 强化学习 [checkpoint](https://huggingface.co/mPLUG/GUI-Owl-7B-Desktop-RL) 也已发布。请参阅 [AndroidWorld 代码](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-androidworld) 和 [真实场景代码](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#deploy-mobile-agent-v3-on-your-mobile-device)。
 - `[2025.8.20]`全新 **GUI-Owl** 和 **Mobile-Agent-v3** 正式发布！技术报告可在此处查看（https://arxiv.org/abs/2508.15144）。模型检查点将在 [GUI-Owl-7B](https://huggingface.co/mPLUG/GUI-Owl-7B) 和 [GUI-Owl-32B](https://huggingface.co/mPLUG/GUI-Owl-32B) 上发布。
