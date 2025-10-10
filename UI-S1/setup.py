@@ -48,7 +48,7 @@ install_requires = [
     "retry",
     "modelscope",
     "ninja",
-    "swanlab=0.6.3"
+    "swanlab==0.6.3"
 ]
 
 TEST_REQUIRES = ["pytest", "pre-commit", "py-spy"]
