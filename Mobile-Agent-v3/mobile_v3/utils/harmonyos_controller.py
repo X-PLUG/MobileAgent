@@ -29,8 +29,22 @@ class HarmonyOSController(Controller):
 
     def type(self, text):
         text = text.replace("\\n", "_").replace("\n", "_")
-        command = self.hdc_path + f" shell uitest uiInput inputText 1 1 {text}"
-        subprocess.run(command, capture_output=True, text=True, shell=True)
+        for char in text:
+            if char == ' ':
+                command = self.adb_path + f" shell uitest uiInput keyEvent 2050"
+                subprocess.run(command, capture_output=True, text=True, shell=True)
+            elif char == '_':
+                command = self.hdc_path + f" shell uitest uiInput keyEvent 2054"
+                subprocess.run(command, capture_output=True, text=True, shell=True)
+            elif 'a' <= char <= 'z' or 'A' <= char <= 'Z' or char.isdigit():
+                command = self.hdc_path + f" shell uitest uiInput inputText 1 1 {char}"
+                subprocess.run(command, capture_output=True, text=True, shell=True)
+            elif char in '-.,!?@\'°/:;()':
+                command = self.hdc_path + f" shell uitest uiInput inputText 1 1 \"{char}\""
+                subprocess.run(command, capture_output=True, text=True, shell=True)
+            else:
+                command = self.hdc_path + f" shell uitest uiInput inputText 1 1 {char}"
+                subprocess.run(command, capture_output=True, text=True, shell=True)
 
     def slide(self, x1, y1, x2, y2):
         command = self.hdc_path + f" shell uitest uiInput swipe {x1} {y1} {x2} {y2} 500"
