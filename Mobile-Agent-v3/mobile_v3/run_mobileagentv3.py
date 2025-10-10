@@ -17,7 +17,16 @@ from utils.mobile_agent_e import (
 import utils.controller as controller
 from utils.call_mobile_agent_e import GUIOwlWrapper
 
-def run_instruction(adb_path, api_key, base_url, model, instruction, add_info, coor_type, if_notetaker, max_step=25, log_path="./logs"):
+def run_instruction(adb_path, hdc_path, api_key, base_url, model, instruction, add_info, coor_type, if_notetaker, max_step=25, log_path="./logs"):
+    if adb_path and hdc_path:
+        raise ValueError("adb_path and hdc_path cannot be provided at the same time. Please specify only one of them.")
+    if adb_path:
+        from utils.android_controller import AndroidController
+        controller = AndroidController(adb_path)
+    else:
+        from utils.harmonyos_controller import HarmonyOSController
+        controller = HarmonyOSController(hdc_path)
+
     if not os.path.exists(log_path):
         os.mkdir(log_path)
     
@@ -61,7 +70,7 @@ def run_instruction(adb_path, api_key, base_url, model, instruction, add_info, c
         
         # get the screenshot
         for _ in range(5):
-            if not controller.get_screenshot(adb_path, local_image_dir):
+            if not controller.get_screenshot(local_image_dir):
                 print("Get screenshot failed, retry.")
                 time.sleep(5)
             else:
@@ -186,16 +195,16 @@ def run_instruction(adb_path, api_key, base_url, model, instruction, add_info, c
                     action_object['coordinate2'] = [int(action_object['coordinate2'][0] / 1000 * width), int(action_object['coordinate2'][1] / 1000 * height)]
             
             if action_object['action'] == "click":
-                controller.tap(adb_path, action_object['coordinate'][0], action_object['coordinate'][1])
+                controller.tap(action_object['coordinate'][0], action_object['coordinate'][1])
             elif action_object['action'] == "swipe":
-                controller.slide(adb_path, action_object['coordinate'][0], action_object['coordinate'][1], action_object['coordinate2'][0], action_object['coordinate2'][1])
+                controller.slide(action_object['coordinate'][0], action_object['coordinate'][1], action_object['coordinate2'][0], action_object['coordinate2'][1])
             elif action_object['action'] == "type":
-                controller.type(adb_path, action_object['text'])
+                controller.type(action_object['text'])
             elif action_object['action'] == "system_button":
                 if action_object['button'] == "Back":
-                    controller.back(adb_path)
+                    controller.back()
                 elif action_object['button'] == "Home":
-                    controller.home(adb_path)
+                    controller.home()
             
         except:
             info_pool.last_action = {"action": "invalid"}
@@ -223,7 +232,7 @@ def run_instruction(adb_path, api_key, base_url, model, instruction, add_info, c
         
         # get the screenshot
         for _ in range(5):
-            if not controller.get_screenshot(adb_path, local_image_dir2):
+            if not controller.get_screenshot(local_image_dir2):
                 print("Get screenshot failed, retry.")
                 time.sleep(5)
             else:
@@ -294,6 +303,7 @@ if __name__ == '__main__':
         description="Run Mobile-Agent-v3 with a given model and instruction"
     )
     parser.add_argument("--adb_path", type=str)
+    parser.add_argument("--hdc_path", type=str)   
     parser.add_argument("--api_key", type=str)
     parser.add_argument("--base_url", type=str)
     parser.add_argument("--model", type=str)
@@ -303,5 +313,4 @@ if __name__ == '__main__':
     parser.add_argument("--notetaker", type=bool, default=False)
     args = parser.parse_args()
     
-    run_instruction(args.adb_path, args.api_key, args.base_url, args.model, args.instruction, args.add_info, args.coor_type, args.notetaker)
-    
+    run_instruction(args.adb_path, args.hdc_path, args.api_key, args.base_url, args.model, args.instruction, args.add_info, args.coor_type, args.notetaker)

@@ -26,7 +26,7 @@
 GUI-Owl is a model series developed as part of the Mobile-Agent-v3 project. It achieves state-of-the-art performance across a range of GUI automation benchmarks, including ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, and OSWorld. Furthermore, it can be instantiated as various specialized agents within the Mobile-Agent-v3 multi-agent framework to accomplish more complex tasks.
 
 ## Deploy Mobile-Agent-v3 on your mobile device.
-❗At present, only **Android OS** and **Harmony OS** (version <= 4) support tool debugging. Other systems, such as **iOS**, do not support the use of Mobile-Agent for the time being.
+❗At present, only **Android OS** and **Harmony OS** support tool debugging. Other systems, such as **iOS**, do not support the use of Mobile-Agent for the time being.
 
 ### Install the dependencies required by the qwen model.
 ```
@@ -49,10 +49,23 @@ pip install numpy
 3. Switch the default input method in the system settings to "ADB Keyboard".
 
 ### Run
+#### Android
 ```
 cd Mobile-Agent-v3/mobile_v3
 python run_mobileagentv3.py \
     --adb_path "Your ADB path" \
+    --api_key "Your api key of vllm service" \
+    --base_url "Your base url of vllm service" \
+    --model "Your model name of vllm service" \
+    --instruction "The instruction you want Mobile-Agent-v3 to complete" \
+    --add_info "Some supplementary knowledge, can also be empty"
+```
+
+#### HarmonyOS
+```
+cd Mobile-Agent-v3/mobile_v3
+python run_mobileagentv3.py \
+    --hdc_path "Your HDC path" \
     --api_key "Your api key of vllm service" \
     --base_url "Your base url of vllm service" \
     --model "Your model name of vllm service" \
