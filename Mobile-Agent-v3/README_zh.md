@@ -26,7 +26,7 @@
 GUI-Owl是多智能体GUI自动化框架Mobile-Agent-v3的系列基础模型。其在众多GUI自动化评测榜单包括 ScreenSpot-v2, ScreenSpot-Pro, OSWorld-G, MMBench-GUI, Android Control, Android World, 和 OSWorld中取得SOTA性能。此外，其也可以扮演Mobile-Agent-v3中的各个智能体进行协同交互，以完成更为复杂的任务。
 
 ## 在你的手机上部署Mobile-Agent-v3
-❗目前仅安卓和鸿蒙系统（版本号 <= 4）支持工具调试。其他系统如iOS暂时不支持使用Mobile-Agent。
+❗目前仅安卓和鸿蒙系统支持工具调试。其他系统如iOS暂时不支持使用Mobile-Agent。
 
 
 ### 安装 qwen 模型所需的依赖项
@@ -50,10 +50,23 @@ pip install numpy
 3. 在系统设置中将默认输入法切换为 “ADB Keyboard”。
 
 ### 运行
+#### 安卓
 ```
 cd Mobile-Agent-v3/mobile_v3
 python run_mobileagentv3.py \
     --adb_path "Your ADB path" \
+    --api_key "Your api key of vllm service" \
+    --base_url "Your base url of vllm service" \
+    --model "Your model name of vllm service" \
+    --instruction "The instruction you want Mobile-Agent-v3 to complete" \
+    --add_info "Some supplementary knowledge, can also be empty"
+```
+
+#### 鸿蒙
+```
+cd Mobile-Agent-v3/mobile_v3
+python run_mobileagentv3.py \
+    --hdc_path "Your HDC path" \
     --api_key "Your api key of vllm service" \
     --base_url "Your base url of vllm service" \
     --model "Your model name of vllm service" \

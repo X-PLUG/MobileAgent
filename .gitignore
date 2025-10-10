@@ -4,3 +4,4 @@ __pycache__/
 # custom
 **/screenshot/*
 **/temp/*
+logs/*
