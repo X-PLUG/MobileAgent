@@ -61,10 +61,12 @@ python run_mobileagentv3.py \
 ```
 
 ### Note
-1. If the model you are using outputs relative coordinates from 0 to 1000, such as Seed-VL or Qwen-2-VL, please set:
+1. If the model you are using outputs relative coordinates from 0 to 1000, such as Seed-VL or Qwen-VL-2 or Qwen-VL-3, please set:
 ```
---coor_type "qwen-vl"
+--coor_type "qwen-vl" # This means that coordinates from 0-1000 are mapped to the actual device resolution.
 ```
+
+Note: If the model you are using outputs absolute coordinates. such as Qwen-VL-2.5 or GUI-Owl, please do not set coordinate mapping.
 
 2. If your instruction needs to remember content, please set:
 ```
