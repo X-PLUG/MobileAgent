@@ -33,7 +33,7 @@ if [ $MASTER_ADDR ];then
     echo $MASTER_ADDR
     echo $MASTER_PORT
     echo $WORLD_SIZE
-    echo $RANKa
+    echo $RANK
 else
     export MASTER_ADDR=127.0.0.1
     export MASTER_PORT=2$(($RANDOM % 10))$(($RANDOM % 10))15
