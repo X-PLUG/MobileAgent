@@ -79,9 +79,9 @@ parser.add_argument('--instruction', type=str, default="")
 
 parser.add_argument('--use_som', type=int, default=1) # for action
 parser.add_argument('--draw_text_box', type=int, default=0, help="whether to draw text boxes in som.")
-parser.add_argument('--font_path', type=str, default="/System/Library/Fonts/Supplemental/Times New Roman.ttf")
+# parser.add_argument('--font_path', type=str, default="/System/Library/Fonts/Supplemental/Times New Roman.ttf")
+parser.add_argument('--font_path', type=str, default=r"C:\Windows\Fonts\arial.ttf")
 parser.add_argument('--add_info', type=str, default="Click the search bar in the middle of the page to search")
-
 parser.add_argument('--disable_reflection', type=int, default=1)
 parser.add_argument('--clear_history_each_subtask', type=int, default=1)
 parser.add_argument('--ratio', type=float, default=1.0) # 1.0 for windows and 2.0 for mac
@@ -654,9 +654,25 @@ for i in range(num_subtask):
         # action = output_action.split("### Action ###")[-1].split("### Operation ###")[0].replace("\n", " ").replace("  ", " ").strip()
 
         action_json = json.loads(output_action.split('```json')[-1].split('```')[0])
+        
+        # Denormalize coordinates for Qwen3-VL model which returns normalized coordinates
+
         thought = action_json['Thought']
         summary = action_json['Summary']
         action = action_json['Action']
+        
+        if "qwen3-vl" in vl_model_version.lower():
+            if "Tap" in action or "TapIdx" in action:
+                # Extract coordinates from action string
+                if "(" in action and ")" in action:
+                    coord_str = action.split("(")[-1].split(")")[0]
+                    if "," in coord_str:
+                        x, y = map(float, coord_str.split(","))
+                        # Denormalize coordinates based on image dimensions
+                        x = int(x * width / 1000)
+                        y = int(y * height / 1000)
+                        # Update action with denormalized coordinates
+                        action = action.split("(")[0] + f"({x}, {y})"
 
         chat_action = add_response("assistant", output_action, chat_action)
         status = "#" * 50 + " Decision " + "#" * 50
