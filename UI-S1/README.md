@@ -1,6 +1,6 @@
 # UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning
 
-<font size=4><div align='center' > [[📖 Paper](https://arxiv.org/abs/2509.11543)] [[🤗 UI-S1-7B](https://huggingface.co/mPLUG/UI-S1-7B)] [[🤗 Daily Paper](https://huggingface.co/papers/2509.11543)]</div></font>
+<font size=4><div align='center' > [[📖 Paper](https://arxiv.org/abs/2509.11543)] [[🤗 UI-S1-7B](https://huggingface.co/mPLUG/UI-S1-7B)] [[🤗 Daily Paper](https://huggingface.co/papers/2509.11543)] [[🤗 Dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset)]</div></font>
 
 </div>
 <div align="center">
@@ -46,7 +46,7 @@ We use swanlab for training visulization. Replace your own swanlab api key and h
 ## Data
 
 1. Download AndroidControl into datasets/AndroidControl/images and datasets/android_control_train_example.jsonl
-
+2. **[New]** We also offer 1000 training examples on [Dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset).
 
 ## Train
 
@@ -74,6 +74,7 @@ python /evaluation/eval_ui-tars-7b.py --model_name UI-TARS-7B
 ```
 
 ## 🗞️ News
+- **`2025-10-28`**: We release part of our training [dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset).
 - **`2025-09-17`**: We release the UI-S1 training and evaluation code.
 - **`2025-09-16`**: We release the [checkpoints](https://huggingface.co/mPLUG/UI-S1-7B) of UI-S1-7B model.
 - **`2025-09-16`**: We release our [paper](https://arxiv.org/abs/2509.11543).
