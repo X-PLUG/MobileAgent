@@ -79,8 +79,8 @@ parser.add_argument('--instruction', type=str, default="")
 
 parser.add_argument('--use_som', type=int, default=1) # for action
 parser.add_argument('--draw_text_box', type=int, default=0, help="whether to draw text boxes in som.")
-parser.add_argument('--font_path', type=str, default="/System/Library/Fonts/Supplemental/Times New Roman.ttf")
-# parser.add_argument('--font_path', type=str, default=r"C:\Windows\Fonts\arial.ttf")
+# parser.add_argument('--font_path', type=str, default="/System/Library/Fonts/Supplemental/Times New Roman.ttf")
+parser.add_argument('--font_path', type=str, default=r"C:\Windows\Fonts\arial.ttf")
 parser.add_argument('--add_info', type=str, default="Click the search bar in the middle of the page to search")
 parser.add_argument('--disable_reflection', type=int, default=1)
 parser.add_argument('--clear_history_each_subtask', type=int, default=1)
@@ -92,7 +92,8 @@ parser.add_argument('--simple', type=int, default=1) # for simple instruction
 parser.add_argument('--screenshot_root', type=str, default='task_')
 parser.add_argument('--mute', type=int, default=0)
 parser.add_argument('--mac', type=int, default=1)
-parser.add_argument('--ocr_api', type=int, default=0) # use ocr api or ocr local model
+parser.add_argument('--ocr_api', type=int, default=1) # use ocr api or ocr local model
+parser.add_argument('--use_perception_info', type=int, default=1) # 0: only use screenshot without OCR/a11y info; 1: use OCR/a11y info
 
 args = parser.parse_args()
 
@@ -306,10 +307,17 @@ memory_switch = False # default: False
 ###################################################################################################
 
 
-def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
+def get_perception_infos(screenshot_file, screenshot_som_file, font_path,vl_model_version="qwen3-vl"):
     get_screenshot(screenshot_file)
     
     total_width, total_height = Image.open(screenshot_file).size
+
+    # 如果不使用perception info，直接返回空列表和尺寸
+    if args.use_perception_info == 0:
+        # 不需要生成SOM图，直接复制原图
+        if screenshot_file != screenshot_som_file:
+            shutil.copy(screenshot_file, screenshot_som_file)
+        return [], total_width, total_height
 
     # no partition
     img_list = [screenshot_file]
@@ -430,6 +438,12 @@ def get_perception_infos(screenshot_file, screenshot_som_file, font_path):
     for i in range(len(perception_infos)):
         perception_infos[i]['coordinates'] = [int((perception_infos[i]['coordinates'][0]+perception_infos[i]['coordinates'][2])/2), int((perception_infos[i]['coordinates'][1]+perception_infos[i]['coordinates'][3])/2)]
 
+    # Normalize coordinates for Qwen3-VL model
+    # if "qwen3-vl" in vl_model_version.lower():
+    #     for info in perception_infos:
+
+    #         info['coordinates'][0] = int(info['coordinates'][0] * 999 / total_width)
+    #         info['coordinates'][1] = int(info['coordinates'][1] * 999 / total_height)
     return perception_infos, total_width, total_height
 
 if args.use_a11y != 1:
@@ -655,13 +669,13 @@ for i in range(num_subtask):
 
         action_json = json.loads(output_action.split('```json')[-1].split('```')[0])
         
-        # Denormalize coordinates for Qwen3-VL model which returns normalized coordinates
+        # Denormalize coordinates for models that return normalized coordinates
 
         thought = action_json['Thought']
         summary = action_json['Summary']
         action = action_json['Action']
         
-        if "qwen3-vl" in vl_model_version.lower():
+        if "qwen3-vl" or "doubao" in vl_model_version.lower():
             if "Tap" in action or "TapIdx" in action:
                 # Extract coordinates from action string
                 if "(" in action and ")" in action:
@@ -860,6 +874,16 @@ for i in range(num_subtask):
                 print(status)
                 print(output_reflect)
                 print('#' * len(status))
+            
+            # 检查反思结果，如果目标未达成则设置错误标志
+            if "D" in reflect or "wrong" in reflect.lower():
+                error_flag = True
+                if args.mute == 0:
+                    print("⚠️  Warning: Operation did not achieve the actual goal. Will try to correct in next step.")
+            elif "B" in reflect:
+                error_flag = True
+            else:
+                error_flag = False
 
             if True:
                 thought_history.append(thought)
@@ -867,11 +891,13 @@ for i in range(num_subtask):
                 action_history.append(action)
                 reflection_history.append(reflection_thought)
 
-                prompt_planning = get_process_prompt(sub_instruction, thought_history, summary_history, action_history, completed_requirements, add_info, reflection_history)
+                # 使用多模态模型进行 Planning，传入当前截图用于验证
+                prompt_planning = get_process_prompt(sub_instruction, thought_history, summary_history, action_history, completed_requirements, add_info, reflection_history, perception_infos, width, height)
                 chat_planning = init_memory_chat()
-                chat_planning = add_response("user", prompt_planning, chat_planning)
+                chat_planning = add_response("user", prompt_planning, chat_planning, [screenshot_file])
 
-                output_planning = inference_chat(chat_planning, llm_model_version, API_url, token)
+                # 改用多模态模型以便验证当前界面状态
+                output_planning = inference_chat(chat_planning, vl_model_version, API_url, token)
 
                 output_for_save_this_step['planning'] = output_planning
 
@@ -887,10 +913,13 @@ for i in range(num_subtask):
             summary_history.append(summary)
             action_history.append(action)
 
-            prompt_planning = get_process_prompt(sub_instruction, thought_history, summary_history, action_history, completed_requirements, add_info)
+            # 使用多模态模型进行 Planning，传入当前截图用于验证
+            prompt_planning = get_process_prompt(sub_instruction, thought_history, summary_history, action_history, completed_requirements, add_info, [], perception_infos, width, height)
             chat_planning = init_memory_chat()
-            chat_planning = add_response("user", prompt_planning, chat_planning )
-            output_planning = inference_chat(chat_planning, llm_model_version, API_url, token)
+            chat_planning = add_response("user", prompt_planning, chat_planning, [screenshot_file])
+            
+            # 改用多模态模型以便验证当前界面状态
+            output_planning = inference_chat(chat_planning, vl_model_version, API_url, token)
             output_for_save_this_step['planning'] = output_planning
             chat_planning = add_response("assistant", output_planning, chat_planning )
             status = "#" * 50 + " Planning " + "#" * 50
