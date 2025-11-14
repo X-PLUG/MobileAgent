@@ -1,5 +1,15 @@
 # Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation
-This repository contains the official implementation for the paper: [Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation](https://arxiv.org/abs/2506.04614).
+
+<div align="center">
+
+[\[📖 Paper\]](https://arxiv.org/abs/2506.04614)
+[\[🤖 HF GUI-Critic-R1\]](https://huggingface.co/BonnieOne/GUI-Critic-R1) 
+[\[🤗 HF GUI-Critic-Train\]](https://huggingface.co/datasets/BonnieOne/GUI-Critic-Test)
+[\[🤗 HF GUI-Critic-Test\]](https://huggingface.co/datasets/BonnieOne/GUI-Critic-Test) 
+[\[📚 中文解读\]](https://mp.weixin.qq.com/s/8IR-sRXTqhSlb5qItaf_Pw)
+
+</div>
+
 
 <div align="center">
 <a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
@@ -7,6 +17,12 @@ This repository contains the official implementation for the paper: [Look Before
 </div>
  
 ## 📢 News
+🔥[2025-11-14] The GUI-Critic-Train and GUI-Critic-Test have been uploaded at HuggingFace.
+
+🔥[2025-11-14] The model has been uploaded at HuggingFace.
+
+🔥[2025-09-19] GUI-Critic-R1 has been accepted by **The Thirty-ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2025)**. 
+
 🔥[2025-06-06] We release the test code to evaluate the performance of GUI-Critic-R1 (will be released on Hugging Face) on the GUI-Critic-Test dataset. 
 
 
