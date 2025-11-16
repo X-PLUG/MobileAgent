@@ -139,18 +139,20 @@ def get_action_prompt(instruction, clickable_infos, width, height, thought_histo
     prompt += add_info
     prompt += "\n\n"
     
-    prompt += "### Screenshot information ###\n"
-    prompt += "In order to help you better perceive the content in this screenshot, we extract some information of the current screenshot. "
-    prompt += "This information consists of two parts: coordinates; content. "
-    prompt += "The format of the coordinates is [x, y], x is the pixel from left to right and y is the pixel from top to bottom; "
+    # 只有当有perception info时才添加这部分
+    if clickable_infos and len(clickable_infos) > 0:
+        prompt += "### Screenshot information ###\n"
+        prompt += "In order to help you better perceive the content in this screenshot, we extract some information of the current screenshot. "
+        prompt += "This information consists of two parts: coordinates; content. "
+        prompt += "The format of the coordinates is [x, y], x is the pixel from left to right and y is the pixel from top to bottom; "
 
+        prompt += "the content is a text or 'icon' respectively. "
+        prompt += "The information is as follow:\n"
 
-    prompt += "the content is a text or 'icon' respectively. "
-    prompt += "The information is as follow:\n"
-
-    for clickable_info in clickable_infos:
-        if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
-            prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
+        for clickable_info in clickable_infos:
+            if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
+                prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
+        prompt += "\n"
     
     
     if len(action_history) > 0:
@@ -183,10 +185,17 @@ def get_action_prompt(instruction, clickable_infos, width, height, thought_histo
     
     prompt += "### Task requirements ###\n"
     prompt += "In order to meet the user\'s requirements, you need to select one of the following operations to operate on the current screen:\n"
-    prompt += "Note that to open an app, use the Open App action, rather than tapping the app's icon. "
-    prompt += "For certain items that require selection, such as font and font size, direct input is more efficient than scrolling through choices."
+    
+    # 根据是否有perception info，提供不同的坐标说明
+    if clickable_infos and len(clickable_infos) > 0:
+        prompt += "Note: The coordinates in the ### Screenshot information ### section are in pixel format [x, y]. When you output Tap actions, use the same pixel coordinates.\n"
+    else:
+        prompt += "Note: Since no extracted information is provided, you need to directly analyze the screenshot and output normalized coordinates.\n"
+        prompt += "For Tap actions, use normalized coordinates where x and y are in the range [0, 999], with (0, 0) at the top-left corner and (999, 999) at the bottom-right corner.\n"
+    
+    prompt += "For certain items that require selection, such as font and font size, direct input is more efficient than scrolling through choices.\n"
     prompt += "You must choose one of the actions below:\n"
-    prompt += "Open App (app name): If you want to open an app, you should use this action to open the app named 'app name'."
+    # prompt += "Open App (app name): If you want to open an app, you should use this action to open the app named 'app name'."
     prompt += "Right Tap (x, y): Right tap the position (x, y) in current page. This can be used to create a new file.\n"
     prompt += "Tap (x, y): Tap the position (x, y) in current page. This can be used to select an item.\n"
     prompt += "Double Tap (x, y): Double tap the position (x, y) in the current page. This can be used to open a file. If Tap (x, y) in the last step doesn't work, you can try double tap the position (x, y) in the current page.\n"
@@ -215,15 +224,19 @@ def get_action_prompt(instruction, clickable_infos, width, height, thought_histo
     prompt += "Append (x, y), (text): Append the \"text\" content after the content at (x, y) location. This action is useful when you want to append new content into a word document.\n"
 
     prompt += "Tell (answer): Tell me the answer of the input query.\n"
-    prompt += "Stop: If all the operations to meet the user\'s requirements have been completed in ### History operation ###, use this operation to stop the whole process."
+    prompt += "Stop: ONLY use this action when you can VERIFY from the CURRENT SCREENSHOT that ALL requirements in the user's instruction have been ACTUALLY COMPLETED. Do NOT stop just because you performed some operations - you must verify the final result is achieved on the screen."
     prompt += "\n\n"
 
     prompt += "### Output format ###\n"
     # modified 2.10
     prompt += "You should output in the following json format:"
+#     prompt += '''
+# {"Thought": "This is your thinking about how to proceed the next operation, please output the thoughts about the history operations explicitly.", "Action": "Open App () or Tap () or Double Tap () or Triple Tap () or Shortcut () or Press() or Type () or Tell () or Stop. Only one action can be output at one time.", "Summary": "This is a one sentence summary of this operation."}
+# '''
     prompt += '''
-{"Thought": "This is your thinking about how to proceed the next operation, please output the thoughts about the history operations explicitly.", "Action": "Open App () or Tap () or Double Tap () or Triple Tap () or Shortcut () or Press() or Type () or Tell () or Stop. Only one action can be output at one time.", "Summary": "This is a one sentence summary of this operation."}
-'''
+{"Thought": "This is your thinking about how to proceed the next operation, please output the thoughts about the history operations explicitly.", "Action": "Tap () or Double Tap () or Triple Tap () or Shortcut () or Press() or Type () or Tell () or Stop. Only one action can be output at one time.", "Summary": "This is a one sentence summary of this operation."}
+''' 
+    prompt += "The output must contain the following fields: Thought (your reasoning about the next operation), Action (the specific action to take), and Summary (a one-sentence summary of the operation)."
     prompt += "\n\n"
 
 
@@ -243,19 +256,22 @@ def get_reflect_prompt(instruction, clickable_infos1, clickable_infos2, width, h
     prompt += "The format of the coordinates is [x, y], x is the pixel from left to right and y is the pixel from top to bottom; the content is a text or an icon description respectively "
     prompt += "\n\n"
     
-    prompt += "### Before the current operation ###\n"
-    prompt += "Screenshot information:\n"
-    for clickable_info in clickable_infos1:
-        if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
-            prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
-    prompt += "\n\n"
-            
-    prompt += "### After the current operation ###\n"
-    prompt += "Screenshot information:\n"
-    for clickable_info in clickable_infos2:
-        if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
-            prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
-    prompt += "\n\n"
+    # 只有当有perception info时才添加屏幕信息
+    if clickable_infos1 and len(clickable_infos1) > 0:
+        prompt += "### Before the current operation ###\n"
+        prompt += "Screenshot information:\n"
+        for clickable_info in clickable_infos1:
+            if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
+                prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
+        prompt += "\n\n"
+    
+    if clickable_infos2 and len(clickable_infos2) > 0:
+        prompt += "### After the current operation ###\n"
+        prompt += "Screenshot information:\n"
+        for clickable_info in clickable_infos2:
+            if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
+                prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
+        prompt += "\n\n"
     
     prompt += "### Current operation ###\n"
     prompt += f"The user\'s instruction is: {instruction}."
@@ -271,16 +287,19 @@ def get_reflect_prompt(instruction, clickable_infos1, clickable_infos2, width, h
         prompt += "Now you need to output the following content based on the screenshots information before and after the current operation:\n"
     else:
         prompt += "Now you need to output the following content based on the screenshots before and after the current operation:\n"
-    prompt += "Whether the result of the \"Operation action\" meets your expectation of \"Operation thought\"?\n"
-    prompt += "A: The result of the \"Operation action\" meets my expectation of \"Operation thought\".\n"
+    prompt += "1. Whether the result of the \"Operation action\" meets your expectation of \"Operation thought\"?\n"
+    prompt += "2. IMPORTANT: By carefully examining the screenshot after the operation, verify if the actual goal described in the user's instruction is achieved.\n"
+    prompt += "Choose one of the following:\n"
+    prompt += "A: The result of the \"Operation action\" meets my expectation of \"Operation thought\" AND the actual goal in the instruction is achieved based on the current screenshot.\n"
     prompt += "B: The \"Operation action\" results in a wrong page and I need to do something to correct this.\n"
-    prompt += "C: The \"Operation action\" produces no changes."
+    prompt += "C: The \"Operation action\" produces no changes.\n"
+    prompt += "D: The \"Operation action\" seems to complete, but the actual goal in the instruction is NOT achieved based on the current screenshot (e.g., clicked wrong position, wrong item selected)."
     prompt += "\n\n"
     
     prompt += "### Output format ###\n"
     prompt += "Your output format is:\n"
-    prompt += "### Thought ###\nYour thought about the question\n"
-    prompt += "### Answer ###\nA or B or C"
+    prompt += "### Thought ###\nYour thought about the question. Please explicitly verify if the goal in the instruction is achieved by checking the screenshot.\n"
+    prompt += "### Answer ###\nA or B or C or D"
     
     return prompt
 
@@ -304,9 +323,19 @@ def get_memory_prompt(insight):
     
     return prompt
 
-def get_process_prompt(instruction, thought_history, summary_history, action_history, completed_content, add_info, reflection_history=[]):
+def get_process_prompt(instruction, thought_history, summary_history, action_history, completed_content, add_info, reflection_history=[], clickable_infos=None, width=None, height=None):
     prompt = "### Background ###\n"
     prompt += f"There is an user\'s instruction which is: {instruction}. You are a computer operating assistant and are operating the user\'s computer.\n\n"
+    
+    # 添加当前屏幕信息用于验证
+    if clickable_infos is not None and width is not None and height is not None:
+        prompt += "### Current screenshot information ###\n"
+        prompt += f"The current screen width is {width} pixels and height is {height} pixels.\n"
+        prompt += "The following is the information extracted from the current screenshot (format: coordinates; content):\n"
+        for clickable_info in clickable_infos:
+            if clickable_info['text'] != "" and clickable_info['text'] != "icon: None" and clickable_info['coordinates'] != (0, 0):
+                prompt += f"{clickable_info['coordinates']}; {clickable_info['text']}\n"
+        prompt += "\n"
     
     if add_info != "":
         prompt += "### Hint ###\n"
@@ -330,11 +359,13 @@ def get_process_prompt(instruction, thought_history, summary_history, action_his
         prompt += "Completed contents:\n" + completed_content + "\n\n"
         
         prompt += "### Response requirements ###\n"
-        prompt += "Now you need to update the \"Completed contents\". Completed contents is a general summary of the current contents that have been completed based on the ### History operations ###.\n\n"
+        prompt += "Now you need to update the \"Completed contents\" by comparing the user's instruction with the current screenshot.\n"
+        prompt += "IMPORTANT: You must verify if the actual goal is achieved by checking the current screenshot information, not just assuming based on operation history.\n"
+        prompt += "For example, if the instruction is to 'play 稻香', you need to verify if 稻香 is actually playing on the screen, not just because you clicked something.\n\n"
         
         prompt += "### Output format ###\n"
         prompt += "Your output format is:\n"
-        prompt += "### Completed contents ###\nUpdated Completed contents. Don\'t output the purpose of any operation. Just summarize the contents that have been actually completed in the ### History operations ###."
+        prompt += "### Completed contents ###\nUpdated Completed contents. Don\'t output the purpose of any operation. Just summarize the contents that have been actually completed AND VERIFIED on the current screenshot."
         
     else:
         prompt += "### Current operation ###\n"
@@ -345,19 +376,15 @@ def get_process_prompt(instruction, thought_history, summary_history, action_his
             prompt += f"Operation action: {operation}\n" + "Operation reflection: " + reflection_history[-1] + "\n\n"
         else:
             prompt += f"Operation action: {operation}\n\n"
-        
-        # if reflection_thought is not None:
-        #     prompt += "A reflection model was adopted to analyze whether the last step's operation meets the expectation, you should combine its reflection thought to produce the \"Completed contents\"."
-        #     prompt += "Below is its reflection thought:\n"
-        #     prompt += reflection_thought + "\n"
 
         prompt += "### Response requirements ###\n"
         prompt += "Now you need to combine all of the above to generate the \"Completed contents\".\n"
+        prompt += "IMPORTANT: You must verify if the actual goal is achieved by checking the current screenshot information, not just assuming based on operation.\n"
         prompt += "Completed contents is a general summary of the current contents that have been completed. You need to first focus on the requirements of user\'s instruction, and then summarize the contents that have been completed.\n\n"
         
         prompt += "### Output format ###\n"
         prompt += "Your output format is:\n"
-        prompt += "### Completed contents ###\nGenerated Completed contents. Don\'t output the purpose of any operation. Just summarize the contents that have been actually completed in the ### Current operation ###.\n"
+        prompt += "### Completed contents ###\nGenerated Completed contents. Don\'t output the purpose of any operation. Just summarize the contents that have been actually completed AND VERIFIED on the current screenshot.\n"
         prompt += "(Please use English to output)"
         
     return prompt
