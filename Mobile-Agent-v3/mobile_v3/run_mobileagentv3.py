@@ -32,7 +32,7 @@ def run_instruction(adb_path, hdc_path, api_key, base_url, model, instruction, a
     
     now = datetime.now()
     time_str = now.strftime("%Y%m%d_%H%M%S")
-    save_path = f"{log_path}/{time_str}_{instruction[:10]}"
+    save_path = f"{log_path}/{time_str}_{instruction[:10].replace(' ', '_')}"
     os.mkdir(save_path)
     image_save_path = os.path.join(save_path, "images")
     os.mkdir(image_save_path)
