@@ -1,11 +1,11 @@
 # GUI-Owl 1.5
 
 <div align="center">
-<img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
+<img src="assets/architecture.png" width="80%"/>
 </div>
 
 <div align="center">
-<a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
+<a href="Mobile-Agent-v3.5/README.md">English</a> | <a href="Mobile-Agent-v3.5/README_zh.md">简体中文</a>
 <hr>
 </div>
 
