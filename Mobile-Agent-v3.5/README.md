@@ -1,7 +1,7 @@
 # GUI-Owl 1.5
 
 <div align="center">
-<img src="../assets/gui_owl_15_logo.pdf" width="80%"/>
+<img src="../assets/gui_owl_15_logo.png" width="80%"/>
 </div>
 
 <div align="center">
