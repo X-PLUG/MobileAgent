@@ -39,10 +39,10 @@ GUI-Owl 1.5 是基于 Qwen3-VL 构建的新一代原生 GUI 智能体模型系�
 - 🤝 **多智能体协作**：既可作为独立的端到端智能体，也可在 Mobile-Agent-v3.5 框架中充当规划器、执行器、验证器、记录员等专业角色。
 - ⚡ **Instruct 与 Thinking 双模式**：小尺寸 Instruct 模型推理速度快，适合边缘部署；大尺寸 Thinking 模型具备更强的规划与反思能力，适合复杂任务。
 
-<!-- 
+
 ## 在移动设备上部署 Mobile-Agent-v3.5
 
-❗ 目前仅 **Android** 和 **鸿蒙 OS** 支持工具调试。**iOS** 等其他系统暂不支持使用 Mobile-Agent。
+❗ 目前仅 **Android** 支持工具调试。**iOS** 等其他系统暂不支持使用 Mobile-Agent。
 
 ### 安装依赖
 ```bash
@@ -68,8 +68,8 @@ pip install numpy
 
 #### Android
 ```bash
-cd Mobile-Agent-v3.5/mobile_v3_5
-python run_mobileagentv3_5.py \
+cd Mobile-Agent-v3.5/mobile_use
+python run_gui_owl_1_5_for_mobile.py \
     --adb_path "您的 ADB 路径" \
     --api_key "您的 vllm 服务 API 密钥" \
     --base_url "您的 vllm 服务地址" \
@@ -78,21 +78,33 @@ python run_mobileagentv3_5.py \
     --add_info "补充信息，可为空"
 ```
 
-#### 鸿蒙 OS
+
+### 注意事项
+1. GUI-Owl 1.5 默认输出相对坐标（0–1000）。
+
+## 在电脑设备上部署 Mobile-Agent-v3.5
+
+### 安装依赖
 ```bash
-cd Mobile-Agent-v3.5/mobile_v3_5
-python run_mobileagentv3_5.py \
-    --hdc_path "您的 HDC 路径" \
+pip install pyautogui
+pip install pyperclip
+```
+
+### 运行
+
+```bash
+cd Mobile-Agent-v3.5/computer_use
+python run_gui_owl_1_5_for_pc.py \
     --api_key "您的 vllm 服务 API 密钥" \
     --base_url "您的 vllm 服务地址" \
     --model "您的 vllm 服务模型名称" \
     --instruction "您希望 Mobile-Agent-v3.5 完成的指令" \
     --add_info "补充信息，可为空"
 ```
- -->
 
 ### 注意事项
 1. GUI-Owl 1.5 默认输出相对坐标（0–1000）。
+
 
 <!-- 
 ## 在 OSWorld 上评测
@@ -136,8 +148,8 @@ sh run_ma3_5.sh
 | GUI-Owl-1.5-4B-Instruct | 48.2 | 69.8 | 31.7 | 32.3 | 29.4 |
 | GUI-Owl-1.5-8B-Instruct | 52.3 | 69.0 | 41.8 | 41.8 | 31.7 |
 | GUI-Owl-1.5-8B-Thinking | 52.9 | **71.6** | 38.8 | 33.3 | 35.1 |
-| GUI-Owl-1.5-32B-Instruct | - | 69.4 | **47.6** | **46.8** | **44.8** |
-| GUI-Owl-1.5-32B-Thinking | - | 68.2 | 43.8 | 42.8 | 44.1 |
+| GUI-Owl-1.5-32B-Instruct | 56.5 | 69.4 | **47.6** | **46.8** | **44.8** |
+| GUI-Owl-1.5-32B-Thinking | 56.0 | 68.2 | 43.8 | 42.8 | 44.1 |
 
 ### Grounding 基准测试
 
