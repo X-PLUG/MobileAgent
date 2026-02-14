@@ -12,7 +12,7 @@
 
 <div align="center">
 <p align="center">
-  <img src="assets/series.png"/>
+  <img src="assets/gui_owl_15_logo.png"/>
 </p>
 </div>
 
@@ -20,7 +20,7 @@
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
-👏 欢迎通过我们的 **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope在线Demo](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3)** 或 **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3！
+👏 欢迎通过我们的 **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope在线Demo](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3.5)** 或 **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3！
 
 ❗️我们在百炼上限时免费提供 Mobile-Agent-v3 API，方便快速体验。请查看[文档](https://help.aliyun.com/zh/model-studio/ui-agent-api)。
 
@@ -39,6 +39,7 @@
 
 ## 📢新闻
 
+- `[2026.2.14]`🔥🔥🔥 **GUI-Owl 1.5** 正式发布！这是基于 Qwen3-VL 构建的新一代原生 GUI 智能体模型家族，支持桌面、手机、浏览器等多平台自动化操作。模型权重已发布在 [HuggingFace](https://huggingface.co/collections/mPLUG/gui-owl-15) 上。详情请参阅 [GUI-Owl 1.5 README](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5)。
 - `[2025.11.25]`🔥🔥 GUI-Owl系列模型现已支持在线推理，感谢[**阿里云百炼**](https://bailian.console.aliyun.com/?spm=5176.21213303.J_qCOwPWspKEuWcmp8qiZNQ.131.39712f3dOmFAxI&scm=20140722.S_card%40%40%E4%BA%A7%E5%93%81%40%402983180.S_card0.ID_card%40%40%E4%BA%A7%E5%93%81%40%402983180-RL_%E7%99%BE%E7%82%BC-LOC_search%7EUND%7Ecard%7EUND%7Eitem-OR_ser-V_3-P0_0&tab=model#/model-market/detail/gui-plus)提供的算力支持。详情请见[链接](https://modelscope.cn/models/iic/GUI-Owl-7B)。
 - `[2025.10.30]`🔥 我们发布了 **OSWorld-MCP**，这是一个用于评估模型上下文协议 (MCP) 工具在实际场景中调用能力的基准测试工具。请参阅[链接](https://github.com/X-PLUG/OSWorld-MCP)。
 - `[2025.9.24]`🔥 我们在 ModelScope 上发布了基于无影云电脑和云手机的 demo。无需本地部署模型或准备设备，只需输入指令即可体验 Mobile-Agent-v3！[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> ModelScope Demo 链接](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3) 和 [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼 Demo 链接](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)。限时免费的 Mobile-Agent-v3 API请查看[文档](https://help.aliyun.com/zh/model-studio/ui-agent-api)。基于Qwen-3-VL的新版本即将到来。
