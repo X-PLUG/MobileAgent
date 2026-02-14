@@ -1,7 +1,7 @@
-# GUI-Owl 1.5
+# Mobile-Agent-v3.5
 
 <div align="center">
-<img src=https://youke1.picui.cn/s1/2025/08/18/68a2f82fef3d4.png width="40%"/>
+<img src="../assets/gui_owl_15_logo.png" width="80%"/>
 </div>
 
 <div align="center">
