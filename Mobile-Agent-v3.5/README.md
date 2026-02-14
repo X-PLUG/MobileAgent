@@ -16,8 +16,9 @@
 ## 📍 TODO
 - [x] Open source GUI-Owl 1.5 model weights
 - [x] Open source GUI-Owl 1.5 model cookbook
+- [x] Deploy Mobile-Agent-v3.5 on your own device
 - [ ] Open source evaluation code on benchmarks
-- [ ] Deploy Mobile-Agent-v3.5 on your own device
+
 
 ## Introduction
 
@@ -39,10 +40,10 @@ GUI-Owl 1.5 is the next-generation native GUI agent model family built on Qwen3-
 - 🤝 **Multi-agent ready**: Serves both as a standalone end-to-end agent and as specialized roles (planner, executor, verifier, notetaker) within the Mobile-Agent-v3.5 framework.
 - ⚡ **Instruct & Thinking variants**: Smaller instruct models for fast inference and edge deployment; larger thinking models for complex tasks requiring planning and reflection.
 
-<!-- 
+
 ## Deploy Mobile-Agent-v3.5 on Your Mobile Device
 
-❗ At present, only **Android OS** and **Harmony OS** support tool debugging. Other systems, such as **iOS**, do not support the use of Mobile-Agent for the time being.
+❗ At present, only **Android OS** support tool debugging. Other systems, such as **iOS**, do not support the use of Mobile-Agent for the time being.
 
 ### Install Dependencies
 ```bash
@@ -68,8 +69,8 @@ pip install numpy
 
 #### Android
 ```bash
-cd Mobile-Agent-v3.5/mobile_v3_5
-python run_mobileagentv3_5.py \
+cd Mobile-Agent-v3.5/mobile_use
+python run_gui_owl_1_5_for_mobile.py \
     --adb_path "Your ADB path" \
     --api_key "Your api key of vllm service" \
     --base_url "Your base url of vllm service" \
@@ -78,21 +79,32 @@ python run_mobileagentv3_5.py \
     --add_info "Some supplementary knowledge, can also be empty"
 ```
 
-#### HarmonyOS
+### Note
+1. GUI-Owl 1.5 outputs relative coordinates (0–1000) by default.
+
+## Deploy Mobile-Agent-v3.5 on Your Computer Device
+
+### Install Dependencies
 ```bash
-cd Mobile-Agent-v3.5/mobile_v3_5
-python run_mobileagentv3_5.py \
-    --hdc_path "Your HDC path" \
+pip install pyautogui
+pip install pyperclip
+```
+
+### Run
+
+```bash
+cd Mobile-Agent-v3.5/computer_use
+python run_gui_owl_1_5_for_pc.py \
     --api_key "Your api key of vllm service" \
     --base_url "Your base url of vllm service" \
     --model "Your model name of vllm service" \
     --instruction "The instruction you want Mobile-Agent-v3.5 to complete" \
     --add_info "Some supplementary knowledge, can also be empty"
 ```
- -->
 
 ### Note
 1. GUI-Owl 1.5 outputs relative coordinates (0–1000) by default.
+
 
 <!-- 
 ## Evaluation on OSWorld
@@ -136,8 +148,8 @@ sh run_ma3_5.sh
 | GUI-Owl-1.5-4B-Instruct | 48.2 | 69.8 | 31.7 | 32.3 | 29.4 |
 | GUI-Owl-1.5-8B-Instruct | 52.3 | 69.0 | 41.8 | 41.8 | 31.7 |
 | GUI-Owl-1.5-8B-Thinking | 52.9 | **71.6** | 38.8 | 33.3 | 35.1 |
-| GUI-Owl-1.5-32B-Instruct | - | 69.4 | **47.6** | **46.8** | **44.8** |
-| GUI-Owl-1.5-32B-Thinking | - | 68.2 | 43.8 | 42.8 | 44.1 |
+| GUI-Owl-1.5-32B-Instruct | 56.5 | 69.4 | **47.6** | **46.8** | **44.8** |
+| GUI-Owl-1.5-32B-Thinking | 56.0 | 68.2 | 43.8 | 42.8 | 44.1 |
 
 ### Grounding Benchmarks
 
