@@ -12,7 +12,7 @@
 
 <div align="center">
 <p align="center">
-  <img src="assets/series.png"/>
+  <img src="assets/gui_owl_15_logo.png"/>
 </p>
 </div>
 
