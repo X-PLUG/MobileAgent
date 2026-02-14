@@ -1,8 +1,6 @@
 """
-Mobile-Agent-v3.5 — Main entry point.
-
 Usage:
-    cd Mobile-Agent-v3.5/mobile_v3_5
+    cd Mobile-Agent-v3.5/mobile_use
     python run_gui_owl_1_5_for_mobile.py \
         --adb_path "Your ADB path" \
         --api_key "Your api key of vllm service" \
