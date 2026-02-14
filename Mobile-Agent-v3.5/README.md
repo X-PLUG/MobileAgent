@@ -1,11 +1,11 @@
 # GUI-Owl 1.5
 
 <div align="center">
-<img src="assets/architecture.png" width="80%"/>
+<img src="../assets/architecture.png" width="80%"/>
 </div>
 
 <div align="center">
-<a href="Mobile-Agent-v3.5/README.md">English</a> | <a href="Mobile-Agent-v3.5/README_zh.md">简体中文</a>
+<a href="README.md">English</a> | <a href="README_zh.md">简体中文</a>
 <hr>
 </div>
 
