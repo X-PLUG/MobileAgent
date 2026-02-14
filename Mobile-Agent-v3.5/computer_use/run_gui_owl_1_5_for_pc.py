@@ -1,13 +1,11 @@
 """
-Computer-Agent-v3.5 — Desktop GUI automation agent.
-
 Usage:
-    cd Computer-Agent-v3.5/computer_v3_5
+    cd Mobile-Agent-v3.5/computer_use
     python run_gui_owl_1_5_for_pc.py \
         --api_key "Your API key" \
         --base_url "Your base url of vllm service" \
         --instruction "The instruction you want the agent to complete" \
-        --model "Model name for DashScope" \
+        --model "Model name" \
         --add_info "Optional supplementary knowledge"
 """
 
