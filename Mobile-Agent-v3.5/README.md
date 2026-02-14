@@ -1,4 +1,4 @@
-# GUI-Owl 1.5
+# Mobile-Agent-v3.5
 
 <div align="center">
 <img src="../assets/gui_owl_15_logo.png" width="80%"/>
