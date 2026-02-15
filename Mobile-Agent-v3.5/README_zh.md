@@ -202,7 +202,7 @@ print(output_text)
 ```bibtex
 @article{guiowl15,
   title={Mobile-Agent-v3.5: Multi-platform Fundamental GUI Agents},
-  author={...},
+  author={Haiyang Xu, Xi Zhang, Haowei Liu, Junyang Wang, Zhaoqing Zhu, Shengjie Zhou,  Xuhao Hu, Feiyu Gao, Junjie Cao, Zihua Wang, Zhiyuan Chen, Jitong Liao, Qi Zheng , Jiahui Zeng , Ze Xu, Shuai Bai, Junyang Lin, Jingren Zhou, Ming Yan},
   journal={arXiv preprint arXiv:xxxx.xxxxx},
   year={2026}
 }
