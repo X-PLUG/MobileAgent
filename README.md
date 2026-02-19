@@ -20,7 +20,7 @@
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
-👏 Welcome to try Mobile-Agent-v3.5 via our **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope online demo](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3)** or **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> Bailian online demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)**!
+👏 Welcome to try Mobile-Agent-v3.5 via our **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope online demo](http://modelscope.cn/studios/MobileAgentTest/computer_use)** or **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> Bailian online demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)**!
 
 ❗️We provide the limited-time free Mobile-Agent-v3 API on <img src="./assets/aliyun.png" width="14px" style="display:inline;">Bailian for quick experience. View the [documentation](https://help.aliyun.com/zh/model-studio/ui-agent-api).
 
