@@ -20,7 +20,7 @@
 <a href="https://trendshift.io/repositories/7423" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7423" alt="MobileAgent | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
-👏 欢迎通过我们的 **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope在线Demo](http://modelscope.cn/studios/MobileAgentTest/computer_use)** 或 **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3！
+👏 欢迎通过我们的 **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope在线Demo](http://modelscope.cn/studios/MobileAgentTest/computer_use)** 或 **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3.5！
 
 ❗️我们在百炼上限时免费提供 Mobile-Agent-v3 API，方便快速体验。请查看[文档](https://help.aliyun.com/zh/model-studio/ui-agent-api)。
 
