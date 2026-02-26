@@ -142,14 +142,15 @@ sh run_ma3_5.sh
 
 ### 端到端在线基准测试
 
-| 模型 | OSWorld-Verified | AndroidWorld | OSWorld-MCP | Mobile-World | WindowsAA |
-|------|:---:|:---:|:---:|:---:|:---:|
-| GUI-Owl-1.5-2B-Instruct | 43.5 | 67.9 | 33.0 | 31.3 | 25.8 |
-| GUI-Owl-1.5-4B-Instruct | 48.2 | 69.8 | 31.7 | 32.3 | 29.4 |
-| GUI-Owl-1.5-8B-Instruct | 52.3 | 69.0 | 41.8 | 41.8 | 31.7 |
-| GUI-Owl-1.5-8B-Thinking | 52.9 | **71.6** | 38.8 | 33.3 | 35.1 |
-| GUI-Owl-1.5-32B-Instruct | 56.5 | 69.4 | **47.6** | **46.8** | **44.8** |
-| GUI-Owl-1.5-32B-Thinking | 56.0 | 68.2 | 43.8 | 42.8 | 44.1 |
+| 模型 | OSWorld-Verified | AndroidWorld | OSWorld-MCP | Mobile-World | WindowsAA | WebArena | VisualWebArena | WebVoyager | Online-Mind2Web
+|-------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| GUI-Owl-1.5-2B-Instruct | 43.5 | 67.9 | 33.0 | 31.3 | 25.8 | - | - | - | - |
+| GUI-Owl-1.5-4B-Instruct | 48.2 | 69.8 | 31.7 | 32.3 | 29.4 | - | - | - | - |
+| GUI-Owl-1.5-8B-Instruct | 52.3 | 69.0 | 41.8 | 41.8 | 31.7 | 45.7 | 39.4 | 69.9 | 41.7 |
+| GUI-Owl-1.5-8B-Thinking | 52.9 | **71.6** | 38.8 | 33.3 | 35.1 | 46.7 | 40.8 | 78.1 | **48.6** |
+| GUI-Owl-1.5-32B-Instruct | **56.5** | 69.4 | **47.6** | **46.8** | **44.8** | - | - | - | - |
+| GUI-Owl-1.5-32B-Thinking | 56.0 | 68.2 | 43.8 | 42.8 | 44.1 | **48.4** | **46.6** | **82.1** | - |
+
 
 ### Grounding 基准测试
 
