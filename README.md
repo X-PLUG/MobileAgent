@@ -25,7 +25,9 @@
 ❗️We provide the limited-time free Mobile-Agent-v3 API on <img src="./assets/aliyun.png" width="14px" style="display:inline;">Bailian for quick experience. View the [documentation](https://help.aliyun.com/zh/model-studio/ui-agent-api).
 
 <p align="center">
-	🤗 <a href="https://huggingface.co/collections/mPLUG/gui-owl-15" target="_blank">GUI-Owl-1.5 Collection</a> |
+	🤗 <a href="https://huggingface.co/collections/mPLUG/gui-owl-15" target="_blank">GUI-Owl-1.5 Collection</a>
+</p>
+<p align="center">
 	🤗 <a href="https://huggingface.co/mPLUG/GUI-Owl-32B" target="_blank">GUI-Owl-32B</a> | 
 	<img src="./assets/tongyi.png" width="14px" style="display:inline;"> <a href="https://modelscope.cn/models/iic/GUI-Owl-32B" target="_blank">GUI-Owl-32B</a> ｜
 	🤗 <a href="https://huggingface.co/mPLUG/GUI-Owl-7B" target="_blank">GUI-Owl-7B</a> |
@@ -40,10 +42,10 @@
 
 ## 📢News
 
-- `[2026.2.14]`🔥🔥🔥 **GUI-Owl 1.5** is released, a new family of native multi-platform GUI agent foundation models (2B/4B/8B/32B/235B; Instruct & Thinking). The next-generation native GUI agent model family built on Qwen3-VL, supporting **desktop/mobile/browser** automation and achieving **SOTA results on 20+ GUI benchmarks**, with strong performance on end-to-end tasks, grounding, tool/MCP calling, and long-horizon memory. Model weights are available on [HuggingFace](https://huggingface.co/collections/mPLUG/gui-owl-15). Technical report is avaliable on [Link](https://arxiv.org/abs/2602.16855). See the [GUI-Owl 1.5 README](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5) for details.
-- `[2025.11.25]`🔥🔥 The GUI-Owl series models are now available for online inference, thanks to [**Alibaba Cloud Bailian**](https://bailian.console.aliyun.com/?spm=5176.21213303.J_qCOwPWspKEuWcmp8qiZNQ.131.39712f3dOmFAxI&scm=20140722.S_card%40%40%E4%BA%A7%E5%93%81%40%402983180.S_card0.ID_card%40%40%E4%BA%A7%E5%93%81%40%402983180-RL_%E7%99%BE%E7%82%BC-LOC_search%7EUND%7Ecard%7EUND%7Eitem-OR_ser-V_3-P0_0&tab=model#/model-market/detail/gui-plus) for providing computing power support. Please refer to the [Link](https://modelscope.cn/models/iic/GUI-Owl-7B).
-- `[2025.10.30]`🔥 We released **OSWorld-MCP**, which is a benchmark for evaluating Model Context Protocol (MCP) tool invocation capabilities in real-world scenarios. See the [Link](https://github.com/X-PLUG/OSWorld-MCP).
-- `[2025.9.24]`🔥 We've released the demo on ModelScope that's based on Wuying Cloud Desktop and Phone. No need to deploy models locally or prepare devices, just input your instruction to experience Mobile-Agent-v3! [<img src="./assets/tongyi.png" width="14px" style="display:inline;"> ModelScope Demo Link](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3) and [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> Bailian Demo Link](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc). For a limited-time free Mobile-Agent-v3 API, please check the [documentation](https://help.aliyun.com/zh/model-studio/ui-agent-api). The new version based on Qwen-3-VL is coming soon.
+- `[2026.2.14]`🔥🔥 **GUI-Owl 1.5** is released, a new family of native multi-platform GUI agent foundation models (2B/4B/8B/32B/235B; Instruct & Thinking). The next-generation native GUI agent model family built on Qwen3-VL, supporting **desktop/mobile/browser** automation and achieving **SOTA results on 20+ GUI benchmarks**, with strong performance on end-to-end tasks, grounding, tool/MCP calling, and long-horizon memory. Model weights are available on [HuggingFace](https://huggingface.co/collections/mPLUG/gui-owl-15). Technical report is avaliable on [Link](https://arxiv.org/abs/2602.16855). See the [GUI-Owl 1.5 README](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5) for details.
+- `[2025.11.25]`🔥 The GUI-Owl series models are now available for online inference, thanks to [**Alibaba Cloud Bailian**](https://bailian.console.aliyun.com/?spm=5176.21213303.J_qCOwPWspKEuWcmp8qiZNQ.131.39712f3dOmFAxI&scm=20140722.S_card%40%40%E4%BA%A7%E5%93%81%40%402983180.S_card0.ID_card%40%40%E4%BA%A7%E5%93%81%40%402983180-RL_%E7%99%BE%E7%82%BC-LOC_search%7EUND%7Ecard%7EUND%7Eitem-OR_ser-V_3-P0_0&tab=model#/model-market/detail/gui-plus) for providing computing power support. Please refer to the [Link](https://modelscope.cn/models/iic/GUI-Owl-7B).
+- `[2025.10.30]` We released **OSWorld-MCP**, which is a benchmark for evaluating Model Context Protocol (MCP) tool invocation capabilities in real-world scenarios. See the [Link](https://github.com/X-PLUG/OSWorld-MCP).
+- `[2025.9.24]` We've released the demo on ModelScope that's based on Wuying Cloud Desktop and Phone. No need to deploy models locally or prepare devices, just input your instruction to experience Mobile-Agent-v3! [<img src="./assets/tongyi.png" width="14px" style="display:inline;"> ModelScope Demo Link](https://modelscope.cn/studios/wangjunyang/Mobile-Agent-v3) and [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> Bailian Demo Link](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc). For a limited-time free Mobile-Agent-v3 API, please check the [documentation](https://help.aliyun.com/zh/model-studio/ui-agent-api). The new version based on Qwen-3-VL is coming soon.
 - `[2025.9.19]` GUI-Critic-R1 has been accepted by **The Thirty-ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2025)**. 
 - `[2025.9.16]` We have released our latest work, **UI-S1: Advancing GUI Automation via Semi-online Reinforcement Learning**. The [paper](https://www.arxiv.org/abs/2509.11543), [code](https://github.com/X-PLUG/MobileAgent/tree/main/UI-S1), [dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset) and [model](https://huggingface.co/mPLUG/UI-S1-7B) are now open-sourced.
 - `[2025.9.16]` We've open-sourced the code of GUI-Owl and Mobile-Agent-v3 on OSWorld, AndroidWorld, and real-world mobile scenarios. See the [OSWorld Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-osworld). The OSWorld RL-tuned [checkpoint](https://huggingface.co/mPLUG/GUI-Owl-7B-Desktop-RL) of GUI-Owl is also released. See the [AndroidWorld Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#evaluation-on-androidworld) and [Real-world Scenarios Code](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3#deploy-mobile-agent-v3-on-your-mobile-device).
@@ -72,23 +74,9 @@
 </p>
 </div>
 
-### GUI-Owl
-
-- SOTA results within 7B.
-- A native end-to-end multimodal agent designed as a foundational model for GUI automation.
-- Unifying perception, grounding, reasoning, planning, and action execution within a single policy network.
-- Robust cross-platform interaction and multi-turn decision making with explicit intermediate reasoning.
-- GUI-Owl can be instantiated as different specialized agents within Mobile-Agent-v3.
-
-### Mobile-Agent-v3
-
-- Dynamic task decomposition, planning and progress management.
-- The highly integrated operating space reduces the perception and operation frequency of the model.
-- Extensive exception handling and reflection capabilities provide more stable performance in scenarios such as pop-ups and advertisements.
-- The key information recording capability enables cross-application tasks.
-
 ## 📝Series of Work
 
+- [**Mobile-Agent-v3.5**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5) (Preprint): Multi-platform Fundamental GUI Agents. [**[Paper]**](https://arxiv.org/abs/2602.16855) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5)
 - [**Mobile-Agent-v3**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3) (Preprint): Multi-modal and multi-platform GUI agent. [**[Paper]**](https://arxiv.org/abs/2508.15144) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3)
 - [**UI-S1**](https://github.com/X-PLUG/MobileAgent/tree/main/UI-S1) (Preprint): Advancing GUI Automation via Semi-online Reinforcement Learning. [**[Paper]**](https://arxiv.org/abs/2509.11543) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/UI-S1) [**[Dataset]**](https://huggingface.co/datasets/mPLUG/UI_S1_dataset)
 - [**GUI-Critic-R1**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1) (NeurIPS 2025): A GUI-Critic for pre-operative error diagnosis method. [**[Paper]**](https://arxiv.org/abs/2506.04614) [**[Code]**](https://github.com/X-PLUG/MobileAgent/tree/main/GUI-Critic-R1)
@@ -100,29 +88,32 @@
 ## 📺Demo
 
 <div align="left">
-    <h3>Learn about Mobile-Agent-v3.</h3>
-    <video src= "https://github.com/user-attachments/assets/ec7defa1-e6c5-40d2-84bd-c54e26a3fcec"/>
+    <h3>Learn about Mobile-Agent-v3.5</h3>
+    <video src= "https://github.com/user-attachments/assets/97871c8c-5d1d-4f0f-aab0-84adddacbd0f"/>
 </div>
 
-### 💻PC
+### 💻PC + 🌐Web
 
 <div align="left">
-    <h3>Create a new blank PPT, and then insert a piece of text in the form of Word Art into the first slide, with the content being "Alibaba".</h3>
-    <video src= "https://github.com/user-attachments/assets/a978087a-717b-4c8a-9e50-9223dac019dd"/>
+    <h3>Search for the stock prices of Apple and Nvidia respectively. Then create a new spreadsheet in WPS Office. Enter the company names in column A and the retrieved stock prices in column B.</h3>
+    <video src= "https://github.com/user-attachments/assets/5dbc349b-0c99-4e66-a5c6-ad6d8accb933"/>
 </div>
 
-### 🌐Web
-
 <div align="left">
-    <h3>Please help me search for flights from Beijing to Paris on Skyscanner departing on September 18th and returning on September 21st.</h3>
-    <video src= "https://github.com/user-attachments/assets/fd49a192-f876-4862-b0c3-30aaaf48643a"/>
+    <h3>Create a new document in WPS Office and write a brief introduction about Alibaba with font size 12. Then search for Alibaba's logo in Edge browser, copy an image, and paste it at the end of the document.</h3>
+    <video src= "https://github.com/user-attachments/assets/8122baec-b5a1-49d8-a47d-cb613d21ec72"/>
 </div>
 
 ### 📱Phone
 
 <div align="left">
-    <h3>Please help me search for Jinan travel guides on Xiaohongshu, sort them by the number of collections, and save the first note.</h3>
-    <video src= "https://github.com/user-attachments/assets/3a405952-953a-4c2a-a26c-d738b6622564"/>
+    <h3>Today is Sunday, February 15, 2025. Search for flights from Guangzhou to Chengdu five days from now on Ctrip, check the cheapest flight, then search for the cheapest train ticker on the same route and tell me their prices.</h3>
+    <video src= "https://github.com/user-attachments/assets/4c5f29b1-c319-41bb-876d-9915bc3e215f"/>
+</div>
+
+<div align="left">
+    <h3>Check the "魔搭ModelScope社区" (ModelScope Community) account on Xiaohongshu and Douyin, then tell me the total follower count across both platforms.</h3>
+    <video src= "https://github.com/user-attachments/assets/4ff3e951-f93a-49e8-b800-f060f765d67d"/>
 </div>
 
 ## ⭐Star History
@@ -133,6 +124,13 @@
 
 If you find Mobile-Agent useful for your research and applications, please cite using this BibTeX:
 ```
+@article{xu2026mobile,
+  title={Mobile-Agent-v3. 5: Multi-platform Fundamental GUI Agents},
+  author={Xu, Haiyang and Zhang, Xi and Liu, Haowei and Wang, Junyang and Zhu, Zhaozai and Zhou, Shengjie and Hu, Xuhao and Gao, Feiyu and Cao, Junjie and Wang, Zihua and others},
+  journal={arXiv preprint arXiv:2602.16855},
+  year={2026}
+}
+
 @article{ye2025mobile,
   title={Mobile-Agent-v3: Foundamental Agents for GUI Automation},
   author={Ye, Jiabo and Zhang, Xi and Xu, Haiyang and Liu, Haowei and Wang, Junyang and Zhu, Zhaoqing and Zheng, Ziwei and Gao, Feiyu and Cao, Junjie and Lu, Zhengxi and others},
