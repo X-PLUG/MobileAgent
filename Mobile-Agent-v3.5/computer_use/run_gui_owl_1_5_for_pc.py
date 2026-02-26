@@ -238,7 +238,7 @@ def main():
 
         # ====== vllm ======
         vllm = GUIOwlWrapper(args.api_key, args.base_url, args.model)
-        output_text = vllm.predict_mm(messages)
+        output_text, _, _ = vllm.predict_mm(messages)
 
 
         # ======= dash =======
