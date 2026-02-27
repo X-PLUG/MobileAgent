@@ -25,7 +25,8 @@
 ❗️We provide the limited-time free Mobile-Agent-v3 API on <img src="./assets/aliyun.png" width="14px" style="display:inline;">Bailian for quick experience. View the [documentation](https://help.aliyun.com/zh/model-studio/ui-agent-api).
 
 <p align="center">
-	🤗 <a href="https://huggingface.co/collections/mPLUG/gui-owl-15" target="_blank">GUI-Owl-1.5 Collection</a>
+	🤗 <a href="https://huggingface.co/collections/mPLUG/gui-owl-15" target="_blank">GUI-Owl-1.5 Collection</a> |
+	<img src="./assets/tongyi.png" width="14px" style="display:inline;"> <a href="https://modelscope.cn/collections/iic/GUI-Owl-15" target="_blank">GUI-Owl-1.5 Collection</a> 
 </p>
 <p align="center">
 	🤗 <a href="https://huggingface.co/mPLUG/GUI-Owl-32B" target="_blank">GUI-Owl-32B</a> | 
