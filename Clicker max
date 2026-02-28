@@ -1,0 +1,66 @@
+Quiero convertir mi juego Super Clicker Enhanced completo a una aplicación Android nativa usando React Native/Expo.
+
+JUEGO COMPLETAMENTE FUNCIONAL:
+• Frontend React con backend FastAPI + MongoDB
+• Backend funcionando en puerto 8001 con prefijo /api/
+• Sistema completo de usuario, progreso y persistencia
+
+FUNCIONALIDADES PRINCIPALES A RECREAR:
+1. SISTEMA DE CLICKER:
+   - Botón central grande para hacer clic
+   - Contador de monedas en tiempo real
+   - Animaciones de clic con valores flotantes
+   - Sistema de clics críticos con probabilidad
+
+2. SISTEMA DE UPGRADES (6 tipos):
+   - Mejora de Clic (clickMultiplier)
+   - Auto-Clicker (autoClicker) 
+   - Suerte Crítica (criticalChance)
+   - Multiplicador Dorado (bonusMultiplier)
+   - Ganancias Offline (offlineEarnings)
+   - Nivel de Prestigio (prestigeLevel)
+
+3. SISTEMA DE LOGROS (7 achievements):
+   - Primer Clic, Centenar, Millares, Primera Mejora
+   - Millonario, Demonio Veloz, Dedicación
+   - Con barras de progreso y recompensas
+
+4. SISTEMA DE TEMAS (6 temas visuales):
+   - Clásico Dorado, Modo Oscuro, Neón Cyber
+   - Naturaleza, Espacio Profundo, Llama Ardiente
+   - Con requisitos de desbloqueo
+
+5. REPRODUCTOR DE MÚSICA:
+   - Controles play/pause/next/prev
+   - Subida de música desde dispositivo
+   - Control de volumen y configuraciones
+   - Acceso a música del teléfono
+
+6. PERSONALIZACIÓN:
+   - Subida múltiple de imágenes desde galería
+   - Fondo personalizable del botón clicker
+   - Configuraciones de sonido y efectos
+
+APIS DEL BACKEND (ya funcionando):
+- GET /api/user/profile/{user_id}
+- POST /api/user/save-progress/{user_id}
+- GET /api/upgrades/available
+- POST /api/upgrades/purchase/{user_id}
+- GET /api/achievements/available
+- GET /api/achievements/unlocked/{user_id}
+- POST /api/achievements/claim/{user_id}
+- GET /api/themes/available
+- POST /api/media/upload-images/{user_id}
+- POST /api/media/upload-music/{user_id}
+
+
+
+CARACTERÍSTICAS MÓVILES ESPECÍFICAS:
+- Optimización para pantalla táctil
+- Acceso a galería de fotos del dispositivo
+- Acceso a biblioteca de música del teléfono
+- Notificaciones push para ganancias offline
+- Vibración en clics críticos
+- Guardado automático en segundo plano
+
+BACKEND URL: Mi backend FastAPI está funcionando y accesible, mantener todas las conexiones API.
