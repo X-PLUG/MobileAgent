@@ -138,6 +138,23 @@ sh run_ma3_5.sh
 ```
  -->
 
+## Grounding性能评测
+1. 在benchmarks对应的官网上下载图片以及标注文件。
+
+2. 安装依赖：
+```
+pip install qwen_agent
+pip install qwen_vl_utils
+```
+
+3. 在`run_grounding.sh`中填写你的信息, 包括MODEL_PATH, DS_PATH, SAVE_PATH和EVAL_TYPE. 
+
+4. 运行：
+```bash
+cd Mobile-Agent-v3.5/grounding
+sh run_grounding.sh
+```
+
 ## 性能
 
 ### 端到端在线基准测试

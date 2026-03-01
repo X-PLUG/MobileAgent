@@ -137,7 +137,24 @@ sh run_guiowl.sh
 sh run_ma3_5.sh
 ```
  -->
- 
+
+## Evaluation on Grounding benchmarks
+1. Please download the images and annotations for the grounding benchmarks from their official repository.
+
+2. Install the dependencies required by the qwen model.
+```
+pip install qwen_agent
+pip install qwen_vl_utils
+```
+
+3. Fill in your information in the `run_grounding.sh`, including MODEL_PATH, DS_PATH, SAVE_PATH and EVAL_TYPE. 
+
+4. Run the evaluation.
+```bash
+cd Mobile-Agent-v3.5/grounding
+sh run_grounding.sh
+```
+
 ## Performance
 
 ### End-to-End Online Benchmarks
