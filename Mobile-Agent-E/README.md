@@ -91,6 +91,12 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     export BACKBONE_TYPE="OpenAI"
     export OPENAI_API_KEY="your-openai-key"
     ```
+    If you want to use an OpenAI-compatible provider (for example Novita), set the OpenAI API URL as well:
+    ```
+    export BACKBONE_TYPE="OpenAI"
+    export OPENAI_API_URL="https://api.novita.ai/openai/v1/chat/completions"
+    export OPENAI_API_KEY="your-novita-key"
+    ```
     ```
     export BACKBONE_TYPE="Gemini"
     export GEMINI_API_KEY="your-gemini-key"
