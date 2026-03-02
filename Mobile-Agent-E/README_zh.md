@@ -91,6 +91,12 @@ pip install -r requirements.txt
     export BACKBONE_TYPE="OpenAI"
     export OPENAI_API_KEY="your-openai-key"
     ```
+    如果你想使用 OpenAI 兼容服务（例如 Novita），也可以额外指定 OpenAI API URL：
+    ```
+    export BACKBONE_TYPE="OpenAI"
+    export OPENAI_API_URL="https://api.novita.ai/openai/v1/chat/completions"
+    export OPENAI_API_KEY="your-novita-key"
+    ```
     ```
     export BACKBONE_TYPE="Gemini"
     export GEMINI_API_KEY="your-gemini-key"
