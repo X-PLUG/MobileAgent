@@ -105,38 +105,22 @@ python run_gui_owl_1_5_for_pc.py \
 ### 注意事项
 1. GUI-Owl 1.5 默认输出相对坐标（0–1000）。
 
-
-<!-- 
-## 在 OSWorld 上评测
-1. 按照 [OSWorld 官方仓库](https://github.com/xlang-ai/OSWorld?tab=readme-ov-file#-installation) 安装 OSWorld 及相关依赖。
-
-2. 在 `run_guiowl.sh` 或 `run_ma3_5.sh` 中填写 vLLM 服务信息（api_key、base_url、model）。
-
-3. 运行：
-```bash
-cd Mobile-Agent-v3.5/os_world_v3_5
-sh run_guiowl.sh
-sh run_ma3_5.sh
-```
-
 ## 在 AndroidWorld 上评测
 1. 按照 [AndroidWorld 官方仓库](https://github.com/google-research/android_world?tab=readme-ov-file#installation) 安装 Android 模拟器及相关依赖。
 
 2. 安装依赖：
-```bash
-pip install qwen_agent
-pip install qwen_vl_utils
+```
+cd Mobile-Agent-v3.5/android_world
+pip install -r requirements.txt
 ```
 
-3. 在 `run_guiowl.sh` 或 `run_ma3_5.sh` 中填写 vLLM 服务信息。
+3. 在 `run_guiowl15.sh` 或 `run_ma35.sh` 中填写 vLLM 服务信息。
 
 4. 运行：
-```bash
-cd Mobile-Agent-v3.5/android_world_v3_5
-sh run_guiowl.sh
-sh run_ma3_5.sh
 ```
- -->
+sh run_guiowl15.sh
+sh run_ma35.sh
+```
 
 ## Grounding性能评测
 1. 在benchmarks对应的官网上下载图片以及标注文件。
@@ -218,10 +202,10 @@ print(output_text)
 如果您觉得 GUI-Owl 1.5 对您的研究有帮助，请引用：
 
 ```bibtex
-@article{guiowl15,
-  title={Mobile-Agent-v3.5: Multi-platform Fundamental GUI Agents},
-  author={Haiyang Xu, Xi Zhang, Haowei Liu, Junyang Wang, Zhaoqing Zhu, Shengjie Zhou,  Xuhao Hu, Feiyu Gao, Junjie Cao, Zihua Wang, Zhiyuan Chen, Jitong Liao, Qi Zheng , Jiahui Zeng , Ze Xu, Shuai Bai, Junyang Lin, Jingren Zhou, Ming Yan},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
+@article{xu2026mobile,
+  title={Mobile-Agent-v3. 5: Multi-platform Fundamental GUI Agents},
+  author={Xu, Haiyang and Zhang, Xi and Liu, Haowei and Wang, Junyang and Zhu, Zhaozai and Zhou, Shengjie and Hu, Xuhao and Gao, Feiyu and Cao, Junjie and Wang, Zihua and others},
+  journal={arXiv preprint arXiv:2602.16855},
   year={2026}
 }
 ```

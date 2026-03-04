@@ -105,38 +105,22 @@ python run_gui_owl_1_5_for_pc.py \
 ### Note
 1. GUI-Owl 1.5 outputs relative coordinates (0–1000) by default.
 
-
-<!-- 
-## Evaluation on OSWorld
-1. Follow the [official OSWorld repository](https://github.com/xlang-ai/OSWorld?tab=readme-ov-file#-installation) to install OSWorld and dependencies.
-
-2. Fill in your vLLM service information in `run_guiowl.sh` or `run_ma3_5.sh` (api_key, base_url, model).
-
-3. Run:
-```bash
-cd Mobile-Agent-v3.5/os_world_v3_5
-sh run_guiowl.sh
-sh run_ma3_5.sh
-```
-
 ## Evaluation on AndroidWorld
-1. Follow the [official AndroidWorld repository](https://github.com/google-research/android_world?tab=readme-ov-file#installation) to install the Android emulator and dependencies.
+1. Please follow the [official code repository](https://github.com/google-research/android_world?tab=readme-ov-file#installation) to install the Android emulator and necessary dependencies.
 
-2. Install dependencies:
-```bash
-pip install qwen_agent
-pip install qwen_vl_utils
+2. Install the dependencies.
+```
+cd Mobile-Agent-v3.5/android_world
+pip install -r requirements.txt
 ```
 
-3. Fill in your vLLM service information in `run_guiowl.sh` or `run_ma3_5.sh`.
+3. Fill in your vllm service information in the `run_guiowl15.sh` or `run_ma35.sh` script, including api_key, base_url, and model.
 
-4. Run:
-```bash
-cd Mobile-Agent-v3.5/android_world_v3_5
-sh run_guiowl.sh
-sh run_ma3_5.sh
+4. Run the evaluation.
 ```
- -->
+sh run_guiowl15.sh
+sh run_ma35.sh
+```
 
 ## Evaluation on Grounding benchmarks
 1. Please download the images and annotations for the grounding benchmarks from their official repository.
@@ -219,10 +203,10 @@ print(output_text)
 If you find GUI-Owl 1.5 useful in your research, please cite:
 
 ```bibtex
-@article{guiowl15,
-  title={Mobile-Agent-v3.5: Multi-platform Fundamental GUI Agents},
-  author={Haiyang Xu, Xi Zhang, Haowei Liu, Junyang Wang, Zhaoqing Zhu, Shengjie Zhou,  Xuhao Hu, Feiyu Gao, Junjie Cao, Zihua Wang, Zhiyuan Chen, Jitong Liao, Qi Zheng , Jiahui Zeng , Ze Xu, Shuai Bai, Junyang Lin, Jingren Zhou, Ming Yan},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
+@article{xu2026mobile,
+  title={Mobile-Agent-v3. 5: Multi-platform Fundamental GUI Agents},
+  author={Xu, Haiyang and Zhang, Xi and Liu, Haowei and Wang, Junyang and Zhu, Zhaozai and Zhou, Shengjie and Hu, Xuhao and Gao, Feiyu and Cao, Junjie and Wang, Zihua and others},
+  journal={arXiv preprint arXiv:2602.16855},
   year={2026}
 }
 ```
