@@ -1,0 +1,23 @@
+# Bazel BUILD file for miniwob app library
+load("@rules_kotlin//kotlin:android.bzl", "kt_android_library")
+
+package(
+    default_visibility = [
+        "//java/com/google/androidenv/miniwob:miniwob_visibility",
+    ],
+)
+
+kt_android_library(
+    name = "app",
+    srcs = ["MainActivity.kt"],
+    assets = glob(["assets/**/*"]),
+    assets_dir = "assets/",
+    custom_package = "com.google.androidenv.miniwob.app",
+    manifest = "AndroidManifest.xml",
+    resource_files = glob(["res/**"]),
+    deps = [
+        "//java/com/google/androidenv:AppConfiguration",
+        "//java/com/google/androidenv:Logger",
+        "@maven//:androidx_webkit_webkit",
+    ],
+)

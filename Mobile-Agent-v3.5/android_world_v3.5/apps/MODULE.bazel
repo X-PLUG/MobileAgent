@@ -1,0 +1,34 @@
+"""
+Bazel dependencies
+"""
+bazel_dep(name = "rules_java", version = "7.5.0")
+bazel_dep(name = "bazel_skylib", version = "1.4.2")
+bazel_dep(name = "rules_android", version = "0.1.1")
+bazel_dep(name = "rules_kotlin", version = "1.9.5")
+bazel_dep(name = "rules_jvm_external", version = "6.0")
+
+# =========================================
+# Maven dependencies (external packages)
+# =========================================
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    artifacts = [
+        "org.robolectric:robolectric:4.9.2",
+        "androidx.test.ext:junit:1.1.4",
+        "androidx.test.ext:truth:1.5.0",
+        "androidx.webkit:webkit:1.9.0",
+    ],
+    repositories = [
+        "https://maven.google.com",
+        "https://repo1.maven.org/maven2",
+    ],
+)
+
+use_repo(maven, "maven")
+
+# =========================================
+# Module Extension
+# =========================================
+remote_android_extensions = use_extension("@bazel_tools//tools/android:android_extensions.bzl", "remote_android_tools_extensions")
+use_repo(remote_android_extensions, "android_tools", "android_gmaven_r8")

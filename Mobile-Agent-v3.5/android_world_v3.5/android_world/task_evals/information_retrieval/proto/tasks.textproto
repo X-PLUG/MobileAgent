@@ -1,0 +1,3523 @@
+## proto-file: third_party/py/android_world/task_evals/information_retrieval/proto/task.proto
+# proto-message: Tasks
+
+tasks {
+  name: "SimpleCalendarEventsOnDate"
+  prompt: "What events do I have {date} in Simple Calendar Pro? Answer with the titles only. If there are multiple titles, format your answer as a comma separated list."
+  complexity: 1
+  relevant_state {
+    state: {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{time}"
+          duration: "{duration}"
+          title: "{title}"
+        }
+      }
+    }
+    exclusion_conditions {
+      field: "start_date"
+      operation: EQUAL_TO
+      value: "{date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "duration"
+    possible_values: "30 m"
+    possible_values: "60 minutes"
+    possible_values: "45min"
+    possible_values: "1 h"
+    possible_values: "2 hours"
+    possible_values: "15 minutes"
+    possible_values: "1.5 hours"
+    possible_values: "90 min"
+    possible_values: "20 min"
+    possible_values: "3 h"
+    possible_values: "25 minutes"
+    possible_values: "10 min"
+    possible_values: "50 min"
+    possible_values: "2.5 hours"
+    possible_values: "75 minutes"
+    possible_values: "5 minutes"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Data Dive"
+    possible_values: "Bug Bash"
+    possible_values: "Dan's Birthday Party"
+    possible_values: "Trivia Night"
+    possible_values: "Product demo"
+    possible_values: "Team lunch"
+    possible_values: "Coffee with CEO"
+    possible_values: "Quarterly review"
+    possible_values: "Scrum meeting"
+    possible_values: "Doctor's appointment"
+    possible_values: "Birthday party"
+    possible_values: "Coding challenge"
+    possible_values: "Board meeting"
+    possible_values: "Marketing strategy workshop"
+    possible_values: "Movie night"
+    possible_values: "Dinner with friends"
+    possible_values: "Concert"
+    possible_values: "Game night"
+    possible_values: "Date night"
+    possible_values: "Weekend trip"
+    possible_values: "Family reunion"
+    possible_values: "Volunteer cleanup"
+    possible_values: "Sports game"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarNextEvent"
+  prompt: "What is my next upcoming event in Simple Calendar Pro? Answer with the title only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "October 15 2023"
+          start_time: "{time}"
+          duration: "{duration}"
+          title: "{title}"
+        }
+
+      }
+    }
+    # Exclude initial events that are today between 15:34 and {time}
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "October 15 2023"
+    }
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_time"
+      value: "{time}"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_time"
+      value: "15:30"  # Current time device is set to at the start of a task.
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  task_params {
+    # All possible values are after 15:34.
+    name: "time"
+    possible_values: "3:53pm"
+    possible_values: "21:45"
+    possible_values: "5pm"
+    possible_values: "17:30"
+    possible_values: "16:00"
+    possible_values: "18:30"
+    possible_values: "18:45"
+    possible_values: "7pm"
+    possible_values: "7:15pm"
+    possible_values: "21:45"
+    possible_values: "8pm"
+    possible_values: "8:10pm"
+    possible_values: "12:00am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "4:00pm"
+    possible_values: "16:15"
+    possible_values: "9:15pm"
+    possible_values: "20:40"
+    possible_values: "22:35"
+  }
+  task_params {
+    name: "duration"
+    possible_values: "30 m"
+    possible_values: "60 minutes"
+    possible_values: "45min"
+    possible_values: "1 h"
+    possible_values: "2 hours"
+    possible_values: "15 minutes"
+    possible_values: "1.5 hours"
+    possible_values: "90 min"
+    possible_values: "20 min"
+    possible_values: "3 h"
+    possible_values: "25 minutes"
+    possible_values: "10 min"
+    possible_values: "50 min"
+    possible_values: "2.5 hours"
+    possible_values: "75 minutes"
+    possible_values: "5 minutes"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Team Meeting"
+    possible_values: "1-on-1 with Manager"
+    possible_values: "Product demo"
+    possible_values: "Team lunch"
+    possible_values: "Coffee with CEO"
+    possible_values: "Quarterly review"
+    possible_values: "Scrum meeting"
+    possible_values: "Doctor's appointment"
+    possible_values: "Birthday party"
+    possible_values: "Coding challenge"
+    possible_values: "Board meeting"
+    possible_values: "Marketing strategy workshop"
+    possible_values: "Movie night"
+    possible_values: "Dinner with friends"
+    possible_values: "Concert"
+    possible_values: "Game night"
+    possible_values: "Date night"
+    possible_values: "Weekend trip"
+    possible_values: "Family reunion"
+    possible_values: "Volunteer cleanup"
+    possible_values: "Sports game"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarEventOnDateAtTime"
+  prompt: "What is on my schedule for {date} at {time} in Simple Calendar Pro? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{time}"
+          title: "{title}"
+          duration: "{duration}"
+        }
+      }
+    }
+    # Exclude initial events on {date} at {time}
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_time"
+      value: "{time}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+  task_params {
+    name: "duration"
+    possible_values: "30 m"
+    possible_values: "60 minutes"
+    possible_values: "45min"
+    possible_values: "1 h"
+    possible_values: "2 hours"
+    possible_values: "15 minutes"
+    possible_values: "1.5 hours"
+    possible_values: "90 min"
+    possible_values: "20 min"
+    possible_values: "3 h"
+    possible_values: "25 minutes"
+    possible_values: "10 min"
+    possible_values: "50 min"
+    possible_values: "2.5 hours"
+    possible_values: "75 minutes"
+    possible_values: "5 minutes"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Team Meeting"
+    possible_values: "1-on-1 with Manager"
+    possible_values: "Product demo"
+    possible_values: "Team lunch"
+    possible_values: "Coffee with CEO"
+    possible_values: "Quarterly review"
+    possible_values: "Scrum meeting"
+    possible_values: "Doctor's appointment"
+    possible_values: "Birthday party"
+    possible_values: "Coding challenge"
+    possible_values: "Board meeting"
+    possible_values: "Marketing strategy workshop"
+    possible_values: "Movie night"
+    possible_values: "Dinner with friends"
+    possible_values: "Concert"
+    possible_values: "Game night"
+    possible_values: "Date night"
+    possible_values: "Weekend trip"
+    possible_values: "Family reunion"
+    possible_values: "Volunteer cleanup"
+    possible_values: "Sports game"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarAnyEventsOnDate"
+  prompt: "Do I have any events {date} in Simple Calendar Pro? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{time_without_replacement}"
+          duration: "1 hour"
+          title: "{title_without_replacement}"
+        }
+        events {
+          start_date: "{date}"
+          start_time: "{time_without_replacement}"
+          duration: "1 hour"
+          title: "{title_without_replacement}"
+        }
+        events {
+          start_date: "{date}"
+          start_time: "{time_without_replacement}"
+          duration: "1 hour"
+          title: "{title_without_replacement}"
+        }
+      }
+    }
+    # Exclude initial events on {date}
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Team Meeting"
+    possible_values: "1-on-1 with Manager"
+    possible_values: "Product demo"
+    possible_values: "Team lunch"
+    possible_values: "Coffee with CEO"
+    possible_values: "Quarterly review"
+    possible_values: "Scrum meeting"
+    possible_values: "Doctor's appointment"
+    possible_values: "Birthday party"
+    possible_values: "Coding challenge"
+    possible_values: "Board meeting"
+    possible_values: "Marketing strategy workshop"
+    possible_values: "Movie night"
+    possible_values: "Dinner with friends"
+    possible_values: "Concert"
+    possible_values: "Game night"
+    possible_values: "Date night"
+    possible_values: "Weekend trip"
+    possible_values: "Family reunion"
+    possible_values: "Volunteer cleanup"
+    possible_values: "Sports game"
+  }
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarNextMeetingWithPerson"
+  prompt: "When is my next meeting with {person} in Simple Calendar Pro? Express your answer in the format <month name> <day> <year> <hour in 24-hour format>:<minutes>."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{time}"
+          title: "Drinks with {person}"
+        }
+      }
+    }
+    # Exclude initial events with {person} in the title that are on the same day as {date}
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "title"
+      value: "{person}"
+    }
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "start_date"
+      }
+      match_type: DATE_MATCH
+    }
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "start_time"
+      }
+      match_type: TIME_MATCH
+    }
+  }
+  task_params {
+    name: "person"
+    possible_values: "Amanda"
+    possible_values: "John"
+    possible_values: "David"
+    possible_values: "Lucas"
+    possible_values: "James"
+    possible_values: "Ava"
+    possible_values: "Isabella"
+    possible_values: "Mia"
+    possible_values: "Elijah"
+    possible_values: "Charlotte"
+    possible_values: "Emily"
+    possible_values: "Muhammad"
+    possible_values: "Sofia"
+    possible_values: "Mateo"
+    possible_values: "Aaliyah"
+    possible_values: "Isabella"
+    possible_values: "Daniel"
+    possible_values: "Mia"
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "time"
+    possible_values: "11:00"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarLocationOfEvent"
+  prompt: "What is the location of my {title} event in Simple Calendar Pro? Answer with the location only."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{time}"
+          title: "{title}"
+          location: "{location}"
+        }
+      }
+    }
+    # Exclude initial events with {title} in the title
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "title"
+      value: "{title}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "location"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "title"
+    possible_values: "Marketing Brainstorm"
+    possible_values: "Lunch with Client"
+    possible_values: "Team Offsite"
+    possible_values: "Product demo"
+    possible_values: "Team lunch"
+    possible_values: "Coffee with CEO"
+    possible_values: "Quarterly review"
+    possible_values: "Scrum meeting"
+    possible_values: "Doctor's appointment"
+    possible_values: "Birthday party"
+    possible_values: "Coding challenge"
+    possible_values: "Board meeting"
+    possible_values: "Marketing strategy workshop"
+    possible_values: "Movie night"
+    possible_values: "Dinner with friends"
+    possible_values: "Concert"
+    possible_values: "Game night"
+    possible_values: "Date night"
+    possible_values: "Weekend trip"
+    possible_values: "Family reunion"
+    possible_values: "Volunteer cleanup"
+    possible_values: "Sports game"
+  }
+  task_params {
+    name: "location"
+    possible_values: "Conference Room A"
+    possible_values: "McDonald's"
+    possible_values: "100 Main St Chicago"
+    possible_values: "City Park"
+    possible_values: "The Coffee Bean"
+    possible_values: "Sarah's apartment"
+    possible_values: "Conference Room A"
+    possible_values: "Zoom meeting"
+    possible_values: "Riverside Restaurant"
+    possible_values: "Local library"
+    possible_values: "Bowling alley"
+    possible_values: "Community center"
+    possible_values: "Online"
+    possible_values: "The beach"
+    possible_values: "John's backyard"
+    possible_values: "State Park"
+    possible_values: "Art Museum"
+    possible_values: "Hiking trail"
+    possible_values: "Downtown"
+    possible_values: "Mall"
+    possible_values: "The gym"
+    possible_values: "School auditorium"
+    possible_values: "Virtual"
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "time"
+    possible_values: "11:00"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarEventsInNextWeek"
+  prompt: "What events do I have in the next week in Simple Calendar Pro? Assume the week starts from Monday. Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date_without_replacement}"
+          start_time: "{time_without_replacement}"
+          duration: "{duration}"
+          title: "{title}"
+        }
+        events {
+          start_date: "{date_without_replacement}"
+          start_time: "{time_without_replacement}"
+          title: "{title_without_replacement}"
+        }
+      }
+    }
+    # Exclude inital events between today and October 22
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 22 2023"  # The last day of "next week"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 15 2023"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  # all dates are within the next week, excluding today
+  task_params {
+    name: "date"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "30 m"
+    possible_values: "60 minutes"
+    possible_values: "45min"
+    possible_values: "1 h"
+    possible_values: "2 hours"
+    possible_values: "15 minutes"
+    possible_values: "1.5 hours"
+    possible_values: "90 min"
+    possible_values: "20 min"
+    possible_values: "3 h"
+    possible_values: "25 minutes"
+    possible_values: "10 min"
+    possible_values: "50 min"
+    possible_values: "2.5 hours"
+    possible_values: "75 minutes"
+    possible_values: "5 minutes"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Product demo"
+    possible_values: "Team lunch"
+    possible_values: "Coffee with CEO"
+    possible_values: "Quarterly review"
+    possible_values: "Scrum meeting"
+    possible_values: "Doctor's appointment"
+    possible_values: "Birthday party"
+    possible_values: "Coding challenge"
+    possible_values: "Board meeting"
+    possible_values: "Marketing strategy workshop"
+    possible_values: "Meet with {person}"
+    possible_values: "Movie night"
+    possible_values: "Dinner with friends"
+    possible_values: "Concert"
+    possible_values: "Game night"
+    possible_values: "Date night"
+    possible_values: "Weekend trip"
+    possible_values: "Family reunion"
+    possible_values: "Volunteer cleanup"
+    possible_values: "Sports game"
+  }
+  task_params {
+    name: "person"
+    possible_values: "Amanda"
+    possible_values: "John"
+    possible_values: "David"
+    possible_values: "Lucas"
+    possible_values: "James"
+    possible_values: "Ava"
+    possible_values: "Isabella"
+    possible_values: "Mia"
+    possible_values: "Elijah"
+    possible_values: "Charlotte"
+    possible_values: "Emily"
+    possible_values: "Muhammad"
+    possible_values: "Sofia"
+    possible_values: "Mateo"
+    possible_values: "Aaliyah"
+    possible_values: "Isabella"
+    possible_values: "Daniel"
+    possible_values: "Mia"
+  }
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12:00pm"
+    possible_values: "6:30am"
+    possible_values: "8pm"
+    possible_values: "12:00am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+}
+
+tasks {
+  name: "SimpleCalendarFirstEventAfterStartTime"
+  prompt: "What is my first event after {time} {date} in Simple Calendar Pro? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{time}"
+          duration: "{duration}"
+          title: "{title}"
+        }
+      }
+    }
+    # Exclude initial events that are after {time} on {date}
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_time"
+      value: "{time}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Sales Call"
+    possible_values: "Client Meeting"
+    possible_values: "Training Session"
+    possible_values: "Project Kickoff"
+    possible_values: "Team Brainstorming"
+    possible_values: "Dentist Appointment"
+    possible_values: "Haircut"
+    possible_values: "Grocery Shopping"
+    possible_values: "School Pickup"
+    possible_values: "Soccer Practice"
+  }
+  task_params {
+    name: "time"
+    possible_values: "18:05"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "5:20pm"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+  task_params {
+    name: "duration"
+    possible_values: "30 m"
+    possible_values: "60 minutes"
+    possible_values: "45min"
+    possible_values: "1 h"
+    possible_values: "2 hours"
+    possible_values: "15 minutes"
+    possible_values: "1.5 hours"
+    possible_values: "90 min"
+    possible_values: "20 min"
+    possible_values: "3 h"
+    possible_values: "25 minutes"
+    possible_values: "10 min"
+    possible_values: "50 min"
+    possible_values: "2.5 hours"
+    possible_values: "75 minutes"
+    possible_values: "5 minutes"
+  }
+}
+tasks {
+  name: "SimpleCalendarEventsInTimeRange"
+  prompt: "Do I have any events between {start_time} and 8pm {date} in Simple Calendar Pro? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      calendar {
+        app_name: "simple calendar pro"
+        events {
+          start_date: "{date}"
+          start_time: "{start_time}"
+          duration: "{duration}"
+          title: "{title}"
+        }
+      }
+    }
+    # Exclude events on {date} that start between {start_time} and 8 pm.
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_time"
+      value: "{start_time}"
+    }
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_time"
+      value: "8pm"
+    }
+  }
+
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  task_params {
+    # Needs to be < 8pm for the prompt to make sense
+    name: "start_time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "5:20pm"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "4:15pm"
+    possible_values: "11:30am"
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Gym"
+    possible_values: "Dinner with Friends"
+    possible_values: "Happy Hour"
+    possible_values: "Evening Walk"
+    possible_values: "Yoga Class"
+    possible_values: "Run in the Park"
+    possible_values: "Cooking Class"
+    possible_values: "Movie Night"
+    possible_values: "Grocery Shopping"
+    possible_values: "Pick up Kids from School"
+  }
+  task_params {
+    name: "duration"
+    possible_values: "30 m"
+    possible_values: "60 minutes"
+    possible_values: "45min"
+    possible_values: "1 h"
+    possible_values: "2 hours"
+    possible_values: "15 minutes"
+    possible_values: "1.5 hours"
+    possible_values: "90 min"
+    possible_values: "20 min"
+    possible_values: "3 h"
+    possible_values: "25 minutes"
+    possible_values: "10 min"
+    possible_values: "50 min"
+    possible_values: "2.5 hours"
+    possible_values: "75 minutes"
+    possible_values: "5 minutes"
+  }
+}
+
+tasks {
+  name: "TasksDueOnDate"
+  prompt: "What tasks do I have due {date} in Tasks app? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state: {
+      tasks_app {
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{date}"
+          importance: "{importance_without_replacement}"
+          hide_until_date: "October 10 2023"
+          hide_until_time: "8:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{date}"
+          importance: "{importance_without_replacement}"
+          hide_until_date: "October 9 2023"
+          hide_until_time: "10:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{date}"
+          importance: "{importance_without_replacement}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "9:00"
+          notes: "{notes_without_replacement}"
+        }
+      }
+    }
+    exclusion_conditions {
+      field: "due_date"
+      operation: EQUAL_TO
+      value: "{date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "importance"
+    possible_values: "0"
+    possible_values: "0"
+    possible_values: "1"
+    possible_values: "1"
+    possible_values: "2"
+    possible_values: "2"
+    possible_values: "3"
+    possible_values: "3"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Complete project proposal"
+    possible_values: "Review code changes"
+    possible_values: "Schedule team meeting"
+    possible_values: "Submit expense report"
+    possible_values: "Update website content"
+    possible_values: "Review quarterly goals"
+    possible_values: "Organize files and folders"
+    possible_values: "Draft marketing email"
+    possible_values: "Attend networking event"
+    possible_values: "Prepare presentation for meeting"
+    possible_values: "Call client for follow-up"
+    possible_values: "Research market trends"
+    possible_values: "Follow up on support tickets"
+    possible_values: "Prepare agenda for weekly meeting"
+    possible_values: "Book flights for conference"
+    possible_values: "Plan team outing"
+    possible_values: "Participate in brainstorming session"
+    possible_values: "Review performance metrics"
+    possible_values: "Attend training session"
+    possible_values: "Send report to manager"
+  }
+
+  task_params {
+    name: "notes"
+    possible_values: "Remember to complete this task."
+    possible_values: "This task is important."
+    possible_values: "Don't forget to follow up on this task."
+    possible_values: "Double-check calculations."
+    possible_values: "Confirm meeting location."
+    possible_values: "Follow up with team members."
+    possible_values: "Prepare presentation slides."
+    possible_values: "Update project status."
+    possible_values: "Check email for updates."
+    possible_values: "Review feedback from client."
+    possible_values: "Complete paperwork."
+    possible_values: "Schedule follow-up meeting."
+  }
+}
+
+tasks {
+  name: "TasksHighPriorityTasks"
+  prompt: "What are my high priority tasks in Tasks app? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      tasks_app {
+        tasks_app_tasks {
+          title: "{task_title}"
+          importance: "0"
+          due_date: "{due_date}"
+          due_time: "{time}"
+          hide_until_date: "{hide_until_date}"
+          hide_until_time: "{time}"
+          notes: "{notes}"
+        }
+      }
+    }
+    exclusion_conditions {
+      field: "importance"
+      operation: EQUAL_TO
+      value: "0"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "task_title"
+    possible_values: "Complete project proposal"
+    possible_values: "Review code changes"
+    possible_values: "Schedule team meeting"
+    possible_values: "Submit expense report"
+    possible_values: "Update website content"
+    possible_values: "Review quarterly goals"
+    possible_values: "Organize files and folders"
+    possible_values: "Draft marketing email"
+    possible_values: "Attend networking event"
+    possible_values: "Prepare presentation for meeting"
+    possible_values: "Call client for follow-up"
+    possible_values: "Research market trends"
+    possible_values: "Follow up on support tickets"
+    possible_values: "Prepare agenda for weekly meeting"
+    possible_values: "Book flights for conference"
+    possible_values: "Plan team outing"
+    possible_values: "Participate in brainstorming session"
+    possible_values: "Review performance metrics"
+    possible_values: "Attend training session"
+    possible_values: "Send report to manager"
+  }
+
+  task_params {
+    name: "notes"
+    possible_values: "Remember to complete this task."
+    possible_values: "This task is important."
+    possible_values: "Don't forget to follow up on this task."
+    possible_values: "Double-check calculations."
+    possible_values: "Confirm meeting location."
+    possible_values: "Follow up with team members."
+    possible_values: "Prepare presentation slides."
+    possible_values: "Update project status."
+    possible_values: "Check email for updates."
+    possible_values: "Review feedback from client."
+    possible_values: "Complete paperwork."
+    possible_values: "Schedule follow-up meeting."
+  }
+
+  task_params {
+    name: "due_date"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+  }
+
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+
+  }
+
+  task_params {
+    name: "hide_until_date"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+}
+
+tasks {
+  name: "TasksHighPriorityTasksDueOnDate"
+  prompt: "Which tasks with high priority are due {date} in the Tasks app? Answer with the title only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state {
+      tasks_app {
+        tasks_app_tasks {
+          title: "{title}"
+          importance: "0"
+          due_date: "{date}"
+          due_time: "{time}"
+        }
+      }
+    }
+    exclusion_conditions {
+      field: "due_date"
+      operation: EQUAL_TO
+      value: "{date}"
+    }
+    exclusion_conditions {
+      field: "importance"
+      operation: EQUAL_TO
+      value: "0"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+  task_params {
+    name: "time"
+    possible_values: "5:00pm"
+    possible_values: "12:00pm"
+    possible_values: "8:00am"
+    possible_values: "11:59pm"
+    possible_values: "2:00pm"
+    possible_values: "9:00am"
+    possible_values: "3:30pm"
+    possible_values: "10:00am"
+    possible_values: "4:45pm"
+    possible_values: "7:00pm"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Project Milestone Review"
+    possible_values: "Submit Budget Report"
+    possible_values: "Proposal Draft Submission"
+    possible_values: "Team Sync-Up Meeting"
+    possible_values: "Client Feedback Session"
+    possible_values: "Code Review"
+    possible_values: "Marketing Campaign Launch"
+    possible_values: "Product Design Review"
+    possible_values: "Stakeholder Update Meeting"
+    possible_values: "Quarterly Sales Review"
+  }
+}
+
+tasks {
+  name: "TasksDueNextWeek"
+  prompt: "How many tasks do I have due next week in Tasks app? Assume the week starts from Monday. Express your answer as a single integer."
+  complexity: 1
+  relevant_state {
+    state: {
+      tasks_app {
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{due_date_without_replacement}"
+          hide_until_date: "October 10 2023"
+          hide_until_time: "8:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{due_date_without_replacement}"
+          hide_until_date: "October 9 2023"
+          hide_until_time: "10:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{due_date_without_replacement}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "9:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{due_date_without_replacement}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "9:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{due_date_without_replacement}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "9:00"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{due_date_without_replacement}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "9:00"
+          notes: "{notes_without_replacement}"
+        }
+      }
+    }
+    exclusion_conditions {
+      field: "due_date"
+      operation: LESS_THAN_OR_EQUAL_TO
+      value: "October 22 2023"  # Adjust to the end date of next week
+    }
+    exclusion_conditions {
+      field: "due_date"
+      operation: GREATER_THAN_OR_EQUAL_TO
+      value: "October 16 2023"  # Adjust to the start date of next week
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: COUNT
+        field_name: "tasks_app_tasks"
+      }
+      match_type: NUMBER_MATCH
+    }
+  }
+
+  task_params {
+    name: "title"
+    possible_values: "Complete project proposal"
+    possible_values: "Review code changes"
+    possible_values: "Schedule team meeting"
+    possible_values: "Submit expense report"
+    possible_values: "Update website content"
+    possible_values: "Review quarterly goals"
+    possible_values: "Organize files and folders"
+    possible_values: "Draft marketing email"
+    possible_values: "Attend networking event"
+    possible_values: "Prepare presentation for meeting"
+    possible_values: "Call client for follow-up"
+    possible_values: "Research market trends"
+    possible_values: "Follow up on support tickets"
+    possible_values: "Prepare agenda for weekly meeting"
+    possible_values: "Book flights for conference"
+    possible_values: "Plan team outing"
+    possible_values: "Participate in brainstorming session"
+    possible_values: "Review performance metrics"
+    possible_values: "Attend training session"
+    possible_values: "Send report to manager"
+    possible_values: "Dinner with friends"
+    possible_values: "Organize movie night"
+    possible_values: "Exercise session with coach"
+    possible_values: "Read book for book club"
+    possible_values: "Plan family reunion"
+  }
+
+  task_params {
+    name: "notes"
+    possible_values: "This is high priority."
+    possible_values: "This is urgent."
+    possible_values: "Remember to review ahead of time."
+    possible_values: "Double-check details."
+    possible_values: "Schedule time on calendar."
+    possible_values: "Follow up with others."
+    possible_values: "Send emails to everyone."
+    possible_values: "Send an update."
+    possible_values: "Monitor email for updates on this."
+    possible_values: "Check handwritten notes."
+    possible_values: "Complete survey."
+    possible_values: "Schedule follow-up tasks."
+  }
+
+  task_params {
+    name: "due_date"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+  }
+}
+
+tasks {
+  name: "TasksCompletedTasksForDate"
+  prompt: "Which tasks have I completed for {date} in Tasks app? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state: {
+      tasks_app {
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{date}"
+          hide_until_date: "October 10 2023"
+          hide_until_time: "{time_without_replacement}"
+          completed_date: "{completed_date}"
+          completed_time: "{time_without_replacement}"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{date}"
+          hide_until_date: "October 9 2023"
+          hide_until_time: "{time_without_replacement}"
+          completed_date: "{completed_date}"
+          completed_time: "{time_without_replacement}"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          due_date: "{date}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "{time_without_replacement}"
+          completed_date: "{completed_date}"
+          completed_time: "{time_without_replacement}"
+          notes: "{notes_without_replacement}"
+        }
+      }
+    }
+    exclusion_conditions {
+      field: "due_date"
+      operation: EQUAL_TO
+      value: "{date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  task_params {
+    name: "title"
+    possible_values: "Complete project proposal"
+    possible_values: "Review code changes"
+    possible_values: "Schedule team meeting"
+    possible_values: "Submit expense report"
+    possible_values: "Update website content"
+    possible_values: "Review quarterly goals"
+    possible_values: "Organize files and folders"
+    possible_values: "Draft marketing email"
+    possible_values: "Attend networking event"
+    possible_values: "Prepare presentation for meeting"
+    possible_values: "Call client for follow-up"
+    possible_values: "Research market trends"
+    possible_values: "Follow up on support tickets"
+    possible_values: "Prepare agenda for weekly meeting"
+    possible_values: "Book flights for conference"
+    possible_values: "Plan team outing"
+    possible_values: "Participate in brainstorming session"
+    possible_values: "Review performance metrics"
+    possible_values: "Attend training session"
+    possible_values: "Send report to manager"
+    possible_values: "Dinner with friends"
+    possible_values: "Organize movie night"
+    possible_values: "Exercise session with coach"
+    possible_values: "Read book for book club"
+    possible_values: "Plan family reunion"
+  }
+
+  task_params {
+    name: "notes"
+    possible_values: "This is high priority."
+    possible_values: "This is urgent."
+    possible_values: "Remember to review ahead of time."
+    possible_values: "Double-check details."
+    possible_values: "Schedule time on calendar."
+    possible_values: "Follow up with others."
+    possible_values: "Send emails to everyone."
+    possible_values: "Send an update."
+    possible_values: "Monitor email for updates on this."
+    possible_values: "Check handwritten notes."
+    possible_values: "Complete survey."
+    possible_values: "Schedule follow-up tasks."
+  }
+
+  task_params {
+    name: "date"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+  }
+
+  task_params {
+    name: "completed_date"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+}
+
+tasks {
+  name: "TasksIncompleteTasksOnDate"
+  prompt: "What incomplete tasks do I have still have to do by {date} in Tasks app? Answer with the titles only. If there are multiples titles, format your answer in a comma separated list."
+  complexity: 1
+  relevant_state {
+    state: {
+      tasks_app {
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          importance: "{importance_without_replacement}"
+          due_date: "{date}"
+          hide_until_date: "October 10 2023"
+          hide_until_time: "{time_without_replacement}"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          importance: "{importance_without_replacement}"
+          due_date: "{date}"
+          hide_until_date: "October 9 2023"
+          hide_until_time: "{time_without_replacement}"
+          notes: "{notes_without_replacement}"
+        }
+        tasks_app_tasks {
+          title: "{title_without_replacement}"
+          importance: "{importance_without_replacement}"
+          due_date: "{date}"
+          hide_until_date: "October 11 2023"
+          hide_until_time: "{time_without_replacement}"
+          notes: "{notes_without_replacement}"
+        }
+      }
+    }
+    # No task should be added before due_date that is incomplete
+    exclusion_conditions {
+      field: "due_date"
+      operation: LESS_THAN_OR_EQUAL_TO
+      value: "{date}"
+    }
+    exclusion_conditions {
+      field: "completed_date"
+      operation: EQUAL_TO
+      value: "0"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "title"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+
+  task_params {
+    name: "title"
+    possible_values: "Complete project proposal"
+    possible_values: "Review code changes"
+    possible_values: "Schedule team meeting"
+    possible_values: "Submit expense report"
+    possible_values: "Update website content"
+    possible_values: "Review quarterly goals"
+    possible_values: "Organize files and folders"
+    possible_values: "Draft marketing email"
+    possible_values: "Attend networking event"
+    possible_values: "Prepare presentation for meeting"
+    possible_values: "Call client for follow-up"
+    possible_values: "Research market trends"
+    possible_values: "Follow up on support tickets"
+    possible_values: "Prepare agenda for weekly meeting"
+    possible_values: "Book flights for conference"
+    possible_values: "Plan team outing"
+    possible_values: "Participate in brainstorming session"
+    possible_values: "Review performance metrics"
+    possible_values: "Attend training session"
+    possible_values: "Send report to manager"
+    possible_values: "Dinner with friends"
+    possible_values: "Organize movie night"
+    possible_values: "Exercise session with coach"
+    possible_values: "Read book for book club"
+    possible_values: "Plan family reunion"
+  }
+
+  task_params {
+    name: "importance"
+    possible_values: "0"
+    possible_values: "1"
+    possible_values: "2"
+    possible_values: "3"
+  }
+
+  task_params {
+    name: "notes"
+    possible_values: "This is high priority."
+    possible_values: "This is urgent."
+    possible_values: "Remember to review ahead of time."
+    possible_values: "Double-check details."
+    possible_values: "Schedule time on calendar."
+    possible_values: "Follow up with others."
+    possible_values: "Send emails to everyone."
+    possible_values: "Send an update."
+    possible_values: "Monitor email for updates on this."
+    possible_values: "Check handwritten notes."
+    possible_values: "Complete survey."
+    possible_values: "Schedule follow-up tasks."
+  }
+
+  task_params {
+    name: "date"
+    possible_values: "October 15 2023"
+    possible_values: "October 16 2023"
+    possible_values: "October 17 2023"
+    possible_values: "October 18 2023"
+    possible_values: "October 19 2023"
+    possible_values: "October 20 2023"
+    possible_values: "October 21 2023"
+    possible_values: "October 22 2023"
+    possible_values: "October 23 2023"
+    possible_values: "October 24 2023"
+    possible_values: "October 25 2023"
+    possible_values: "October 26 2023"
+    possible_values: "October 27 2023"
+    possible_values: "October 28 2023"
+    possible_values: "October 29 2023"
+  }
+
+  task_params {
+    name: "time"
+    possible_values: "11:00am"
+    possible_values: "1:30pm"
+    possible_values: "9:45am"
+    possible_values: "21:45"
+    possible_values: "10:00am"
+    possible_values: "3:15pm"
+    possible_values: "12pm"
+    possible_values: "6:30am"
+    possible_values: "8:00pm"
+    possible_values: "12am"
+    possible_values: "5:20pm"
+    possible_values: "23:59"
+    possible_values: "7:45am"
+    possible_values: "4pm"
+    possible_values: "10:30am"
+    possible_values: "16:15"
+    possible_values: "2:45am"
+    possible_values: "9:15pm"
+    possible_values: "11:30am"
+    possible_values: "20:00"
+  }
+}
+
+tasks {
+  name: "SportsTrackerActivitiesOnDate"
+  prompt: "What activities did I do {date} in the OpenTracks app? Answer with the activity type only. If there are multiple types, format your answer in a comma separated list."
+  complexity: 2
+  relevant_state {
+    state {
+      sports_activity_app {
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{date}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category_without_replacement}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{date}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category_without_replacement}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+      }
+    }
+
+    # Ensure no activities exist with the same date
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "category"
+      }
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 10 2023"
+    possible_values: "October 9 2023"
+    possible_values: "October 8 2023"
+    possible_values: "October 7 2023"
+    possible_values: "October 6 2023"
+    possible_values: "October 5 2023"
+    possible_values: "October 4 2023"
+    possible_values: "October 3 2023"
+    possible_values: "October 2 2023"
+    possible_values: "October 1 2023"
+    possible_values: "September 30 2023"
+    possible_values: "September 29 2023"
+    possible_values: "September 28 2023"
+    possible_values: "September 27 2023"
+    possible_values: "September 26 2023"
+    possible_values: "September 25 2023"
+    possible_values: "September 24 2023"
+  }
+
+  task_params {
+    name: "category"
+    possible_values: "running"
+    possible_values: "cycling"
+    possible_values: "swimming"
+    possible_values: "hiking"
+    possible_values: "mountain biking"
+    possible_values: "kayaking"
+    possible_values: "skiing"
+    possible_values: "snow boarding"
+    possible_values: "skate boarding"
+    possible_values: "climbing"
+    possible_values: "inline skating"
+    possible_values: "sailing"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "15"
+    possible_values: "30"
+    possible_values: "45"
+    possible_values: "60"
+    possible_values: "90"
+    possible_values: "120"
+    possible_values: "40"
+    possible_values: "50"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "20"
+    possible_values: "105"
+    possible_values: "135"
+    possible_values: "150"
+    possible_values: "165"
+    possible_values: "180"
+    possible_values: "210"
+    possible_values: "240"
+    possible_values: "270"
+  }
+
+  task_params {
+    name: "distance"
+    possible_values: "100"
+    possible_values: "300"
+    possible_values: "500"
+    possible_values: "800"
+    possible_values: "1000"
+    possible_values: "1200"
+    possible_values: "1500"
+    possible_values: "2000"
+    possible_values: "2500"
+    possible_values: "3000"
+    possible_values: "3500"
+    possible_values: "4000"
+    possible_values: "4500"
+    possible_values: "5000"
+    possible_values: "6000"
+    possible_values: "7000"
+    possible_values: "8000"
+    possible_values: "9000"
+    possible_values: "10000"
+    possible_values: "12000"
+  }
+
+  task_params {
+    name: "start_time"
+    possible_values: "8:00am"
+    possible_values: "10:30am"
+    possible_values: "5:00pm"
+    possible_values: "6:30am"
+    possible_values: "9:45am"
+    possible_values: "2:15pm"
+    possible_values: "7:00am"
+    possible_values: "11:00am"
+    possible_values: "4:00pm"
+    possible_values: "1:30pm"
+    possible_values: "5:45pm"
+    possible_values: "6:15am"
+    possible_values: "7:30am"
+    possible_values: "3:45pm"
+    possible_values: "10:15am"
+    possible_values: "2:45pm"
+    possible_values: "8:45am"
+    possible_values: "9:15am"
+    possible_values: "12:00pm"
+    possible_values: "5:30pm"
+  }
+
+  task_params {
+    name: "elevation"
+    possible_values: "50"
+    possible_values: "100"
+    possible_values: "250"
+    possible_values: "150"
+    possible_values: "75"
+    possible_values: "300"
+    possible_values: "200"
+    possible_values: "400"
+    possible_values: "350"
+    possible_values: "450"
+    possible_values: "550"
+    possible_values: "600"
+    possible_values: "800"
+    possible_values: "700"
+    possible_values: "900"
+    possible_values: "1000"
+    possible_values: "650"
+    possible_values: "1100"
+    possible_values: "1200"
+    possible_values: "850"
+  }
+
+  task_params {
+    name: "activity_name"
+    possible_values: "More tired than usual today"
+    possible_values: "Need more strength and conditioning"
+    possible_values: "Slow day"
+    possible_values: "Laps around the lake"
+    possible_values: "Trying and failing to keep up with John"
+    possible_values: "Quick outing"
+    possible_values: "Recovery day"
+    possible_values: "Active Rest Day"
+    possible_values: "Skill work"
+    possible_values: "Mindful Movement"
+    possible_values: "Outdoor Adventure"
+    possible_values: "Light Workout"
+    possible_values: "Intense day"
+    possible_values: "Quick Sweat"
+    possible_values: "Lunch Break Fitness"
+  }
+
+  task_params {
+    name: "activity_description"
+    possible_values: "Shared laughs and made memories with friends."
+    possible_values: "Enjoyed a fun outing with good company."
+    possible_values: "Had a blast with my favorite people."
+    possible_values: "Created lasting memories that I'll cherish."
+    possible_values: "Experienced something unforgettable."
+    possible_values: "Captured moments that will bring a smile to my face."
+    possible_values: "Wandered off the beaten path."
+    possible_values: "Ventured into uncharted territory."
+    possible_values: "Stepped outside my comfort zone."
+    possible_values: "Pushed my boundaries and tried something different."
+    possible_values: "Tested my limits and grew as a person."
+    possible_values: "Pushed myself harder than I thought I could."
+    possible_values: "Gained new knowledge and skills."
+    possible_values: "Expanded my understanding of the world."
+    possible_values: "Opened my mind to new perspectives."
+    possible_values: "Enjoyed the warmth of the sunshine on my skin."
+    possible_values: "Relaxed and recharged under the sun."
+    possible_values: "Embraced the rain and got soaked."
+    possible_values: "Found joy in the downpour."
+    possible_values: "Faced the weather head-on and conquered it."
+    possible_values: "Showed resilience in the face of adversity."
+  }
+}
+
+tasks {
+  name: "SportsTrackerActivitiesCountForWeek"
+  prompt: "How many {category} activities did I do this week in the OpenTracks app? Assume the week starts from Monday. Express your answer as a single integer."
+  complexity: 1
+  relevant_state {
+    state {
+      sports_activity_app {
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date_without_replacement}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date_without_replacement}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+      }
+    }
+    # Ensure that no other activities with the specified category exist within the timeframe
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "category"
+      value: "{category}"
+    }
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 15 2023"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 9 2023"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: COUNT
+        field_name: "sports_activities"
+      }
+      match_type: NUMBER_MATCH
+    }
+  }
+
+  task_params {
+    name: "start_date"
+    possible_values: "October 9 2023"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+  task_params {
+    name: "category"
+    possible_values: "running"
+    possible_values: "cycling"
+    possible_values: "swimming"
+    possible_values: "hiking"
+    possible_values: "mountain biking"
+    possible_values: "kayaking"
+    possible_values: "skiing"
+    possible_values: "snow boarding"
+    possible_values: "skate boarding"
+    possible_values: "climbing"
+    possible_values: "inline skating"
+    possible_values: "sailing"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "15"
+    possible_values: "30"
+    possible_values: "45"
+    possible_values: "60"
+    possible_values: "90"
+    possible_values: "120"
+    possible_values: "40"
+    possible_values: "50"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "20"
+    possible_values: "105"
+    possible_values: "135"
+    possible_values: "150"
+    possible_values: "165"
+    possible_values: "180"
+    possible_values: "210"
+    possible_values: "240"
+    possible_values: "270"
+  }
+
+  task_params {
+    name: "distance"
+    possible_values: "100"
+    possible_values: "300"
+    possible_values: "500"
+    possible_values: "800"
+    possible_values: "1000"
+    possible_values: "1200"
+    possible_values: "1500"
+    possible_values: "2000"
+    possible_values: "2500"
+    possible_values: "3000"
+    possible_values: "3500"
+    possible_values: "4000"
+    possible_values: "4500"
+    possible_values: "5000"
+    possible_values: "6000"
+    possible_values: "7000"
+    possible_values: "8000"
+    possible_values: "9000"
+    possible_values: "10000"
+    possible_values: "12000"
+  }
+
+  task_params {
+    name: "start_time"
+    possible_values: "8:00am"
+    possible_values: "10:30am"
+    possible_values: "5:00pm"
+    possible_values: "6:30am"
+    possible_values: "9:45am"
+    possible_values: "2:15pm"
+    possible_values: "7:00am"
+    possible_values: "11:00am"
+    possible_values: "4:00pm"
+    possible_values: "1:30pm"
+    possible_values: "5:45pm"
+    possible_values: "6:15am"
+    possible_values: "7:30am"
+    possible_values: "3:45pm"
+    possible_values: "10:15am"
+    possible_values: "2:45pm"
+    possible_values: "8:45am"
+    possible_values: "9:15am"
+    possible_values: "12:00pm"
+    possible_values: "5:30pm"
+  }
+
+  task_params {
+    name: "elevation"
+    possible_values: "50"
+    possible_values: "100"
+    possible_values: "250"
+    possible_values: "150"
+    possible_values: "75"
+    possible_values: "300"
+    possible_values: "200"
+    possible_values: "400"
+    possible_values: "350"
+    possible_values: "450"
+    possible_values: "550"
+    possible_values: "600"
+    possible_values: "800"
+    possible_values: "700"
+    possible_values: "900"
+    possible_values: "1000"
+    possible_values: "650"
+    possible_values: "1100"
+    possible_values: "1200"
+    possible_values: "850"
+  }
+
+  task_params {
+    name: "activity_name"
+    possible_values: "More tired than usual today"
+    possible_values: "Need more strength and conditioning"
+    possible_values: "Slow day"
+    possible_values: "Laps around the lake"
+    possible_values: "Trying and failing to keep up with John"
+    possible_values: "Quick outing"
+    possible_values: "Recovery day"
+    possible_values: "Active Rest Day"
+    possible_values: "Skill work"
+    possible_values: "Mindful Movement"
+    possible_values: "Outdoor Adventure"
+    possible_values: "Light Workout"
+    possible_values: "Intense day"
+    possible_values: "Quick Sweat"
+    possible_values: "Lunch Break Fitness"
+  }
+
+  task_params {
+    name: "activity_description"
+    possible_values: "Shared laughs and made memories with friends."
+    possible_values: "Enjoyed a fun outing with good company."
+    possible_values: "Had a blast with my favorite people."
+    possible_values: "Created lasting memories that I'll cherish."
+    possible_values: "Experienced something unforgettable."
+    possible_values: "Captured moments that will bring a smile to my face."
+    possible_values: "Wandered off the beaten path."
+    possible_values: "Ventured into uncharted territory."
+    possible_values: "Stepped outside my comfort zone."
+    possible_values: "Pushed my boundaries and tried something different."
+    possible_values: "Tested my limits and grew as a person."
+    possible_values: "Pushed myself harder than I thought I could."
+    possible_values: "Gained new knowledge and skills."
+    possible_values: "Expanded my understanding of the world."
+    possible_values: "Opened my mind to new perspectives."
+    possible_values: "Enjoyed the warmth of the sunshine on my skin."
+    possible_values: "Relaxed and recharged under the sun."
+    possible_values: "Embraced the rain and got soaked."
+    possible_values: "Found joy in the downpour."
+    possible_values: "Faced the weather head-on and conquered it."
+    possible_values: "Showed resilience in the face of adversity."
+  }
+}
+
+tasks {
+  name: "SportsTrackerActivityDuration"
+  prompt: "How long was my {category} activity {date} in the OpenTracks app? Express your answer in minutes as a single integer."
+  complexity: 1
+  relevant_state {
+    state {
+      sports_activity_app {
+        sports_activities {
+          name: "{activity_name}"
+          description: "{activity_description}"
+          start_date: "{date}"
+          start_time: "{start_time}"
+          category: "{category}"
+          duration: "{duration}"
+          total_distance: "{distance}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+      }
+    }
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "start_date"
+      value: "{date}"
+    }
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "category"
+      value: "{category}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "duration"
+      }
+      match_type: NUMBER_MATCH
+    }
+  }
+  task_params {
+    name: "date"
+    possible_values: "October 5 2023"
+    possible_values: "October 6 2023"
+    possible_values: "October 7 2023"
+    possible_values: "October 8 2023"
+    possible_values: "October 9 2023"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+  task_params {
+    name: "category"
+    possible_values: "running"
+    possible_values: "cycling"
+    possible_values: "swimming"
+    possible_values: "hiking"
+    possible_values: "mountain biking"
+    possible_values: "kayaking"
+    possible_values: "skiing"
+    possible_values: "snow boarding"
+    possible_values: "skate boarding"
+    possible_values: "climbing"
+    possible_values: "inline skating"
+    possible_values: "sailing"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "15"
+    possible_values: "30"
+    possible_values: "45"
+    possible_values: "60"
+    possible_values: "90"
+    possible_values: "120"
+    possible_values: "40"
+    possible_values: "50"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "20"
+    possible_values: "105"
+    possible_values: "135"
+    possible_values: "150"
+    possible_values: "165"
+    possible_values: "180"
+    possible_values: "210"
+    possible_values: "240"
+    possible_values: "270"
+  }
+
+  task_params {
+    name: "distance"
+    possible_values: "100"
+    possible_values: "300"
+    possible_values: "500"
+    possible_values: "800"
+    possible_values: "1000"
+    possible_values: "1200"
+    possible_values: "1500"
+    possible_values: "2000"
+    possible_values: "2500"
+    possible_values: "3000"
+    possible_values: "3500"
+    possible_values: "4000"
+    possible_values: "4500"
+    possible_values: "5000"
+    possible_values: "6000"
+    possible_values: "7000"
+    possible_values: "8000"
+    possible_values: "9000"
+    possible_values: "10000"
+    possible_values: "12000"
+  }
+
+  task_params {
+    name: "start_time"
+    possible_values: "8:00am"
+    possible_values: "10:30am"
+    possible_values: "5:00pm"
+    possible_values: "6:30am"
+    possible_values: "9:45am"
+    possible_values: "2:15pm"
+    possible_values: "7:00am"
+    possible_values: "11:00am"
+    possible_values: "4:00pm"
+    possible_values: "1:30pm"
+    possible_values: "5:45pm"
+    possible_values: "6:15am"
+    possible_values: "7:30am"
+    possible_values: "3:45pm"
+    possible_values: "10:15am"
+    possible_values: "2:45pm"
+    possible_values: "8:45am"
+    possible_values: "9:15am"
+    possible_values: "12:00pm"
+    possible_values: "5:30pm"
+  }
+
+  task_params {
+    name: "elevation"
+    possible_values: "50"
+    possible_values: "100"
+    possible_values: "250"
+    possible_values: "150"
+    possible_values: "75"
+    possible_values: "300"
+    possible_values: "200"
+    possible_values: "400"
+    possible_values: "350"
+    possible_values: "450"
+    possible_values: "550"
+    possible_values: "600"
+    possible_values: "800"
+    possible_values: "700"
+    possible_values: "900"
+    possible_values: "1000"
+    possible_values: "650"
+    possible_values: "1100"
+    possible_values: "1200"
+    possible_values: "850"
+  }
+
+  task_params {
+    name: "activity_name"
+    possible_values: "More tired than usual today"
+    possible_values: "Need more strength and conditioning"
+    possible_values: "Slow day"
+    possible_values: "Laps around the lake"
+    possible_values: "Trying and failing to keep up with John"
+    possible_values: "Quick outing"
+    possible_values: "Recovery day"
+    possible_values: "Active Rest Day"
+    possible_values: "Skill work"
+    possible_values: "Mindful Movement"
+    possible_values: "Outdoor Adventure"
+    possible_values: "Light Workout"
+    possible_values: "Intense day"
+    possible_values: "Quick Sweat"
+    possible_values: "Lunch Break Fitness"
+  }
+
+  task_params {
+    name: "activity_description"
+    possible_values: "Shared laughs and made memories with friends."
+    possible_values: "Enjoyed a fun outing with good company."
+    possible_values: "Had a blast with my favorite people."
+    possible_values: "Created lasting memories that I'll cherish."
+    possible_values: "Experienced something unforgettable."
+    possible_values: "Captured moments that will bring a smile to my face."
+    possible_values: "Wandered off the beaten path."
+    possible_values: "Ventured into uncharted territory."
+    possible_values: "Stepped outside my comfort zone."
+    possible_values: "Pushed my boundaries and tried something different."
+    possible_values: "Tested my limits and grew as a person."
+    possible_values: "Pushed myself harder than I thought I could."
+    possible_values: "Gained new knowledge and skills."
+    possible_values: "Expanded my understanding of the world."
+    possible_values: "Opened my mind to new perspectives."
+    possible_values: "Enjoyed the warmth of the sunshine on my skin."
+    possible_values: "Relaxed and recharged under the sun."
+    possible_values: "Embraced the rain and got soaked."
+    possible_values: "Found joy in the downpour."
+    possible_values: "Faced the weather head-on and conquered it."
+    possible_values: "Showed resilience in the face of adversity."
+  }
+}
+
+tasks {
+  name: "SportsTrackerLongestDistanceActivity"
+  prompt: "What was the longest distance covered in a {category} activity in the OpenTracks app this week? Assume the week starts from Monday. Express your answer as a single number in meters rounded to the nearest integer."
+  complexity: 1
+  relevant_state {
+    state {
+      sports_activity_app {
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date_without_replacement}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+      }
+    }
+    # Exclude activities of the specified category for the whole week
+    # that have a distance greater than the relevant state's activity
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "category"
+      value: "{category}"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "total_distance"
+      value: "{distance}"
+    }
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 15 2023"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 9 2023"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: IDENTITY
+        field_name: "total_distance"
+      }
+      match_type: NUMBER_MATCH
+      # Tolerance of 10 meters to account for rounding errors when displayed in
+      # kilometers
+      tolerance: 10
+    }
+  }
+
+  task_params {
+    name: "start_date"
+    possible_values: "October 9 2023"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+  task_params {
+    name: "category"
+    possible_values: "running"
+    possible_values: "cycling"
+    possible_values: "swimming"
+    possible_values: "hiking"
+    possible_values: "mountain biking"
+    possible_values: "kayaking"
+    possible_values: "skiing"
+    possible_values: "snow boarding"
+    possible_values: "skate boarding"
+    possible_values: "climbing"
+    possible_values: "inline skating"
+    possible_values: "sailing"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "15"
+    possible_values: "30"
+    possible_values: "45"
+    possible_values: "60"
+    possible_values: "90"
+    possible_values: "120"
+    possible_values: "40"
+    possible_values: "50"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "20"
+    possible_values: "105"
+    possible_values: "135"
+    possible_values: "150"
+    possible_values: "165"
+    possible_values: "180"
+    possible_values: "210"
+    possible_values: "240"
+    possible_values: "270"
+  }
+
+  task_params {
+    name: "distance"
+    possible_values: "100"
+    possible_values: "300"
+    possible_values: "500"
+    possible_values: "800"
+    possible_values: "1000"
+    possible_values: "1200"
+    possible_values: "1500"
+    possible_values: "2000"
+    possible_values: "2500"
+    possible_values: "3000"
+    possible_values: "3500"
+    possible_values: "4000"
+    possible_values: "4500"
+    possible_values: "5000"
+    possible_values: "6000"
+    possible_values: "7000"
+    possible_values: "8000"
+    possible_values: "9000"
+    possible_values: "10000"
+    possible_values: "12000"
+  }
+
+  task_params {
+    name: "start_time"
+    possible_values: "8:00am"
+    possible_values: "10:30am"
+    possible_values: "5:00pm"
+    possible_values: "6:30am"
+    possible_values: "9:45am"
+    possible_values: "2:15pm"
+    possible_values: "7:00am"
+    possible_values: "11:00am"
+    possible_values: "4:00pm"
+    possible_values: "1:30pm"
+    possible_values: "5:45pm"
+    possible_values: "6:15am"
+    possible_values: "7:30am"
+    possible_values: "3:45pm"
+    possible_values: "10:15am"
+    possible_values: "2:45pm"
+    possible_values: "8:45am"
+    possible_values: "9:15am"
+    possible_values: "12:00pm"
+    possible_values: "5:30pm"
+  }
+
+  task_params {
+    name: "elevation"
+    possible_values: "50"
+    possible_values: "100"
+    possible_values: "250"
+    possible_values: "150"
+    possible_values: "75"
+    possible_values: "300"
+    possible_values: "200"
+    possible_values: "400"
+    possible_values: "350"
+    possible_values: "450"
+    possible_values: "550"
+    possible_values: "600"
+    possible_values: "800"
+    possible_values: "700"
+    possible_values: "900"
+    possible_values: "1000"
+    possible_values: "650"
+    possible_values: "1100"
+    possible_values: "1200"
+    possible_values: "850"
+  }
+
+  task_params {
+    name: "activity_name"
+    possible_values: "More tired than usual today"
+    possible_values: "Need more strength and conditioning"
+    possible_values: "Slow day"
+    possible_values: "Laps around the lake"
+    possible_values: "Trying and failing to keep up with John"
+    possible_values: "Quick outing"
+    possible_values: "Recovery day"
+    possible_values: "Active Rest Day"
+    possible_values: "Skill work"
+    possible_values: "Mindful Movement"
+    possible_values: "Outdoor Adventure"
+    possible_values: "Light Workout"
+    possible_values: "Intense day"
+    possible_values: "Quick Sweat"
+    possible_values: "Lunch Break Fitness"
+  }
+  task_params {
+    name: "activity_description"
+    possible_values: "Shared laughs and made memories with friends."
+    possible_values: "Enjoyed a fun outing with good company."
+    possible_values: "Had a blast with my favorite people."
+    possible_values: "Created lasting memories that I'll cherish."
+    possible_values: "Experienced something unforgettable."
+    possible_values: "Captured moments that will bring a smile to my face."
+    possible_values: "Wandered off the beaten path."
+    possible_values: "Ventured into uncharted territory."
+    possible_values: "Stepped outside my comfort zone."
+    possible_values: "Pushed my boundaries and tried something different."
+    possible_values: "Tested my limits and grew as a person."
+    possible_values: "Pushed myself harder than I thought I could."
+    possible_values: "Gained new knowledge and skills."
+    possible_values: "Expanded my understanding of the world."
+    possible_values: "Opened my mind to new perspectives."
+    possible_values: "Enjoyed the warmth of the sunshine on my skin."
+    possible_values: "Relaxed and recharged under the sun."
+    possible_values: "Embraced the rain and got soaked."
+    possible_values: "Found joy in the downpour."
+    possible_values: "Faced the weather head-on and conquered it."
+    possible_values: "Showed resilience in the face of adversity."
+  }
+}
+
+tasks {
+  name: "SportsTrackerTotalDurationForCategoryThisWeek"
+  prompt: "What was the total duration of {category} activities in the OpenTracks app this week? Assume the week starts from Monday. Express your answer in minutes as a single integer."
+  complexity: 1
+  relevant_state {
+    state {
+      sports_activity_app {
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date_without_replacement}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date_without_replacement}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+      }
+    }
+    # Exclude activities of the same category for the whole week
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "category"
+      value: "{category}"
+    }
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 15 2023"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "October 9 2023"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: SUM
+        field_name: "duration"
+      }
+      match_type: NUMBER_MATCH
+    }
+  }
+
+  task_params {
+    name: "start_date"
+    possible_values: "October 9 2023"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+  task_params {
+    name: "category"
+    possible_values: "running"
+    possible_values: "cycling"
+    possible_values: "swimming"
+    possible_values: "hiking"
+    possible_values: "mountain biking"
+    possible_values: "kayaking"
+    possible_values: "skiing"
+    possible_values: "snow boarding"
+    possible_values: "skate boarding"
+    possible_values: "climbing"
+    possible_values: "inline skating"
+    possible_values: "sailing"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "15"
+    possible_values: "30"
+    possible_values: "45"
+    possible_values: "60"
+    possible_values: "90"
+    possible_values: "120"
+    possible_values: "40"
+    possible_values: "50"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "20"
+    possible_values: "105"
+    possible_values: "135"
+    possible_values: "150"
+    possible_values: "165"
+    possible_values: "180"
+    possible_values: "210"
+    possible_values: "240"
+    possible_values: "270"
+  }
+
+  task_params {
+    name: "distance"
+    possible_values: "100"
+    possible_values: "300"
+    possible_values: "500"
+    possible_values: "800"
+    possible_values: "1000"
+    possible_values: "1200"
+    possible_values: "1500"
+    possible_values: "2000"
+    possible_values: "2500"
+    possible_values: "3000"
+    possible_values: "3500"
+    possible_values: "4000"
+    possible_values: "4500"
+    possible_values: "5000"
+    possible_values: "6000"
+    possible_values: "7000"
+    possible_values: "8000"
+    possible_values: "9000"
+    possible_values: "10000"
+    possible_values: "12000"
+  }
+
+  task_params {
+    name: "start_time"
+    possible_values: "8:00am"
+    possible_values: "10:30am"
+    possible_values: "5:00pm"
+    possible_values: "6:30am"
+    possible_values: "9:45am"
+    possible_values: "2:15pm"
+    possible_values: "7:00am"
+    possible_values: "11:00am"
+    possible_values: "4:00pm"
+    possible_values: "1:30pm"
+    possible_values: "5:45pm"
+    possible_values: "6:15am"
+    possible_values: "7:30am"
+    possible_values: "3:45pm"
+    possible_values: "10:15am"
+    possible_values: "2:45pm"
+    possible_values: "8:45am"
+    possible_values: "9:15am"
+    possible_values: "12:00pm"
+    possible_values: "5:30pm"
+  }
+
+  task_params {
+    name: "elevation"
+    possible_values: "50"
+    possible_values: "100"
+    possible_values: "250"
+    possible_values: "150"
+    possible_values: "75"
+    possible_values: "300"
+    possible_values: "200"
+    possible_values: "400"
+    possible_values: "350"
+    possible_values: "450"
+    possible_values: "550"
+    possible_values: "600"
+    possible_values: "800"
+    possible_values: "700"
+    possible_values: "900"
+    possible_values: "1000"
+    possible_values: "650"
+    possible_values: "1100"
+    possible_values: "1200"
+    possible_values: "850"
+  }
+
+  task_params {
+    name: "activity_name"
+    possible_values: "More tired than usual today"
+    possible_values: "Need more strength and conditioning"
+    possible_values: "Slow day"
+    possible_values: "Laps around the lake"
+    possible_values: "Trying and failing to keep up with John"
+    possible_values: "Quick outing"
+    possible_values: "Recovery day"
+    possible_values: "Active Rest Day"
+    possible_values: "Skill work"
+    possible_values: "Mindful Movement"
+    possible_values: "Outdoor Adventure"
+    possible_values: "Light Workout"
+    possible_values: "Intense day"
+    possible_values: "Quick Sweat"
+    possible_values: "Lunch Break Fitness"
+  }
+  task_params {
+    name: "activity_description"
+    possible_values: "Shared laughs and made memories with friends."
+    possible_values: "Enjoyed a fun outing with good company."
+    possible_values: "Had a blast with my favorite people."
+    possible_values: "Created lasting memories that I'll cherish."
+    possible_values: "Experienced something unforgettable."
+    possible_values: "Captured moments that will bring a smile to my face."
+    possible_values: "Wandered off the beaten path."
+    possible_values: "Ventured into uncharted territory."
+    possible_values: "Stepped outside my comfort zone."
+    possible_values: "Pushed my boundaries and tried something different."
+    possible_values: "Tested my limits and grew as a person."
+    possible_values: "Pushed myself harder than I thought I could."
+    possible_values: "Gained new knowledge and skills."
+    possible_values: "Expanded my understanding of the world."
+    possible_values: "Opened my mind to new perspectives."
+    possible_values: "Enjoyed the warmth of the sunshine on my skin."
+    possible_values: "Relaxed and recharged under the sun."
+    possible_values: "Embraced the rain and got soaked."
+    possible_values: "Found joy in the downpour."
+    possible_values: "Faced the weather head-on and conquered it."
+    possible_values: "Showed resilience in the face of adversity."
+  }
+}
+
+tasks {
+  name: "SportsTrackerTotalDistanceForCategoryOverInterval"
+  prompt: "What was the total distance covered for {category} activities in the OpenTracks app from {start_date} to {end_date}? Express your answer as a single number in meters rounded to the nearest integer."
+  complexity: 2
+  relevant_state {
+    state {
+      sports_activity_app {
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+        sports_activities {
+          name: "{activity_name_without_replacement}"
+          description: "{activity_description_without_replacement}"
+          start_date: "{start_date}"
+          start_time: "{start_time_without_replacement}"
+          category: "{category}"
+          duration: "{duration_without_replacement}"
+          total_distance: "{distance_without_replacement}"
+          elevation_gain: "{elevation_without_replacement}"
+          elevation_loss: "{elevation_without_replacement}"
+        }
+      }
+    }
+    # Exclude activities of the specified category occurring between the start and end dates
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "category"
+      value: "{category}"
+    }
+    exclusion_conditions {
+      operation: GREATER_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "{start_date}"
+    }
+    exclusion_conditions {
+      operation: LESS_THAN_OR_EQUAL_TO
+      field: "start_date"
+      value: "{end_date}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: SUM
+        field_name: "total_distance"
+      }
+      match_type: NUMBER_MATCH
+      # Tolerance of 10 meters to account for rounding errors when displayed in
+      # kilometers
+      tolerance: 10
+    }
+  }
+  task_params {
+    name: "start_date"
+    possible_values: "October 1 2023"
+    possible_values: "October 2 2023"
+    possible_values: "October 3 2023"
+    possible_values: "October 4 2023"
+    possible_values: "October 5 2023"
+    possible_values: "October 6 2023"
+    possible_values: "October 7 2023"
+    possible_values: "October 8 2023"
+    possible_values: "October 9 2023"
+  }
+
+  task_params {
+    name: "end_date"
+    possible_values: "October 10 2023"
+    possible_values: "October 11 2023"
+    possible_values: "October 12 2023"
+    possible_values: "October 13 2023"
+    possible_values: "October 14 2023"
+    possible_values: "October 15 2023"
+  }
+
+  task_params {
+    name: "category"
+    possible_values: "running"
+    possible_values: "cycling"
+    possible_values: "swimming"
+    possible_values: "hiking"
+    possible_values: "mountain biking"
+    possible_values: "kayaking"
+    possible_values: "skiing"
+    possible_values: "snow boarding"
+    possible_values: "skate boarding"
+    possible_values: "climbing"
+    possible_values: "inline skating"
+    possible_values: "sailing"
+  }
+
+  task_params {
+    name: "duration"
+    possible_values: "15"
+    possible_values: "30"
+    possible_values: "45"
+    possible_values: "60"
+    possible_values: "90"
+    possible_values: "120"
+    possible_values: "40"
+    possible_values: "50"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "20"
+    possible_values: "105"
+    possible_values: "135"
+    possible_values: "150"
+    possible_values: "165"
+    possible_values: "180"
+    possible_values: "210"
+    possible_values: "240"
+    possible_values: "270"
+  }
+
+  task_params {
+    name: "distance"
+    possible_values: "100"
+    possible_values: "300"
+    possible_values: "500"
+    possible_values: "800"
+    possible_values: "1000"
+    possible_values: "1200"
+    possible_values: "1500"
+    possible_values: "2000"
+    possible_values: "2500"
+    possible_values: "3000"
+    possible_values: "3500"
+    possible_values: "4000"
+    possible_values: "4500"
+    possible_values: "5000"
+    possible_values: "6000"
+    possible_values: "7000"
+    possible_values: "8000"
+    possible_values: "9000"
+    possible_values: "10000"
+    possible_values: "12000"
+  }
+
+  task_params {
+    name: "start_time"
+    possible_values: "8:00am"
+    possible_values: "10:30am"
+    possible_values: "5:00pm"
+    possible_values: "6:30am"
+    possible_values: "9:45am"
+    possible_values: "2:15pm"
+    possible_values: "7:00am"
+    possible_values: "11:00am"
+    possible_values: "4:00pm"
+    possible_values: "1:30pm"
+    possible_values: "5:45pm"
+    possible_values: "6:15am"
+    possible_values: "7:30am"
+    possible_values: "3:45pm"
+    possible_values: "10:15am"
+    possible_values: "2:45pm"
+    possible_values: "8:45am"
+    possible_values: "9:15am"
+    possible_values: "12:00pm"
+    possible_values: "5:30pm"
+  }
+
+  task_params {
+    name: "elevation"
+    possible_values: "50"
+    possible_values: "100"
+    possible_values: "250"
+    possible_values: "150"
+    possible_values: "75"
+    possible_values: "300"
+    possible_values: "200"
+    possible_values: "400"
+    possible_values: "350"
+    possible_values: "450"
+    possible_values: "550"
+    possible_values: "600"
+    possible_values: "800"
+    possible_values: "700"
+    possible_values: "900"
+    possible_values: "1000"
+    possible_values: "650"
+    possible_values: "1100"
+    possible_values: "1200"
+    possible_values: "850"
+  }
+
+  task_params {
+    name: "activity_name"
+    possible_values: "More tired than usual today"
+    possible_values: "Need more strength and conditioning"
+    possible_values: "Slow day"
+    possible_values: "Laps around the lake"
+    possible_values: "Trying and failing to keep up with John"
+    possible_values: "Quick outing"
+    possible_values: "Recovery day"
+    possible_values: "Active Rest Day"
+    possible_values: "Skill work"
+    possible_values: "Mindful Movement"
+    possible_values: "Outdoor Adventure"
+    possible_values: "Light Workout"
+    possible_values: "Intense day"
+    possible_values: "Quick Sweat"
+    possible_values: "Lunch Break Fitness"
+  }
+  task_params {
+    name: "activity_description"
+    possible_values: "Shared laughs and made memories with friends."
+    possible_values: "Enjoyed a fun outing with good company."
+    possible_values: "Had a blast with my favorite people."
+    possible_values: "Created lasting memories that I'll cherish."
+    possible_values: "Experienced something unforgettable."
+    possible_values: "Captured moments that will bring a smile to my face."
+    possible_values: "Wandered off the beaten path."
+    possible_values: "Ventured into uncharted territory."
+    possible_values: "Stepped outside my comfort zone."
+    possible_values: "Pushed my boundaries and tried something different."
+    possible_values: "Tested my limits and grew as a person."
+    possible_values: "Pushed myself harder than I thought I could."
+    possible_values: "Gained new knowledge and skills."
+    possible_values: "Expanded my understanding of the world."
+    possible_values: "Opened my mind to new perspectives."
+    possible_values: "Enjoyed the warmth of the sunshine on my skin."
+    possible_values: "Relaxed and recharged under the sun."
+    possible_values: "Embraced the rain and got soaked."
+    possible_values: "Found joy in the downpour."
+    possible_values: "Faced the weather head-on and conquered it."
+    possible_values: "Showed resilience in the face of adversity."
+  }
+}
+
+tasks {
+  name: "NotesRecipeIngredientCount"
+  prompt: "What quantity of {ingredient} do I need for the recipe '{title}' in the Joplin app? Express your answer in the format <amount> <unit> where both the amount and unit exactly match the format in the recipe."
+  complexity: 1
+  relevant_state {
+    state: {
+      notes_app {
+        notes {
+          folder: "Recipes"
+          title: "{title}"
+          body: "{body}"
+          is_todo: "false"
+        }
+      }
+    }
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "title"
+      value: "{title}"
+    }
+  }
+  success_criteria {
+    expectations {
+      expected_value: "{ingredient_quantity}"
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "title"
+    possible_values: "Pancake Recipe"
+    possible_values: "Spaghetti Carbonara"
+    possible_values: "Chocolate Cake"
+    possible_values: "Chicken Alfredo"
+    possible_values: "Vegetable Stir-fry"
+    possible_values: "Beef Stew"
+    possible_values: "Lasagna"
+    possible_values: "Salmon Salad"
+    possible_values: "Tacos"
+    possible_values: "Fruit Smoothie"
+  }
+
+  task_params {
+    name: "ingredient_quantity"
+    possible_values: "1 cup"
+    possible_values: "2 cups"
+    possible_values: "1/2 cup"
+    possible_values: "3/4 cup"
+    possible_values: "1/4 cup"
+    possible_values: "1 tablespoon"
+    possible_values: "2 tablespoons"
+    possible_values: "1 teaspoon"
+    possible_values: "2 teaspoons"
+    possible_values: "3 teaspoons"
+  }
+
+  task_params {
+    name: "ingredient"
+    possible_values: "almond flour"
+    possible_values: "coconut sugar"
+    possible_values: "chia seeds"
+    possible_values: "tahini"
+    possible_values: "matcha powder"
+    possible_values: "acai berries"
+    possible_values: "goji berries"
+    possible_values: "spirulina"
+    possible_values: "maca powder"
+    possible_values: "hemp seeds"
+    possible_values: "arrowroot powder"
+    possible_values: "quinoa flakes"
+    possible_values: "buckwheat groats"
+    possible_values: "millet"
+  }
+
+  task_params {
+    name: "body"
+    possible_values: "Ingredients:\n- 1 cup all-purpose flour\n- 1/2 cup granulated sugar\n- {ingredient_quantity} {ingredient}\n- 1 teaspoon baking powder\n- 2 tablespoons unsalted butter\n- 1/4 teaspoon salt\n\nInstructions:\n1. Preheat oven to 350°F (175°C).\n2. In a mixing bowl, combine all-purpose flour, granulated sugar, and baking powder.\n3. Add unsalted butter and salt, mixing until well combined.\n4. Grease a baking dish and pour the mixture into it.\n5. Bake in preheated oven for 25-30 minutes, or until golden brown.\n6. Let cool for a few minutes before serving.\n"
+    possible_values: "Ingredients:\n- {ingredient_quantity} {ingredient}\n- 2 cups all-purpose flour\n- 1/2 cup granulated sugar\n- 1 tablespoon baking powder\n- 1/2 teaspoon salt\n- 1 cup milk\n\nInstructions:\n1. Preheat oven to 400°F (200°C).\n2. In a mixing bowl, combine all-purpose flour, granulated sugar, baking powder, and salt.\n3. Stir in milk until just combined.\n4. Drop dough by spoonfuls onto a greased baking sheet.\n5. Bake for 15-18 minutes, or until golden brown.\n6. Serve warm with butter or jam.\n"
+    possible_values: "Ingredients:\n- 2 cups rolled oats\n- {ingredient_quantity} {ingredient}\n- 1/2 cup packed brown sugar\n- 1 teaspoon baking powder\n- 1/2 teaspoon cinnamon\n- 1/4 teaspoon salt\n\nInstructions:\n1. Preheat oven to 350°F (175°C).\n2. In a mixing bowl, combine rolled oats, brown sugar, baking powder, cinnamon, and salt.\n3. Stir in melted butter until mixture is crumbly.\n4. Press mixture into a greased baking dish.\n5. Bake for 25-30 minutes, or until edges are golden brown.\n6. Let cool before cutting into squares.\n"
+    possible_values: "Ingredients:\n- 1 1/2 cups all-purpose flour\n- 1/2 cup granulated sugar\n- 1/4 cup unsweetened cocoa powder\n- {ingredient_quantity} {ingredient}\n- 1 teaspoon baking powder\n- 1/4 teaspoon salt\n\nInstructions:\n1. Preheat oven to 350°F (175°C).\n2. In a mixing bowl, combine all-purpose flour, granulated sugar, cocoa powder, baking powder, and salt.\n3. Stir in melted butter and milk until well combined.\n4. Pour batter into a greased baking dish.\n5. Bake for 20-25 minutes, or until a toothpick inserted into the center comes out clean.\n6. Let cool before cutting into squares.\n"
+    possible_values: "Ingredients:\n- 1 1/2 cups all-purpose flour\n- 1/2 cup packed brown sugar\n- 1 teaspoon baking powder\n- 1/2 teaspoon baking soda\n- 1/4 teaspoon salt\n- {ingredient_quantity} {ingredient}\n\nInstructions:\n1. Preheat oven to 375°F (190°C).\n2. In a mixing bowl, combine all-purpose flour, brown sugar, baking powder, baking soda, and salt.\n3. Stir in mashed bananas, melted butter, egg, and vanilla extract until just combined.\n4. Pour batter into a greased loaf pan.\n5. Bake for 50-60 minutes, or until a toothpick inserted into the center comes out clean.\n6. Let cool in the pan for 10 minutes before transferring to a wire rack to cool completely.\n"
+    possible_values: "Ingredients:\n- 1 cup whole wheat flour\n- 1/2 cup brown sugar\n- 1 teaspoon baking soda\n- {ingredient_quantity} {ingredient}\n- 2 tablespoons olive oil\n- 1/4 teaspoon cinnamon\n\nInstructions:\n1. Preheat oven to 375°F (190°C).\n2. In a mixing bowl, combine whole wheat flour, brown sugar, and baking soda.\n3. Add olive oil and cinnamon, mixing until well combined.\n4. Grease a baking dish and pour the mixture into it.\n5. Bake in preheated oven for 20-25 minutes, or until cooked through.\n6. Let cool for a few minutes before serving.\n"
+    possible_values: "Ingredients:\n- 2 cups rolled oats\n- 1/2 cup honey\n- 1 teaspoon vanilla extract\n- {ingredient_quantity} {ingredient}\n- 1/2 cup almond butter\n- 1/4 cup chopped nuts\n\nInstructions:\n1. Preheat oven to 350°F (175°C).\n2. In a mixing bowl, combine rolled oats, honey, and vanilla extract.\n3. Add almond butter and chopped nuts, mixing until well combined.\n4. Press the mixture into a lined baking pan.\n5. Bake in preheated oven for 15-20 minutes, or until golden brown.\n6. Let cool completely before cutting into bars.\n"
+    possible_values: "Ingredients:\n- 1 cup quinoa\n- 2 cups vegetable broth\n- 1/2 cup diced tomatoes\n- 1/4 cup chopped bell peppers\n- 1/4 cup sliced olives\n- {ingredient_quantity} {ingredient}\n\nInstructions:\n1. Rinse quinoa under cold water.\n2. In a saucepan, bring vegetable broth to a boil.\n3. Add quinoa, diced tomatoes, bell peppers, and olives to the saucepan.\n4. Reduce heat, cover, and simmer for 15-20 minutes, or until quinoa is cooked and liquid is absorbed.\n5. Fluff quinoa with a fork before serving.\n"
+    possible_values: "Ingredients:\n- 1 cup cooked chickpeas\n- 1/2 cup tahini\n- 1/4 cup lemon juice\n- {ingredient_quantity} {ingredient}\n- 2 cloves garlic\n- 1/4 teaspoon cumin\n\nInstructions:\n1. In a food processor, combine cooked chickpeas, tahini, lemon juice, garlic, and cumin.\n2. Process until smooth and creamy.\n3. Transfer hummus to a serving bowl.\n4. Drizzle with olive oil and sprinkle with paprika before serving.\n"
+    possible_values: "Ingredients:\n- 2 cups cooked quinoa\n- 1/2 cup black beans\n- {ingredient_quantity} {ingredient}\n- 1/4 cup corn kernels\n- 1/4 cup diced tomatoes\n- 1/4 cup chopped cilantro\n\nInstructions:\n1. In a large bowl, combine cooked quinoa, black beans, corn kernels, diced tomatoes, and chopped cilantro.\n2. Toss until well mixed.\n3. Serve as a side dish or use as a filling for burritos or tacos.\n"
+    possible_values: "Ingredients:\n- 1 cup cooked lentils\n- 1/2 cup diced onions\n- 1/4 cup chopped carrots\n- 1/4 cup chopped celery\n- {ingredient_quantity} {ingredient}\n- 1/4 cup vegetable broth\n\nInstructions:\n1. In a saucepan, sauté diced onions, chopped carrots, and chopped celery until softened.\n2. Add cooked lentils and vegetable broth to the saucepan.\n3. Simmer for 10-15 minutes, or until heated through.\n4. Season with salt and pepper to taste.\n"
+    possible_values: "Ingredients:\n- 1 cup cooked brown rice\n- {ingredient_quantity} {ingredient}\n- 1/2 cup diced bell peppers\n- 1/4 cup sliced mushrooms\n- 1/4 cup chopped spinach\n- 1/4 cup shredded cheese\n\nInstructions:\n1. In a skillet, sauté diced bell peppers, sliced mushrooms, and chopped spinach until tender.\n2. Add cooked brown rice to the skillet and stir until heated through.\n3. Sprinkle shredded cheese over the rice mixture and cover until melted.\n4. Serve hot as a side dish or as a filling for burritos.\n"
+
+  }
+}
+
+tasks {
+  name: "NotesMeetingAttendeeCount"
+  prompt: "How many attendees were present in the meeting titled '{title}' in the Joplin app? Express your answer as just a single number."
+  complexity: 1
+  relevant_state {
+    state: {
+      notes_app {
+        notes {
+          folder: "Meeting Notes"
+          title: "{title}"
+          body: "{body}"
+          is_todo: "false"
+        }
+      }
+    }
+    exclusion_conditions {
+      operation: CONTAINS
+      field: "title"
+      value: "{title}"
+    }
+  }
+  success_criteria {
+    expectations {
+      expected_value: "{attendee_count}"
+      match_type: NUMBER_MATCH
+    }
+  }
+  task_params {
+    name: "title"
+    possible_values: "Team Weekly Sync"
+    possible_values: "Client Quarterly Review"
+    possible_values: "Project Kickoff Meeting"
+    possible_values: "Budget Planning Session"
+    possible_values: "Sales Strategy Discussion"
+    possible_values: "Product Roadmap Alignment"
+    possible_values: "Marketing Campaign Planning"
+    possible_values: "Development Sprint Review"
+    possible_values: "Customer Feedback Session"
+    possible_values: "Executive Board Meeting"
+    possible_values: "Financial Performance Analysis"
+    possible_values: "Product Launch Preparation"
+    possible_values: "Training Workshop for New Hires"
+    possible_values: "Vendor Negotiation Meeting"
+    possible_values: "Strategic Partnership Discussion"
+    possible_values: "Departmental Alignment Meeting"
+    possible_values: "Quality Assurance Review"
+    possible_values: "Project Status Update"
+    possible_values: "Employee Performance Evaluation"
+    possible_values: "Company All-Hands Meeting"
+  }
+
+  task_params {
+    name: "attendee_count"
+    possible_values: "5"
+    possible_values: "10"
+    possible_values: "15"
+    possible_values: "20"
+    possible_values: "25"
+    possible_values: "30"
+    possible_values: "35"
+    possible_values: "40"
+    possible_values: "45"
+    possible_values: "50"
+    possible_values: "55"
+    possible_values: "60"
+    possible_values: "65"
+    possible_values: "70"
+    possible_values: "75"
+    possible_values: "80"
+    possible_values: "85"
+    possible_values: "90"
+    possible_values: "95"
+    possible_values: "100"
+  }
+
+  task_params {
+    name: "body"
+    possible_values: "Meeting Notes:\n- Discussed project milestones\n- Assigned action items to team members\n- Reviewed budget allocation\n- Decided on next meeting date\n- Attended by {attendee_count} participants\n"
+    possible_values: "Meeting Minutes:\n- Presented sales performance metrics\n- Brainstormed marketing strategies\n- Addressed client concerns\n- {attendee_count} attendees were present\n"
+    possible_values: "Meeting Recap:\n- Analyzed customer feedback\n- Proposed product feature enhancements\n- Scheduled follow-up meetings\n- {attendee_count} individuals attended\n"
+    possible_values: "Meeting Summary:\n- Reviewed quarterly goals\n- Evaluated team performance\n- Identified areas for improvement\n- {attendee_count} people were present\n"
+    possible_values: "Meeting Highlights:\n- Reviewed project timeline\n- Discussed resource allocation\n- Collaborated on problem-solving\n- {attendee_count} attendees participated\n"
+    possible_values: "Meeting Details:\n- Discussed upcoming project deadlines\n- Reviewed customer feedback\n- Assigned tasks to team members\n- {attendee_count} people attended\n"
+    possible_values: "Meeting Discussion:\n- Brainstormed ideas for product improvement\n- Discussed marketing strategies\n- Addressed customer concerns\n- {attendee_count} participants attended\n"
+    possible_values: "Meeting Agenda:\n- Review project progress\n- Discuss upcoming deadlines\n- Assign tasks\n- {attendee_count} participants were present\n"
+    possible_values: "Meeting Review:\n- Evaluate team performance\n- Discuss challenges faced\n- Plan for future tasks\n- {attendee_count} attendees were present\n"
+    possible_values: "Meeting Outcome:\n- Agreed upon next steps\n- Set goals for the upcoming week\n- Assigned responsibilities\n- {attendee_count} individuals attended\n"
+    possible_values: "Meeting Wrap-up:\n- Summarize key discussion points\n- Set action items\n- Confirm next meeting date\n- {attendee_count} participants participated\n"
+    possible_values: "Meeting Highlights:\n- Review project milestones\n- Discuss budget allocation\n- Assign tasks\n- {attendee_count} people were present\n"
+    possible_values: "Meeting Agenda:\n- Review project status\n- Plan upcoming tasks\n- Discuss resource allocation\n- {attendee_count} individuals attended\n"
+    possible_values: "Meeting Feedback:\n- Provide input on project progress\n- Suggest improvements\n- Discuss challenges faced\n- {attendee_count} attendees participated\n"
+    possible_values: "Meeting Discussion:\n- Brainstorm ideas for upcoming projects\n- Review customer feedback\n- Plan marketing strategies\n- {attendee_count} people attended\n"
+    possible_values: "Meeting Action Items:\n- Assign tasks to team members\n- Set deadlines\n- Confirm responsibilities\n- {attendee_count} participants were present\n"
+    possible_values: "Meeting Summary:\n- Review key decisions made\n- Discuss project timeline\n- Assign action items\n- {attendee_count} attendees participated\n"
+    possible_values: "Meeting Follow-up:\n- Review action items from previous meeting\n- Assign new tasks\n- Confirm deadlines\n- {attendee_count} individuals were present\n"
+    possible_values: "Meeting Outcome:\n- Review project progress\n- Discuss challenges\n- Plan next steps\n- {attendee_count} people attended\n"
+  }
+}
+
+tasks {
+  name: "NotesIsTodo"
+  prompt: "Is the note titled '{title}' in the Joplin app marked as a todo item? Respond with either 'True' if it is a todo or 'False' if not."
+  complexity: 1
+  relevant_state {
+    state {
+      notes_app {
+        notes {
+          title: "{title}"
+          is_todo: "{is_todo}"
+          folder: "{folder}"
+          body: "{body}"
+        }
+      }
+    }
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "title"
+      value: "{title}"
+    }
+  }
+  success_criteria {
+    expectations {
+      expected_value: "{is_todo}"
+      match_type: STRING_MATCH
+    }
+  }
+  task_params {
+    name: "title"
+    possible_values: "Grocery List"
+    possible_values: "Meeting Agenda"
+    possible_values: "Project Proposal"
+    possible_values: "Daily Journal"
+    possible_values: "To-Do List"
+    possible_values: "Research Notes"
+    possible_values: "Travel Itinerary"
+    possible_values: "Recipe Collection"
+    possible_values: "Budget Spreadsheet"
+    possible_values: "Training Manual"
+  }
+
+  task_params {
+    name: "is_todo"
+    possible_values: "True"
+    possible_values: "False"
+  }
+
+  task_params {
+    name: "body"
+    possible_values: "Buy milk, eggs, bread, and cereal from the grocery store."
+    possible_values: "Meeting with client at 2 PM to discuss project requirements."
+    possible_values: "Call mom to wish her a happy birthday."
+    possible_values: "Finish presentation slides for the team meeting tomorrow."
+    possible_values: "Pick up dry cleaning from the tailor on Main Street."
+    possible_values: "Review chapter 5 for upcoming history exam."
+    possible_values: "Book flight tickets for vacation next month."
+    possible_values: "Research new workout routines for fitness goals."
+    possible_values: "Schedule dentist appointment for next week."
+    possible_values: "Write thank you cards for colleagues who helped with the project."
+  }
+  task_params {
+    name: "folder"
+    possible_values: "Personal"
+    possible_values: "Work"
+    possible_values: "School"
+    possible_values: "Home"
+    possible_values: "Projects"
+    possible_values: "Ideas"
+    possible_values: "Recipes"
+    possible_values: "Finance"
+    possible_values: "Health"
+    possible_values: "Travel"
+  }
+}
+
+tasks {
+  name: "NotesTodoItemCount"
+  prompt: "How many to-dos do I have in the '{folder}' folder in the Joplin app? Express your answer as just a single number."
+  complexity: 1
+  relevant_state {
+    state {
+      notes_app {
+        notes {
+          folder: "{folder}"
+          title: "{title_without_replacement}"
+          body: "{body_without_replacement}"
+          is_todo: "True"
+        }
+        notes {
+          folder: "{folder}"
+          title: "{title_without_replacement}"
+          body: "{body_without_replacement}"
+          is_todo: "True"
+        }
+        notes {
+          folder: "{folder}"
+          title: "{title_without_replacement}"
+          body: "{body_without_replacement}"
+          is_todo: "True"
+        }
+      }
+    }
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "is_todo"
+      value: "True"
+    }
+
+    exclusion_conditions {
+      operation: EQUAL_TO
+      field: "folder"
+      value: "{folder}"
+    }
+  }
+  success_criteria {
+    expectations {
+      field_transformation {
+        operation: COUNT
+        field_name: "is_todo"
+      }
+      match_type: NUMBER_MATCH
+    }
+  }
+
+  task_params {
+    name: "folder"
+    possible_values: "Personal"
+    possible_values: "Work"
+    possible_values: "School"
+    possible_values: "Home"
+    possible_values: "Projects"
+    possible_values: "Ideas"
+    possible_values: "Recipes"
+    possible_values: "Finance"
+    possible_values: "Health"
+    possible_values: "Travel"
+  }
+  task_params {
+    name: "title"
+    possible_values: "Grocery List"
+    possible_values: "Meeting Agenda"
+    possible_values: "Personal Goals"
+    possible_values: "Work Tasks"
+    possible_values: "Home Improvement"
+    possible_values: "Study Notes"
+    possible_values: "Recipe Ideas"
+    possible_values: "Financial Plan"
+    possible_values: "Health Routine"
+    possible_values: "Travel Itinerary"
+  }
+
+  task_params {
+    name: "body"
+    possible_values: "Buy milk, eggs, bread, and cereal from the grocery store."
+    possible_values: "Discuss project updates, assign tasks, and review deadlines."
+    possible_values: "Exercise 3 times a week, read 1 book per month, and save $500."
+    possible_values: "Complete quarterly report, schedule team meeting, and follow up with clients."
+    possible_values: "Paint the living room, fix leaky faucet, and organize closet."
+    possible_values: "Review chapters 1-5 for upcoming exam, create flashcards, and practice problems."
+    possible_values: "Try new pasta recipe with homemade sauce and garlic bread."
+    possible_values: "Create monthly budget, track expenses, and set savings goals."
+    possible_values: "Go for a 30-minute run, do yoga for flexibility, and meditate for relaxation."
+    possible_values: "Book flights, reserve accommodations, and plan sightseeing activities."
+  }
+}

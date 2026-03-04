@@ -1,0 +1,19 @@
+load("@rules_kotlin//kotlin:android.bzl", "kt_android_local_test")
+
+kt_android_local_test(
+    name = "MainActivityTest",
+    srcs = ["MainActivityTest.kt"],
+    manifest = "AndroidManifest.xml",
+    manifest_values = {
+        "minSdkVersion": "21",
+        "targetSdkVersion": "33",
+    },
+    deps = [
+        "//java/com/google/androidenv/miniwob/app",
+        "@maven//:androidx_test_ext_junit",
+        "@maven//:androidx_test_ext_truth",
+        "@maven//:com_google_truth_truth",
+        "@maven//:org_robolectric_robolectric",
+        "@robolectric//bazel:android-all",
+    ],
+)

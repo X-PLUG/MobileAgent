@@ -1,0 +1,158 @@
+// Format for tasks given to agents to perform.
+
+syntax = "proto2";
+
+package android_world.task_evals.information_retrieval.proto;
+
+import "android_world/task_evals/information_retrieval/proto/state.proto";
+
+// Wrapper around Task to create a collection of them.
+message Tasks {
+  repeated Task tasks = 1;
+}
+
+// Represents a single task that an agent is asked to perform
+message Task {
+  // The name is used as a key in a dictionary containing all tasks and needs to
+  // be unique. Using a summary of the task makes it more friendly for
+  // debugging.
+  optional string name = 1;
+
+  // The complexity of the task. Maps to TaskEval.complexity
+  // in android_world/task_evals/task_eval.py.
+  optional int32 complexity = 6;
+
+  // What the agent is asked to do, can contain parameters from
+  // task_params.
+  optional string prompt = 2;
+
+  // Used to define parameters. Parameters can be used in the prompt,
+  // relevant_state, and success_criteria to add randomness to tasks.
+  // Use cases:
+  //  1. Set the field value to '{<task_param.name>}'. This will generate
+  //     a single value and replace all instances of that parameter with that
+  //     value.
+  //  2. {<task_param.name>_without_replacement}. This will generate a new
+  //     value for that specific instance and will make sure not to re-use
+  //     previously used values.
+  repeated TaskParams task_params = 3;
+
+  // The initial state the device should be initialized to before the start of
+  // the task. This should contain whatever is necessary to answer the prompt
+  // as well as extra events to make the test more robust.
+  // Parameters can be used for state values, but will need to be specified
+  // in the task_param field.
+  optional RelevantState relevant_state = 4;
+
+  // Contains the answer to the prompt given the relevant_state. Parameters can
+  // be used here if they are also used in relevant_state.
+  optional SuccessCriteria success_criteria = 5;
+}
+
+// Defines parameters used in the task.
+message TaskParams {
+  // The parameter name. To use a parameter, specify it using the format {name}
+  // E.g. prompt = "What events do I have on {date}?", where name = "date"
+  optional string name = 1;
+
+  // A list of values that the parameter can be set to. Only these values will
+  // be used to replace the parameter where specified in the Task.
+  repeated string possible_values = 2;
+}
+
+message SuccessCriteria {
+  // A list of expectations to perform on the answer.  Also specifies how to
+  // create the expected answer from the relevant_state. Currently, only
+  // supports a single expectation or 2 expectations where one is a DATE_MATCH
+  // and the other a TIME_MATCH.
+  repeated Expectation expectations = 1;
+}
+
+// Specifies how to transform a field from the RelevantState to get the expected
+// answer.
+message FieldTransformation {
+  enum Operation {
+    OPERATION_UNKNOWN = 0;
+
+    // Computes the summation of the specified field.
+    SUM = 1;
+
+    // Computes the count of the specified field.
+    COUNT = 2;
+
+    // Simply returns the value unchanged. If there are multiple fields with
+    // field_name, a list containing each value will be created.
+    IDENTITY = 3;
+  }
+
+  // The operation to perform on the given field in the RelevantState to
+  // generate the expected answer.
+  optional Operation operation = 1;
+  optional string field_name = 2;
+}
+
+message Expectation {
+  enum MatchType {
+    MATCH_TYPE_UNKNOWN = 0;
+
+    // Performs a string match between each element of the expected answer and
+    // the agent answer.
+    STRING_MATCH = 1;
+
+    // Performs a number match between each element of the expected answer and
+    // the agent answer.
+    NUMBER_MATCH = 2;
+
+    // Performs a date match between each element of the expected answer and
+    // the agent answer.
+    DATE_MATCH = 3;
+
+    // Performs a time match between each element of the expected answer and
+    // the agent answer.
+    TIME_MATCH = 4;
+  }
+
+  // The expected answer is defined either by how to generate it from the
+  // RelevantState or as the exact answer itself.
+  oneof expected_answer {
+    FieldTransformation field_transformation = 1;
+    // If this is set, simply do the specified match type on the agent answer
+    // with this value.
+    string expected_value = 2;
+  }
+
+  // How to compare/match the value either set or generated in expected_answer.
+  // If the expected answer is a list, will perform this match on the unordered
+  // lists.
+  optional MatchType match_type = 3;
+
+  // The tolerance to use for the absolute difference when performing a match
+  // for match type NUMBER_MATCH
+  optional float tolerance = 4;
+}
+
+message RelevantState {
+  optional State state = 1;
+  // Lists all conditions that should be excluded for all additional random
+  // initial state (not defined in state). Operates as an 'AND'.
+  repeated ExclusionCondition exclusion_conditions = 2;
+}
+
+// Represents a condition that should be excluded from the initial state.
+// An initial state needs to be excluded if (field OPERATION value) == true.
+message ExclusionCondition {
+  enum Operation {
+    OPERATION_UNKNOWN = 0;
+    EQUAL_TO = 1;
+    CONTAINS = 2;
+    GREATER_THAN = 3;
+    LESS_THAN = 4;
+    GREATER_THAN_OR_EQUAL_TO = 5;
+    LESS_THAN_OR_EQUAL_TO = 6;
+  }
+  optional Operation operation = 1;
+
+  // The field name in the State proto this condition applies to
+  optional string field = 2;
+  optional string value = 3;
+}

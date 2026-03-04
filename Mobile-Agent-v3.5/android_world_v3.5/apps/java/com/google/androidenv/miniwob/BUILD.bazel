@@ -1,0 +1,31 @@
+# Bazel BUILD file for miniwob app
+load("@rules_android//android:rules.bzl", "android_binary", "android_library")
+
+package_group(
+    name = "miniwob_visibility",
+    packages = [
+        "//java/com/google/androidenv/...",
+        "//javatests/com/google/androidenv/...",
+    ],
+)
+
+android_library(
+    name = "lib",
+    manifest = "AndroidManifest.xml",
+    resource_files = glob(["app/res/**"]),
+    deps = [
+        "//java/com/google/androidenv:AppConfiguration",
+        "//java/com/google/androidenv:Logger",
+    ],
+)
+
+# Builds the .apk of the app
+android_binary(
+    name = "miniwobapp",
+    manifest = "AndroidManifest.xml",
+    resource_files = glob(["app/res/**"]),
+    deps = [
+        ":lib",
+        "//java/com/google/androidenv/miniwob/app",
+    ],
+)

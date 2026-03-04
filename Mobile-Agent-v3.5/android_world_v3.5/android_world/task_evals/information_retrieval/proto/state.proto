@@ -1,0 +1,130 @@
+// Format for representing the state of an Android device.
+
+syntax = "proto2";
+
+package android_world.task_evals.information_retrieval.proto;
+
+// Represents app-specific states on an Android device.
+message State {
+  optional Calendar calendar = 1;
+  optional TasksApp tasks_app = 2;
+  optional SportsActivityApp sports_activity_app = 3;
+  optional NotesApp notes_app = 4;
+}
+
+message NotesApp {
+  repeated Note notes = 1;
+}
+
+message Note {
+  optional string folder = 1;
+  optional string title = 2;
+  optional string body = 3;
+  optional string is_todo = 4;
+  optional string todo_completed = 5;
+}
+
+message SportsActivityApp {
+  repeated SportsActivity sports_activities = 1;
+}
+
+message SportsActivity {
+  optional string name = 1;
+  optional string description = 2;
+
+  // For valid categories see _ACTIVITY_CATEGORIES:
+  // intelligence/dbw/modeling/eval/task_evals/information_retrieval/activity_app_utils.py
+  optional string category = 3;
+
+  // Supported format for start_date:
+  // - '<month> <day> <year>'
+  //    - e.g. 'October 30 2024'
+  optional string start_date = 4;
+  // The start time can be specified with the following formats:
+  // - <24 hour format>:<minutes>
+  //    e.g. 14:40
+  // - <12 hour format>am|pm
+  //    e.g. 2pm, 11am
+  // - <12 hour format>:<minutes>am|pm
+  //    e.g. 2:30pm, 11:55am
+  optional string start_time = 5;
+
+  // The duration of the activity in minutes. Should only contain numbers or a
+  // placeholder value.
+  optional string duration = 6;
+
+  // Distance in meters
+  optional string total_distance = 7;
+
+  // Elevation is in meters.
+  optional string elevation_gain = 8;
+  optional string elevation_loss = 9;
+}
+
+message TasksApp {
+  repeated TasksAppTask tasks_app_tasks = 1;
+}
+
+message TasksAppTask {
+  optional string title = 1;
+
+  // The priority of the task, an integer from 0 to 3 where 0 is the highest
+  // priority.
+  optional string importance = 2;
+
+  // The due date is specified with the following format:
+  // - '<month> <day> <year>'
+  //    - e.g. 'October 30 2024'
+  optional string due_date = 3;
+  // The due time can be specified with the following formats:
+  // - <24 hour format>:<minutes>
+  //    e.g. 14:40
+  // - <12 hour format>am|pm
+  //    e.g. 2pm, 11am
+  // - <12 hour format>:<minutes>am|pm
+  //    e.g. 2:30pm, 11:55am
+  optional string due_time = 4;
+
+  // Follows same format as due_date.
+  optional string hide_until_date = 5;
+
+  // Follows same format as due_time.
+  optional string hide_until_time = 6;
+
+  // Follows same format as due_date.
+  optional string completed_date = 8;
+
+  // Follows same format as due_time.
+  optional string completed_time = 9;
+  optional string notes = 10;
+}
+
+message Calendar {
+  optional string app_name = 2;
+  repeated Event events = 1;
+}
+
+// Represents a Calendar event.
+message Event {
+  // The start date is specified with the following format:
+  // - '<month> <day> <year>'
+  //    - e.g. 'October 30 2024'
+  optional string start_date = 1;
+
+  // The start time can be specified with the following formats:
+  // - <24 hour format>:<minutes>
+  //    e.g. 14:40
+  // - <12 hour format>am|pm
+  //    e.g. 2pm, 11am
+  // - <12 hour format>:<minutes>am|pm
+  //    e.g. 2:30pm, 11:55am
+  optional string start_time = 2;
+
+  // The duration of the event. It needs to specified either in minutes or
+  // hours. e.g. '30m', '30 m', '30 minutes'. '2h', '2 h', '2 hours'
+  optional string duration = 3;
+
+  optional string description = 4;
+  optional string title = 5;
+  optional string location = 6;
+}
