@@ -140,7 +140,7 @@ sh run_grounding.sh
 ```
 
 ## GUI Knowledge Benchmark性能评测
-1. 从官方仓库下载 Knowledge Bench 的图像和标注。按照官方说明绘制 GUI 操作，并将标注后的图像保存到 DS_PATH/annotated。
+1. 从官方仓库下载 Knowledge Bench 的图像和标注。按照官方说明绘制 GUI 操作，并将标注后的图像保存到 DS_PATH/AnnotateImage。
 
 2. 安装依赖：
 ```

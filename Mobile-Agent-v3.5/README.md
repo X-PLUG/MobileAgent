@@ -140,7 +140,7 @@ sh run_grounding.sh
 ```
 
 ## Evaluation on GUI Knowledge Benchmark
-1. Download the images and annotations for the Knowledge Bench from the official repository. Follow the official instructions to draw the GUI actions, and save the annotated images to DS_PATH/annotated.
+1. Download the images and annotations for the Knowledge Bench from the official repository. Follow the official instructions to draw the GUI actions, and save the annotated images to DS_PATH/AnnotateImage.
 
 2. Install the dependencies required by the qwen model.
 ```
