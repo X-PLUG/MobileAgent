@@ -39,7 +39,7 @@ BACKBONE_TYPE = os.environ.get("BACKBONE_TYPE", default="OpenAI") # "OpenAI" or 
 assert BACKBONE_TYPE in ["OpenAI", "Gemini", "Claude"], "Unknown BACKBONE_TYPE"
 print("### Using BACKBONE_TYPE:", BACKBONE_TYPE)
 
-OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
+OPENAI_API_URL = os.environ.get("OPENAI_API_URL", default="https://api.openai.com/v1/chat/completions")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", default=None)
 
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" # OpenAI compatible
