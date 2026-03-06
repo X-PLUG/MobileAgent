@@ -131,12 +131,29 @@ pip install qwen_agent
 pip install qwen_vl_utils
 ```
 
-3. 在`run_grounding.sh`中填写你的信息, 包括MODEL_PATH, DS_PATH, SAVE_PATH和EVAL_TYPE. 
+3. 在`run_grounding.sh`中填写你的信息, 包括MODEL_PATH, DS_PATH, SAVE_PATH和EVAL_TYPE。
 
 4. 运行：
 ```bash
-cd Mobile-Agent-v3.5/grounding
+cd Mobile-Agent-v3.5/grounding_and_kb
 sh run_grounding.sh
+```
+
+## GUI Knowledge Benchmark性能评测
+1. 从官方仓库下载 Knowledge Bench 的图像和标注。按照官方说明绘制 GUI 操作，并将标注后的图像保存到 DS_PATH/annotated。
+
+2. 安装依赖：
+```
+pip install qwen_agent
+pip install qwen_vl_utils
+```
+
+3. 在`run_gui_kb.sh`中填写你的信息, 包括MODEL_PATH, DS_PATH, SAVE_PATH和EVAL_TYPE。
+
+4. 运行：
+```bash
+cd Mobile-Agent-v3.5/grounding_and_kb
+sh run_gui_kb.sh
 ```
 
 ## 性能

@@ -122,7 +122,7 @@ sh run_guiowl15.sh
 sh run_ma35.sh
 ```
 
-## Evaluation on Grounding benchmarks
+## Evaluation on Grounding Benchmarks
 1. Please download the images and annotations for the grounding benchmarks from their official repository.
 
 2. Install the dependencies required by the qwen model.
@@ -135,8 +135,25 @@ pip install qwen_vl_utils
 
 4. Run the evaluation.
 ```bash
-cd Mobile-Agent-v3.5/grounding
+cd Mobile-Agent-v3.5/grounding_and_kb
 sh run_grounding.sh
+```
+
+## Evaluation on GUI Knowledge Benchmark
+1. Download the images and annotations for the Knowledge Bench from the official repository. Follow the official instructions to draw the GUI actions, and save the annotated images to DS_PATH/annotated.
+
+2. Install the dependencies required by the qwen model.
+```
+pip install qwen_agent
+pip install qwen_vl_utils
+```
+
+3. Fill in your information in the `run_gui_kb.sh`, including MODEL_PATH, DS_PATH, SAVE_PATH and EVAL_TYPE. 
+
+4. Run the evaluation.
+```bash
+cd Mobile-Agent-v3.5/grounding_and_kb
+sh run_gui_kb.sh
 ```
 
 ## Performance
