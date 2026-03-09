@@ -105,6 +105,43 @@ python run_gui_owl_1_5_for_pc.py \
 ### 注意事项
 1. GUI-Owl 1.5 默认输出相对坐标（0–1000）。
 
+## 在浏览器上部署 Mobile-Agent-v3.5
+
+### 安装依赖项
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+playwright install chromium
+
+```
+
+### 配置环境变量
+```bash
+# 模型 API 密钥（必需）
+export API_KEY="sk-xxx" # Agent 模型 API
+export OMNI_API_KEY=""
+export EVAL_API_KEY="sk-xxx" # Evaluation 模型 API
+```
+
+### 运行
+```bash
+cd cd Mobile-Agent-v3.5/browser_use
+python run_gui_owl_1_5_for_web.py \
+    --task "Search for 'Tongyi Lab'" \
+    --web "https://bing.com" \
+    --base_url "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions" \
+    --model "claude-sonnet-4-5-20250929" \
+    --output_dir results/custom \
+    --image_type base64 \
+    --headless \
+    --use_css_som
+```
+
+### 详细配置
+
+请参考[**链接**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5/browser_use/README.md)。
+
 ## 在 AndroidWorld 上评测
 1. 按照 [AndroidWorld 官方仓库](https://github.com/google-research/android_world?tab=readme-ov-file#installation) 安装 Android 模拟器及相关依赖。
 
@@ -154,6 +191,42 @@ pip install qwen_vl_utils
 ```bash
 cd Mobile-Agent-v3.5/grounding_and_kb
 sh run_gui_kb.sh
+```
+
+## Web 基准测试评估
+
+### 安装依赖项
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### 配置环境变量
+```bash
+# 模型 API 密钥（必需）
+export API_KEY="sk-xxx" # 代理模型 API
+export OMNI_API_KEY=""
+export EVAL_API_KEY="sk-xxx" # 评估模型 API
+```
+
+### 基准测试任务
++ **WebArena/VisualWebArena**：提前启动相应的环境服务（根据官方文档配置端口）。
++ **端口映射**：端口已在代码中预设（参见 `visualwebarena_url_map` / `webarena_url_map`）。要更改端口，请修改 `BASE_URL` 和端口号。
++ **任务数据**：确保 `data/merged_test_raw.json` 文件存在（包含任务定义、登录要求、初始屏幕截图等）。
+
+```bash
+# WebVoyager
+cd Mobile-Agent-v3.5/web_benchmark
+python main_for_eval.py \
+    --task "找出 NFL NFC 北区包含的四支球队（ESPN 频道）。" \
+    --web https://www.espn.com/ \
+    --output_dir results/WebVoyager \
+    --image_type file \
+    --task_id "validation_WebVoyager__ESPN--41" \
+    --use_css_som \
+    --headless
 ```
 
 ## 性能

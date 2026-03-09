@@ -1,0 +1,13 @@
+openai
+opencv-python
+selenium
+webdriver-manager
+scikit-image
+oss2
+dashscope
+backoff==2.2.1
+playwright
+termcolor
+bs4
+playwright
+playwright-stealth

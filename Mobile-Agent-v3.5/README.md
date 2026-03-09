@@ -66,8 +66,6 @@ pip install numpy
 3. Switch the default input method to "ADB Keyboard" in system settings.
 
 ### Run
-
-#### Android
 ```bash
 cd Mobile-Agent-v3.5/mobile_use
 python run_gui_owl_1_5_for_mobile.py \
@@ -91,7 +89,6 @@ pip install pyperclip
 ```
 
 ### Run
-
 ```bash
 cd Mobile-Agent-v3.5/computer_use
 python run_gui_owl_1_5_for_pc.py \
@@ -104,6 +101,41 @@ python run_gui_owl_1_5_for_pc.py \
 
 ### Note
 1. GUI-Owl 1.5 outputs relative coordinates (0–1000) by default.
+
+## Deploy Mobile-Agent-v3.5 on Your Browser
+
+### Install Dependencies
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### Configure Environment Variables
+```bash
+# Model API keys (required)
+export API_KEY="sk-xxx"          # Agent model API
+export OMNI_API_KEY=""
+export EVAL_API_KEY="sk-xxx"               # Evaluation model API
+```
+
+### Run
+```bash
+cd cd Mobile-Agent-v3.5/browser_use
+python run_gui_owl_1_5_for_web.py \
+  --task "Search for 'Tongyi Lab'" \
+  --web "https://bing.com" \
+  --base_url "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions" \
+  --model "claude-sonnet-4-5-20250929" \
+  --output_dir results/custom \
+  --image_type base64 \
+  --headless \
+  --use_css_som
+```
+
+### Detailed configuration
+Please refer to [**Link**](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5/browser_use/README.md).
 
 ## Evaluation on AndroidWorld
 1. Please follow the [official code repository](https://github.com/google-research/android_world?tab=readme-ov-file#installation) to install the Android emulator and necessary dependencies.
@@ -154,6 +186,41 @@ pip install qwen_vl_utils
 ```bash
 cd Mobile-Agent-v3.5/grounding_and_kb
 sh run_gui_kb.sh
+```
+
+## Evaluation on Web Benchmark
+### Install Dependencies
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### Configure Environment Variables
+```bash
+# Model API keys (required)
+export API_KEY="sk-xxx"          # Agent model API
+export OMNI_API_KEY=""
+export EVAL_API_KEY="sk-xxx"               # Evaluation model API
+```
+
+### Benchmark task
++ **WebArena/VisualWebArena**: Start the corresponding environment services in advance (configure ports per the official docs).
++ **Port mapping**: Ports are preset in the code (see `visualwebarena_url_map` / `webarena_url_map`). To change them, modify `BASE_URL` and the port numbers.
++ **Task data**: Ensure `data/merged_test_raw.json` exists (includes task definitions, login requirements, initial screenshots, etc.).
+
+```bash
+# WebVoyager
+cd Mobile-Agent-v3.5/web_benchmark
+python main_for_eval.py \
+  --task "Find out which four teams the NFC North contains in the NFL on ESPN." \
+  --web https://www.espn.com/ \
+  --output_dir results/WebVoyager \
+  --image_type file \
+  --task_id "validation_WebVoyager__ESPN--41" \
+  --use_css_som \
+  --headless
 ```
 
 ## Performance
