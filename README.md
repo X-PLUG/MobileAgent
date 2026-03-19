@@ -22,7 +22,7 @@
 
 👏 Welcome to try Mobile-Agent-v3.5 via our **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope online demo](http://modelscope.cn/studios/MobileAgentTest/computer_use)** or **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> Bailian online demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)**!
 
-❗️We provide the limited-time free Mobile-Agent-v3 API on <img src="./assets/aliyun.png" width="14px" style="display:inline;">Bailian for quick experience. View the [documentation](https://help.aliyun.com/zh/model-studio/ui-agent-api).
+❗️We provide the limited-time free Mobile-Agent-v3 API on <img src="./assets/aliyun.png" width="14px" style="display:inline;">Bailian for quick experience. View the [documentation](https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/gui-plus-2026-02-26).
 
 <p align="center">
 	🤗 <a href="https://huggingface.co/collections/mPLUG/gui-owl-15" target="_blank">GUI-Owl-1.5 Collection</a> |
