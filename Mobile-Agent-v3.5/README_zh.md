@@ -176,6 +176,10 @@ cd Mobile-Agent-v3.5/grounding_and_kb
 sh run_grounding.sh
 ```
 
+## Tool Use Benchmark性能评测
+1. OSWorld-MCP: 请参考benchmark对应的[官方仓库](https://github.com/X-PLUG/OSWorld-MCP/blob/main/osworld/run_multienv_gui_owl_1_5.py) to run the evalutation
+3. MobileWorld: 请参考benchmark对应的[官方仓库](https://github.com/Tongyi-MAI/MobileWorld/blob/main/src/mobile_world/agents/implementations/gui_owl_1_5.py) to run the evalutation
+
 ## GUI Knowledge Benchmark性能评测
 1. 从官方仓库下载 Knowledge Bench 的图像和标注。按照官方说明绘制 GUI 操作，并将标注后的图像保存到 DS_PATH/AnnotateImage。
 
