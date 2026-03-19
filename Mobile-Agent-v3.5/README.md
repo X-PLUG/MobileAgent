@@ -171,6 +171,11 @@ cd Mobile-Agent-v3.5/grounding_and_kb
 sh run_grounding.sh
 ```
 
+## Evaluation on Tool Use Benchmark
+1. OSWorld-MCP: Please follow the [official code repository]([https://github.com/google-research/android_world?tab=readme-ov-file#installation](https://github.com/X-PLUG/OSWorld-MCP/blob/main/osworld/run_multienv_gui_owl_1_5.py)) to run the evalutation
+2. MobileWorld: Please follow the [official code repository]([https://github.com/google-research/android_world?tab=readme-ov-file#installation](https://github.com/Tongyi-MAI/MobileWorld/blob/main/src/mobile_world/agents/implementations/gui_owl_1_5.py)) to run the evalutation
+
+
 ## Evaluation on GUI Knowledge Benchmark
 1. Download the images and annotations for the Knowledge Bench from the official repository. Follow the official instructions to draw the GUI actions, and save the annotated images to DS_PATH/AnnotateImage.
 
