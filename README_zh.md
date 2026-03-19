@@ -22,7 +22,7 @@
 
 👏 欢迎通过我们的 **[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> Modelscope在线Demo](http://modelscope.cn/studios/MobileAgentTest/computer_use)** 或 **[<img src="./assets/aliyun.png" width="14px" style="display:inline;"> 百炼在线Demo](https://bailian.console.aliyun.com/next?tab=demohouse#/experience/adk-computer-use/pc)** 试用 Mobile-Agent-v3.5！
 
-❗️我们在百炼上限时免费提供 Mobile-Agent-v3 API，方便快速体验。请查看[文档](https://help.aliyun.com/zh/model-studio/ui-agent-api)。
+❗️我们在百炼上限时免费提供 Mobile-Agent-v3 API，方便快速体验。请查看[文档](https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/gui-plus-2026-02-26)。
 
 <p align="center">
 	🤗 <a href="https://huggingface.co/collections/mPLUG/gui-owl-15" target="_blank">GUI-Owl-1.5 Collection</a>|
