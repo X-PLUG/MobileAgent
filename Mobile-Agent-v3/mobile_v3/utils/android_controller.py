@@ -1,6 +1,7 @@
 import os
 import time
 import subprocess
+import shlex
 from .controller import Controller
 
 class AndroidController(Controller):
@@ -14,7 +15,7 @@ class AndroidController(Controller):
         command = self.adb_path + " shell screencap -p /sdcard/screenshot.png"
         subprocess.run(command, capture_output=True, text=True, shell=True)
         time.sleep(0.5)
-        command = self.adb_path + f" pull /sdcard/screenshot.png {save_path}"
+        command = self.adb_path + f" pull /sdcard/screenshot.png {shlex.quote(save_path)}"
         subprocess.run(command, capture_output=True, text=True, shell=True)
         
         if not os.path.exists(save_path):
@@ -30,10 +31,10 @@ class AndroidController(Controller):
         text = text.replace("\\n", "_").replace("\n", "_")
         for char in text:
             if char == ' ':
-                command = self.adb_path + f" shell input text %s"
+                command = self.adb_path + " shell input text %s"
                 subprocess.run(command, capture_output=True, text=True, shell=True)
             elif char == '_':
-                command = self.adb_path + f" shell input keyevent 66"
+                command = self.adb_path + " shell input keyevent 66"
                 subprocess.run(command, capture_output=True, text=True, shell=True)
             elif 'a' <= char <= 'z' or 'A' <= char <= 'Z' or char.isdigit():
                 command = self.adb_path + f" shell input text {char}"
@@ -50,9 +51,9 @@ class AndroidController(Controller):
         subprocess.run(command, capture_output=True, text=True, shell=True)
 
     def back(self):
-        command = self.adb_path + f" shell input keyevent 4"
+        command = self.adb_path + " shell input keyevent 4"
         subprocess.run(command, capture_output=True, text=True, shell=True)
 
     def home(self):
-        command = self.adb_path + f" shell am start -a android.intent.action.MAIN -c android.intent.category.HOME"
+        command = self.adb_path + " shell am start -a android.intent.action.MAIN -c android.intent.category.HOME"
         subprocess.run(command, capture_output=True, text=True, shell=True)

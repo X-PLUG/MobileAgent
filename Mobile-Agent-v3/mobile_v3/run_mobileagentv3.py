@@ -3,6 +3,7 @@ import uuid
 import json
 import time
 import argparse
+import ast
 from PIL import Image
 from datetime import datetime
 
@@ -162,7 +163,13 @@ def run_instruction(adb_path, hdc_path, api_key, base_url, model, instruction, a
         print('Action description: ' + action_description)
 
         try:
-            action_object = json.loads(action_object_str)
+            # Some models return Python-dict style actions with single quotes.
+            try:
+                action_object = json.loads(action_object_str)
+            except json.JSONDecodeError:
+                action_object = ast.literal_eval(action_object_str)
+                if not isinstance(action_object, dict):
+                    raise ValueError("action_object must be a dict")
             operator_response = f'''### Thought ###
 {action_thought}
 
@@ -220,7 +227,7 @@ def run_instruction(adb_path, hdc_path, api_key, base_url, model, instruction, a
         with open(message_file, 'w', encoding='utf-8') as json_file:
             json.dump(message_data, json_file, ensure_ascii=False, indent=4)
 
-        info_pool.last_action = json.loads(action_object_str)
+        info_pool.last_action = action_object
         
         if step == 0:
             time.sleep(8) # maybe a pop-up when first open an app
@@ -273,7 +280,7 @@ def run_instruction(adb_path, hdc_path, api_key, base_url, model, instruction, a
         print('Action reflection error description: ' + error_description)
         print('Action reflection progress status: ' + progress_status, "\n")
         
-        info_pool.action_history.append(json.loads(action_object_str))
+        info_pool.action_history.append(action_object)
         info_pool.summary_history.append(action_description)
         info_pool.action_outcomes.append(action_outcome)
         info_pool.error_descriptions.append(error_description)
