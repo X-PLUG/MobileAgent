@@ -116,9 +116,9 @@ def _call_api(inference_bot, messages, args):
     except:
         if getattr(response.choices[0].message, "reasoning_content", None) is not None:
             reasoning_content = response.choices[0].message.reasoning_content
-            response = f"<think>{reasoning_content}</think>" + response.choices[0].message.content[0].text
+            response = f"<think>{reasoning_content}</think>" + response.choices[0].message.content
         else:
-            response = response.choices[0].message.content[0].text
+            response = response.choices[0].message.content
 
     return response
 
