@@ -726,7 +726,7 @@ def image_to_base64(image_path):
     MAX_PIXELS=10035200
     resized_height, resized_width  = smart_resize(dummy_image.height,
         dummy_image.width,
-        factor=28,
+        factor=16,
         min_pixels=MIN_PIXELS,
         max_pixels=MAX_PIXELS,)
     dummy_image = dummy_image.resize((resized_width, resized_height))
