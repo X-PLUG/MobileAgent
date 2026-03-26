@@ -43,7 +43,7 @@
 
 ## 📢新闻
 
-- `[2026.3.19]`🔥🔥 **GUI-Owl-1.5** 系列模型现已上线阿里云百炼平台，可供在线推理。请参考 [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> **阿里云百炼**](https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/gui-plus-2026-02-26)。
+- `[2026.3.19]`🔥🔥 **GUI-Owl-1.5** 系列模型现已上线阿里云百炼平台，可供在线推理。请参考 [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> **阿里云百炼**](https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/gui-plus-2026-02-26)，[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> **魔搭API-Inference**](https://modelscope.cn/models/iic/GUI-Owl-1.5-8B-Think)。
 - `[2026.2.14]`🔥 **GUI-Owl-1.5** 正式发布，这是一个全新的原生多平台 GUI 代理基础模型系列（2B/4B/8B/32B/235B；指令与思考）。该新一代原生 GUI 代理模型系列基于 Qwen3-VL 构建，支持**桌面/移动/浏览器**自动化，并在 20 多个 GUI 基准测试中取得了**SOTA 性能**，在端到端任务、接地、工具/MCP 调用和长时域记忆方面均表现出色。模型权重可在 [HuggingFace](https://huggingface.co/collections/mPLUG/gui-owl-15) 获取。技术报告可在 [链接](https://arxiv.org/abs/2602.16855) 获取。详情请参阅 [GUI-Owl 1.5 README](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5)。
 - `[2025.11.25]` GUI-Owl系列模型现已支持在线推理，感谢[**阿里云百炼**](https://bailian.console.aliyun.com/?spm=5176.21213303.J_qCOwPWspKEuWcmp8qiZNQ.131.39712f3dOmFAxI&scm=20140722.S_card%40%40%E4%BA%A7%E5%93%81%40%402983180.S_card0.ID_card%40%40%E4%BA%A7%E5%93%81%40%402983180-RL_%E7%99%BE%E7%82%BC-LOC_search%7EUND%7Ecard%7EUND%7Eitem-OR_ser-V_3-P0_0&tab=model#/model-market/detail/gui-plus)提供的算力支持。详情请见[链接](https://modelscope.cn/models/iic/GUI-Owl-7B)。
 - `[2025.10.30]` 我们发布了 **OSWorld-MCP**，这是一个用于评估模型上下文协议 (MCP) 工具在实际场景中调用能力的基准测试工具。请参阅[链接](https://github.com/X-PLUG/OSWorld-MCP)。
