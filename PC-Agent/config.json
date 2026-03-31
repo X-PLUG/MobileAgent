@@ -2,5 +2,7 @@
     "vl_model_name": "",
     "llm_model_name": "",
     "token": "sk-...",
-    "url": ""
+    "url": "",
+    "OCR_ACCESS_KEY_ID": "",
+    "OCR_ACCESS_KEY_SECRET": ""
 }

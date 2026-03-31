@@ -121,8 +121,12 @@ else:
 
 if args.ocr_api == 1:
     from PCAgent.text_localization import ocr
-    os.environ["OCR_ACCESS_KEY_ID"] = token_data['OCR_ACCESS_KEY_ID']
-    os.environ["OCR_ACCESS_KEY_SECRET"] = token_data['OCR_ACCESS_KEY_SECRET']
+    ocr_key_id = token_data.get('OCR_ACCESS_KEY_ID', '')
+    ocr_key_secret = token_data.get('OCR_ACCESS_KEY_SECRET', '')
+    if not ocr_key_id or not ocr_key_secret:
+        raise ValueError("OCR_ACCESS_KEY_ID and OCR_ACCESS_KEY_SECRET must be set in config.json to use the OCR API.")
+    os.environ["OCR_ACCESS_KEY_ID"] = ocr_key_id
+    os.environ["OCR_ACCESS_KEY_SECRET"] = ocr_key_secret
 else:
     from PCAgent.text_localization_old import ocr
     # ### Load ocr and icon detection model ###
