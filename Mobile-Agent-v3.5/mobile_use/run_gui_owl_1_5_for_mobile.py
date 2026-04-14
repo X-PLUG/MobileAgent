@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse
+import copy
 import json
 import os
 import shutil
@@ -18,13 +19,12 @@ import time
 
 from PIL import Image
 
-from packages import PACKAGES_NAME_DICT, NAME_PACKAGE_DICT
+from packages import PACKAGES_NAME_DICT, NAME_PACKAGE_DICT, normalize_package_name
 from utils import (
     AdbTools,
     annotate_screenshot,
     build_messages,
     resolve_app_name_via_llm,
-    smart_resize,
     GUIOwlWrapper
 )
 
@@ -55,6 +55,18 @@ def parse_args():
                         help="Base URL for the app-resolver LLM (defaults to --base_url).")
     parser.add_argument("--app_resolver_model", type=str, default="qwen-plus",
                         help="Model name for the app-resolver LLM.")
+    parser.add_argument(
+        "--coor_type",
+        type=str,
+        default="auto",
+        choices=["auto", "abs", "normalized"],
+        help=(
+            "Coordinate mode for model outputs. "
+            "'abs' means use model coordinates directly as screenshot pixels; "
+            "'normalized' means convert 0-1000 coordinates to screenshot pixels; "
+            "'auto' treats qwen/qwen3 models as absolute and others as normalized."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -87,6 +99,22 @@ def rescale_coordinates(action_parameter, resized_width, resized_height):
     return action_parameter
 
 
+def should_rescale_coordinates(coor_type, model_name):
+    """
+    Decide whether model coordinates should be interpreted as normalized
+    0-1000 values or as absolute screenshot pixels.
+    """
+    if coor_type == "normalized":
+        return True
+    if coor_type == "abs":
+        return False
+
+    model_name = (model_name or "").lower()
+    if model_name.startswith("qwen") or model_name.startswith("qwen3"):
+        return False
+    return True
+
+
 def handle_open_action(
     action_parameter,
     instruction,
@@ -103,9 +131,15 @@ def handle_open_action(
         False if iteration should continue (e.g., app not found).
     """
     app_name = action_parameter.get("text", "")
-    package_candidates = NAME_PACKAGE_DICT.get(app_name, [])
     installed_packages = adb_tools.get_package_name()
+    normalized_app_name = normalize_package_name(app_name)
+    package_candidates = NAME_PACKAGE_DICT.get(normalized_app_name, [])
     display_name = app_name
+
+    # If the model already outputs an installed package id, open it directly.
+    if app_name in installed_packages:
+        adb_tools.open_app(app_name)
+        return True
 
     # First attempt: direct lookup
     for pkg in package_candidates:
@@ -191,17 +225,18 @@ def main():
 
         # 3. Parse the action
         action = parse_action(output_text)
+        raw_action_parameter = copy.deepcopy(action["arguments"])
         action_parameter = action["arguments"]
 
-        # 4. Rescale coordinates from 1000x1000 to actual resolution
+        # 4. Convert coordinates if the model outputs normalized 0-1000 values
         img = Image.open(screenshot_path)
-        resized_h, resized_w = smart_resize(
-            img.height, img.width,
-            factor=16,
-            min_pixels=3136,
-            max_pixels=1003520 * 200,
-        )
-        action_parameter = rescale_coordinates(action_parameter, resized_w, resized_h)
+        need_rescale = should_rescale_coordinates(args.coor_type, args.model)
+        if need_rescale:
+            action_parameter = rescale_coordinates(
+                action_parameter,
+                img.width,
+                img.height,
+            )
 
         # 5. Execute the action
         action_type = action_parameter["action"]
