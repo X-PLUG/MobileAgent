@@ -18,9 +18,9 @@ import abc
 import base64
 import numpy as np
 from io import BytesIO
+from urllib.parse import unquote
 from openai import OpenAI
 from typing import Any, Optional
-from qwen_vl_utils import smart_resize
 
 from PIL import Image, ImageDraw
 
@@ -434,6 +434,8 @@ def pil_to_base64(image):
     return base64.b64encode(buffer.getvalue()).decode("utf-8")
 
 def image_to_base64(image_path):
+    if image_path.startswith("file://"):
+        image_path = unquote(image_path[len("file://"):])
     dummy_image = Image.open(image_path)
     MIN_PIXELS=3136
     MAX_PIXELS=10035200
