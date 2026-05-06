@@ -8,6 +8,7 @@
 <hr>
 </div>
 
+
 ## 🔥 Overview
 
 We present **Semi-online RL**, a novel paradigm that simulates online reinforcement learning using offline trajectories, thereby enabling the efficient training of MLLM-based GUI agents with enhanced multi-turn interaction capabilities.
@@ -21,6 +22,13 @@ Ours <b>UI-S1-7B</b> achieves SOTA performance on both semi-online metric (SOP) 
 <div align="center">
   <img src="assets/metric.png" alt="Logo" style="width:80%;">
 </div>
+
+## 🗞️ News
+- **`2025-04-06`**: 🔥 UI-S1 was accepted by **ACL 2026 main conference**.
+- **`2025-10-28`**: We release part of our training [dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset).
+- **`2025-09-17`**: We release the UI-S1 training and evaluation code.
+- **`2025-09-16`**: We release the [checkpoints](https://huggingface.co/mPLUG/UI-S1-7B) of UI-S1-7B model.
+- **`2025-09-16`**: We release our [paper](https://arxiv.org/abs/2509.11543).
 
 ## Detailed results
 
@@ -72,12 +80,6 @@ python /evaluation/eval_os-atlas-7b.py --model_name OS-Atlas-7B
 python /evaluation/eval_os-genesis-7b.py --model_name OS-Genesis-7B
 python /evaluation/eval_ui-tars-7b.py --model_name UI-TARS-7B
 ```
-
-## 🗞️ News
-- **`2025-10-28`**: We release part of our training [dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset).
-- **`2025-09-17`**: We release the UI-S1 training and evaluation code.
-- **`2025-09-16`**: We release the [checkpoints](https://huggingface.co/mPLUG/UI-S1-7B) of UI-S1-7B model.
-- **`2025-09-16`**: We release our [paper](https://arxiv.org/abs/2509.11543).
 
 
 ## ⭐️ Citation
