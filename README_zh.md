@@ -42,7 +42,7 @@
 </div>
 
 ## 📢新闻
-- `[2026.5.12]`🔥🔥🔥 **ToolCUA** 正式发布！一个面向 **GUI 与工具最优路径编排** 的端到端计算机使用智能体，通过两阶段训练流程（基于轨迹的工具合成 → 在线智能体强化学习）掌握何时使用 GUI 操作、何时调用工具及何时切换。论文及模型权重详见 [HuggingFace](https://huggingface.co/papers/2605.12481)。
+- `[2026.5.12]`🔥🔥🔥 **ToolCUA** 正式发布！一个面向 **GUI 与工具最优路径编排** 的端到端计算机使用智能体，通过两阶段训练流程（基于轨迹的工具合成 → 在线智能体强化学习）掌握何时使用 GUI 操作、何时调用工具及何时切换。论文及模型权重详见 [HuggingFace](https://huggingface.co/papers/2605.12481)，项目仓库见[Github](https://github.com/X-PLUG/ToolCUA).。
 - `[2026.3.31]`🔥🔥 **Mobile-Agent-v3.5**现已在阿里云无影云手机上线——这是一个基于云端的安卓环境，可提供无缝的移动使用体验。了解更多[Alibaba Cloud Wuying Cloud Phone](https://www.aliyun.com/product/cloud-phone) | [Documentation](https://help.aliyun.com/zh/ecp/quickly-experience-and-create-cloud-phone-mobileclaw)
 - `[2026.3.19]`🔥🔥 **GUI-Owl-1.5** 系列模型现已上线阿里云百炼平台，可供在线推理。请参考 [<img src="./assets/aliyun.png" width="14px" style="display:inline;"> **阿里云百炼**](https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/gui-plus-2026-02-26)，[<img src="./assets/tongyi.png" width="14px" style="display:inline;"> **魔搭API-Inference**](https://modelscope.cn/models/iic/GUI-Owl-1.5-8B-Think)。
 - `[2026.2.14]`🔥 **GUI-Owl-1.5** 正式发布，这是一个全新的原生多平台 GUI 代理基础模型系列（2B/4B/8B/32B/235B；指令与思考）。该新一代原生 GUI 代理模型系列基于 Qwen3-VL 构建，支持**桌面/移动/浏览器**自动化，并在 20 多个 GUI 基准测试中取得了**SOTA 性能**，在端到端任务、接地、工具/MCP 调用和长时域记忆方面均表现出色。模型权重可在 [HuggingFace](https://huggingface.co/collections/mPLUG/gui-owl-15) 获取。技术报告可在 [链接](https://arxiv.org/abs/2602.16855) 获取。详情请参阅 [GUI-Owl 1.5 README](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-v3.5)。
