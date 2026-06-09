@@ -329,7 +329,7 @@ Response format for every step:
 
 Rules:
 - Output exactly in the order: Action, <tool_call>.
-- Be brief: one for Action.
+- Be brief: one sentence for Action.
 - Do not output anything else outside those two parts.
 - If finishing, use action=terminate in the tool call.'''
 
