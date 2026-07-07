@@ -7,7 +7,7 @@ API_KEY="your api kei"
 BASE_URL="your base url"
 TRAJ_OUTPUT_PATH="traj_"$current_time
 
-python run_ma3.py \
+python run_ma35.py \
   --suite_family=android_world \
   --agent_name=$MODEL_NAME \
   --model=$MODEL \
@@ -16,3 +16,4 @@ python run_ma3.py \
   --traj_output_path=$TRAJ_OUTPUT_PATH \
   --grpc_port=8554 \
   --console_port=5554 2>&1 | tee "$LOG"
+  # add "--perform_emulator_setup" at first run
