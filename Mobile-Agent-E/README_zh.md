@@ -86,7 +86,7 @@ pip install -r requirements.txt
     ```
     export ADB_PATH="your/path/to/adb"
     ```
-2. 基模型和 API keys: 您可以从 OpenAI、Gemini 或 Claude 中选择，设置相应的键如下:
+2. 基模型和 API keys: 您可以从 OpenAI、Gemini、Claude 或 MiniMax 中选择，设置相应的键如下:
     ```
     export BACKBONE_TYPE="OpenAI"
     export OPENAI_API_KEY="your-openai-key"
@@ -98,6 +98,12 @@ pip install -r requirements.txt
     ```
     export BACKBONE_TYPE="Claude"
     export CLAUDE_API_KEY="your-claude-key"
+    ```
+    ```
+    export BACKBONE_TYPE="MiniMax"
+    export MINIMAX_API_KEY="your-minimax-key"
+    # 可选：覆盖 OpenAI-compatible endpoint
+    export MINIMAX_API_URL="https://api.minimax.io/v1/chat/completions"
     ```
 3. 感知器: 默认情况下，Perceptor 中的图标字幕模型 (`CAPTION_MODEL`) 使用 Qwen API 中的“qwen-vl-plus”：
     - 按照此步骤获取 [Qwen API Key](https://help.aliyun.com/document_detail/2712195.html?spm=a2c4g.2712569.0.0.5d9e730aymB3jH)

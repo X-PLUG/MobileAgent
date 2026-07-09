@@ -35,6 +35,9 @@ def track_usage(res_json, api_key):
         elif "claude" in model:
             prompt_token_price = (3 / 1000000) * prompt_tokens
             completion_token_price = (15 / 1000000) * completion_tokens
+        elif "minimax-m3" in model.lower():
+            prompt_token_price = (0.6 / 1000000) * prompt_tokens
+            completion_token_price = (2.4 / 1000000) * completion_tokens
     return {
         # "api_key": api_key, # remove for better safety
         "id": res_json['id'] if "id" in res_json else None,

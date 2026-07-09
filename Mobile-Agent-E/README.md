@@ -86,7 +86,7 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     ```
     export ADB_PATH="your/path/to/adb"
     ```
-2. Backbone model and API keys: you can choose from OpenAI, Gemini, and Claude; Set the corresponding keys as follows:
+2. Backbone model and API keys: you can choose from OpenAI, Gemini, Claude, and MiniMax; Set the corresponding keys as follows:
     ```
     export BACKBONE_TYPE="OpenAI"
     export OPENAI_API_KEY="your-openai-key"
@@ -98,6 +98,12 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     ```
     export BACKBONE_TYPE="Claude"
     export CLAUDE_API_KEY="your-claude-key"
+    ```
+    ```
+    export BACKBONE_TYPE="MiniMax"
+    export MINIMAX_API_KEY="your-minimax-key"
+    # Optional: override the OpenAI-compatible endpoint
+    export MINIMAX_API_URL="https://api.minimax.io/v1/chat/completions"
     ```
 3. Perceptor: By default, the icon captioning model (`CAPTION_MODEL`) in Perceptor uses "qwen-vl-plus" from Qwen API:
     - Follow this to get an [Qwen API Key](https://help.aliyun.com/document_detail/2712195.html?spm=a2c4g.2712569.0.0.5d9e730aymB3jH) 
