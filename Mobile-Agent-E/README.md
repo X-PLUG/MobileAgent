@@ -99,6 +99,26 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     export BACKBONE_TYPE="Claude"
     export CLAUDE_API_KEY="your-claude-key"
     ```
+    To use MiniMax, select a supported model and API protocol. MiniMax-M3 supports text, image, and video input with a 1,000,000-token context window and optional `adaptive` or `disabled` thinking. MiniMax-M2.7 has a 204,800-token context window, accepts text input, and always uses thinking.
+    ```
+    export BACKBONE_TYPE="MiniMax"
+    export MINIMAX_API_KEY="your-minimax-key"
+    export MINIMAX_MODEL="MiniMax-M3" # MiniMax-M3 or MiniMax-M2.7
+    export MINIMAX_API_PROTOCOL="anthropic" # anthropic or openai
+    export MINIMAX_BASE_URL="https://api.minimax.io/anthropic"
+    export MINIMAX_SERVICE_TIER="standard" # standard or priority for MiniMax-M3
+    export MINIMAX_THINKING="disabled" # disabled or adaptive for MiniMax-M3
+    ```
+    Use the matching base URL for your region and protocol. The application appends the protocol-specific request path internally.
+
+    | Region | Protocol | Base URL |
+    | --- | --- | --- |
+    | Global | Anthropic | `https://api.minimax.io/anthropic` |
+    | Global | OpenAI | `https://api.minimax.io/v1` |
+    | China | Anthropic | `https://api.minimaxi.com/anthropic` |
+    | China | OpenAI | `https://api.minimaxi.com/v1` |
+
+    Usage tracking applies the official regional rates, including MiniMax-M3's context-sensitive and service-tier pricing. The currency defaults to `USD` for the global endpoint and `CNY` for the China endpoint; set `MINIMAX_PRICE_CURRENCY` explicitly when routing through a custom proxy. See the [MiniMax API documentation](https://platform.minimax.io/docs/api-reference/api-overview) for current model and protocol details.
 3. Perceptor: By default, the icon captioning model (`CAPTION_MODEL`) in Perceptor uses "qwen-vl-plus" from Qwen API:
     - Follow this to get an [Qwen API Key](https://help.aliyun.com/document_detail/2712195.html?spm=a2c4g.2712569.0.0.5d9e730aymB3jH) 
     - Set the Qwen API key:
