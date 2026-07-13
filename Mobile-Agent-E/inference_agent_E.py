@@ -6,7 +6,7 @@ import shutil
 from PIL import Image, ImageDraw
 from time import sleep
 
-from MobileAgentE.api import inference_chat
+from MobileAgentE.api import build_api_url, inference_chat
 from MobileAgentE.text_localization import ocr
 from MobileAgentE.icon_localization import det
 from MobileAgentE.controller import get_screenshot, start_recording, end_recording
@@ -35,8 +35,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 ADB_PATH = os.environ.get("ADB_PATH", default="adb")
 
 ## Reasoning model configs
-BACKBONE_TYPE = os.environ.get("BACKBONE_TYPE", default="OpenAI") # "OpenAI" or "Gemini" or "Claude"
-assert BACKBONE_TYPE in ["OpenAI", "Gemini", "Claude"], "Unknown BACKBONE_TYPE"
+BACKBONE_TYPE = os.environ.get("BACKBONE_TYPE", default="OpenAI") # "OpenAI" or "Gemini" or "Claude" or "MiniMax"
+assert BACKBONE_TYPE in ["OpenAI", "Gemini", "Claude", "MiniMax"], "Unknown BACKBONE_TYPE"
 print("### Using BACKBONE_TYPE:", BACKBONE_TYPE)
 
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
@@ -48,6 +48,35 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", default=None)
 CLAUDE_API_URL = "https://api.anthropic.com/v1/messages"
 CLAUDE_API_KEY = os.environ.get("CLAUDE_API_KEY", default=None)
 
+MINIMAX_MODELS = ("MiniMax-M3", "MiniMax-M2.7")
+MINIMAX_MODEL = os.environ.get("MINIMAX_MODEL", default="MiniMax-M3")
+assert MINIMAX_MODEL in MINIMAX_MODELS, "Unknown MINIMAX_MODEL"
+MINIMAX_API_PROTOCOL = os.environ.get("MINIMAX_API_PROTOCOL", default="anthropic").lower()
+assert MINIMAX_API_PROTOCOL in ("openai", "anthropic"), "Unknown MINIMAX_API_PROTOCOL"
+MINIMAX_DEFAULT_BASE_URLS = {
+    "openai": "https://api.minimax.io/v1",
+    "anthropic": "https://api.minimax.io/anthropic",
+}
+MINIMAX_BASE_URL = os.environ.get("MINIMAX_BASE_URL", default=MINIMAX_DEFAULT_BASE_URLS[MINIMAX_API_PROTOCOL])
+MINIMAX_API_URL = build_api_url(MINIMAX_BASE_URL, MINIMAX_API_PROTOCOL)
+MINIMAX_API_KEY = os.environ.get("MINIMAX_API_KEY", default=None)
+MINIMAX_SERVICE_TIER = os.environ.get("MINIMAX_SERVICE_TIER", default="standard")
+assert MINIMAX_SERVICE_TIER in ("standard", "priority"), "Unknown MINIMAX_SERVICE_TIER"
+assert MINIMAX_MODEL == "MiniMax-M3" or MINIMAX_SERVICE_TIER == "standard", "Priority requires MiniMax-M3"
+MINIMAX_THINKING = os.environ.get(
+    "MINIMAX_THINKING",
+    default="disabled" if MINIMAX_MODEL == "MiniMax-M3" else "always_on",
+)
+if MINIMAX_MODEL == "MiniMax-M3":
+    assert MINIMAX_THINKING in ("adaptive", "disabled"), "Unknown MINIMAX_THINKING"
+else:
+    assert MINIMAX_THINKING == "always_on", "MiniMax-M2.7 thinking is always on"
+MINIMAX_PRICE_CURRENCY = os.environ.get(
+    "MINIMAX_PRICE_CURRENCY",
+    default="CNY" if "api.minimaxi.com" in MINIMAX_BASE_URL else "USD",
+).upper()
+assert MINIMAX_PRICE_CURRENCY in ("USD", "CNY"), "Unknown MINIMAX_PRICE_CURRENCY"
+
 if BACKBONE_TYPE == "OpenAI":
     REASONING_MODEL = "gpt-4o-2024-11-20"
     KNOWLEDGE_REFLECTION_MODEL = "gpt-4o-2024-11-20"
@@ -57,6 +86,9 @@ elif BACKBONE_TYPE == "Gemini":
 elif BACKBONE_TYPE == "Claude":
     REASONING_MODEL = "claude-3-5-sonnet-20241022"
     KNOWLEDGE_REFLECTION_MODEL = "claude-3-5-sonnet-20241022"
+elif BACKBONE_TYPE == "MiniMax":
+    REASONING_MODEL = MINIMAX_MODEL
+    KNOWLEDGE_REFLECTION_MODEL = MINIMAX_MODEL
 
 ## you can specify a jsonl file path for tracking API usage
 USAGE_TRACKING_JSONL = None # e.g., usage_tracking.jsonl
@@ -385,6 +417,19 @@ def get_reasoning_model_api_response(chat, model_type=BACKBONE_TYPE, model=None,
         return inference_chat(chat, model, GEMINI_API_URL, GEMINI_API_KEY, usage_tracking_jsonl=USAGE_TRACKING_JSONL, temperature=temperature)
     elif model_type == "Claude":
         return inference_chat(chat, model, CLAUDE_API_URL, CLAUDE_API_KEY, usage_tracking_jsonl=USAGE_TRACKING_JSONL, temperature=temperature)
+    elif model_type == "MiniMax":
+        return inference_chat(
+            chat,
+            model,
+            MINIMAX_API_URL,
+            MINIMAX_API_KEY,
+            usage_tracking_jsonl=USAGE_TRACKING_JSONL,
+            temperature=temperature,
+            api_protocol=MINIMAX_API_PROTOCOL,
+            service_tier=MINIMAX_SERVICE_TIER if model == "MiniMax-M3" else None,
+            thinking=MINIMAX_THINKING if model == "MiniMax-M3" else None,
+            price_currency=MINIMAX_PRICE_CURRENCY,
+        )
     else:
         raise ValueError(f"Unknown model type: {model_type}")
     
