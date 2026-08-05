@@ -86,7 +86,7 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     ```
     export ADB_PATH="your/path/to/adb"
     ```
-2. Backbone model and API keys: you can choose from OpenAI, Gemini, and Claude; Set the corresponding keys as follows:
+2. Backbone model and API keys: you can choose from OpenAI, Gemini, Claude, and MiniMax; set the corresponding keys as follows:
     ```
     export BACKBONE_TYPE="OpenAI"
     export OPENAI_API_KEY="your-openai-key"
@@ -99,6 +99,25 @@ Please refer to the `# Edit your Setting #` section in `inference_agent_E.py` fo
     export BACKBONE_TYPE="Claude"
     export CLAUDE_API_KEY="your-claude-key"
     ```
+    To use MiniMax, select a supported model and API protocol. MiniMax-M3 supports text, image, and video input with a 1,000,000-token context window and optional `adaptive` or `disabled` thinking. MiniMax-M2.7 has a 204,800-token context window, accepts text input, and always uses thinking. Use MiniMax-M3 for screenshot-based agent tasks.
+    ```
+    export BACKBONE_TYPE="MiniMax"
+    export MINIMAX_API_KEY="your-minimax-key"
+    export MINIMAX_MODEL="MiniMax-M3" # MiniMax-M3 or MiniMax-M2.7
+    export MINIMAX_API_PROTOCOL="anthropic" # anthropic or openai
+    export MINIMAX_BASE_URL="https://api.minimax.io/anthropic"
+    export MINIMAX_THINKING="disabled" # disabled or adaptive for MiniMax-M3
+    ```
+    Use the matching base URL for your region and protocol. The application appends the protocol-specific request path internally.
+
+    | Region | Protocol | Base URL |
+    | --- | --- | --- |
+    | Global | Anthropic | `https://api.minimax.io/anthropic` |
+    | Global | OpenAI | `https://api.minimax.io/v1` |
+    | China | Anthropic | `https://api.minimaxi.com/anthropic` |
+    | China | OpenAI | `https://api.minimaxi.com/v1` |
+
+    Usage tracking uses the configured model's USD rates: MiniMax-M3 is priced at 0.6 input, 2.4 output, and 0.12 cached-read USD per million tokens; MiniMax-M2.7 is priced at 0.3 input, 1.2 output, 0.06 cached-read, and 0.375 cached-write USD per million tokens. See the [MiniMax API documentation](https://platform.minimax.io/docs/api-reference/api-overview) for current model and protocol details.
 3. Perceptor: By default, the icon captioning model (`CAPTION_MODEL`) in Perceptor uses "qwen-vl-plus" from Qwen API:
     - Follow this to get an [Qwen API Key](https://help.aliyun.com/document_detail/2712195.html?spm=a2c4g.2712569.0.0.5d9e730aymB3jH) 
     - Set the Qwen API key:
