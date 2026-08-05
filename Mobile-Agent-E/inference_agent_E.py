@@ -60,9 +60,6 @@ MINIMAX_DEFAULT_BASE_URLS = {
 MINIMAX_BASE_URL = os.environ.get("MINIMAX_BASE_URL", default=MINIMAX_DEFAULT_BASE_URLS[MINIMAX_API_PROTOCOL])
 MINIMAX_API_URL = build_api_url(MINIMAX_BASE_URL, MINIMAX_API_PROTOCOL)
 MINIMAX_API_KEY = os.environ.get("MINIMAX_API_KEY", default=None)
-MINIMAX_SERVICE_TIER = os.environ.get("MINIMAX_SERVICE_TIER", default="standard")
-assert MINIMAX_SERVICE_TIER in ("standard", "priority"), "Unknown MINIMAX_SERVICE_TIER"
-assert MINIMAX_MODEL == "MiniMax-M3" or MINIMAX_SERVICE_TIER == "standard", "Priority requires MiniMax-M3"
 MINIMAX_THINKING = os.environ.get(
     "MINIMAX_THINKING",
     default="disabled" if MINIMAX_MODEL == "MiniMax-M3" else "always_on",
@@ -71,11 +68,6 @@ if MINIMAX_MODEL == "MiniMax-M3":
     assert MINIMAX_THINKING in ("adaptive", "disabled"), "Unknown MINIMAX_THINKING"
 else:
     assert MINIMAX_THINKING == "always_on", "MiniMax-M2.7 thinking is always on"
-MINIMAX_PRICE_CURRENCY = os.environ.get(
-    "MINIMAX_PRICE_CURRENCY",
-    default="CNY" if "api.minimaxi.com" in MINIMAX_BASE_URL else "USD",
-).upper()
-assert MINIMAX_PRICE_CURRENCY in ("USD", "CNY"), "Unknown MINIMAX_PRICE_CURRENCY"
 
 if BACKBONE_TYPE == "OpenAI":
     REASONING_MODEL = "gpt-4o-2024-11-20"
@@ -426,9 +418,7 @@ def get_reasoning_model_api_response(chat, model_type=BACKBONE_TYPE, model=None,
             usage_tracking_jsonl=USAGE_TRACKING_JSONL,
             temperature=temperature,
             api_protocol=MINIMAX_API_PROTOCOL,
-            service_tier=MINIMAX_SERVICE_TIER if model == "MiniMax-M3" else None,
             thinking=MINIMAX_THINKING if model == "MiniMax-M3" else None,
-            price_currency=MINIMAX_PRICE_CURRENCY,
         )
     else:
         raise ValueError(f"Unknown model type: {model_type}")

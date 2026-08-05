@@ -4,33 +4,9 @@ from time import sleep
 import json
 
 
-MINIMAX_PRICING = {
-    "USD": {
-        "MiniMax-M3": {
-            "standard": {
-                "short": {"input": 0.3, "output": 1.2, "cache_read": 0.06, "cache_write": None},
-                "long": {"input": 0.6, "output": 2.4, "cache_read": 0.12, "cache_write": None},
-            },
-            "priority": {
-                "short": {"input": 0.45, "output": 1.8, "cache_read": 0.09, "cache_write": None},
-                "long": {"input": 0.9, "output": 3.6, "cache_read": 0.18, "cache_write": None},
-            },
-        },
-        "MiniMax-M2.7": {"input": 0.3, "output": 1.2, "cache_read": 0.06, "cache_write": 0.375},
-    },
-    "CNY": {
-        "MiniMax-M3": {
-            "standard": {
-                "short": {"input": 2.1, "output": 8.4, "cache_read": 0.42, "cache_write": None},
-                "long": {"input": 4.2, "output": 16.8, "cache_read": 0.84, "cache_write": None},
-            },
-            "priority": {
-                "short": {"input": 3.15, "output": 12.6, "cache_read": 0.63, "cache_write": None},
-                "long": {"input": 6.3, "output": 25.2, "cache_read": 1.26, "cache_write": None},
-            },
-        },
-        "MiniMax-M2.7": {"input": 2.1, "output": 8.4, "cache_read": 0.42, "cache_write": 2.625},
-    },
+MINIMAX_PRICING_USD = {
+    "MiniMax-M3": {"input": 0.6, "output": 2.4, "cache_read": 0.12, "cache_write": None},
+    "MiniMax-M2.7": {"input": 0.3, "output": 1.2, "cache_read": 0.06, "cache_write": 0.375},
 }
 
 
@@ -47,18 +23,11 @@ def build_api_url(base_url, api_protocol):
     return f"{base_url.rstrip('/')}{path}"
 
 
-def _minimax_rates(model, input_tokens, service_tier, price_currency):
-    currency_pricing = MINIMAX_PRICING.get(price_currency)
-    if currency_pricing is None or model not in currency_pricing:
-        return None
-    model_pricing = currency_pricing[model]
-    if model == "MiniMax-M3":
-        length_tier = "long" if input_tokens > 512000 else "short"
-        return model_pricing[service_tier][length_tier]
-    return model_pricing
+def _minimax_rates(model):
+    return MINIMAX_PRICING_USD.get(model)
 
 
-def track_usage(res_json, api_key, service_tier="standard", price_currency="USD"):
+def track_usage(res_json, api_key):
     """
     {'id': 'chatcmpl-AbJIS3o0HMEW9CWtRjU43bu2Ccrdu', 'object': 'chat.completion', 'created': 1733455676, 'model': 'gpt-4o-2024-11-20', 'choices': [...], 'usage': {'prompt_tokens': 2731, 'completion_tokens': 235, 'total_tokens': 2966, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'system_fingerprint': 'fp_28935134ad'}
     """
@@ -83,10 +52,6 @@ def track_usage(res_json, api_key, service_tier="standard", price_currency="USD"
     completion_token_price = None
     cache_read_token_price = None
     cache_write_token_price = None
-    selected_service_tier = res_json.get("service_tier") or service_tier or "standard"
-    if selected_service_tier == "default":
-        selected_service_tier = "standard"
-    price_currency = price_currency.upper()
     if prompt_tokens is not None and completion_tokens is not None:
         if "gpt-4o" in model:
             prompt_token_price = (2.5 / 1000000) * prompt_tokens
@@ -98,13 +63,10 @@ def track_usage(res_json, api_key, service_tier="standard", price_currency="USD"
             prompt_token_price = (3 / 1000000) * prompt_tokens
             completion_token_price = (15 / 1000000) * completion_tokens
         elif model in ("MiniMax-M3", "MiniMax-M2.7"):
-            pricing_input_tokens = prompt_tokens
             billable_input_tokens = prompt_tokens
             if openai_usage:
                 billable_input_tokens = max(prompt_tokens - cache_read_tokens, 0)
-            else:
-                pricing_input_tokens += cache_read_tokens + cache_write_tokens
-            rates = _minimax_rates(model, pricing_input_tokens, selected_service_tier, price_currency)
+            rates = _minimax_rates(model)
             if rates is not None:
                 prompt_token_price = (rates["input"] / 1000000) * billable_input_tokens
                 completion_token_price = (rates["output"] / 1000000) * completion_tokens
@@ -124,24 +86,24 @@ def track_usage(res_json, api_key, service_tier="standard", price_currency="USD"
         "completion_token_price": completion_token_price,
         "cache_read_token_price": cache_read_token_price,
         "cache_write_token_price": cache_write_token_price,
-        "price_currency": price_currency,
-        "service_tier": selected_service_tier,
     }
 
 
 def inference_chat(chat, model, api_url, token, usage_tracking_jsonl = None, max_tokens = 2048,
-                   temperature = 0.0, api_protocol = None, service_tier = None,
-                   thinking = None, price_currency = "USD"):
+                   temperature = 0.0, api_protocol = None, thinking = None):
     if token is None:
         raise ValueError("API key is required")
+
+    if model == "MiniMax-M2.7":
+        for _, content in chat:
+            if isinstance(content, list) and any(item.get("type") != "text" for item in content):
+                raise ValueError("MiniMax-M2.7 only supports text input")
 
     if api_protocol is None:
         api_protocol = "anthropic" if "claude" in model.lower() else "openai"
     api_protocol = api_protocol.lower()
     if api_protocol not in ("openai", "anthropic"):
         raise ValueError(f"Unsupported API protocol: {api_protocol}")
-    if service_tier is not None and service_tier not in ("standard", "priority"):
-        raise ValueError(f"Unsupported service tier: {service_tier}")
     if thinking is not None and thinking not in ("adaptive", "disabled"):
         raise ValueError(f"Unsupported thinking mode: {thinking}")
 
@@ -157,8 +119,6 @@ def inference_chat(chat, model, api_url, token, usage_tracking_jsonl = None, max
         'temperature': temperature
     }
 
-    if service_tier is not None:
-        data["service_tier"] = service_tier
     if thinking is not None:
         data["thinking"] = {"type": thinking}
 
@@ -226,8 +186,6 @@ def inference_chat(chat, model, api_url, token, usage_tracking_jsonl = None, max
                 usage = track_usage(
                     res_json,
                     api_key=token,
-                    service_tier=service_tier or "standard",
-                    price_currency=price_currency,
                 )
                 with open(usage_tracking_jsonl, "a") as f:
                     f.write(json.dumps(usage) + "\n")
