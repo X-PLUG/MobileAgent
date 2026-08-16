@@ -121,7 +121,7 @@
 
 ## ⭐Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=X-PLUG/MobileAgent&type=Date)](https://star-history.com/#X-PLUG/MobileAgent&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=X-PLUG/MobileAgent&type=Date)](https://star-history.dera.page/#X-PLUG/MobileAgent&Date)
 
 ## 📑Citation
 
