@@ -87,6 +87,16 @@ def extract_json_object(text, json_type="dict"):
     Returns:
     - dict or list: The extracted JSON object, or None if parsing fails.
     """
+    # A JSON string value may legitimately contain "//" (e.g. a URL) or "# "
+    # (e.g. "Order # 12345"). The comment stripping below is line based and does
+    # not know about string literals, so it would truncate such values and turn
+    # a perfectly valid action into a parse failure. Try the untouched text
+    # first, and only fall back to stripping comments if that fails.
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
     try:
         if "//" in text:
             # Remove comments starting with //
