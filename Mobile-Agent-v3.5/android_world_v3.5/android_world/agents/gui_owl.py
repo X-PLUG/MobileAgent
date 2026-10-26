@@ -35,9 +35,11 @@ from android_world.agents.coordinate_resize import update_image_size_
 import traceback
 
 def pil_to_base64(image):
+    """Encode a PNG screenshot as an OpenAI-compatible image data URI."""
     buffer = BytesIO()
-    image.save(buffer, format="PNG") 
-    return base64.b64encode(buffer.getvalue()).decode("utf-8")
+    image.save(buffer, format="PNG")
+    encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    return f"data:image/png;base64,{encoded}"
 
 def fetch_resized_image(screenshot_file):
     screenshot = Image.open(screenshot_file)
