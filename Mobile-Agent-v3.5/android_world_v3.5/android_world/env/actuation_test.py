@@ -18,6 +18,7 @@ from unittest import mock
 
 from absl.testing import absltest
 from android_env import env_interface
+from android_world.agents import new_json_action
 from android_world.env import actuation
 from android_world.env import adb_utils
 from android_world.env import android_world_controller
@@ -45,7 +46,7 @@ class TestWaitAndFindClickElement(absltest.TestCase):
         'target', mock.MagicMock(), case_sensitive=True
     )
     self.assertEqual(
-        action, json_action.JSONAction(action_type='click', index=0)
+        action, new_json_action.JSONAction(action_type='click', index=0)
     )
 
   def test_element_not_found_within_timeout(
@@ -152,7 +153,7 @@ class ExecuteAdbActionTest(absltest.TestCase):
       mock_tap_screen.assert_called_once_with(50, 50, self.mock_env)
 
   def test_input_text(self):
-    action = json_action.JSONAction(
+    action = new_json_action.JSONAction(
         action_type='input_text', text='test input', x=50, y=50
     )
     click_action = copy.deepcopy(action)
@@ -178,7 +179,7 @@ class ExecuteAdbActionTest(absltest.TestCase):
       mock_issue_generic_request.assert_not_called()
 
   def test_input_text_by_index_focuses_before_typing(self):
-    action = json_action.JSONAction(
+    action = new_json_action.JSONAction(
         action_type='input_text', text='test input', index=0
     )
     with (
@@ -202,7 +203,7 @@ class ExecuteAdbActionTest(absltest.TestCase):
     self.assertIsNone(action.y)
 
   def test_invalid_input_text_index_does_not_type(self):
-    action = json_action.JSONAction(
+    action = new_json_action.JSONAction(
         action_type='input_text', text='must not type', index=5
     )
     with mock.patch.object(adb_utils, 'type_text') as mock_type_text:
