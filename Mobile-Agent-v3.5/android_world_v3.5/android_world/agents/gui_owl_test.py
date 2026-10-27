@@ -26,14 +26,16 @@ from android_world.agents import gui_owl
 class ImageEncodingTest(absltest.TestCase):
 
   def test_pil_to_base64_returns_png_data_uri(self):
-    screenshot = Image.new('RGB', (2, 3), color='white')
+    screenshot = Image.new('RGB', (2, 3), color=(11, 22, 33))
     payload = gui_owl.pil_to_base64(screenshot)
+    self.assertTrue(payload.startswith('data:image/png;base64,'))
     prefix, encoded = payload.split(',', 1)
 
     self.assertEqual(prefix, 'data:image/png;base64')
-    with Image.open(BytesIO(base64.b64decode(encoded))) as decoded:
+    with Image.open(BytesIO(base64.b64decode(encoded, validate=True))) as decoded:
       self.assertEqual(decoded.format, 'PNG')
       self.assertEqual(decoded.size, (2, 3))
+      self.assertEqual(decoded.getpixel((0, 0)), (11, 22, 33))
 
 
 if __name__ == '__main__':
