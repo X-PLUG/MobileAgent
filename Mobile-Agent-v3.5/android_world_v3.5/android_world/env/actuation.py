@@ -74,21 +74,15 @@ def execute_adb_action(
       raise ValueError(f'Invalid click action: {action}')
 
   elif action.action_type == 'input_text':
-    # import pdb; pdb.set_trace()
     text = action.text
     if text:
       if action.index is not None or (
           action.x is not None and action.y is not None
       ):
-        # First focus on enter text UI element.
-        # click_action = copy.deepcopy(action)
-        # click_action.action_type = 'click'
-        # execute_adb_action(click_action, screen_elements, screen_size, env)
-        # time.sleep(1.0)
-        adb_utils.long_press(action.x, action.y, env) # TODO
-        time.sleep(1.0)  
-        adb_utils.long_press(1000, 2030, env)
-
+        # Reuse click dispatch to resolve either an index or coordinates.
+        click_action = copy.deepcopy(action)
+        click_action.action_type = 'click'
+        execute_adb_action(click_action, screen_elements, screen_size, env)
         time.sleep(1.0)
       adb_utils.type_text(text, env, timeout_sec=10)
       adb_utils.press_enter_button(env)
