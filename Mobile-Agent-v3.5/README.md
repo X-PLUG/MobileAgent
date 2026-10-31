@@ -79,6 +79,7 @@ python run_gui_owl_1_5_for_mobile.py \
 
 ### Note
 1. GUI-Owl 1.5 outputs relative coordinates (0–1000) by default.
+2. If the model's reply cannot be parsed into an action (e.g. empty output or a missing `<tool_call>` block), the script re-queries the model with a format reminder. Use `--max_parse_retries` (default: 3) to control how many retries are allowed before the run stops with an error.
 
 ## Deploy Mobile-Agent-v3.5 on Your Computer Device
 

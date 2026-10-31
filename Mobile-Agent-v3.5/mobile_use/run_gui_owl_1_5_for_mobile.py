@@ -13,6 +13,7 @@ Usage:
 import argparse
 import json
 import os
+import re
 import shutil
 import time
 
@@ -49,6 +50,9 @@ def parse_args():
                         help="Supplementary knowledge (can be empty).")
     parser.add_argument("--max_steps", type=int, default=50,
                         help="Maximum number of interaction steps.")
+    parser.add_argument("--max_parse_retries", type=int, default=3,
+                        help="How many times to re-query the model when its output "
+                             "cannot be parsed into an action before giving up.")
     parser.add_argument("--app_resolver_api_key", type=str, default=None,
                         help="API key for the app-resolver LLM (defaults to --api_key).")
     parser.add_argument("--app_resolver_base_url", type=str, default=None,
@@ -58,17 +62,68 @@ def parse_args():
     return parser.parse_args()
 
 
+TOOL_CALL_OPEN = "<tool_call>"
+TOOL_CALL_PATTERN = re.compile(r"<tool_call>\s*(.*?)\s*</tool_call>", re.DOTALL)
+
+FORMAT_RETRY_HINT = (
+    "Your previous response could not be parsed. Reply again for the same "
+    "screenshot and output exactly one <tool_call>...</tool_call> block "
+    "containing a single JSON object with the keys \"name\" and \"arguments\"."
+)
+
+
+def _snippet(text, limit=200):
+    """Return a short, single-line preview of model output for error messages."""
+    text = (text or "").strip().replace("\n", "\\n")
+    return text if len(text) <= limit else text[:limit] + "..."
+
+
 def parse_action(output_text):
     """
     Extract the action dict from the model's output text.
+
     Expects a <tool_call> block containing JSON with nested 'arguments'.
+    Whitespace around the tags is tolerated, as is a missing closing tag
+    and trailing text after the JSON object.
+
+    Raises:
+        ValueError: with a descriptive message (including a snippet of the
+        raw output) when the output is empty, has no <tool_call> block, or
+        the block does not contain a valid action JSON object.
     """
+    if not output_text or not output_text.strip():
+        raise ValueError("Model output is empty; expected a <tool_call> block.")
+
+    match = TOOL_CALL_PATTERN.search(output_text)
+    if match is not None:
+        json_str = match.group(1)
+    else:
+        start = output_text.find(TOOL_CALL_OPEN)
+        if start == -1:
+            raise ValueError(
+                "No <tool_call> block found in model output: "
+                f"{_snippet(output_text)}"
+            )
+        # Opening tag present but no closing tag: parse whatever follows it.
+        json_str = output_text[start + len(TOOL_CALL_OPEN):].strip()
+
     try:
-        tool_call_block = output_text.split("<tool_call>\n")[1]
-        json_str = tool_call_block.split("}}\n")[0] + "}}"
-        return json.loads(json_str)
-    except (IndexError, json.JSONDecodeError) as e:
-        raise ValueError(f"Failed to parse action from model output: {e}")
+        action, _ = json.JSONDecoder().raw_decode(json_str)
+    except json.JSONDecodeError as e:
+        raise ValueError(
+            f"Invalid JSON inside <tool_call> block ({e}): {_snippet(json_str)}"
+        )
+
+    if not isinstance(action, dict) or not isinstance(action.get("arguments"), dict):
+        raise ValueError(
+            "Expected a JSON object with an 'arguments' object inside "
+            f"<tool_call>: {_snippet(json_str)}"
+        )
+    if "action" not in action["arguments"]:
+        raise ValueError(
+            f"Missing 'action' field in tool_call arguments: {_snippet(json_str)}"
+        )
+    return action
 
 
 def rescale_coordinates(action_parameter, resized_width, resized_height):
@@ -179,18 +234,36 @@ def main():
             time.sleep(1)
             continue
 
-        # 2. Build messages and call the VLM
-        messages = build_messages(
-            screenshot_path, instruction, history, args.model
-        )
-
+        # 2. Build messages, call the VLM and parse the action.
+        #    If the output cannot be parsed, re-query the model (with a format
+        #    reminder appended) up to --max_parse_retries times before giving up.
         vllm = GUIOwlWrapper(args.api_key, args.base_url, args.model)
-        output_text, _, _ = vllm.predict_mm(messages)
+        max_attempts = args.max_parse_retries + 1
+        action = None
+        for attempt in range(1, max_attempts + 1):
+            messages = build_messages(
+                screenshot_path, instruction, history, args.model
+            )
+            if attempt > 1:
+                messages[-1]["content"].append({"text": FORMAT_RETRY_HINT})
 
-        print(f"[MODEL OUTPUT]\n{output_text}")
+            output_text, _, _ = vllm.predict_mm(messages)
+            print(f"[MODEL OUTPUT]\n{output_text}")
 
-        # 3. Parse the action
-        action = parse_action(output_text)
+            # 3. Parse the action
+            try:
+                action = parse_action(output_text)
+                break
+            except ValueError as e:
+                print(f"[WARN] {e} (attempt {attempt}/{max_attempts})")
+
+        if action is None:
+            print(
+                "[ERROR] Could not parse a valid action from the model output "
+                f"after {max_attempts} attempts. Stopping."
+            )
+            break
+
         action_parameter = action["arguments"]
 
         # 4. Rescale coordinates from 1000x1000 to actual resolution
@@ -258,7 +331,7 @@ def main():
                 continue
 
         elif action_type == "answer":
-            conclusion = output_text.split("<tool_call>")[0].strip()
+            conclusion = output_text.split(TOOL_CALL_OPEN)[0].strip()
             print(f"[ANSWER] {conclusion}")
             print("[TERMINATED] Task completed.")
             break
