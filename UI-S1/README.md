@@ -24,7 +24,7 @@ Ours <b>UI-S1-7B</b> achieves SOTA performance on both semi-online metric (SOP) 
 </div>
 
 ## 🗞️ News
-- **`2025-04-06`**: 🔥 UI-S1 was accepted by **ACL 2026 main conference**.
+- **`2026-04-06`**: 🔥 UI-S1 was accepted by **ACL 2026 main conference**.
 - **`2025-10-28`**: We release part of our training [dataset](https://huggingface.co/datasets/mPLUG/UI_S1_dataset).
 - **`2025-09-17`**: We release the UI-S1 training and evaluation code.
 - **`2025-09-16`**: We release the [checkpoints](https://huggingface.co/mPLUG/UI-S1-7B) of UI-S1-7B model.
