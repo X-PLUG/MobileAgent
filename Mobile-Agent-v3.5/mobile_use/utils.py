@@ -83,11 +83,6 @@ class AdbTools:
         cmd = self.adb_path + self._device_flag + args
         subprocess.run(cmd, capture_output=True, text=True, shell=True)
 
-    def _load_image_info(self, path):
-        """Cache the width and height of the screenshot."""
-        width, height = Image.open(path).size
-        self.image_info = (width, height)
-
     # -- screenshot -------------------------------------------------------
 
     def get_screenshot(self, image_path, retry_times=3):
@@ -95,14 +90,25 @@ class AdbTools:
         Capture a screenshot from the device and save it to *image_path*.
         Returns True on success, False after exhausting retries.
         """
-        device_flag = f" -s {self.device}" if self.device else ""
-        cmd = f"{self.adb_path}{device_flag} exec-out screencap -p > {image_path}"
+        cmd = [self.adb_path]
+        if self.device:
+            cmd.extend(["-s", self.device])
+        cmd.extend(["exec-out", "screencap", "-p"])
 
         for _ in range(retry_times):
-            subprocess.run(cmd, capture_output=True, text=True, shell=True)
-            if os.path.exists(image_path):
-                self._load_image_info(image_path)
-                return True
+            result = subprocess.run(cmd, capture_output=True)
+            if result.returncode == 0:
+                try:
+                    with Image.open(BytesIO(result.stdout)) as image:
+                        image.load()
+                        image_info = image.size
+                except OSError:
+                    pass
+                else:
+                    with open(image_path, "wb") as f:
+                        f.write(result.stdout)
+                    self.image_info = image_info
+                    return True
             time.sleep(0.1)
         return False
 
