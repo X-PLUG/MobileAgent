@@ -434,12 +434,17 @@ def pil_to_base64(image):
     return base64.b64encode(buffer.getvalue()).decode("utf-8")
 
 def image_to_base64(image_path):
+    # build_messages stores "file://" + path. Pillow opens a filesystem path;
+    # computer_use already strips the prefix (without it every step raises
+    # OSError before the model is called).
+    if image_path.startswith("file://"):
+        image_path = image_path[7:]
     dummy_image = Image.open(image_path)
     MIN_PIXELS=3136
     MAX_PIXELS=10035200
     resized_height, resized_width  = smart_resize(dummy_image.height,
         dummy_image.width,
-        factor=28,
+        factor=16,
         min_pixels=MIN_PIXELS,
         max_pixels=MAX_PIXELS,)
     dummy_image = dummy_image.resize((resized_width, resized_height))
