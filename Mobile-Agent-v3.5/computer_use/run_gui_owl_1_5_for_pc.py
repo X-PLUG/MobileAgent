@@ -238,24 +238,13 @@ def main():
 
         # ====== vllm ======
         vllm = GUIOwlWrapper(args.api_key, args.base_url, args.model)
-        output_text, _, _ = vllm.predict_mm(messages)
-
-
-        # ======= dash =======
-        response = dashscope.MultiModalConversation.call(
-            model=args.model,
-            messages=messages,
-            vl_high_resolution_images=True,
-            stream=False,
-        )
-
-        print(f"Request ID: {response.get('request_id', 'N/A')}")
-
-        output_text = response.output.choices[0].message.content[0]["text"]
-        # ======= dash =======
+        output_text, _, response = vllm.predict_mm(messages)
 
         # Prepend reasoning content if present
-        thought = response.output.choices[0].message.reasoning_content
+        thought = (
+            getattr(response.choices[0].message, "reasoning_content", None)
+            if response is not None else None
+        )
         if thought:
             output_text = f"<thinking>\n{thought}\n</thinking>{output_text}"
 
@@ -306,3 +295,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
